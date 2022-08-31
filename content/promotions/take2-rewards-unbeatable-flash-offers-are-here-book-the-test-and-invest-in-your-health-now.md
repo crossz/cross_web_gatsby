@@ -12,7 +12,7 @@ type: ''
 pdf: ''
 href: ''
 slug: take2-rewards
-hide: false
+hide: true
 
 ---
 ![](../images/banner-eng-4320x2631.jpg)

@@ -247,7 +247,7 @@ const Banner = ({ nodes }) => {
           watchSlidesVisibility={true}
         >
           {' '}
-          <SwiperSlide>
+          {/* <SwiperSlide>
             <Box className={classes.heroBannerWrapper}>
               <Box
                 className={classnames(classes.heroImgWrapper, classes.containImgWrapper, classes.promoBannerBg)}
@@ -281,7 +281,7 @@ const Banner = ({ nodes }) => {
                 </Box>
               </Box>
             </Box>
-          </SwiperSlide>
+          </SwiperSlide> */}
           <SwiperSlide>
             <Box className={classes.heroBannerWrapper}>
               <Box
