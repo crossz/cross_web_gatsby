@@ -209,7 +209,7 @@ const ContactReference = () => {
           得易健康服務平台《個人資料收集聲明》
         </Link>
         <Link target='_blank' underline='always' to={T_AND_C.PROMOTION_POLICY.urlTnc}>
-          「NEW330」優惠碼推廣（「推廣優惠」）條款及細則
+          「2022NEW」優惠碼推廣（「推廣優惠」）條款及細則
         </Link>
         <Link target='_blank' underline='always' to={addLangQuery()}>
           https://take2health.net/health-platform/
@@ -334,7 +334,7 @@ const ContactReference = () => {
                 </Box>
               </AccordionDetails>
             </Accordion>
-            <Accordion
+            {/* <Accordion
               classes={{
                 rounded: classes.rounded,
                 expanded: classes.expanded,
@@ -357,7 +357,7 @@ const ContactReference = () => {
               >
                 {tAndC()}
               </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
           </Box>
         ) : (
           <Box>
@@ -369,10 +369,10 @@ const ContactReference = () => {
                 <Box key={index} dangerouslySetInnerHTML={{ __html: item.list }} />
               ))}
             </Box>
-            <Box className={classes.reference} my={4}>
+            {/* <Box className={classes.reference} my={4}>
               {t('cp_v2.contact_and_reference.paragraphs.5')}
             </Box>
-            {tAndC()}
+            {tAndC()} */}
           </Box>
         )}
       </Box>

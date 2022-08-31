@@ -18,12 +18,7 @@ const useStyles = makeStyles((theme) =>
   })
 )
 
-const Page = ({
-  storyNodes,
-  healthTipsNodes,
-  imagesTranslation,
-  athleteNodes,
-}) => {
+const Page = ({ storyNodes, healthTipsNodes, imagesTranslation, athleteNodes }) => {
   const classes = useStyles()
   const el = useRef()
   const q = gsap.utils.selector(el)
@@ -33,16 +28,8 @@ const Page = ({
     // symptom circle scale animation
     t.current = gsap.timeline()
     t.current
-      .fromTo(
-        q('.gsap-scale-1'),
-        { scale: 1 },
-        { scale: 0.9, duration: 2, repeat: -1, yoyoEase: true }
-      )
-      .fromTo(
-        q('.gsap-scale-2'),
-        { scale: 0.98 },
-        { scale: 1, duration: 2, repeat: -1, yoyoEase: true }
-      )
+      .fromTo(q('.gsap-scale-1'), { scale: 1 }, { scale: 0.9, duration: 2, repeat: -1, yoyoEase: true })
+      .fromTo(q('.gsap-scale-2'), { scale: 0.98 }, { scale: 1, duration: 2, repeat: -1, yoyoEase: true })
 
     // page scroll trigger fade in animation
     for (let index = 1; index <= 11; index++) {
@@ -75,11 +62,7 @@ const Page = ({
         <Header></Header>
         <Container disableGutters maxWidth='lg'>
           <Banner />
-          <Sections
-            storyNodes={storyNodes}
-            healthTipsNodes={healthTipsNodes}
-            athleteNodes={athleteNodes}
-          ></Sections>
+          <Sections storyNodes={storyNodes} healthTipsNodes={healthTipsNodes} athleteNodes={athleteNodes}></Sections>
           <ContactReference></ContactReference>
           <Footer></Footer>
         </Container>
