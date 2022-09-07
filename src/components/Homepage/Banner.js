@@ -239,7 +239,7 @@ const Banner = ({ nodes }) => {
           className={classes.swiperWrapper}
           autoplay={{ delay: 5000000000, disableOnInteraction: false }}
           onSlideChange={(swiper) => {
-            return toggleTheme?.(nodes[swiper.realIndex - 2]?.frontmatter?.theme)
+            return toggleTheme?.(nodes[swiper.realIndex - 1]?.frontmatter?.theme)
           }}
           initialSlide={0}
           speed={700}
