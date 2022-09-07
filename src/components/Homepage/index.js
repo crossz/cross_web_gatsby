@@ -79,11 +79,7 @@ const Homepage = ({ heroBannerNodes, promotionNodes, healthTipsNodes }) => {
             {t('whats_new.promotions.detail')}
           </Box>
           <Box className={classes.promotionsSwiperWrapper}>
-            <PostSwiper
-              nodes={promotionNodes}
-              morePath='/whats-new/promotions/'
-              withViewBtn
-            ></PostSwiper>
+            <PostSwiper nodes={promotionNodes} morePath='/whats-new/promotions/' withViewBtn></PostSwiper>
           </Box>
           <Box className={classes.title}>
             <TitleDot></TitleDot>
@@ -97,24 +93,13 @@ const Homepage = ({ heroBannerNodes, promotionNodes, healthTipsNodes }) => {
       <Container disableGutters maxWidth='lg'>
         <Box className={classes.healthTipsBanner} />
         <Box className={classes.swiperWrapper}>
-          <Container
-            disableGutters
-            maxWidth='md'
-            className={classes.healthTipsWrapper}
-          >
+          <Container disableGutters maxWidth='md' className={classes.healthTipsWrapper}>
             <Box className={classes.title}>
               <TitleDot></TitleDot>
-              <Typography variant='h4'>
-                {t('whats_new.health_tips.title')}
-              </Typography>
+              <Typography variant='h4'>{t('whats_new.health_tips.title')}</Typography>
             </Box>
-            <Box fontSize='caption.fontSize'>
-              {t('whats_new.health_tips.detail')}
-            </Box>
-            <PostSwiper
-              nodes={healthTipsNodes}
-              morePath='/whats-new/health-tips/'
-            ></PostSwiper>
+            <Box fontSize='caption.fontSize'>{t('whats_new.health_tips.detail')}</Box>
+            <PostSwiper nodes={healthTipsNodes} morePath='/whats-new/health-tips/'></PostSwiper>
           </Container>
         </Box>
       </Container>
