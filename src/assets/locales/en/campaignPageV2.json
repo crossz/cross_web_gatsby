@@ -14,7 +14,7 @@
         },
         "promotion": {
             "title": "Health Platform Anniversary",
-            "price": "Enjoy a special price of $1,500",
+            "price": "Enjoy a special price of <1>$1,500</1>",
             "tip": " + Free Bluetooth Speaker",
             "enter": "Enter"
         },
