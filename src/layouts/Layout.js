@@ -21,27 +21,25 @@ const useStyles = makeStyles((theme) => ({
 const Layout = ({ children }) => {
   const classes = useStyles()
   const [heroTheme, setHeroTheme] = useState('light')
-  const { routed, language } = useI18next()
-  const isPromotions = useMatch(
-    `${routed ? `/${language}` : ''}/promotions/consumption-voucher`
-  )
-  const isRehealthPrevaccinationPlans = useMatch(
-    `${
-      routed ? `/${language}` : ''
-    }/whats-new/campaign/rehealth-prevaccination-plans`
-  )
-  const isCampaign = useMatch(
-    `${routed ? `/${language}` : ''}/whats-new/campaign`
-  )
+  const [logoTheme, setLogoTheme] = useState()
 
-  const handleChangeHeroTheme = (theme) => {
-    return setHeroTheme(theme)
+  const { routed, language } = useI18next()
+  const isPromotions = useMatch(`${routed ? `/${language}` : ''}/promotions/consumption-voucher`)
+  const isRehealthPrevaccinationPlans = useMatch(
+    `${routed ? `/${language}` : ''}/whats-new/campaign/rehealth-prevaccination-plans`
+  )
+  const isCampaign = useMatch(`${routed ? `/${language}` : ''}/whats-new/campaign`)
+
+  const handleChangeHeroTheme = (theme, index) => {
+    setHeroTheme(theme)
+    setLogoTheme(index)
   }
 
   return (
     <HeroThemeContext.Provider
       value={{
         theme: heroTheme,
+        logoTheme: logoTheme,
         toggleTheme: handleChangeHeroTheme,
       }}
     >
