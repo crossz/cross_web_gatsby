@@ -103,7 +103,8 @@ const Header = (props) => {
         <Container className={classes.wrapper} maxWidth='lg'>
           <Link to='/'>
             <Box width={matches ? 100 : 145}>
-              {context?.logoTheme === 0 ? (
+              <StaticImage src='../../assets/images/common/take2_full_color.png' alt='Logo' />
+              {/* {context?.logoTheme === 0 ? (
                 !withBg ? (
                   <StaticImage src='../../assets/images/common/take2_full_white_color.png' alt='Logo' />
                 ) : (
@@ -111,7 +112,7 @@ const Header = (props) => {
                 )
               ) : (
                 <StaticImage src='../../assets/images/common/take2_full_color.png' alt='Logo' />
-              )}
+              )} */}
             </Box>
           </Link>
           <Box className={classes.authBtn} color='primary.main' component='span'>
