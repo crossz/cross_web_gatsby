@@ -10,7 +10,6 @@ const ImageTranslation = ({ filename, alt, hasMobile = true, ...rest }) => {
   const { images } = useContext(ImagesTranslationContext)
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
-
   const realFilename = `${filename}${isMobile && hasMobile ? '_mobile' : ''}${
     languagePrefixes[language] ? `_${languagePrefixes[language]}` : ''
   }`
@@ -18,15 +17,7 @@ const ImageTranslation = ({ filename, alt, hasMobile = true, ...rest }) => {
   const imageData = images?.find((item) => item.name === realFilename)
 
   const image = getImage(imageData)
-
-  return (
-    <GatsbyImage
-      objectFit='contain'
-      image={image}
-      alt={alt}
-      {...rest}
-    ></GatsbyImage>
-  )
+  return <GatsbyImage objectFit='contain' image={image} alt={alt} {...rest}></GatsbyImage>
 }
 
 export default ImageTranslation

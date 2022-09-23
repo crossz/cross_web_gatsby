@@ -315,10 +315,32 @@
                     "mark": "**陰性： 檢測不到血漿中存在「人類和EB病毒的DNA與鼻咽癌相關之特徵」，詳情請向醫護人員查詢。"
                 }
             },
-            "notice": "此篩查不建議已經進行器官移植人士、已患有其他癌症、自身免疫系統疾病、正接受全身性糖皮質激素及免疫抑制治療的人士使用。如有任何疑問，請向專業醫護人員查詢。",
-            "do_you_have": "想知道自己有沒有患上鼻咽癌？",
+            "notice": "此篩查不建議已經進行器官移植人士、已患有其他癌症、自身免疫系統疾病、正接受全身性糖皮質激素及免疫抑制治療的人士使用。",
+            "do_you_have": "想了解自己的身體狀況和潛在健康風險？",
             "action": "不要猶豫，立即行動！",
-            "covid_notice": "以樣本到達化驗室起計"
+            "covid_notice": "在血液樣本到達化驗室後起計，一般情況下，約3-7個工作日能完成分析"
+        },
+        "cancer_screen_package": {
+            "detail": "涵蓋本港常見癌症—包括大腸、胰臟、肝臟、前列腺、乳房及卵巢之腫瘤指標，及靈敏度>97%的皇牌Take2 Prophecy™ 早期鼻咽癌篩查。",
+            "subtitle": "助你及早發現潛在健康風險",
+            "sub_detail1": "癌症是其中一個全球人類的主要死因<1>1</1>，也是本港多年來的頭號殺手，且發病率日趨上升<1>2</1>",
+            "sub_detail2": "大部份癌症仍未有確實的預防方法",
+            "subdetail3": "最佳的提防方法還是經常留意自己身體的任何變化和定期進行癌症篩查",
+            "attention": "聲明：Take2 Prophecy™ 早期鼻咽癌篩查以外的測試項目由與Take2 Health合作的實驗室和醫療機構提供。",
+            "subdetail4": "儘早於早期發現診斷及診治，才能大大增加患者治癒的機會",
+            "detail2": "此篩查乃非入侵性檢查；適合所有年齡人士，包括常規體檢者、無徵狀人士及有相關家族病史人士等。",
+            "subtitle0": "全面癌症篩查",
+            "pachages": "Take2 Health提供的癌症篩查套餐",
+            "pachages2": "涵蓋了多種本港常見癌症的腫瘤指標篩查，包括：",
+            "contact": "如有任何疑問，請向專業醫護人員查詢。",
+            "compass2": "AFP（肝臟腫瘤指標）",
+            "compass3": "CA19.9 （胰臟腫瘤指標）",
+            "compass4": "CA125 （卵巢腫瘤指標）",
+            "compass5": "CA15.3 （乳房腫瘤指標）",
+            "compass6": "PSA, TOTAL （總前列腺癌抗原指數）",
+            "only_to_woman": "只適用於女性",
+            "only_to_man": "只適用於男性",
+            "compass1": "Take2 Prophecy™ 早期鼻咽癌篩查"
         }
     },
     "about_us": {
@@ -377,6 +399,7 @@
         "clinical_papers": "相關研究報告",
         "products_and_services": "產品及服務",
         "take2_prophecy": "Take2 Prophecy™ 早期鼻咽癌篩查",
+        "cancer_screen_package": "癌症篩查套餐",
         "take2_extra_care": "Take2 Prophecy™ 會員計劃",
         "service_location": "本港篩查服務點",
         "international": "商業合作",

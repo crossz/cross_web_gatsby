@@ -1,12 +1,5 @@
 import React, { useRef, useEffect, useMemo } from 'react'
-import {
-  makeStyles,
-  useTheme,
-  useMediaQuery,
-  Container,
-  Box,
-  Typography,
-} from '@material-ui/core'
+import { makeStyles, useTheme, useMediaQuery, Container, Box, Typography } from '@material-ui/core'
 import { Match } from '@reach/router'
 import useMenu from '@hooks/useMenu'
 import Link from '@components/Link'
@@ -107,28 +100,24 @@ const SectionBanner = () => {
   const pointerRef = useRef(null)
   // When user navigates between section pages and content been scrolled beyond banner , should scroll page up to section tabs.
   useEffect(() => {
-    if (getDomTop(pointerRef.current) < document.documentElement.scrollTop)
-      scrollTo('#section-tabs')
+    if (getDomTop(pointerRef.current) < document.documentElement.scrollTop) scrollTo('#section-tabs')
   }, [originalPath])
-
-  const curMenuItem = useMemo(
-    () => menu?.find((item) => originalPath.includes(item.path)),
-    [menu, originalPath]
-  )
-
+  const curMenuItem = useMemo(() => menu?.find((item) => originalPath.includes(item.path)), [menu, originalPath])
+  const productsAndServicesTrackingCode = [
+    { code: 'RW_Product_Prophecy_Tab' },
+    { code: 'RW_Product_CancerScreening_Tab' },
+    { code: 'RW_Product_Membership_Tab' },
+    { code: 'RW_Product_FAQ_Tab' },
+  ]
   const curMenuItemPath = useMemo(() => {
     const curMenuItemChild =
       curMenuItem?.path === originalPath
         ? curMenuItem
         : curMenuItem?.sections?.length
-        ? curMenuItem?.sections?.find((child) =>
-            originalPath.includes(child.path)
-          )
+        ? curMenuItem?.sections?.find((child) => originalPath.includes(child.path))
         : curMenuItem
 
-    return routed
-      ? `/${language}${curMenuItemChild?.path}`
-      : curMenuItemChild?.path
+    return routed ? `/${language}${curMenuItemChild?.path}` : curMenuItemChild?.path
   }, [curMenuItem, routed, language, originalPath])
 
   return curMenuItemPath && !curMenuItem?.path?.includes('service-location') ? (
@@ -136,15 +125,9 @@ const SectionBanner = () => {
       {(props) =>
         props.match ? (
           <>
-            <Container
-              className={classes.bannerWrapper}
-              disableGutters
-              maxWidth='xl'
-            >
+            <Container className={classes.bannerWrapper} disableGutters maxWidth='xl'>
               <Image
-                filename={
-                  matches ? curMenuItem.mobileBanner : curMenuItem.banner
-                }
+                filename={matches ? curMenuItem.mobileBanner : curMenuItem.banner}
                 alt='image'
                 style={{
                   gridArea: '1/1',
@@ -154,9 +137,7 @@ const SectionBanner = () => {
                 <Box mt='auto' mb={4} ml={2}>
                   <Typography variant='h3'>
                     <TitleDot left={-3.75}></TitleDot>
-                    <Box color={curMenuItem.titleColor}>
-                      {t(curMenuItem?.title)}
-                    </Box>
+                    <Box color={curMenuItem.titleColor}>{t(curMenuItem?.title)}</Box>
                   </Typography>
                   {/* {pathname.includes('/contact-us') && (
                     <Box
@@ -169,11 +150,7 @@ const SectionBanner = () => {
                   )} */}
                 </Box>
               </Container>
-              <Box
-                ref={pointerRef}
-                className={classes.sectionTabsId}
-                id='section-tabs'
-              ></Box>
+              <Box ref={pointerRef} className={classes.sectionTabsId} id='section-tabs'></Box>
             </Container>
             {curMenuItem?.sections && curMenuItem?.sections?.length && (
               <Box className={classes.tabsWrapper}>
@@ -182,9 +159,13 @@ const SectionBanner = () => {
                     to={item.path}
                     className={classnames(classes.tab, {
                       [classes.activeTab]:
-                        (curMenuItem?.path === originalPath && !index) ||
-                        item?.path === originalPath,
+                        (curMenuItem?.path === originalPath && !index) || item?.path === originalPath,
                     })}
+                    id={
+                      curMenuItem?.path === '/products-and-services/'
+                        ? productsAndServicesTrackingCode[index]?.code
+                        : ''
+                    }
                     activeClassName={classes.activeTab}
                     key={item.title}
                     partiallyActive={true}

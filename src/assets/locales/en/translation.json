@@ -315,10 +315,32 @@
                     "mark": "**Negative: Human and NPC-associated genomic signatures of EBV DNA were not detected"
                 }
             },
-            "notice": "Patients who have had organ transplant, currently have cancer or autoimmune diseases, or those currently receiving systemic glucocorticoid or immunosuppressive treatment are not recommended for early NPC detection using our test. If in doubt, please consult healthcare professionals for more information. ",
-            "do_you_have": "Book our service to detect your health status in relation to NPC.",
+            "notice": "Patients who have had organ transplant, currently have cancer or autoimmune diseases, or those currently receiving systemic glucocorticoid or immunosuppressive treatment are not recommended for early NPC detection using our test.",
+            "do_you_have": "Want to know more about your potential health risks? Get tested now!",
             "action": "Act now!",
-            "covid_notice": "From the day of receipt of samples"
+            "covid_notice": "From the day of receipt of samples, under normal circumstances, the analysis can be completed in about 3-7 working days"
+        },
+        "cancer_screen_package": {
+            "detail": "Covers our top-selling Take2 Prophecy™ Test for Nasopharyngeal Cancer (NPC); and tests for the cancer markers of common cancers in Hong Kong (e.g. colorectal, pancreatic, liver, prostate, breast and ovarian cancer). ",
+            "subtitle": "help you to detect the risks of cancer early",
+            "sub_detail1": "Cancer is the leading cause of death globally<1>1</1> and the top killer in Hong Kong for decades, with a rising trend in its incidence<1>2</1>",
+            "sub_detail2": "Not all cancers can be prevented",
+            "subdetail3": "The best way to tackle it is to perform regular cancer screening in order to detect any changes in the body",
+            "attention": "Disclaimer: Test items other than the Take2 Prophecy™ Test for NPC are performed by Take2 Health's partnering laboratory and medical organisations.",
+            "subdetail4": "Detecting cancers early might bring better treatment outcomes",
+            "detail2": "This non-invasive Cancer Screening Package is suitable for all ages, including individuals who intend to do routine check-ups, who are asymptomatic, and those with relevant family history.",
+            "subtitle0": "Conduct a comprehensive cancer screening",
+            "pachages": "This comprehensive Cancer Screening Package offered by Take2 Health",
+            "pachages2": " covers the detection of multiple cancer markers for the common cancers in Hong Kong, including:",
+            "contact": "If in doubt, please consult healthcare professionals for more information.",
+            "compass2": "AFP (Liver cancer marker)",
+            "compass3": "CA19.9 (Pancreatic cancer marker)",
+            "compass4": "CA125 (Ovarian cancer marker)",
+            "compass5": "CA15.3 (Breast cancer marker)",
+            "compass6": "PSA, TOTAL (Prostate cancer marker)",
+            "only_to_woman": "for women only",
+            "only_to_man": "for men only",
+            "compass1": "NPC-associated EBV DNA (Take2 Prophecy™ Test for NPC)"
         }
     },
     "about_us": {
@@ -377,13 +399,14 @@
         "clinical_papers": "Relevant Studies and Literature",
         "products_and_services": "Products and Services",
         "take2_prophecy": "Take2 Prophecy™ Test for NPC",
-        "take2_extra_care": "Take2 Extra Care Membership Program",
+        "take2_extra_care": "Membership Program",
         "service_location": "Service Locations – Hong Kong",
         "international": "Business Cooperation",
         "about_us": "About us",
         "mission": "Our Mission",
         "join_us": "Join Us",
         "contact_us": "Contact Us",
-        "faq": "FAQ"
+        "faq": "FAQ",
+        "cancer_screen_package": "Cancer Screening Package"
     }
 }
