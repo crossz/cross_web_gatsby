@@ -3,10 +3,11 @@ import ClockIcon from '@components/CampaignV2/images/clock.svg'
 import { makeStyles, useTheme, useMediaQuery, Hidden, Box, Button, Typography } from '@material-ui/core'
 import { PROMOTION_CODE } from '@utils/constant'
 import classnames from 'classnames'
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
 import { toast } from 'react-toastify'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import useLangQuery from '@hooks/useLangQuery'
+import { matches } from 'lodash-es'
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -127,8 +128,15 @@ const PromotionContent = ({ whiteBg }) => {
               fontSize={isMobile ? 'body2.fontSize' : 'body1.fontSize'}
               fontWeight='fontWeightMedium'
               component='span'
+              display='flex'
+              alignItems='center'
             >
-              {t('cp_v2.promotion.price')}
+              <Trans i18nKey='cp_v2.promotion.price'>
+                .
+                <span style={{ fontSize: isMobile ? '20px' : '25px', fontWeight: 900, marginLeft: isEn ? '5px' : '' }}>
+                  $1,500
+                </span>
+              </Trans>
             </Box>
             {/* {!isMobile &&
               (isTable || (isEn && whiteBg) ? (
