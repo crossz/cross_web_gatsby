@@ -53,6 +53,10 @@
         "path": "/products-and-services/take2-prophecy/"
       },
       {
+        "title": "menu.cancer_screen_package",
+        "path": "/products-and-services/cancer-screen-package/"
+      },
+      {
         "title": "menu.take2_extra_care",
         "path": "/products-and-services/take2-extra-care/"
       },
