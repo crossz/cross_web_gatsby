@@ -1,12 +1,6 @@
 import React, { useState, useContext } from 'react'
 import Box from '@material-ui/core/Box'
-import {
-  makeStyles,
-  useTheme,
-  useMediaQuery,
-  Container,
-  Hidden,
-} from '@material-ui/core'
+import { makeStyles, useTheme, useMediaQuery, Container, Hidden } from '@material-ui/core'
 import { MOBILE_HEADER_HEIGHT, HEADER_HEIGHT } from '@utils/constant'
 import classnames from 'classnames'
 import Menu from './Menu'
@@ -54,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     marginLeft: 'auto',
     flexShrink: 0,
+    fontWeight: 500,
     fontSize: theme.typography.body1.fontSize,
     [theme.breakpoints.down('xs')]: {
       fontSize: theme.typography.caption.fontSize,
@@ -94,7 +89,6 @@ const Header = (props) => {
   const [withBg, setWithBg] = useState(true)
   const context = useContext(HeroThemeContext)
   const addLangQuery = useLangQuery()
-
   return (
     <>
       <Box
@@ -103,42 +97,34 @@ const Header = (props) => {
           [classes.withBg]: !matches && withBg,
           [classes.homepageRoot]: !matches && isHomepage,
           [classes.withoutShadow]: !matches && isHomepage && withBg,
-          [classes.darkHeroTheme]:
-            !matches && isHomepage && !withBg && context?.theme === 'dark',
+          [classes.darkHeroTheme]: !matches && isHomepage && !withBg && context?.theme === 'dark',
         })}
       >
         <Container className={classes.wrapper} maxWidth='lg'>
           <Link to='/'>
             <Box width={matches ? 100 : 145}>
-              <StaticImage
-                src='../../assets/images/common/take2_full_color.png'
-                alt='Logo'
-              />
+              <StaticImage src='../../assets/images/common/take2_full_color.png' alt='Logo' />
+              {/* {context?.logoTheme === 0 ? (
+                !withBg ? (
+                  <StaticImage src='../../assets/images/common/take2_full_white_color.png' alt='Logo' />
+                ) : (
+                  <StaticImage src='../../assets/images/common/take2_full_color.png' alt='Logo' />
+                )
+              ) : (
+                <StaticImage src='../../assets/images/common/take2_full_color.png' alt='Logo' />
+              )} */}
             </Box>
           </Link>
-          <Box
-            className={classes.authBtn}
-            color='primary.main'
-            component='span'
-          >
-            <Link to={addLangQuery(`${process.env.GATSBY_SITE_URL}signin`)}>
-              {t('common.book_now')}
-            </Link>
+          <Box className={classes.authBtn} color='primary.main' component='span'>
+            <Link to={addLangQuery(`${process.env.GATSBY_SITE_URL}signin`)}>{t('common.book_now')}</Link>
             <Hidden xsDown>
-              <Link
-                className={classes.link}
-                to={addLangQuery(`${process.env.GATSBY_SITE_URL}signup`)}
-              >
+              <Link className={classes.link} to={addLangQuery(`${process.env.GATSBY_SITE_URL}signup`)}>
                 {t('common.member_registration')}
               </Link>
             </Hidden>
           </Box>
           <Box className={classes.menuBtn}>
-            <Menu
-              dark={
-                !matches && isHomepage && !withBg && context?.theme === 'dark'
-              }
-            ></Menu>
+            <Menu dark={!matches && isHomepage && !withBg && context?.theme === 'dark'}></Menu>
           </Box>
         </Container>
         {/* <Waypoint
@@ -146,12 +132,7 @@ const Header = (props) => {
         onEnter={() => handleWaypoint(false)}
       ></Waypoint> */}
       </Box>
-      {isHomepage && (
-        <Waypoint
-          onEnter={() => setWithBg(false)}
-          onLeave={() => setWithBg(true)}
-        ></Waypoint>
-      )}
+      {isHomepage && <Waypoint onEnter={() => setWithBg(false)} onLeave={() => setWithBg(true)}></Waypoint>}
     </>
   )
 }

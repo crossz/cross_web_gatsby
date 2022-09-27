@@ -18,7 +18,6 @@ const ImageTranslation = ({ filename, alt, hasMobile = true, ...rest }) => {
   }`
 
   const imageData = images?.find((item) => item.name === realFilename)
-
   const image = getImage(imageData)
 
   return <GatsbyImage image={image} alt={alt} {...rest}></GatsbyImage>
