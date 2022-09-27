@@ -50,7 +50,7 @@ Take2 Health联同各大体检中心推出限时早期鼻咽癌筛查优惠，�
 
 <br/>
 
-**3. Bowtie & JP Health – 男士/女士癌症檢查 ($1,500)** 
+**3. Bowtie & JP Health – 早期鼻咽癌筛查 ($1,500)** 
 
 **诊所地址：** 湾仔
 
@@ -62,11 +62,9 @@ Take2 Health联同各大体检中心推出限时早期鼻咽癌筛查优惠，�
 
 <br/>
 
-**4. 中环专科 The Central Clinic - 早期鼻咽癌筛查 ($XXXX)**
+**4. 中环专科 The Central Clinic - 早期鼻咽癌筛查** 
 
 **诊所地址：** 中环
-
-**网上预约：** To be developed
 
 **查询电话**： 3180 9888
 
@@ -74,7 +72,7 @@ Take2 Health联同各大体检中心推出限时早期鼻咽癌筛查优惠，�
 
 <br/>
 
-**5. 富康医疗 Wellington** [\[J2\]](#_msocom_2) **Medical Centre - 早期鼻咽癌筛查 ($2,500)**
+**5. 富康医疗 Wellington Medical Centre - 早期鼻咽癌筛查 ($2,500)**
 
 **诊所地址：** 铜锣湾 / 荃湾
 
