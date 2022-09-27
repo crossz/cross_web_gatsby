@@ -12,3 +12,4 @@ href: ''
 slug: partners-promotion
 
 ---
+![](../images/banner-kv-generic-_s-chi.jpg)
