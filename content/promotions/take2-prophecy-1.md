@@ -50,7 +50,7 @@ Take2 Health联同各大体检中心推出限时早期鼻咽癌筛查优惠，�
 
 <br/>
 
-**3. Bowtie & JP Health – 男士/女士癌症檢查 ($1,840) TBC**[\[FC1\]](#_msocom_1)
+**3. Bowtie & JP Health – 男士/女士癌症檢查 ($1,500)** 
 
 **诊所地址：** 湾仔
 
