@@ -19,7 +19,7 @@ slug: partners-promotion
 
 The symptoms of early nasopharyngeal cancer (NPC) are very similar to those of common cold and flu, including headache, nasal blockage, and tinnitus. It is as common as 9 out of 10 Hong Kong people may experience these symptoms. So, it is typically easy to let our guard down and rely on over-the-counter medications even when the symptoms persist. Unfortunately, these symptoms could become more serious and some patients will only seek medical advice after suffering from serious problems such as neck swelling, facial numbness, swallowing difficulty, etc. This results in missing the best timing for treatment, which also increasing the treatment complexity.
 
-Take2 Prophecy™ is a non-invasive early NPC detection test, it uses Next-generation Sequencing (NGS) technology to capture the NPC-associated EBV DNA signal in the bloodstream. It can effectively identify NPC patients in their early-stage for timely treatment and increases their survival rate. The test shows sensitivity of greater than 97% 1,2, which also ranks the top over other similar tests!
+Take2 Prophecy™ is a non-invasive early NPC detection test, it uses Next-generation Sequencing (NGS) technology to capture the NPC-associated EBV DNA signal in the bloodstream. It can effectively identify NPC patients in their early-stage for timely treatment and increases their survival rate. The test shows sensitivity of greater than 97% ¹ ², which also ranks the top over other similar tests!
 
 ![](../images/eng-table.jpg)
 
