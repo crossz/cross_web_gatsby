@@ -21,7 +21,7 @@ Take2 Prophecy™ 是一項無創早期鼻咽癌篩查，採用次世代DNA測�
 
 ![Comparison table](../images/t-chi-table.jpg "Comparison table")
 
-**只需一頓午飯的時間，在附近診所進行抽血，3-7個工作天就有結果*。**
+_只需一頓午飯的時間，在附近診所進行抽血，3-7個工作天就有結果_。*
 
 **不要猶豫，立即預約！**
 
