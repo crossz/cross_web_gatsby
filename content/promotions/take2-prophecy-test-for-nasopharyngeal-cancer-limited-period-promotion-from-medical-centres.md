@@ -2,7 +2,8 @@
 hide: false
 languages:
 - en
-cover: []
+cover:
+- "../images/banner-kv-generic-_eng_600x300.jpg"
 date: 2022-09-27T00:00:00+08:00
 title: Take2 Prophecy™ Test for Nasopharyngeal Cancer –     Limited Period Promotion
   from Medical Centres
@@ -28,7 +29,7 @@ __Just within a lunchtime period, you will be able to get tested by undergoing s
 
 <br/>
 
-Take2 Health has launched Limited Period Promotion for Take2 ProphecyTM Test for NPC in collaboration with major medical centres as follows:
+Take2 Health has launched Limited Period Promotion for Take2 Prophecy™ Test for NPC in collaboration with major medical centres as follows:
 
 <br/>
 
@@ -64,11 +65,13 @@ Take2 Health has launched Limited Period Promotion for Take2 ProphecyTM Test for
 
 <br/>
 
-**4. The Central Clinic – Early Detection Test for NPC** 
+**4. The Central Clinic – Early Detection Test for NPC ($1,850)**
 
 **Locations**: Central
 
-**Enquiry:** 3180 9888
+**Clinic Tel:** 3180 9808
+
+**Whatsapp / WeChat**: 5543 0000
 
 **Details:** The plan includes doctor consultation, report explanation, and blood test for NPC
 
