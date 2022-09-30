@@ -4,7 +4,7 @@ languages:
 - en
 cover:
 - "../images/banner-kv-generic-_eng_600x300.jpg"
-date: 2022-09-27T00:00:00+08:00
+date: 2022-09-30T00:00:00+08:00
 title: Take2 Prophecy™ Test for Nasopharyngeal Cancer –     Limited Period Promotion
   from Medical Centres
 detail: Take2 Prophecy™ Test for Nasopharyngeal Cancer –     Limited Period Promotion
