@@ -12,7 +12,7 @@ type: ''
 pdf: ''
 href: ''
 slug: athletes-medical-collaborations
-hide: false
+hide: true
 
 ---
 ![](../images/cover-photo-eng-1200-x-600.jpg)
