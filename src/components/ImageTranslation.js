@@ -13,7 +13,7 @@ const ImageTranslation = ({ filename, alt, hasMobile = true, ...rest }) => {
   const realFilename = `${filename}${isMobile && hasMobile ? '_mobile' : ''}${
     languagePrefixes[language] ? `_${languagePrefixes[language]}` : ''
   }`
-
+  console.log(realFilename)
   const imageData = images?.find((item) => item.name === realFilename)
 
   const image = getImage(imageData)

@@ -12,15 +12,18 @@ import {
 } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import { StaticImage } from 'gatsby-plugin-image'
-import RightIcon from '@images/icons/right.svg'
 import Link from '@components/Link'
 import ArrowIcon from '@images/icons/arrow.svg'
-import ImageList from '@material-ui/core/ImageList'
-import ImageListItem from '@material-ui/core/ImageListItem'
 import classnames from 'classnames'
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
 import Layout from '@layouts/Layout'
 import useLangQuery from '@hooks/useLangQuery'
+import ErrorIcon from '@material-ui/icons/Error'
+import TitleDot from '@themes/components/TitleDot'
+import ImageTranslation from '@components/ImageTranslation'
+import ImageList from '@material-ui/core/ImageList'
+import ImageListItem from '@material-ui/core/ImageListItem'
+import RightIcon from '@images/icons/right.svg'
 
 const steps = [
   {
@@ -89,7 +92,23 @@ const reports = [
     color: '#00AA82',
   },
 ]
-
+const compass = [
+  { name: 'products_and_services.take2_prophecy.compass1', object: '' },
+  { name: 'products_and_services.take2_prophecy.compass2', object: '' },
+  { name: 'products_and_services.take2_prophecy.compass6', object: '' },
+  {
+    name: 'products_and_services.take2_prophecy.compass3',
+    object: '',
+  },
+  {
+    name: 'products_and_services.take2_prophecy.compass4',
+    object: '',
+  },
+  {
+    name: 'products_and_services.take2_prophecy.compass5',
+    object: '',
+  },
+]
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.grey[100],
@@ -98,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
   },
   wrapper: {
     marginTop: -370,
-    marginBottom: -500,
+    marginBottom: -100,
     padding: theme.spacing(0, 3),
     [theme.breakpoints.down('xs')]: {
       marginBottom: -420,
@@ -119,6 +138,49 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(5),
     },
   },
+  sectionOneBg: {
+    borderRadius: theme.spacing(1.5),
+    height: 'auto',
+    paddingTop: theme.spacing(5),
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: theme.spacing(-32),
+      height: 'auto',
+      padding: theme.spacing(3, 3),
+    },
+  },
+  sectionSubBg: {
+    borderRadius: theme.spacing(1.5),
+    marginTop: theme.spacing(7),
+    marginLeft: theme.spacing(8.5),
+    marginBottom: theme.spacing(10),
+    backgroundColor: 'rgb(248, 249, 250)',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: theme.spacing(37.5),
+      marginBottom: theme.spacing(-32),
+      marginLeft: 0,
+    },
+  },
+  subBox: {
+    width: theme.spacing(50),
+    background: '#fff',
+    height: theme.spacing(15),
+    borderRadius: 10,
+    marginTop: theme.spacing(4),
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: '16px',
+    fontWeight: 700,
+    padding: theme.spacing(3, 2),
+    '& path': {
+      fill: theme.palette.error.main,
+    },
+    [theme.breakpoints.down('xs')]: {
+      // height: theme.spacing(1),
+      width: '100%',
+    },
+  },
   bannerWrapper: {
     height: theme.spacing(30),
     marginBottom: theme.spacing(-5),
@@ -135,6 +197,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     width: '100%',
     backgroundColor: alpha(theme.palette.prophecyPrimary.main, 0.85),
+    opacity: '0.75',
     color: theme.palette.primary.contrastText,
     fontSize: theme.typography.h5.fontSize,
     fontWeight: theme.typography.fontWeightBold,
@@ -150,6 +213,20 @@ const useStyles = makeStyles((theme) => ({
   bannerBg: {
     gridArea: '1/1',
   },
+  table: {
+    width: '100%',
+    paddingBottom: 50,
+    margin: theme.spacing(2, 0),
+    paddingTop: theme.spacing(3),
+    background: '#FFF',
+    boxShadow: ' 3px 4px 4px 1px rgba(0, 0, 0, 0.15)',
+    borderRadius: '50px',
+  },
+  tableTitle: {
+    fontSize: theme.spacing(4),
+    color: theme.palette.secondary.main,
+    fontWeight: 900,
+  },
   sectionOneWrapper: {
     marginBottom: theme.spacing(7),
     [theme.breakpoints.down('xs')]: {
@@ -157,8 +234,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   sectionOneContent: {
+    width: '100%',
+    paddingBottom: 10,
     [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(0, 2),
+      padding: theme.spacing(4, 2),
     },
   },
   stepsWrapper: {
@@ -175,6 +254,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     fontWeight: theme.typography.fontWeightBold,
     textAlign: 'center',
+    zIndex: '2',
     whiteSpace: 'break-spaces',
     [theme.breakpoints.down('xs')]: {
       width: '50%',
@@ -190,6 +270,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   stepIcon: {
+    background: '#fff',
+    borderRadius: '50%',
     maxWidth: theme.spacing(21.5),
     marginBottom: theme.spacing(3.75),
     [theme.breakpoints.down('xs')]: {
@@ -259,9 +341,6 @@ const useStyles = makeStyles((theme) => ({
       fill: '#00AA82',
     },
   },
-  imageListItem: {
-    height: 'auto',
-  },
   reportItem: {
     padding: theme.spacing(4),
     color: theme.palette.grey[600],
@@ -294,14 +373,35 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexShrink: '0',
   },
-  imageListItemItem: {
-    overflow: 'initial',
-  },
   prophecyImgWrapper: {
     overflow: 'hidden',
+    width: 350,
     marginRight: theme.spacing(5),
     [theme.breakpoints.down('xs')]: {
       marginRight: 0,
+    },
+  },
+  prophecyImgWrapper1: {
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    width: '100%',
+    height: 560,
+    marginRight: theme.spacing(5),
+    [theme.breakpoints.down('xs')]: {
+      marginRight: 0,
+      width: '100%',
+    },
+  },
+  avatar: {
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    width: '100%',
+    marginRight: theme.spacing(5),
+    [theme.breakpoints.down('xs')]: {
+      marginRight: 0,
+      width: '100%',
     },
   },
   prophecyImg: {
@@ -314,15 +414,16 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('xs')]: {
       marginTop: theme.spacing(2),
+      // width: '380px',
     },
   },
   reportTip: {
     color: '#818181',
     fontSize: theme.typography.caption.fontSize,
-    marginTop: theme.spacing(3),
     padding: theme.spacing(0, 6),
+    marginTop: theme.spacing(10),
     [theme.breakpoints.down('xs')]: {
-      marginTop: theme.spacing(2),
+      marginTop: theme.spacing(10),
       padding: 0,
     },
   },
@@ -333,13 +434,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Take2Prophecy = () => {
+const CancerScreen = () => {
   const classes = useStyles()
-  const { t } = useI18next()
+  const { t, language } = useI18next()
+  const isEn = language === 'en'
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
   const addLangQuery = useLangQuery()
-
   return (
     <Layout>
       <Container className={classes.root} disableGutters maxWidth='xl'>
@@ -349,17 +450,137 @@ const Take2Prophecy = () => {
               <Typography variant='h4' color='primary'>
                 {t('products_and_services.take2_prophecy.title')}
               </Typography>
-              <Box mt={matches ? 2.5 : 3}>
-                <Typography
-                  variant={matches ? 'body2' : 'body1'}
-                  color='textPrimary'
-                >
-                  {t('products_and_services.take2_prophecy.detail')}
+              <Box mt={matches ? 2.5 : 3} textAlign='justify' mx={26}>
+                <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
+                  <Trans i18nKey='products_and_services.take2_prophecy.detail'>
+                    .<sup>.</sup>.
+                  </Trans>
+                </Typography>
+              </Box>
+              <Box mt={matches ? 2.5 : 3} textAlign='center' mx={25}>
+                <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
+                  {t('products_and_services.take2_prophecy.detail2')}
                 </Typography>
               </Box>
             </Box>
             <Box className={classes.sectionOneWrapper}>
-              <Box className={classes.bannerWrapper}>
+              <Box className={classes.sectionOneBg}>
+                <Typography variant='h4'>
+                  <Box textAlign='center' lineHeight={1.5}>
+                    {t('products_and_services.take2_prophecy.subTitle')}
+                  </Box>
+                </Typography>
+                <Box display='flex' justifyContent='center' flexDirection={matches ? 'column' : 'row'}>
+                  <Box className={classes.subBox} mr={2} color='primary.main' justifyContent='center'>
+                    <ErrorIcon color='red' />
+                    <Box ml={1}>
+                      <Trans i18nKey='products_and_services.take2_prophecy.subDetail1'>
+                        .<sup>.</sup>.
+                      </Trans>
+                    </Box>
+                  </Box>
+                  <Box className={classes.subBox} color='primary.main'>
+                    <ErrorIcon pr={2} />
+                    <Box ml={1}>{t('products_and_services.take2_prophecy.subDetail2')}</Box>
+                  </Box>
+                </Box>
+                <Box mt={1} py={2} textAlign={isEn ? (matches ? 'left' : 'center') : 'center'}>
+                  <Typography variant={matches ? 'body2' : 'body1'}>
+                    {t('products_and_services.take2_prophecy.subDetail3')}
+                  </Typography>
+                </Box>
+              </Box>
+              <Box className={classes.sectionSubBg}>
+                {!matches && (
+                  <Box mb={3}>
+                    <Typography variant='h4' color='primary'>
+                      {t('products_and_services.take2_prophecy.feature')}
+                    </Typography>
+                  </Box>
+                )}
+                <Box display='flex' flexDirection={matches ? 'column-reverse' : 'row'} justifyContent='space-around'>
+                  <Box lineHeight={3} ml={matches ? 2 : 0}>
+                    {compass.map((item, index) => (
+                      <Box key={index}>
+                        <TitleDot />
+                        <Box display='flex' alignItems='center'>
+                          <Box fontSize={matches ? '13px' : '20px'} fontWeight={400} color='#1A285D'>
+                            <Trans i18nKey={item.name}>
+                              .<sup>.</sup>.
+                            </Trans>
+                          </Box>
+                          {item.object && (
+                            <Box color='grey.800' flexShrink='0'>
+                              <em>-{t(item.object)}</em>
+                            </Box>
+                          )}
+                        </Box>
+                      </Box>
+                    ))}
+                  </Box>
+                  <Box width={!matches ? 350 : '100%'}>
+                    <Box mr={matches ? 0 : 3}>
+                      <ImageTranslation
+                        className={classes.avatar}
+                        filename='take2_prophecy'
+                        alt='take2_prophecy'
+                        hasMobile={false}
+                      ></ImageTranslation>
+                    </Box>
+                    {matches && (
+                      <Box my={3}>
+                        <Typography variant='h4' color='primary'>
+                          {t('products_and_services.take2_prophecy.feature')}
+                        </Typography>
+                      </Box>
+                    )}
+                  </Box>
+                </Box>
+              </Box>
+              <Box mt={matches ? 40 : 0}>
+                <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
+                  <Grid item xs={matches ? 6 : 'auto'}>
+                    <Button
+                      variant='outlined'
+                      color='primary'
+                      href={addLangQuery()}
+                      target='_blank'
+                      fullWidth={matches}
+                      id='RW_Ehealth_CancerScreening_1'
+                      className={classes.btn}
+                    >
+                      {t('common.book_now')}
+                    </Button>
+                  </Grid>
+                  <Grid item xs={matches ? 6 : 'auto'}>
+                    <Link to='/service-location/'>
+                      <Button
+                        className={classes.btn}
+                        variant='contained'
+                        color='secondary'
+                        fullWidth={matches}
+                        id='RW_SL_CancerScreening_1'
+                      >
+                        {t('common.service_location')}
+                      </Button>
+                    </Link>
+                  </Grid>
+                </Grid>
+              </Box>
+              <Box className={classes.table}>
+                <Box className={classes.tableTitle} ml={10} mb={3}>
+                  Take2 Prophecy™ 早期鼻咽癌篩查表現遠勝其他同類測試：
+                </Box>
+                <Box mr={matches ? 0 : 3} height={560}>
+                  <ImageTranslation
+                    className={classes.prophecyImgWrapper1}
+                    filename='take2_prophecy_table'
+                    alt='take2_prophecy_table'
+                    hasMobile={false}
+                  ></ImageTranslation>
+                </Box>
+              </Box>
+              <Box className={classes.bannerWrapper} mt={10}>
                 <StaticImage
                   className={classes.bannerBg}
                   src='../assets/images/products_services_banner_bg.jpg'
@@ -369,7 +590,7 @@ const Take2Prophecy = () => {
                   {t('products_and_services.take2_prophecy.detection_process')}
                 </Box>
               </Box>
-              <Box className={classes.sectionOneContent}>
+              <Box className={classes.sectionOneContent} bgcolor='#fafafa'>
                 <Box className={classes.stepsWrapper}>
                   {steps.map((step, index) => {
                     let curStep
@@ -396,13 +617,18 @@ const Take2Prophecy = () => {
                           })}
                         >
                           <Box className={classes.stepIcon}>{curStep.icon}</Box>
+                          {matches && (
+                            <Box color='primary.main' fontSize={20} mt={-3} zIndex={2}>
+                              <em>{index + 1}</em>
+                            </Box>
+                          )}
                           <Box className={classes.stepLabel}>
                             <Box component='span'>
-                              {!(index === 4 && matches) && t(curStep.label)}
+                              {t(curStep.label)}
                               {index === 3 && !matches && <sup>#</sup>}
                               {index === 2 && matches && <sup>#</sup>}
                             </Box>
-                            <Hidden smUp>
+                            {/* <Hidden smUp>
                               {index < steps?.length - 1 && (
                                 <ArrowIcon
                                   className={classnames(classes.arrowIcon, {
@@ -413,16 +639,12 @@ const Take2Prophecy = () => {
                                   })}
                                 ></ArrowIcon>
                               )}
-                            </Hidden>
+                            </Hidden> */}
                           </Box>
                         </Box>
-                        <Hidden xsDown>
-                          {index < steps?.length - 1 && (
-                            <ArrowIcon
-                              className={classes.arrowIcon}
-                            ></ArrowIcon>
-                          )}
-                        </Hidden>
+                        {/* <Hidden xsDown>
+                          {index < steps?.length - 1 && <ArrowIcon className={classes.arrowIcon}></ArrowIcon>}
+                        </Hidden> */}
                       </React.Fragment>
                     )
                   })}
@@ -437,11 +659,7 @@ const Take2Prophecy = () => {
                 >
                   {t('products_and_services.take2_prophecy.process.4')}:
                 </Box>
-                <ImageList
-                  rowHeight='auto'
-                  cols={matches ? 1 : 2}
-                  gap={matches ? 16 : 24}
-                >
+                <ImageList rowHeight='auto' cols={matches ? 1 : 2} gap={matches ? 16 : 24}>
                   {reports.map((report, index) => (
                     <ImageListItem
                       key={index}
@@ -460,10 +678,7 @@ const Take2Prophecy = () => {
                           >
                             {t(report.result)}
                             <RightIcon
-                              className={classnames(
-                                classes.rightIcon,
-                                index === 1 && classes.greenRightIcon
-                              )}
+                              className={classnames(classes.rightIcon, index === 1 && classes.greenRightIcon)}
                             ></RightIcon>
                           </Box>
                           {t(report.suggestion)}
@@ -476,74 +691,92 @@ const Take2Prophecy = () => {
                 <Box className={classes.reportTip}>
                   {t('common.notice')} <br />
                   {t('products_and_services.take2_prophecy.notice')}
-                  <br />
+                  <br /> <br />
                   <sup>#</sup>
                   {t('products_and_services.take2_prophecy.covid_notice')}
                 </Box>
               </Box>
             </Box>
-            <Grid container>
-              <Grid item xs={12} sm={6}>
-                <StaticImage
-                  className={classes.prophecyImgWrapper}
-                  imgClassName={classes.prophecyImg}
-                  src='../assets/images/take2_prophecy_01.jpg'
-                  alt='take2 prophecy 01'
-                ></StaticImage>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box ml={matches ? 0 : 5}>
-                  <Typography variant='h5' component='div'>
-                    <Box pt={matches ? 5 : 14} color='prophecyPrimary.main'>
-                      {t('common.book_detection')}
-                    </Box>
-                    <Box mt={matches ? 1.5 : 2} mb={matches ? 5 : 7}>
-                      <Typography
-                        variant={matches ? 'body2' : 'body1'}
-                        color='textPrimary'
-                      >
-                        {t('products_and_services.take2_prophecy.do_you_have')}
-                        <Hidden smUp>
-                          <br />
-                        </Hidden>
-                        {t('products_and_services.take2_prophecy.action')}
-                      </Typography>
-                    </Box>
-                  </Typography>
-                  <Grid className={classes.btnWrapper} container spacing={2}>
-                    <Grid item xs={matches ? 6 : 'auto'}>
-                      <Button
-                        variant='outlined'
-                        color='primary'
-                        href={addLangQuery()}
-                        target='_blank'
-                        fullWidth={matches}
-                        className={classes.btn}
-                      >
-                        {t('common.book_now')}
-                      </Button>
-                    </Grid>
-                    <Grid item xs={matches ? 6 : 'auto'}>
-                      <Link to='/service-location/'>
-                        <Button
-                          className={classes.btn}
-                          variant='contained'
-                          color='secondary'
-                          fullWidth={matches}
-                        >
-                          {t('common.service_location')}
-                        </Button>
-                      </Link>
-                    </Grid>
-                  </Grid>
-                </Box>
-              </Grid>
-            </Grid>
           </Container>
         </Box>
       </Container>
+      <Box
+        display='flex'
+        justifyContent='center'
+        flexDirection={matches ? 'column' : 'row'}
+        alignItems='center'
+        width='100%'
+        mt={-45}
+      >
+        <ImageTranslation
+          className={classes.prophecyImgWrapper}
+          filename='take2_prophecy'
+          alt='take2_prophecy'
+          hasMobile={false}
+        ></ImageTranslation>
+        <Box ml={matches ? 0 : 5} px={isEn ? 4 : 0}>
+          <Typography variant='h5' component='div'>
+            <Box pt={matches ? 5 : 14} color='prophecyPrimary.main'>
+              {t('common.book_detection')}
+            </Box>
+            <Box mt={matches ? 1.5 : 2} mb={matches ? 5 : 7}>
+              <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
+                {t('products_and_services.take2_prophecy.do_you_have')}
+              </Typography>
+            </Box>
+          </Typography>
+        </Box>
+      </Box>{' '}
+      <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
+        <Grid item xs={matches ? 5 : 'auto'}>
+          <Button
+            variant='outlined'
+            color='primary'
+            href={addLangQuery()}
+            target='_blank'
+            fullWidth={matches}
+            className={classes.btn}
+            id='RW_Ehealth_CancerScreening_2'
+          >
+            {t('common.book_now')}
+          </Button>
+        </Grid>
+        <Grid item xs={matches ? 5 : 'auto'}>
+          <Link to='/service-location/'>
+            <Button
+              className={classes.btn}
+              variant='contained'
+              color='secondary'
+              fullWidth={matches}
+              id='RW_SL_CancerScreening_2'
+            >
+              {t('common.service_location')}
+            </Button>
+          </Link>
+        </Grid>
+      </Grid>
+      <Box className={classes.reportTip} mb={matches ? 3 : 12} ml={matches ? 3 : 20} mt={10}>
+        {t('cp_v2.contact_and_reference.paragraphs.4')} <br />
+        {matches ? <br /> : null}
+        1. "Chan, K. C. Allen, et al. “Analysis of Plasma Epstein–Barr Virus DNA to Screen for Nasopharyngeal Cancer.”
+        New England Journal of Medicine, vol. 377, no. 6, 2017, pp. 513–22. <br />
+        2. Lam, W. K. Jacky, et al. “Sequencing-Based Counting and Size Profiling of Plasma Epstein–Barr Virus DNA
+        Enhance Population Screening of Nasopharyngeal Carcinoma.” Proceedings of the National Academy of Sciences, vol.
+        115, no. 22, 2018, pp. E5115–24.
+        <br />
+        3. Hong Kong Cancer Registry. Hong Kong Hospital Authority, www3.ha.org.hk/cancereg/. Accessed 23 May 2021.
+        <br />
+        4. Overview of Hong Kong Cancer Statistics of 2018. Hong Kong Hospital Authority, October 2020.
+        <br />
+        5. Chang, Kai-Ping, et al. “Complementary Serum Test of Antibodies to Epstein-Barr Virus Nuclear Antigen-1 and
+        Early Antigen: A Possible Alternative for Primary Screening of Nasopharyngeal Carcinoma.” Oral Oncology, vol.
+        44, no. 8, 2008, pp. 784–92.
+        <br />
+        6. Tay, Joshua K., et al. “Screening in Nasopharyngeal Carcinoma: Current Strategies and Future Directions.”
+        Current Otorhinolaryngology Reports, vol. 2, no. 1, 2013, pp. 1–7.
+      </Box>
     </Layout>
   )
 }
 
-export default Take2Prophecy
+export default CancerScreen
