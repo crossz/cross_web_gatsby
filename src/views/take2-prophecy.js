@@ -147,7 +147,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       marginBottom: theme.spacing(-32),
       height: 'auto',
-      padding: theme.spacing(3, 3),
+      padding: theme.spacing(3, 2),
     },
   },
   sectionSubBg: {
@@ -179,6 +179,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       // height: theme.spacing(1),
       width: '100%',
+      padding: theme.spacing(3, 0.5),
     },
   },
   bannerWrapper: {
@@ -450,14 +451,14 @@ const CancerScreen = () => {
               <Typography variant='h4' color='primary'>
                 {t('products_and_services.take2_prophecy.title')}
               </Typography>
-              <Box mt={matches ? 2.5 : 3} textAlign='justify' mx={26}>
+              <Box mt={matches ? 2.5 : 3} textAlign='justify' mx={matches ? 2 : 26}>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                   <Trans i18nKey='products_and_services.take2_prophecy.detail'>
                     .<sup>.</sup>.
                   </Trans>
                 </Typography>
               </Box>
-              <Box mt={matches ? 2.5 : 3} textAlign='center' mx={25}>
+              <Box mt={matches ? 2.5 : 3} textAlign='center' mx={matches ? 2 : 25}>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                   {t('products_and_services.take2_prophecy.detail2')}
                 </Typography>
