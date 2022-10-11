@@ -569,9 +569,9 @@ const CancerScreen = () => {
               </Box>
               <Box className={classes.table}>
                 <Box className={classes.tableTitle} ml={10} mb={3}>
-                  Take2 Prophecy™ 早期鼻咽癌篩查表現遠勝其他同類測試：
+                  {t('products_and_services.take2_prophecy.tableTitle')}
                 </Box>
-                <Box mr={matches ? 0 : 3} height={560}>
+                <Box height={560}>
                   <ImageTranslation
                     className={classes.prophecyImgWrapper1}
                     filename='take2_prophecy_table'
@@ -579,6 +579,41 @@ const CancerScreen = () => {
                     hasMobile={false}
                   ></ImageTranslation>
                 </Box>
+              </Box>
+              <Box className={classes.tableTitle} ml={10} my={3} textAlign='center'>
+                <Trans i18nKey='products_and_services.take2_prophecy.tableBottom'>
+                  .<sup>.</sup>.
+                </Trans>
+              </Box>
+              <Box mt={matches ? 40 : 0}>
+                <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
+                  <Grid item xs={matches ? 6 : 'auto'}>
+                    <Button
+                      variant='outlined'
+                      color='primary'
+                      href={addLangQuery()}
+                      target='_blank'
+                      fullWidth={matches}
+                      id='RW_Ehealth_CancerScreening_1'
+                      className={classes.btn}
+                    >
+                      {t('common.book_now')}
+                    </Button>
+                  </Grid>
+                  <Grid item xs={matches ? 6 : 'auto'}>
+                    <Link to='/service-location/'>
+                      <Button
+                        className={classes.btn}
+                        variant='contained'
+                        color='secondary'
+                        fullWidth={matches}
+                        id='RW_SL_CancerScreening_1'
+                      >
+                        {t('common.service_location')}
+                      </Button>
+                    </Link>
+                  </Grid>
+                </Grid>
               </Box>
               <Box className={classes.bannerWrapper} mt={10}>
                 <StaticImage
