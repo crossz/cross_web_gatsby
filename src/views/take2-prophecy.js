@@ -399,7 +399,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     overflow: 'hidden',
     width: '100%',
-    height: 560,
+    height: 530,
     marginRight: theme.spacing(5),
     [theme.breakpoints.down('xs')]: {
       marginRight: 0,
@@ -585,7 +585,7 @@ const CancerScreen = () => {
                 <Box className={classes.tableTitle} ml={matches ? 1 : 10} mb={3}>
                   {t('products_and_services.take2_prophecy.tableTitle')}
                 </Box>
-                <Box height={matches ? 300 : 560} overflow='scroll'>
+                <Box height={matches ? 300 : 560} overflow={matches ? 'scroll' : ''}>
                   <ImageTranslation
                     className={classes.prophecyImgWrapper1}
                     filename='take2_prophecy_table'
