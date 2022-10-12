@@ -120,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: -100,
     padding: theme.spacing(0, 3),
     [theme.breakpoints.down('xs')]: {
-      marginBottom: -420,
+      marginBottom: 0,
     },
   },
   content: {
@@ -157,9 +157,12 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(10),
     backgroundColor: 'rgb(248, 249, 250)',
     [theme.breakpoints.down('xs')]: {
+      background: '#FFF',
+      boxShadow: ' 3px 4px 4px 1px rgba(0, 0, 0, 0.15)',
       marginTop: theme.spacing(37.5),
       marginBottom: theme.spacing(-32),
       marginLeft: 0,
+      padding: theme.spacing(3),
     },
   },
   subBox: {
@@ -214,20 +217,7 @@ const useStyles = makeStyles((theme) => ({
   bannerBg: {
     gridArea: '1/1',
   },
-  table: {
-    width: '100%',
-    paddingBottom: 50,
-    margin: theme.spacing(2, 0),
-    paddingTop: theme.spacing(3),
-    background: '#FFF',
-    boxShadow: ' 3px 4px 4px 1px rgba(0, 0, 0, 0.15)',
-    borderRadius: '50px',
-  },
-  tableTitle: {
-    fontSize: theme.spacing(4),
-    color: theme.palette.secondary.main,
-    fontWeight: 900,
-  },
+
   sectionOneWrapper: {
     marginBottom: theme.spacing(7),
     [theme.breakpoints.down('xs')]: {
@@ -382,6 +372,28 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 0,
     },
   },
+  table: {
+    width: '100%',
+    paddingBottom: 50,
+    margin: theme.spacing(10, 0),
+    paddingTop: theme.spacing(3),
+    background: '#FFF',
+    boxShadow: ' 3px 4px 4px 1px rgba(0, 0, 0, 0.15)',
+    borderRadius: '50px',
+    [theme.breakpoints.down('sm')]: {
+      borderRadius: '20px',
+      marginTop: theme.spacing(40),
+      marginBottom: 0,
+    },
+  },
+  tableTitle: {
+    fontSize: theme.spacing(4),
+    color: theme.palette.secondary.main,
+    fontWeight: 900,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(2.5),
+    },
+  },
   prophecyImgWrapper1: {
     display: 'flex',
     alignItems: 'center',
@@ -391,7 +403,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(5),
     [theme.breakpoints.down('xs')]: {
       marginRight: 0,
-      width: '100%',
+      height: 300,
+      width: 580,
     },
   },
   avatar: {
@@ -409,12 +422,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(1.5),
   },
   btnWrapper: {
-    marginTop: theme.spacing(4),
+    margin: theme.spacing(4, 0),
     '& a': {
       textDecoration: 'none',
     },
     [theme.breakpoints.down('xs')]: {
-      marginTop: theme.spacing(2),
+      margin: theme.spacing(3, 0),
       // width: '380px',
     },
   },
@@ -537,42 +550,42 @@ const CancerScreen = () => {
                     )}
                   </Box>
                 </Box>
-              </Box>
-              <Box mt={matches ? 40 : 0}>
-                <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
-                  <Grid item xs={matches ? 6 : 'auto'}>
-                    <Button
-                      variant='outlined'
-                      color='primary'
-                      href={addLangQuery()}
-                      target='_blank'
-                      fullWidth={matches}
-                      id='RW_Ehealth_CancerScreening_1'
-                      className={classes.btn}
-                    >
-                      {t('common.book_now')}
-                    </Button>
-                  </Grid>
-                  <Grid item xs={matches ? 6 : 'auto'}>
-                    <Link to='/service-location/'>
+                <Box mt={matches ? 2 : 0}>
+                  <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
+                    <Grid item xs={matches ? 6 : 'auto'}>
                       <Button
-                        className={classes.btn}
-                        variant='contained'
-                        color='secondary'
+                        variant='outlined'
+                        color='primary'
+                        href={addLangQuery()}
+                        target='_blank'
                         fullWidth={matches}
-                        id='RW_SL_CancerScreening_1'
+                        id='RW_Ehealth_CancerScreening_1'
+                        className={classes.btn}
                       >
-                        {t('common.service_location')}
+                        {t('common.book_now')}
                       </Button>
-                    </Link>
+                    </Grid>
+                    <Grid item xs={matches ? 6 : 'auto'}>
+                      <Link to='/service-location/'>
+                        <Button
+                          className={classes.btn}
+                          variant='contained'
+                          color='secondary'
+                          fullWidth={matches}
+                          id='RW_SL_CancerScreening_1'
+                        >
+                          {t('common.service_location')}
+                        </Button>
+                      </Link>
+                    </Grid>
                   </Grid>
-                </Grid>
+                </Box>
               </Box>
               <Box className={classes.table}>
-                <Box className={classes.tableTitle} ml={10} mb={3}>
+                <Box className={classes.tableTitle} ml={matches ? 1 : 10} mb={3}>
                   {t('products_and_services.take2_prophecy.tableTitle')}
                 </Box>
-                <Box height={560}>
+                <Box height={matches ? 300 : 560} overflow='scroll'>
                   <ImageTranslation
                     className={classes.prophecyImgWrapper1}
                     filename='take2_prophecy_table'
@@ -581,12 +594,12 @@ const CancerScreen = () => {
                   ></ImageTranslation>
                 </Box>
               </Box>
-              <Box className={classes.tableTitle} ml={10} my={3} textAlign='center'>
+              <Box className={classes.tableTitle} ml={matches ? 0 : 10} my={3} textAlign='center'>
                 <Trans i18nKey='products_and_services.take2_prophecy.tableBottom'>
                   .<sup>.</sup>.
                 </Trans>
               </Box>
-              <Box mt={matches ? 40 : 0}>
+              <Box>
                 <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
                   <Grid item xs={matches ? 6 : 'auto'}>
                     <Button
@@ -742,14 +755,16 @@ const CancerScreen = () => {
         flexDirection={matches ? 'column' : 'row'}
         alignItems='center'
         width='100%'
-        mt={-45}
+        mt={matches ? -55 : -45}
       >
-        <ImageTranslation
-          className={classes.prophecyImgWrapper}
-          filename='take2_prophecy'
-          alt='take2_prophecy'
-          hasMobile={false}
-        ></ImageTranslation>
+        {!matches && (
+          <ImageTranslation
+            className={classes.prophecyImgWrapper}
+            filename='take2_prophecy'
+            alt='take2_prophecy'
+            hasMobile={false}
+          ></ImageTranslation>
+        )}
         <Box ml={matches ? 0 : 5} px={isEn ? 4 : 0}>
           <Typography variant='h5' component='div'>
             <Box pt={matches ? 5 : 14} color='prophecyPrimary.main'>
