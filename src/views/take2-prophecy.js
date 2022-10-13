@@ -366,7 +366,7 @@ const useStyles = makeStyles((theme) => ({
   },
   prophecyImgWrapper: {
     overflow: 'hidden',
-    width: 350,
+    width: 400,
     marginRight: theme.spacing(5),
     [theme.breakpoints.down('xs')]: {
       marginRight: 0,
@@ -767,7 +767,7 @@ const CancerScreen = () => {
         )}
         <Box ml={matches ? 0 : 5} px={isEn ? 4 : 0}>
           <Typography variant='h5' component='div'>
-            <Box pt={matches ? 5 : 14} color='prophecyPrimary.main'>
+            <Box pt={matches ? 5 : 10} color='prophecyPrimary.main'>
               {t('common.book_detection')}
             </Box>
             <Box mt={matches ? 1.5 : 2} mb={matches ? 5 : 7}>
