@@ -366,7 +366,7 @@ const useStyles = makeStyles((theme) => ({
   },
   prophecyImgWrapper: {
     overflow: 'hidden',
-    width: 350,
+    width: 400,
     marginRight: theme.spacing(5),
     [theme.breakpoints.down('xs')]: {
       marginRight: 0,
@@ -399,7 +399,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     overflow: 'hidden',
     width: '100%',
-    height: 560,
+    height: 530,
     marginRight: theme.spacing(5),
     [theme.breakpoints.down('xs')]: {
       marginRight: 0,
@@ -585,7 +585,7 @@ const CancerScreen = () => {
                 <Box className={classes.tableTitle} ml={matches ? 1 : 10} mb={3}>
                   {t('products_and_services.take2_prophecy.tableTitle')}
                 </Box>
-                <Box height={matches ? 300 : 560} overflow='scroll'>
+                <Box height={matches ? 300 : 560} overflow={matches ? 'scroll' : ''}>
                   <ImageTranslation
                     className={classes.prophecyImgWrapper1}
                     filename='take2_prophecy_table'
@@ -767,7 +767,7 @@ const CancerScreen = () => {
         )}
         <Box ml={matches ? 0 : 5} px={isEn ? 4 : 0}>
           <Typography variant='h5' component='div'>
-            <Box pt={matches ? 5 : 14} color='prophecyPrimary.main'>
+            <Box pt={matches ? 5 : 10} color='prophecyPrimary.main'>
               {t('common.book_detection')}
             </Box>
             <Box mt={matches ? 1.5 : 2} mb={matches ? 5 : 7}>
