@@ -359,6 +359,23 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.typography.body1.fontSize,
     },
   },
+  reportTop2: {
+    fontSize: theme.typography.h6.fontSize,
+    fontWeight: theme.typography.fontWeightBold,
+    color: theme.palette.text.primary,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: theme.spacing(3, 0, 8, 0),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.typography.subtitle1.fontSize,
+      margin: theme.spacing(2, 0, 4, 0),
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: theme.spacing(5),
+      fontSize: theme.typography.body1.fontSize,
+    },
+  },
   reportType: {
     display: 'flex',
     alignItems: 'center',
@@ -498,7 +515,7 @@ const CancerScreen = () => {
                     <Box ml={1}>{t('products_and_services.take2_prophecy.subDetail2')}</Box>
                   </Box>
                 </Box>
-                <Box mt={1} py={2} textAlign={isEn ? (matches ? 'left' : 'center') : 'center'}>
+                <Box mt={1} py={2} textAlign='justify' px={matches ? 2 : 30}>
                   <Typography variant={matches ? 'body2' : 'body1'}>
                     {t('products_and_services.take2_prophecy.subDetail3')}
                   </Typography>
@@ -718,7 +735,7 @@ const CancerScreen = () => {
                       className={classes.imageListItem}
                     >
                       <Box className={classes.reportItem}>
-                        <Box className={classes.reportTop}>
+                        <Box className={index === 1 && isEn ? classes.reportTop2 : classes.reportTop}>
                           <Box
                             className={classes.reportType}
                             style={{
