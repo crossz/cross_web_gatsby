@@ -125,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(15),
     [theme.breakpoints.down('xs')]: {
       marginTop: theme.spacing(5),
-      marginBottom: theme.spacing(8),
+      marginBottom: theme.spacing(2.5),
     },
   },
   title: {
@@ -637,15 +637,17 @@ const CancerScreen = () => {
         alignItems='center'
         width='100%'
       >
-        <ImageTranslation
-          className={classes.prophecyImgWrapper}
-          filename='cancer_screen'
-          alt='cancer screen'
-          hasMobile={false}
-        ></ImageTranslation>
+        {!matches && (
+          <ImageTranslation
+            className={classes.prophecyImgWrapper}
+            filename='cancer_screen'
+            alt='cancer screen'
+            hasMobile={false}
+          ></ImageTranslation>
+        )}
         <Box ml={matches ? 0 : 5} px={isEn ? 4 : 0}>
           <Typography variant='h5' component='div'>
-            <Box pt={matches ? 5 : 14} color='prophecyPrimary.main'>
+            <Box pt={matches ? 0 : 14} color='prophecyPrimary.main'>
               {t('common.book_detection')}
             </Box>
             <Box mt={matches ? 1.5 : 2} mb={matches ? 5 : 7}>
