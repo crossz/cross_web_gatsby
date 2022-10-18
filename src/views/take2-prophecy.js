@@ -335,7 +335,7 @@ const useStyles = makeStyles((theme) => ({
   reportItem: {
     padding: theme.spacing(4),
     color: theme.palette.grey[600],
-    fontSize: theme.typography.caption.fontSize,
+    fontSize: 20,
     backgroundColor: theme.palette.background.paper,
     borderRadius: theme.spacing(1.5),
     [theme.breakpoints.down('xs')]: {
@@ -472,6 +472,26 @@ const CancerScreen = () => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
   const addLangQuery = useLangQuery()
+  const reference = [
+    {
+      ref: '"Chan, K. C. Allen, et al. “Analysis of Plasma Epstein–Barr Virus DNA to Screen for Nasopharyngeal Cancer.”New England Journal of Medicine, vol. 377, no. 6, 2017, pp. 513–22.',
+    },
+    {
+      ref: 'Lam, W. K. Jacky, et al. “Sequencing-Based Counting and Size Profiling of Plasma Epstein–Barr Virus DNA Enhance Population Screening of Nasopharyngeal Carcinoma.” Proceedings of the National Academy of Sciences, vol. 115, no. 22, 2018, pp. E5115–24.',
+    },
+    {
+      ref: 'Hong Kong Cancer Registry. Hong Kong Hospital Authority, www3.ha.org.hk/cancereg/. Accessed 23 May 2021.',
+    },
+    {
+      ref: 'Overview of Hong Kong Cancer Statistics of 2018. Hong Kong Hospital Authority, October 2020.',
+    },
+    {
+      ref: ' Chang, Kai-Ping, et al. “Complementary Serum Test of Antibodies to Epstein-Barr Virus Nuclear Antigen-1 and Early Antigen: A Possible Alternative for Primary Screening of Nasopharyngeal Carcinoma.” Oral Oncology,vol. 44, no. 8, 2008, pp. 784–92.',
+    },
+    {
+      ref: 'Tay, Joshua K., et al. “Screening in Nasopharyngeal Carcinoma: Current Strategies and Future Directions.” Current Otorhinolaryngology Reports, vol. 2, no. 1, 2013, pp. 1–7.',
+    },
+  ]
   return (
     <Layout>
       <Container className={classes.root} disableGutters maxWidth='xl'>
@@ -481,14 +501,14 @@ const CancerScreen = () => {
               <Typography variant='h4' color='primary'>
                 {t('products_and_services.take2_prophecy.title')}
               </Typography>
-              <Box mt={matches ? 2.5 : 3} textAlign='justify' mx={matches ? 2 : 26}>
+              <Box mt={matches ? 2.5 : 3} textAlign='justify' mx={matches ? 2 : 20}>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                   <Trans i18nKey='products_and_services.take2_prophecy.detail'>
                     .<sup>.</sup>.
                   </Trans>
                 </Typography>
               </Box>
-              <Box mt={matches ? 2.5 : 3} textAlign='center' mx={matches ? 2 : 25}>
+              <Box mt={matches ? 2.5 : 3} textAlign='left' mx={matches ? 2 : 20}>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                   {t('products_and_services.take2_prophecy.detail2')}
                 </Typography>
@@ -517,7 +537,9 @@ const CancerScreen = () => {
                 </Box>
                 <Box mt={1} py={2} textAlign='justify' px={matches ? 2 : 30}>
                   <Typography variant={matches ? 'body2' : 'body1'}>
-                    {t('products_and_services.take2_prophecy.subDetail3')}
+                    <Trans i18nKey='products_and_services.take2_prophecy.subDetail3'>
+                      .<span style={{ textDecoration: 'underline' }}>.</span>.
+                    </Trans>
                   </Typography>
                 </Box>
               </Box>
@@ -567,12 +589,12 @@ const CancerScreen = () => {
                     )}
                   </Box>
                 </Box>
-                <Box mt={matches ? 2 : 0}>
+                <Box mt={matches ? 2 : 0} marginLeft={matches ? '-20px' : 0}>
                   <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
                     <Grid item xs={matches ? 6 : 'auto'}>
                       <Button
-                        variant='outlined'
-                        color='primary'
+                        variant='contained'
+                        color='secondary'
                         href={addLangQuery()}
                         target='_blank'
                         fullWidth={matches}
@@ -586,8 +608,8 @@ const CancerScreen = () => {
                       <Link to='/service-location/'>
                         <Button
                           className={classes.btn}
-                          variant='contained'
-                          color='secondary'
+                          variant='outlined'
+                          color='primary'
                           fullWidth={matches}
                           id='RW_SL_CancerScreening_1'
                         >
@@ -613,15 +635,15 @@ const CancerScreen = () => {
               </Box>
               <Box className={classes.tableTitle} ml={matches ? 0 : 10} my={3} textAlign='center'>
                 <Trans i18nKey='products_and_services.take2_prophecy.tableBottom'>
-                  .<sup>.</sup>.
+                  .<sup style={{ fontWeight: '700', fontSize: '16px' }}>.</sup>.
                 </Trans>
               </Box>
               <Box>
                 <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
                   <Grid item xs={matches ? 6 : 'auto'}>
                     <Button
-                      variant='outlined'
-                      color='primary'
+                      variant='contained'
+                      color='secondary'
                       href={addLangQuery()}
                       target='_blank'
                       fullWidth={matches}
@@ -635,8 +657,8 @@ const CancerScreen = () => {
                     <Link to='/service-location/'>
                       <Button
                         className={classes.btn}
-                        variant='contained'
-                        color='secondary'
+                        variant='outlined'
+                        color='primary'
                         fullWidth={matches}
                         id='RW_SL_CancerScreening_1'
                       >
@@ -685,7 +707,7 @@ const CancerScreen = () => {
                           <Box className={classes.stepIcon}>{curStep.icon}</Box>
                           {matches && (
                             <Box color='primary.main' fontSize={20} mt={-3} zIndex={2}>
-                              <em>{index + 1}</em>
+                              <em>{index === 2 ? 4 : index === 3 ? 3 : index + 1}</em>
                             </Box>
                           )}
                           <Box className={classes.stepLabel}>
@@ -694,7 +716,7 @@ const CancerScreen = () => {
                               {index === 3 && !matches && <sup>#</sup>}
                               {index === 2 && matches && <sup>#</sup>}
                             </Box>
-                            {/* <Hidden smUp>
+                            <Hidden smUp>
                               {index < steps?.length - 1 && (
                                 <ArrowIcon
                                   className={classnames(classes.arrowIcon, {
@@ -705,26 +727,28 @@ const CancerScreen = () => {
                                   })}
                                 ></ArrowIcon>
                               )}
-                            </Hidden> */}
+                            </Hidden>
                           </Box>
                         </Box>
-                        {/* <Hidden xsDown>
+                        <Hidden xsDown>
                           {index < steps?.length - 1 && <ArrowIcon className={classes.arrowIcon}></ArrowIcon>}
-                        </Hidden> */}
+                        </Hidden>
                       </React.Fragment>
                     )
                   })}
                 </Box>
-                <Box
-                  fontWeight={matches ? 'fontWeightBold' : 'fontWeightMedium'}
-                  textAlign='center'
-                  mb={matches ? 4 : 3}
-                  mt={matches ? 1 : 8}
-                  color='primary.main'
-                  fontSize='body1.fontSize'
-                >
-                  {t('products_and_services.take2_prophecy.process.4')}:
-                </Box>
+                {!matches && (
+                  <Box
+                    fontWeight={matches ? 'fontWeightBold' : 'fontWeightMedium'}
+                    textAlign='center'
+                    mb={matches ? 4 : 3}
+                    mt={matches ? 1 : 8}
+                    color='primary.main'
+                    fontSize='body1.fontSize'
+                  >
+                    {t('products_and_services.take2_prophecy.process.4')}:
+                  </Box>
+                )}
                 <ImageList rowHeight='auto' cols={matches ? 1 : 2} gap={matches ? 16 : 24}>
                   {reports.map((report, index) => (
                     <ImageListItem
@@ -789,59 +813,51 @@ const CancerScreen = () => {
             </Box>
             <Box mt={matches ? 1.5 : 2} mb={matches ? 5 : 7}>
               <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
-                {t('products_and_services.take2_prophecy.do_you_have')}
+                {t('products_and_services.take2_prophecy.do_you_have_npc')}
               </Typography>
             </Box>
-          </Typography>
+          </Typography>{' '}
+          <Box ml={-3}>
+            <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
+              <Grid item xs={matches ? 5 : 'auto'}>
+                <Button
+                  variant='contained'
+                  color='secondary'
+                  href={addLangQuery()}
+                  target='_blank'
+                  fullWidth={matches}
+                  className={classes.btn}
+                  id='RW_Ehealth_CancerScreening_2'
+                >
+                  {t('common.book_now')}
+                </Button>
+              </Grid>
+              <Grid item xs={matches ? 5 : 'auto'}>
+                <Link to='/service-location/'>
+                  <Button
+                    variant='outlined'
+                    color='primary'
+                    className={classes.btn}
+                    fullWidth={matches}
+                    id='RW_SL_CancerScreening_2'
+                  >
+                    {t('common.service_location')}
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
         </Box>
       </Box>{' '}
-      <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
-        <Grid item xs={matches ? 5 : 'auto'}>
-          <Button
-            variant='outlined'
-            color='primary'
-            href={addLangQuery()}
-            target='_blank'
-            fullWidth={matches}
-            className={classes.btn}
-            id='RW_Ehealth_CancerScreening_2'
-          >
-            {t('common.book_now')}
-          </Button>
-        </Grid>
-        <Grid item xs={matches ? 5 : 'auto'}>
-          <Link to='/service-location/'>
-            <Button
-              className={classes.btn}
-              variant='contained'
-              color='secondary'
-              fullWidth={matches}
-              id='RW_SL_CancerScreening_2'
-            >
-              {t('common.service_location')}
-            </Button>
-          </Link>
-        </Grid>
-      </Grid>
       <Box className={classes.reportTip} mb={matches ? 3 : 12} ml={matches ? 3 : 20} mt={10}>
         {t('cp_v2.contact_and_reference.paragraphs.4')} <br />
         {matches ? <br /> : null}
-        1. "Chan, K. C. Allen, et al. “Analysis of Plasma Epstein–Barr Virus DNA to Screen for Nasopharyngeal Cancer.”
-        New England Journal of Medicine, vol. 377, no. 6, 2017, pp. 513–22. <br />
-        2. Lam, W. K. Jacky, et al. “Sequencing-Based Counting and Size Profiling of Plasma Epstein–Barr Virus DNA
-        Enhance Population Screening of Nasopharyngeal Carcinoma.” Proceedings of the National Academy of Sciences, vol.
-        115, no. 22, 2018, pp. E5115–24.
-        <br />
-        3. Hong Kong Cancer Registry. Hong Kong Hospital Authority, www3.ha.org.hk/cancereg/. Accessed 23 May 2021.
-        <br />
-        4. Overview of Hong Kong Cancer Statistics of 2018. Hong Kong Hospital Authority, October 2020.
-        <br />
-        5. Chang, Kai-Ping, et al. “Complementary Serum Test of Antibodies to Epstein-Barr Virus Nuclear Antigen-1 and
-        Early Antigen: A Possible Alternative for Primary Screening of Nasopharyngeal Carcinoma.” Oral Oncology, vol.
-        44, no. 8, 2008, pp. 784–92.
-        <br />
-        6. Tay, Joshua K., et al. “Screening in Nasopharyngeal Carcinoma: Current Strategies and Future Directions.”
-        Current Otorhinolaryngology Reports, vol. 2, no. 1, 2013, pp. 1–7.
+        {reference?.map((item, index) => (
+          <Box display='flex'>
+            <Box> {index + 1}. </Box>
+            <Box>{item.ref}</Box>
+          </Box>
+        ))}
       </Box>
     </Layout>
   )
