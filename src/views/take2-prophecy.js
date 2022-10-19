@@ -598,7 +598,7 @@ const CancerScreen = () => {
                         href={addLangQuery()}
                         target='_blank'
                         fullWidth={matches}
-                        id='RW_Ehealth_CancerScreening_1'
+                        id='RW_Ehealth_Prophecy_1'
                         className={classes.btn}
                       >
                         {t('common.book_now')}
@@ -611,7 +611,7 @@ const CancerScreen = () => {
                           variant='outlined'
                           color='primary'
                           fullWidth={matches}
-                          id='RW_SL_CancerScreening_1'
+                          id='RW_SL_Prophecy_1'
                         >
                           {t('common.service_location')}
                         </Button>
@@ -647,7 +647,7 @@ const CancerScreen = () => {
                       href={addLangQuery()}
                       target='_blank'
                       fullWidth={matches}
-                      id='RW_Ehealth_CancerScreening_1'
+                      id='RW_Ehealth_Prophecy_2'
                       className={classes.btn}
                     >
                       {t('common.book_now')}
@@ -660,7 +660,7 @@ const CancerScreen = () => {
                         variant='outlined'
                         color='primary'
                         fullWidth={matches}
-                        id='RW_SL_CancerScreening_1'
+                        id='RW_SL_Prophecy_2'
                       >
                         {t('common.service_location')}
                       </Button>
@@ -827,7 +827,7 @@ const CancerScreen = () => {
                   target='_blank'
                   fullWidth={matches}
                   className={classes.btn}
-                  id='RW_Ehealth_CancerScreening_2'
+                  id='RW_Ehealth_Prophecy_3'
                 >
                   {t('common.book_now')}
                 </Button>
@@ -839,7 +839,7 @@ const CancerScreen = () => {
                     color='primary'
                     className={classes.btn}
                     fullWidth={matches}
-                    id='RW_SL_CancerScreening_2'
+                    id='RW_SL_Prophecy_3'
                   >
                     {t('common.service_location')}
                   </Button>
