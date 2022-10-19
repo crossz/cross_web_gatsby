@@ -183,6 +183,7 @@ const useStyles = makeStyles((theme) => ({
       // height: theme.spacing(1),
       width: '100%',
       padding: theme.spacing(3, 0.5),
+      justifyContent: 'flex-start',
     },
   },
   bannerWrapper: {
@@ -381,6 +382,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexShrink: '0',
   },
+  mark: {
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '13px',
+    },
+  },
   prophecyImgWrapper: {
     overflow: 'hidden',
     width: 400,
@@ -474,22 +480,53 @@ const CancerScreen = () => {
   const addLangQuery = useLangQuery()
   const reference = [
     {
-      ref: '"Chan, K. C. Allen, et al. “Analysis of Plasma Epstein–Barr Virus DNA to Screen for Nasopharyngeal Cancer.”New England Journal of Medicine, vol. 377, no. 6, 2017, pp. 513–22.',
+      ref: (
+        <span>
+          Chan, K. C. Allen, et al. “Analysis of Plasma Epstein–Barr Virus DNA to Screen for Nasopharyngeal Cancer.”
+          <em>New England Journal of Medicine</em>, vol. 377, no. 6, 2017, pp. 513–22.
+        </span>
+      ),
     },
     {
-      ref: 'Lam, W. K. Jacky, et al. “Sequencing-Based Counting and Size Profiling of Plasma Epstein–Barr Virus DNA Enhance Population Screening of Nasopharyngeal Carcinoma.” Proceedings of the National Academy of Sciences, vol. 115, no. 22, 2018, pp. E5115–24.',
+      ref: (
+        <span>
+          Lam, W. K. Jacky, et al. “Sequencing-Based Counting and Size Profiling of Plasma Epstein–Barr Virus DNA
+          Enhance Population Screening of Nasopharyngeal Carcinoma.”{' '}
+          <em>Proceedings of the National Academy of Sciences</em>, vol. 115, no. 22, 2018, pp. E5115–24.
+        </span>
+      ),
     },
     {
-      ref: 'Hong Kong Cancer Registry. Hong Kong Hospital Authority, www3.ha.org.hk/cancereg/. Accessed 23 May 2021.',
+      ref: (
+        <span>
+          <em>Hong Kong Cancer Registry.</em> Hong Kong Hospital Authority, www3.ha.org.hk/cancereg/. Accessed 23 May
+          2021.
+        </span>
+      ),
     },
     {
-      ref: 'Overview of Hong Kong Cancer Statistics of 2018. Hong Kong Hospital Authority, October 2020.',
+      ref: (
+        <span>
+          <em>Overview of Hong Kong Cancer Statistics of 2018.</em> Hong Kong Hospital Authority, October 2020.
+        </span>
+      ),
     },
     {
-      ref: ' Chang, Kai-Ping, et al. “Complementary Serum Test of Antibodies to Epstein-Barr Virus Nuclear Antigen-1 and Early Antigen: A Possible Alternative for Primary Screening of Nasopharyngeal Carcinoma.” Oral Oncology,vol. 44, no. 8, 2008, pp. 784–92.',
+      ref: (
+        <span>
+          Chang, Kai-Ping, et al. “Complementary Serum Test of Antibodies to Epstein-Barr Virus Nuclear Antigen-1 and
+          Early Antigen: A Possible Alternative for Primary Screening of Nasopharyngeal Carcinoma.”
+          <em>Oral Oncology</em>,vol. 44, no. 8, 2008, pp. 784–92.
+        </span>
+      ),
     },
     {
-      ref: 'Tay, Joshua K., et al. “Screening in Nasopharyngeal Carcinoma: Current Strategies and Future Directions.” Current Otorhinolaryngology Reports, vol. 2, no. 1, 2013, pp. 1–7.',
+      ref: (
+        <span>
+          Tay, Joshua K., et al. “Screening in Nasopharyngeal Carcinoma: Current Strategies and Future Directions.”
+          <em>Current Otorhinolaryngology Reports,</em> vol. 2, no. 1, 2013, pp. 1–7.
+        </span>
+      ),
     },
   ]
   return (
@@ -501,14 +538,14 @@ const CancerScreen = () => {
               <Typography variant='h4' color='primary'>
                 {t('products_and_services.take2_prophecy.title')}
               </Typography>
-              <Box mt={matches ? 2.5 : 3} textAlign='justify' mx={matches ? 2 : 20}>
+              <Box mt={matches ? 2.5 : 3} textAlign='justify' mx={matches ? 2 : 19}>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                   <Trans i18nKey='products_and_services.take2_prophecy.detail'>
                     .<sup>.</sup>.
                   </Trans>
                 </Typography>
               </Box>
-              <Box mt={matches ? 2.5 : 3} textAlign='left' mx={matches ? 2 : 20}>
+              <Box mt={matches ? 2.5 : 3} textAlign='left' mx={matches ? 2 : 19}>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                   {t('products_and_services.take2_prophecy.detail2')}
                 </Typography>
@@ -685,10 +722,10 @@ const CancerScreen = () => {
                     if (matches) {
                       switch (index) {
                         case 2:
-                          curStep = steps[3]
+                          curStep = steps[2]
                           break
                         case 3:
-                          curStep = steps[2]
+                          curStep = steps[3]
                           break
                         default:
                           curStep = step
@@ -707,7 +744,7 @@ const CancerScreen = () => {
                           <Box className={classes.stepIcon}>{curStep.icon}</Box>
                           {matches && (
                             <Box color='primary.main' fontSize={20} mt={-3} zIndex={2}>
-                              <em>{index === 2 ? 4 : index === 3 ? 3 : index + 1}</em>
+                              <em>{index + 1}</em>
                             </Box>
                           )}
                           <Box className={classes.stepLabel}>
@@ -716,7 +753,7 @@ const CancerScreen = () => {
                               {index === 3 && !matches && <sup>#</sup>}
                               {index === 2 && matches && <sup>#</sup>}
                             </Box>
-                            <Hidden smUp>
+                            {/* <Hidden smUp>
                               {index < steps?.length - 1 && (
                                 <ArrowIcon
                                   className={classnames(classes.arrowIcon, {
@@ -727,7 +764,7 @@ const CancerScreen = () => {
                                   })}
                                 ></ArrowIcon>
                               )}
-                            </Hidden>
+                            </Hidden> */}
                           </Box>
                         </Box>
                         <Hidden xsDown>
@@ -773,7 +810,7 @@ const CancerScreen = () => {
                           </Box>
                           {t(report.suggestion)}
                         </Box>
-                        <Box>{t(report.mark)}</Box>
+                        <Box className={classes.mark}>{t(report.mark)}</Box>
                       </Box>
                     </ImageListItem>
                   ))}
@@ -819,7 +856,7 @@ const CancerScreen = () => {
           </Typography>{' '}
           <Box ml={-3}>
             <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
-              <Grid item xs={matches ? 5 : 'auto'}>
+              <Grid item xs={matches ? 6 : 'auto'}>
                 <Button
                   variant='contained'
                   color='secondary'
@@ -832,7 +869,7 @@ const CancerScreen = () => {
                   {t('common.book_now')}
                 </Button>
               </Grid>
-              <Grid item xs={matches ? 5 : 'auto'}>
+              <Grid item xs={matches ? 6 : 'auto'}>
                 <Link to='/service-location/'>
                   <Button
                     variant='outlined'

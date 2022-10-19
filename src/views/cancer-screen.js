@@ -411,6 +411,24 @@ const CancerScreen = () => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
   const addLangQuery = useLangQuery()
+  const reference = [
+    {
+      ref: (
+        <span>
+          <em>Cancer Factsheet.</em> World Health Organisation, February 2022, from
+          https://www.who.int/news-room/fact-sheets/detail/cancer. Accessed 08 August 2022.
+        </span>
+      ),
+    },
+    {
+      ref: (
+        <span>
+          <em>Hong Kong Cancer Strategy 2019. </em>Department of Health, Food and Health Bureau, & Hospital Authority,
+          July 2019.
+        </span>
+      ),
+    },
+  ]
   return (
     <Layout>
       <Container className={classes.root} disableGutters maxWidth='xl'>
@@ -562,10 +580,10 @@ const CancerScreen = () => {
                     if (matches) {
                       switch (index) {
                         case 2:
-                          curStep = steps[3]
+                          curStep = steps[2]
                           break
                         case 3:
-                          curStep = steps[2]
+                          curStep = steps[3]
                           break
                         default:
                           curStep = step
@@ -584,7 +602,7 @@ const CancerScreen = () => {
                           <Box className={classes.stepIcon}>{curStep.icon}</Box>
                           {matches && (
                             <Box color='primary.main' fontSize={20} mt={-3} zIndex={2}>
-                              <em>{index === 2 ? 4 : index === 3 ? 3 : index + 1}</em>
+                              <em>{index + 1}</em>
                             </Box>
                           )}
                           <Box className={classes.stepLabel}>
@@ -593,7 +611,7 @@ const CancerScreen = () => {
                               {index === 3 && !matches && <sup>#</sup>}
                               {index === 2 && matches && <sup>#</sup>}
                             </Box>
-                            <Hidden smUp>
+                            {/* <Hidden smUp>
                               {index < steps?.length - 1 && (
                                 <ArrowIcon
                                   className={classnames(classes.arrowIcon, {
@@ -604,7 +622,7 @@ const CancerScreen = () => {
                                   })}
                                 ></ArrowIcon>
                               )}
-                            </Hidden>
+                            </Hidden> */}
                           </Box>
                         </Box>
                         <Hidden xsDown>
@@ -691,10 +709,12 @@ const CancerScreen = () => {
       <Box className={classes.reportTip} mb={matches ? 3 : 12} ml={matches ? 3 : 20} mt={10}>
         {t('cp_v2.contact_and_reference.paragraphs.4')} <br />
         {matches ? <br /> : null}
-        1. "<em>Cancer Factsheet.</em>" World Health Organisation, February 2022, from
-        https://www.who.int/news-room/fact-sheets/detail/cancer. Accessed 08 August 2022. <br />
-        2. <em>Hong Kong Cancer Strategy 2019. </em>Department of Health, Food and Health Bureau, & Hospital Authority,
-        July 2019.
+        {reference?.map((item, index) => (
+          <Box display='flex'>
+            <Box> {index + 1}. </Box>
+            <Box>{item.ref}</Box>
+          </Box>
+        ))}
       </Box>
     </Layout>
   )
