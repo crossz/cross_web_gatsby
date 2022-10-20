@@ -312,7 +312,7 @@
                 "1": {
                     "result": "Negative test result**",
                     "suggestion": "Regular check-ups",
-                    "mark": "**Negative: Human and NPC-associated genomic signatures of EBV DNA were not detected"
+                    "mark": "** Negative: Human and NPC-associated genomic signatures of EBV DNA were not detected"
                 }
             },
             "notice": "Patients who have had organ transplant, currently have cancer or autoimmune diseases, or those currently receiving systemic glucocorticoid or immunosuppressive treatment are not recommended for early NPC detection using our test. If in doubt, please consult healthcare professionals for more information.",
