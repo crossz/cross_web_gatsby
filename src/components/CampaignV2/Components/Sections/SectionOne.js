@@ -62,68 +62,33 @@ const useStyles = makeStyles((theme) => ({
 const SYMPTOM_LIST = [
   {
     label: 'cp_v2.ngs_characteristic.diseases.0',
-    icon: (
-      <StaticImage
-        src='../../images/disease_01.png'
-        alt='disease 01'
-      ></StaticImage>
-    ),
+    icon: <StaticImage src='../../images/disease_01.png' alt='disease 01'></StaticImage>,
   },
   {
     label: 'cp_v2.ngs_characteristic.diseases.1',
-    icon: (
-      <StaticImage
-        src='../../images/disease_02.png'
-        alt='disease 02'
-      ></StaticImage>
-    ),
+    icon: <StaticImage src='../../images/disease_02.png' alt='disease 02'></StaticImage>,
   },
   {
     label: 'cp_v2.ngs_characteristic.diseases.2',
-    icon: (
-      <StaticImage
-        src='../../images/disease_03.png'
-        alt='disease 03'
-      ></StaticImage>
-    ),
+    icon: <StaticImage src='../../images/disease_03.png' alt='disease 03'></StaticImage>,
   },
 ]
 
 const characteristics = [
   {
-    img: (
-      <StaticImage
-        src='../../images/npc_characteristic_01.png'
-        alt='characteristic 01'
-      ></StaticImage>
-    ),
+    img: <StaticImage src='../../images/npc_characteristic_01.png' alt='characteristic 01'></StaticImage>,
     detail: 'cp_v2.ngs_characteristic.characteristics.0',
   },
   {
-    img: (
-      <StaticImage
-        src='../../images/npc_characteristic_02.png'
-        alt='characteristic 02'
-      ></StaticImage>
-    ),
+    img: <StaticImage src='../../images/npc_characteristic_02.png' alt='characteristic 02'></StaticImage>,
     detail: 'cp_v2.ngs_characteristic.characteristics.1',
   },
   {
-    img: (
-      <StaticImage
-        src='../../images/npc_characteristic_03.png'
-        alt='characteristic 03'
-      ></StaticImage>
-    ),
+    img: <StaticImage src='../../images/npc_characteristic_03.png' alt='characteristic 03'></StaticImage>,
     detail: 'cp_v2.ngs_characteristic.characteristics.2',
   },
   {
-    img: (
-      <StaticImage
-        src='../../images/npc_characteristic_04.png'
-        alt='characteristic 04'
-      ></StaticImage>
-    ),
+    img: <StaticImage src='../../images/npc_characteristic_04.png' alt='characteristic 04'></StaticImage>,
     detail: 'cp_v2.ngs_characteristic.characteristics.3',
   },
 ]
@@ -137,23 +102,9 @@ const SectionOne = () => {
 
   return (
     <>
-      <ImageTranslation
-        filename='section_banner_01'
-        alt='section banner 01'
-      ></ImageTranslation>
-      <Box
-        fontSize={isMobile ? 16 : 18}
-        mx='auto'
-        boxSizing='content-box'
-        px={2.5}
-        pb={8}
-        maxWidth={784}
-      >
-        <Box
-          position='relative'
-          mt={isMobile ? -5.25 : -8}
-          mb={isMobile ? 6 : 8}
-        >
+      <ImageTranslation filename='section_banner_01' alt='section banner 01'></ImageTranslation>
+      <Box fontSize={isMobile ? 16 : 18} mx='auto' boxSizing='content-box' px={2.5} pb={8} maxWidth={784}>
+        <Box position='relative' mt={isMobile ? -5.25 : -8} mb={isMobile ? 6 : 8}>
           <Box pt={`${(9 / 16) * 100}%`} position='relative'>
             <YouTube
               containerClassName={classes.videoContainer}
@@ -166,11 +117,7 @@ const SectionOne = () => {
               id='ECP_Video_Play'
             />
           </Box>
-          <Box
-            textAlign={isMobile ? 'left' : 'center'}
-            color='grey.900'
-            component='p'
-          >
+          <Box textAlign={isMobile ? 'left' : 'center'} color='grey.900' component='p'>
             {t('cp_v2.ngs_characteristic.paragraphs.0')}
           </Box>
         </Box>
@@ -181,11 +128,7 @@ const SectionOne = () => {
           gap={isMobile ? 24 : 32}
         >
           {characteristics.map((item, index) => (
-            <ImageListItem
-              className='gsap-fade-in-1'
-              classes={{ item: classes.imageListItem }}
-              key={index}
-            >
+            <ImageListItem className='gsap-fade-in-1' classes={{ item: classes.imageListItem }} key={index}>
               <Box
                 bgcolor='background.paper'
                 p={isMobile ? 2.5 : 3}
@@ -196,20 +139,10 @@ const SectionOne = () => {
                 borderRadius={16}
                 boxShadow={`0 5px 30px 0 ${alpha('#7C7C7C', 0.1)}`}
               >
-                <Box
-                  flexShrink={0}
-                  width={105}
-                  height={105}
-                  mr={isMobile ? 0 : 3}
-                  mb={isMobile ? 2 : 0}
-                >
+                <Box flexShrink={0} width={105} height={105} mr={isMobile ? 0 : 3} mb={isMobile ? 2 : 0}>
                   {item.img}
                 </Box>
-                <Box
-                  color='grey.900'
-                  textAlign={isMobile ? 'center' : 'left'}
-                  fontWeight='fontWeightBold'
-                >
+                <Box color='grey.900' textAlign={isMobile ? 'center' : 'left'} fontWeight='fontWeightBold' mx={1}>
                   <Trans i18nKey={item.detail}>
                     .<sup>2</sup>
                   </Trans>
@@ -218,12 +151,7 @@ const SectionOne = () => {
             </ImageListItem>
           ))}
         </ImageList>
-        <Box
-          className='gsap-fade-in-2-trigger'
-          mt={6}
-          textAlign='center'
-          color='grey.900'
-        >
+        <Box className='gsap-fade-in-2-trigger' mt={6} textAlign='center' color='grey.900'>
           {t('cp_v2.ngs_characteristic.paragraphs.1')}
         </Box>
       </Box>
@@ -245,25 +173,14 @@ const SectionOne = () => {
           <Typography variant={isMobile ? 'h4' : 'h5'} color='secondary'>
             {t('cp_v2.ngs_characteristic.paragraphs.2')}
           </Typography>
-          <Box
-            mt={2}
-            fontWeight='fontWeightRegular'
-            fontSize={isMobile ? 16 : 18}
-          >
+          <Box mt={2} fontWeight='fontWeightRegular' fontSize={isMobile ? 16 : 18}>
             <Trans i18nKey='cp_v2.ngs_characteristic.paragraphs.3'>
               .<sup>.</sup>.
             </Trans>
           </Box>
         </Box>
       </Box>
-      <Box
-        overflow='hidden'
-        px={2}
-        pt={25}
-        pb={isMobile ? 8 : 14}
-        position='relative'
-        bgcolor='prophecyPrimary.main'
-      >
+      <Box overflow='hidden' px={2} pt={25} pb={isMobile ? 8 : 14} position='relative' bgcolor='prophecyPrimary.main'>
         <Box
           flexDirection='column'
           alignItems='center'
@@ -282,9 +199,7 @@ const SectionOne = () => {
             fontSize={isMobile ? 20 : 28}
             pb={isMobile ? 3 : 3.5}
           >
-            <Box mb={isMobile ? 4 : 5}>
-              {t('cp_v2.ngs_characteristic.paragraphs.4')}
-            </Box>
+            <Box mb={isMobile ? 4 : 5}>{t('cp_v2.ngs_characteristic.paragraphs.4')}</Box>
             <IntersectIcon
               style={{
                 width: isMobile ? 64 : 100,
@@ -383,18 +298,8 @@ const SectionOne = () => {
             >
               {t('common.book_now')}
             </Button>
-            <Box
-              width='100%'
-              target='_blank'
-              to='/service-location/'
-              component={Link}
-            >
-              <Button
-                className={classes.outlineButton}
-                fullWidth
-                variant='outlined'
-                id='ECP_Symptoms_Location'
-              >
+            <Box width='100%' target='_blank' to='/service-location/' component={Link}>
+              <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_Symptoms_Location'>
                 {t('cp_v2.common.view_service_location')}
               </Button>
             </Box>
