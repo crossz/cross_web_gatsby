@@ -125,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(15),
     [theme.breakpoints.down('xs')]: {
       marginTop: theme.spacing(5),
-      marginBottom: theme.spacing(8),
+      marginBottom: theme.spacing(2.5),
     },
   },
   title: {
@@ -411,6 +411,24 @@ const CancerScreen = () => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
   const addLangQuery = useLangQuery()
+  const reference = [
+    {
+      ref: (
+        <span>
+          <em>Cancer Factsheet.</em> World Health Organisation, February 2022, from
+          https://www.who.int/news-room/fact-sheets/detail/cancer. Accessed 08 August 2022.
+        </span>
+      ),
+    },
+    {
+      ref: (
+        <span>
+          <em>Hong Kong Cancer Strategy 2019. </em>Department of Health, Food and Health Bureau, & Hospital Authority,
+          July 2019.
+        </span>
+      ),
+    },
+  ]
   return (
     <Layout>
       <Container className={classes.root} disableGutters maxWidth='xl'>
@@ -518,8 +536,8 @@ const CancerScreen = () => {
                 <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
                   <Grid item xs={matches ? 6 : 'auto'}>
                     <Button
-                      variant='outlined'
-                      color='primary'
+                      variant='contained'
+                      color='secondary'
                       href={addLangQuery()}
                       target='_blank'
                       fullWidth={matches}
@@ -532,9 +550,9 @@ const CancerScreen = () => {
                   <Grid item xs={matches ? 6 : 'auto'}>
                     <Link to='/service-location/'>
                       <Button
+                        variant='outlined'
+                        color='primary'
                         className={classes.btn}
-                        variant='contained'
-                        color='secondary'
                         fullWidth={matches}
                         id='RW_SL_CancerScreening_1'
                       >
@@ -562,10 +580,10 @@ const CancerScreen = () => {
                     if (matches) {
                       switch (index) {
                         case 2:
-                          curStep = steps[3]
+                          curStep = steps[2]
                           break
                         case 3:
-                          curStep = steps[2]
+                          curStep = steps[3]
                           break
                         default:
                           curStep = step
@@ -607,9 +625,9 @@ const CancerScreen = () => {
                             </Hidden> */}
                           </Box>
                         </Box>
-                        {/* <Hidden xsDown>
+                        <Hidden xsDown>
                           {index < steps?.length - 1 && <ArrowIcon className={classes.arrowIcon}></ArrowIcon>}
-                        </Hidden> */}
+                        </Hidden>
                       </React.Fragment>
                     )
                   })}
@@ -637,15 +655,17 @@ const CancerScreen = () => {
         alignItems='center'
         width='100%'
       >
-        <ImageTranslation
-          className={classes.prophecyImgWrapper}
-          filename='cancer_screen'
-          alt='cancer screen'
-          hasMobile={false}
-        ></ImageTranslation>
+        {!matches && (
+          <ImageTranslation
+            className={classes.prophecyImgWrapper}
+            filename='cancer_screen'
+            alt='cancer screen'
+            hasMobile={false}
+          ></ImageTranslation>
+        )}
         <Box ml={matches ? 0 : 5} px={isEn ? 4 : 0}>
           <Typography variant='h5' component='div'>
-            <Box pt={matches ? 5 : 14} color='prophecyPrimary.main'>
+            <Box pt={matches ? 0 : 14} color='prophecyPrimary.main'>
               {t('common.book_detection')}
             </Box>
             <Box mt={matches ? 1.5 : 2} mb={matches ? 5 : 7}>
@@ -653,44 +673,48 @@ const CancerScreen = () => {
                 {t('products_and_services.take2_prophecy.do_you_have')}
               </Typography>
             </Box>
-          </Typography>
+          </Typography>{' '}
+          <Box width={matches ? 300 : 'auto'}>
+            <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
+              <Grid item xs={matches ? 5 : 'auto'}>
+                <Button
+                  variant='contained'
+                  color='secondary'
+                  href={addLangQuery()}
+                  target='_blank'
+                  fullWidth={matches}
+                  className={classes.btn}
+                  id='RW_Ehealth_CancerScreening_2'
+                >
+                  {t('common.book_now')}
+                </Button>
+              </Grid>
+              <Grid item xs={matches ? 5 : 'auto'}>
+                <Link to='/service-location/'>
+                  <Button
+                    className={classes.btn}
+                    variant='outlined'
+                    color='primary'
+                    fullWidth={matches}
+                    id='RW_SL_CancerScreening_2'
+                  >
+                    {t('common.service_location')}
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
         </Box>
       </Box>{' '}
-      <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
-        <Grid item xs={matches ? 5 : 'auto'}>
-          <Button
-            variant='outlined'
-            color='primary'
-            href={addLangQuery()}
-            target='_blank'
-            fullWidth={matches}
-            className={classes.btn}
-            id='RW_Ehealth_CancerScreening_2'
-          >
-            {t('common.book_now')}
-          </Button>
-        </Grid>
-        <Grid item xs={matches ? 5 : 'auto'}>
-          <Link to='/service-location/'>
-            <Button
-              className={classes.btn}
-              variant='contained'
-              color='secondary'
-              fullWidth={matches}
-              id='RW_SL_CancerScreening_2'
-            >
-              {t('common.service_location')}
-            </Button>
-          </Link>
-        </Grid>
-      </Grid>
       <Box className={classes.reportTip} mb={matches ? 3 : 12} ml={matches ? 3 : 20} mt={10}>
         {t('cp_v2.contact_and_reference.paragraphs.4')} <br />
         {matches ? <br /> : null}
-        1. "<em>Cancer Factsheet.</em>" World Health Organisation, February 2022, from
-        https://www.who.int/news-room/fact-sheets/detail/cancer. Accessed 08 August 2022. <br />
-        2. <em>Hong Kong Cancer Strategy 2019. </em>Department of Health, Food and Health Bureau, & Hospital Authority,
-        July 2019.
+        {reference?.map((item, index) => (
+          <Box display='flex'>
+            <Box> {index + 1}. </Box>
+            <Box>{item.ref}</Box>
+          </Box>
+        ))}
       </Box>
     </Layout>
   )
