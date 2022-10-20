@@ -538,14 +538,14 @@ const CancerScreen = () => {
               <Typography variant='h4' color='primary'>
                 {t('products_and_services.take2_prophecy.title')}
               </Typography>
-              <Box mt={matches ? 2.5 : 3} textAlign='justify' mx={matches ? 2 : 19}>
+              <Box mt={matches ? 2.5 : 3} textAlign='justify' mx={matches ? 2 : 22}>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                   <Trans i18nKey='products_and_services.take2_prophecy.detail'>
                     .<sup>.</sup>.
                   </Trans>
                 </Typography>
               </Box>
-              <Box mt={matches ? 2.5 : 3} textAlign='left' mx={matches ? 2 : 19}>
+              <Box mt={matches ? 2.5 : 3} textAlign='left' mx={matches ? 2 : 22}>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                   {t('products_and_services.take2_prophecy.detail2')}
                 </Typography>
