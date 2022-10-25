@@ -85,7 +85,7 @@ const ShoppingBtn = () => {
           <Trans i18nKey='common.online_promotion_code'>
             網上預約
             <br />
-            優惠碼{{ PROMOTION_CODE }}
+            {/* 優惠碼{{ PROMOTION_CODE }} */}
           </Trans>
         </Box>
       </IconButton>
