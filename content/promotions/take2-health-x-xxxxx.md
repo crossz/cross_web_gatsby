@@ -10,7 +10,7 @@ type: ''
 pdf: ''
 href: ''
 slug: athletes-medical-collaborations
-hide: false
+hide: true
 
 ---
 ![](../images/athlete-promo-banner-update-s-chi-02.jpg)

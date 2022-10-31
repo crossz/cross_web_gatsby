@@ -37,7 +37,7 @@
         "register": "Register",
         "follow_us": "Follow Us",
         "take2_copy_right": "Copyright © 2021-2022 Take2 Health Limited. All rights reserved.",
-        "online_promotion_code": "Book Online<br/>Promo Code {{PROMOTION_CODE}}",
+        "online_promotion_code": "Book Online<br/>Save more than $500*",
         "member_registration": "Member Registration",
         "take2_health": "Take2 Health Limited",
         "release_date": "Job Posting Date",
@@ -294,14 +294,14 @@
         },
         "take2_prophecy": {
             "title": "The Take2 Prophecy™ Test for Nasopharyngeal Cancer",
-            "detail": "The Take2 Prophecy™ Test for NPC is suitable for individuals who intend to do routine check-ups, who are asymptomatic and with suspected symptoms.",
+            "detail": "Take2 Prophecy™ Test for Nasopharyngeal Cancer (NPC) utilises Next-generation Sequencing (NGS) technology, that achieves > 97% sensitivity<1>1,2</1> and 0.7% low false-positive rate<1>2</1>. Providing accurate and reliable results, the Take2 Prophecy™ Test for NPC ranks at the top over other similar tests. It only requires a blood draw to effectively identify early-stage NPC patients.",
             "detection_process": "Test Procedures",
             "process": {
-                "0": "Doctor’s consultation",
+                "0": "Doctor’s assessment",
                 "1": "Collection of blood samples",
-                "2": "Analysis at the\nlaboratory",
+                "2": "Test performed at local laboratories",
                 "3": "Test results ready in\n3 - 7 working days",
-                "4": "Test results’ interpretation by doctor"
+                "4": "Test results’ interpretation by the doctor"
             },
             "reports": {
                 "0": {
@@ -312,13 +312,28 @@
                 "1": {
                     "result": "Negative test result**",
                     "suggestion": "Regular check-ups",
-                    "mark": "**Negative: Human and NPC-associated genomic signatures of EBV DNA were not detected"
+                    "mark": "** Negative: Human and NPC-associated genomic signatures of EBV DNA were not detected"
                 }
             },
-            "notice": "Patients who have had organ transplant, currently have cancer or autoimmune diseases, or those currently receiving systemic glucocorticoid or immunosuppressive treatment are not recommended for early NPC detection using our test.",
+            "notice": "Patients who have had organ transplant, currently have cancer or autoimmune diseases, or those currently receiving systemic glucocorticoid or immunosuppressive treatment are not recommended for early NPC detection using our test. If in doubt, please consult healthcare professionals for more information.",
             "do_you_have": "Want to know more about your potential health risks? Get tested now!",
             "action": "Act now!",
-            "covid_notice": "From the day of receipt of samples, under normal circumstances, the analysis can be completed in about 3-7 working days"
+            "covid_notice": "From the day of receipt of samples, under normal circumstances, the analysis can be completed in about 3-7 working days",
+            "detail2": "The Take2 Prophecy™ Test for NPC is suitable for individuals who intend to do routine check-ups, who are asymptomatic and with suspected symptoms.",
+            "subTitle": "Act Now and Stay Vigilant against NPC",
+            "subDetail1": "NPC is one of the common cancers in HK<1>3</1>; it is the top cancer for men aged 20-44<1>4</1>",
+            "subDetail2": "Early NPC symptoms resemble flu and are difficult to distinguish (Some of the common symptoms include headaches, nasal blockage, tinnitus, etc.)",
+            "subDetail3": "<1>Perform regular NPC screening</1> to catch the changes in your body before symptoms appear to allow timely treatment and interventions, thus increasing the chances to cure",
+            "feature": "Key Features of Take2 Prophecy™ Test for NPC:",
+            "compass1": "Utilising Next-generation Sequencing technology",
+            "compass2": "Achieving sensitivity > 97%<1>1,2</1> with a remarkably low false positive rate  (0.7%<1>2</1>)",
+            "compass3": "Being clinically proven by thousands of individuals<1>1</1>, the results have been published in international medical journals",
+            "compass4": "Blood-drawing only, non-invasive, and minimal risk",
+            "compass5": "Results will be ready soonest in 3 working days",
+            "compass6": "Developed by local university leading research team",
+            "tableTitle": "Take2 Prophecy™ Test for NPC outperforms other similar tests:",
+            "tableBottom": "NPC could be cured by detecting early! The survival rate of early-stage NPC patients could be higher than 90%<1>1</1>",
+            "do_you_have_npc": "Get tested to understand your risk of having NPC. Act now!"
         },
         "cancer_screen_package": {
             "detail": "Covers our top-selling Take2 Prophecy™ Test for Nasopharyngeal Cancer (NPC); and tests for the cancer markers of common cancers in Hong Kong (e.g. colorectal, pancreatic, liver, prostate, breast and ovarian cancer). ",
