@@ -24,7 +24,7 @@ import useObjectTranslation from '@hooks/useObjectTranslation'
 import classnames from 'classnames'
 import ImageTranslation from '@components/ImageTranslation'
 import useLangQuery from '@hooks/useLangQuery'
-import { T_AND_C } from '../../utils/constant'
+// import { T_AND_C } from '../../utils/constant'
 
 SwiperCore.use([Autoplay, Pagination, Navigation])
 
