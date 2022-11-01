@@ -27,7 +27,7 @@
     "@mdx-js/react": "^1.6.22",
     "classnames": "^2.3.1",
     "formik": "^2.2.9",
-    "gatsby": "^4.20.0",
+    "gatsby": "^4.24.5",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-image": "^2.20.0",
