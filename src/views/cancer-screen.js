@@ -75,20 +75,20 @@ const steps = [
   },
 ]
 
-const reports = [
-  {
-    result: 'products_and_services.take2_prophecy.reports.0.result',
-    suggestion: 'products_and_services.take2_prophecy.reports.0.suggestion',
-    mark: 'products_and_services.take2_prophecy.reports.0.mark',
-    color: '#C8002E',
-  },
-  {
-    result: 'products_and_services.take2_prophecy.reports.1.result',
-    suggestion: 'products_and_services.take2_prophecy.reports.1.suggestion',
-    mark: 'products_and_services.take2_prophecy.reports.1.mark',
-    color: '#00AA82',
-  },
-]
+// const reports = [
+//   {
+//     result: 'products_and_services.take2_prophecy.reports.0.result',
+//     suggestion: 'products_and_services.take2_prophecy.reports.0.suggestion',
+//     mark: 'products_and_services.take2_prophecy.reports.0.mark',
+//     color: '#C8002E',
+//   },
+//   {
+//     result: 'products_and_services.take2_prophecy.reports.1.result',
+//     suggestion: 'products_and_services.take2_prophecy.reports.1.suggestion',
+//     mark: 'products_and_services.take2_prophecy.reports.1.mark',
+//     color: '#00AA82',
+//   },
+// ]
 const compass = [
   { name: 'products_and_services.cancer_screen_package.compass1', object: '' },
   { name: 'products_and_services.cancer_screen_package.compass2', object: '' },

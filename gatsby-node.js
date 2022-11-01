@@ -30,15 +30,11 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
           ? `/whats-new/campaign/${relativeDirectory}/${
               node.frontmatter.slug || node.frontmatter.cpTitle?.trim() || name
             }`
-          : `/whats-new/${relativeDirectory}/${
-              node.frontmatter.slug || node.frontmatter.title?.trim() || name
-            }`
+          : `/whats-new/${relativeDirectory}/${node.frontmatter.slug || node.frontmatter.title?.trim() || name}`
         break
       case 'promotions':
       case 'updates':
-        slug = `/whats-new/${relativeDirectory}/${
-          node.frontmatter.slug || node.frontmatter.title?.trim() || name
-        }`
+        slug = `/whats-new/${relativeDirectory}/${node.frontmatter.slug || node.frontmatter.title?.trim() || name}`
         break
       case 'campaign-page-posts':
         slug = `/whats-new/campaign/${relativeDirectory}/${
@@ -63,10 +59,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const careers = await graphql(`
     {
-      allMdx(
-        filter: { fileAbsolutePath: { regex: "/join-us/" } }
-        sort: { fields: frontmatter___date, order: DESC }
-      ) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/join-us/" } }, sort: { fields: frontmatter___date, order: DESC }) {
         nodes {
           id
         }
@@ -74,8 +67,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-  if (careers.errors)
-    return reporter.panicOnBuild(`Error while running GraphQL query.`)
+  if (careers.errors) return reporter.panicOnBuild(`Error while running GraphQL query.`)
   const joinUsTemplate = resolve(__dirname, 'src/templates/JoinUs.js')
   paginate({
     createPage, // The Gatsby `createPage` function
@@ -103,8 +95,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-  if (allMdxQuery.errors)
-    return reporter.panicOnBuild(`Error while running GraphQL query.`)
+  const oldPostsData = await graphql(`
+    query {
+      allMdx(filter: { frontmatter: { date: { lt: "2021-10-31" } } }) {
+        nodes {
+          id
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `)
+  const oldPosts = new Set(oldPostsData?.data?.allMdx?.nodes?.map((n) => n?.fields?.slug))
+  if (allMdxQuery.errors) return reporter.panicOnBuild(`Error while running GraphQL query.`)
 
   const postTemplate = resolve(__dirname, 'src/templates/Post.js')
   const tAndCTemplate = resolve(__dirname, 'src/templates/T&C.js')
@@ -116,17 +120,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     let path = mdx.fields?.slug
     if (!path) return
 
-    let template = null
+    let template = null,
+      defer = false
 
     switch (mdx.parent.relativeDirectory) {
       case 'terms-and-conditions':
         template = tAndCTemplate
+        defer = true
         break
       case 'join-us':
         template = careerTemplate
+        defer = true
         break
       default:
         template = postTemplate
+        defer = oldPosts.has(mdx.fields.slug)
         break
     }
 
@@ -138,6 +146,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         sectionPath: mdx.parent.relativeDirectory,
         regex: `/${mdx.parent.relativeDirectory}/`,
       },
+      defer,
     })
   })
 
