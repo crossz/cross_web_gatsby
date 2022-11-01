@@ -426,7 +426,7 @@ export const query = graphql`
     }
     allMdx(
       filter: {
-        fileAbsolutePath: { regex: "/join-us/" }
+        fields: { slug: { regex: "/join-us/" } }
         frontmatter: { languages: { eq: $language }, hide: { ne: true } }
       }
       sort: { fields: frontmatter___date, order: DESC }
@@ -450,7 +450,7 @@ export const query = graphql`
       }
     }
     allCareer: allMdx(
-      filter: { fileAbsolutePath: { regex: "/join-us/" }, frontmatter: { hide: { ne: true } } }
+      filter: { fields: { slug: { regex: "/join-us/" } }, frontmatter: { hide: { ne: true } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       nodes {

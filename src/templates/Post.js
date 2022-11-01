@@ -267,7 +267,7 @@ export const query = graphql`
       body
     }
     morePosts: allMdx(
-      filter: { fileAbsolutePath: { regex: $regex }, frontmatter: { languages: { eq: $language }, hide: { ne: true } } }
+      filter: { fields: { slug: { regex: $regex } }, frontmatter: { languages: { eq: $language }, hide: { ne: true } } }
       limit: 3
       sort: { fields: frontmatter___date, order: DESC }
     ) {

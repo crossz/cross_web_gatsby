@@ -33,7 +33,7 @@ export const query = graphql`
     allMdx(
       limit: 1000
       filter: {
-        fileAbsolutePath: { regex: "/health-tips/" }
+        fields: { slug: { regex: "/health-tips/" } }
         frontmatter: { languages: { eq: $language }, hide: { ne: true } }
       }
       sort: { fields: frontmatter___date, order: DESC }

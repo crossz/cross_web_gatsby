@@ -59,7 +59,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const careers = await graphql(`
     {
-      allMdx(filter: { fileAbsolutePath: { regex: "/join-us/" } }, sort: { fields: frontmatter___date, order: DESC }) {
+      allMdx(filter: { fields: { slug: { regex: "/join-us/" } } }, sort: { fields: frontmatter___date, order: DESC }) {
         nodes {
           id
         }

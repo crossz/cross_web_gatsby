@@ -117,7 +117,7 @@ export const query = graphql`
     allMdx(
       limit: 1000
       filter: {
-        fileAbsolutePath: { regex: "/updates/" }
+        fields: { slug: { regex: "/updates/" } }
         frontmatter: { languages: { eq: $language }, hide: { ne: true } }
       }
       sort: { fields: frontmatter___date, order: DESC }

@@ -1,18 +1,11 @@
 import React from 'react'
 import PostCard from '@components/WhatsNew/PostCard'
-import {
-  useTheme,
-  useMediaQuery,
-  Box,
-  makeStyles,
-  ImageList,
-  ImageListItem,
-} from '@material-ui/core'
+import { useTheme, useMediaQuery, Box, makeStyles, ImageList, ImageListItem } from '@material-ui/core'
 import ArrowIcon from '../images/arrow.png'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper/core'
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/components/navigation/navigation.min.css'
+import 'swiper/css'
+import 'swiper/css/navigation'
 SwiperCore.use([Navigation])
 
 const useStyles = makeStyles((theme) => ({
@@ -38,15 +31,13 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     '& .swiper-button-prev': {
-      left: ({ progressRightWidth }) =>
-        `calc(100% - ${progressRightWidth}px + 8px)`,
+      left: ({ progressRightWidth }) => `calc(100% - ${progressRightWidth}px + 8px)`,
       '&:after': {
         transform: `rotate(-180deg)`,
       },
     },
     '& .swiper-button-next': {
-      left: ({ progressRightWidth }) =>
-        `calc(100% - ${progressRightWidth}px + 48px)`,
+      left: ({ progressRightWidth }) => `calc(100% - ${progressRightWidth}px + 48px)`,
     },
   },
   imageList: {
@@ -65,18 +56,12 @@ const PostWrapper = ({ nodes, name }) => {
     progressRightWidth: 80,
   })
 
-  const showNavigation =
-    (isMobile && nodes?.length > 1) || (!isMobile && nodes?.length > 2)
+  const showNavigation = (isMobile && nodes?.length > 1) || (!isMobile && nodes?.length > 2)
 
   return (
     <Box className={classes.root}>
       {isMobile ? (
-        <Swiper
-          spaceBetween={theme.spacing(2)}
-          slidesPerView={'auto'}
-          navigation={showNavigation}
-          initialSlide={0}
-        >
+        <Swiper spaceBetween={theme.spacing(2)} slidesPerView={'auto'} navigation={showNavigation} initialSlide={0}>
           {nodes?.map((node, index) => {
             return (
               <SwiperSlide key={index}>
@@ -86,9 +71,7 @@ const PostWrapper = ({ nodes, name }) => {
                     slug={node.fields.slug}
                     {...node.frontmatter}
                     title={node.frontmatter.cpTitle || node.frontmatter.title}
-                    detail={
-                      node.frontmatter.cpDetail || node.frontmatter.detail
-                    }
+                    detail={node.frontmatter.cpDetail || node.frontmatter.detail}
                     minHeight={20}
                   />
                 </Box>
@@ -97,12 +80,7 @@ const PostWrapper = ({ nodes, name }) => {
           })}
         </Swiper>
       ) : (
-        <ImageList
-          className={classes.imageList}
-          rowHeight='auto'
-          cols={3}
-          gap={32}
-        >
+        <ImageList className={classes.imageList} rowHeight='auto' cols={3} gap={32}>
           {nodes?.map((node, index) => (
             <ImageListItem
               key={node.id}

@@ -62,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
 const Homepage = ({ heroBannerNodes, promotionNodes, healthTipsNodes }) => {
   const classes = useStyles()
   const { t } = useI18next()
-
   return (
     <>
       <Banner nodes={heroBannerNodes}></Banner>

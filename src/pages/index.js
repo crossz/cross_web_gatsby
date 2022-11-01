@@ -15,7 +15,7 @@ const Index = ({ data }) => {
         }}
       >
         <Homepage
-          heroBannerNodes={heroBannerNodes?.nodes}
+          heroBannerNodes={heroBannerNodes?.nodes?.map((n) => n.childMdx)}
           promotionNodes={promotionNodes?.nodes}
           healthTipsNodes={healthTipsNodes?.nodes}
         ></Homepage>
@@ -45,39 +45,41 @@ export const query = graphql`
         }
       }
     }
-    heroBannerNodes: allMdx(
-      filter: { fileAbsolutePath: { regex: "/hero-banners/" } }
-      sort: { fields: frontmatter___sort, order: ASC }
+    heroBannerNodes: allFile(
+      filter: { absolutePath: { regex: "/hero-banners/" } }
+      sort: { fields: childMdx___frontmatter___sort, order: ASC }
     ) {
       nodes {
-        id
-        frontmatter {
-          titleHk
-          titleEn
-          titleCn
-          detailHk
-          detailEn
-          detailCn
-          image {
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
+        childMdx {
+          id
+          frontmatter {
+            titleHk
+            titleEn
+            titleCn
+            detailHk
+            detailEn
+            detailCn
+            image {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
             }
-          }
-          mobileImage {
-            childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
+            mobileImage {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
             }
-          }
-          reference
-          sort
-          theme
-          buttons {
-            variant
-            color
-            name
-            link
-            id
-            internal
+            reference
+            sort
+            theme
+            buttons {
+              variant
+              color
+              name
+              link
+              id
+              internal
+            }
           }
         }
       }
@@ -85,7 +87,7 @@ export const query = graphql`
     promotionNodes: allMdx(
       limit: 6
       filter: {
-        fileAbsolutePath: { regex: "/promotions/" }
+        fields: { slug: { regex: "/promotions/" } }
         frontmatter: { languages: { eq: $language }, hide: { ne: true } }
       }
       sort: { fields: frontmatter___date, order: DESC }
@@ -114,7 +116,7 @@ export const query = graphql`
     healthTipsNodes: allMdx(
       limit: 6
       filter: {
-        fileAbsolutePath: { regex: "/health-tips/" }
+        fields: { slug: { regex: "/health-tips/" } }
         frontmatter: { languages: { eq: $language }, hide: { ne: true } }
       }
       sort: { fields: frontmatter___date, order: DESC }
