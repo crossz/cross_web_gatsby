@@ -21,7 +21,7 @@ import WhatsAppIcon from '../images/WhatsApp.svg'
 import FacebookIcon from '../images/facebook.svg'
 import { WHATS_APP_LINK, SERVICE_EMAIL, SERVICE_PHONE, FACEBOOK_LINK } from '../utils/constant'
 // import { T_AND_C } from '../../../utils/constant'
-import useLangQuery from '@hooks/useLangQuery'
+// import useLangQuery from '@hooks/useLangQuery'
 
 const useStyles = makeStyles((theme) => ({
   websiteButton: {
