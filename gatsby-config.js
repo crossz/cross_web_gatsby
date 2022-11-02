@@ -58,7 +58,6 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 570,
-              loading: 'lazy',
             },
           },
           {
@@ -84,7 +83,7 @@ module.exports = {
         ],
       },
     },
-    `gatsby-remark-images`,
+    // `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {

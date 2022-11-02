@@ -108,7 +108,7 @@ const Post = ({ data, children }) => {
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
   const { title, region, date } = data?.mdx?.frontmatter
   const handleClose = (params) => navigate(-1)
-
+  if (!data?.mdx) return null
   return (
     <Box className={classes.root}>
       <Dialog open fullScreen onClose={handleClose} aria-labelledby='close' transitionDuration={0}>

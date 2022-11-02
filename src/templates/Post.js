@@ -158,7 +158,7 @@ const Post = ({ data, pageContext, location: { href }, children }) => {
       navigate(`/whats-new/${sectionPath === 'campaign-page-posts' ? 'campaign/' : sectionPath}`, { replace: true })
     }
   }, [data?.mdx])
-  if (!children) return null
+  if (!data?.mdx) return null
   const { date, cpTitle, title, type } = data?.mdx?.frontmatter
   const morePostsNodes = data?.morePosts?.nodes
   const middlePath = `/whats-new/${sectionPath === 'campaign-page-posts' ? 'campaign/' : sectionPath}`

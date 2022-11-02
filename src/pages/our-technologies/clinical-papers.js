@@ -113,7 +113,7 @@ export const query = graphql`
     }
     allMdx(
       limit: 1000
-      filter: { fields: { slug: { regex: "/clinical-papers/" } }, frontmatter: { hide: { ne: true } } }
+      filter: { internal: { contentFilePath: { regex: "/clinical-papers/" } }, frontmatter: { hide: { ne: true } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       nodes {
