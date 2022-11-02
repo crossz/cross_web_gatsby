@@ -250,7 +250,7 @@ const Banner = ({ nodes }) => {
           initialSlide={0}
           speed={700}
           watchOverflow={true}
-          watchSlidesVisibility={true}
+          // watchSlidesVisibility={true}
         >
           {' '}
           {/* <SwiperSlide>

@@ -68,13 +68,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `)
 
   if (careers.errors) return reporter.panicOnBuild(`Error while running GraphQL query.`)
-  const joinUsTemplate = resolve(__dirname, 'src/templates/JoinUs.js')
+  const joinUsComponent = resolve(__dirname, 'src/templates/JoinUs.js')
   paginate({
     createPage, // The Gatsby `createPage` function
     items: careers?.data?.allMdx?.nodes || [], // An array of objects
     itemsPerPage: 5, // How many items you want per page
     pathPrefix: '/about-us/join-us/', // Creates pages like `/blog`, `/blog/2`, etc
-    component: joinUsTemplate, // Just like `createPage()`
+    component: joinUsComponent, // Just like `createPage()`
   })
 
   const allMdxQuery = await graphql(`
@@ -89,6 +89,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             ... on File {
               relativeDirectory
             }
+          }
+          internal {
+            contentFilePath
           }
         }
       }
@@ -120,31 +123,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     let path = mdx.fields?.slug
     if (!path) return
 
-    let template = null,
+    let component = null,
       defer = false
 
     switch (mdx.parent.relativeDirectory) {
       case 'terms-and-conditions':
-        template = tAndCTemplate
+        component = `${tAndCTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
         defer = true
         break
       case 'join-us':
-        template = careerTemplate
+        component = `${careerTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
         defer = true
         break
       default:
-        template = postTemplate
+        component = `${postTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
         defer = oldPosts.has(mdx.fields.slug)
         break
     }
 
     createPage({
       path,
-      component: template,
+      component,
       context: {
         slug: mdx.fields.slug,
         sectionPath: mdx.parent.relativeDirectory,
         regex: `/${mdx.parent.relativeDirectory}/`,
+        id: mdx.id,
       },
       defer,
     })

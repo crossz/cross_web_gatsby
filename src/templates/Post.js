@@ -146,7 +146,7 @@ const morePostTitle = {
   updates: 'menu.updates',
 }
 
-const Post = ({ data, pageContext, location: { href } }) => {
+const Post = ({ data, pageContext, location: { href }, children }) => {
   const { sectionPath, regex } = pageContext
   const { t } = useTranslation()
   const classes = useStyles()
@@ -158,8 +158,7 @@ const Post = ({ data, pageContext, location: { href } }) => {
       navigate(`/whats-new/${sectionPath === 'campaign-page-posts' ? 'campaign/' : sectionPath}`, { replace: true })
     }
   }, [data?.mdx])
-  if (!data?.mdx) return null
-  const mdx = data?.mdx?.body
+  if (!children) return null
   const { date, cpTitle, title, type } = data?.mdx?.frontmatter
   const morePostsNodes = data?.morePosts?.nodes
   const middlePath = `/whats-new/${sectionPath === 'campaign-page-posts' ? 'campaign/' : sectionPath}`
@@ -210,7 +209,7 @@ const Post = ({ data, pageContext, location: { href } }) => {
                   {cpTitle || title}
                 </Typography>
               </Box>
-              <MdxLayout>{mdx}</MdxLayout>
+              <MdxLayout>{children}</MdxLayout>
             </Container>
             <StaticImage
               className={classes.postBg}
@@ -264,7 +263,6 @@ export const query = graphql`
         title
         type
       }
-      body
     }
     morePosts: allMdx(
       filter: { fields: { slug: { regex: $regex } }, frontmatter: { languages: { eq: $language }, hide: { ne: true } } }

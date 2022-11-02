@@ -101,12 +101,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Post = ({ data }) => {
+const Post = ({ data, children }) => {
   const classes = useStyles()
   const { t } = useTranslation()
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
-  const mdx = data?.mdx?.body
   const { title, region, date } = data?.mdx?.frontmatter
   const handleClose = (params) => navigate(-1)
 
@@ -143,7 +142,7 @@ const Post = ({ data }) => {
                 <Box className={classes.region}>{t(`options.career_regions.${region}`)}</Box>
               </Box>
               <Box pb={3}>
-                <MdxLayout>{mdx}</MdxLayout>
+                <MdxLayout>{children}</MdxLayout>
               </Box>
             </Container>
           </Box>
@@ -174,7 +173,6 @@ export const query = graphql`
         region
         date
       }
-      body
     }
   }
 `

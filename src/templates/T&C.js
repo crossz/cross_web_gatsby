@@ -47,12 +47,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Post = ({ data }) => {
+const Post = ({ data, children }) => {
   const classes = useStyles()
 
   if (!data?.mdx) return null
 
-  const mdx = data?.mdx?.body
   const { date, title } = data?.mdx?.frontmatter
 
   return (
@@ -67,7 +66,7 @@ const Post = ({ data }) => {
                 </Typography>
                 <Box className={classes.date}>{formatLocal(date)}</Box>
               </Box>
-              <MdxLayout>{mdx}</MdxLayout>
+              <MdxLayout>{children}</MdxLayout>
             </Container>
             {/* <StaticImage
             className={classes.postBg}
@@ -100,7 +99,6 @@ export const query = graphql`
         date
         title
       }
-      body
     }
   }
 `
