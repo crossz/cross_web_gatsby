@@ -1,6 +1,8 @@
 'use strict'
 const { resolve } = require('path')
 const { paginate } = require('gatsby-awesome-pagination')
+const { defaultLanguage } = require('./languages')
+const moment = require('moment')
 
 const formatEndsPath = (path) => (path?.endsWith('/') ? path : `${path}/`)
 const formatStartsPath = (path) => (path?.startsWith('/') ? path : `/${path}`)
@@ -93,24 +95,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           internal {
             contentFilePath
           }
-        }
-      }
-    }
-  `)
-
-  const oldPostsData = await graphql(`
-    query {
-      allMdx(filter: { frontmatter: { date: { lt: "2021-10-31" } } }) {
-        nodes {
-          id
-          fields {
-            slug
+          frontmatter {
+            languages
+            date
           }
         }
       }
     }
   `)
-  const oldPosts = new Set(oldPostsData?.data?.allMdx?.nodes?.map((n) => n?.fields?.slug))
+
   if (allMdxQuery.errors) return reporter.panicOnBuild(`Error while running GraphQL query.`)
 
   const postTemplate = resolve(__dirname, 'src/templates/Post.js')
@@ -137,20 +130,38 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         break
       default:
         component = `${postTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
-        defer = oldPosts.has(mdx.fields.slug)
+        defer = moment(mdx?.frontmatter?.date)?.isBefore('2021-10-31')
         break
     }
 
-    createPage({
-      path,
-      component,
-      context: {
-        slug: mdx.fields.slug,
-        sectionPath: mdx.parent.relativeDirectory,
-        regex: `/${mdx.parent.relativeDirectory}/`,
-        id: mdx.id,
-      },
-      defer,
+    mdx?.frontmatter?.languages?.forEach((lang) => {
+      createPage({
+        path: `/${lang}${path}`,
+        component,
+        context: {
+          slug: path,
+          sectionPath: mdx.parent.relativeDirectory,
+          regex: `/${mdx.parent.relativeDirectory}/`,
+          id: mdx.id,
+          contentFilePath: mdx.internal.contentFilePath,
+          curPath: `/${lang}${path}`,
+        },
+        defer,
+      })
+      if (lang === defaultLanguage)
+        createPage({
+          path,
+          component,
+          context: {
+            slug: mdx.fields.slug,
+            sectionPath: mdx.parent.relativeDirectory,
+            regex: `/${mdx.parent.relativeDirectory}/`,
+            id: mdx.id,
+            contentFilePath: mdx.internal.contentFilePath,
+            curPath: `/${lang}${path}`,
+          },
+          defer,
+        })
     })
   })
 
