@@ -20,6 +20,7 @@
     "openapi": "https://stoplight.io/api/v1/projects/take2/ehealth/nodes/openapi.yml?branch=main&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL3N0b3BsaWdodC5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6IndvcmtzcGFjZV91c2VyIiwieC1oYXN1cmEtYWxsb3dlZC1yb2xlcyI6WyJ3b3Jrc3BhY2VfdXNlciJdLCJ4LWhhc3VyYS11c2VyLWlkIjoiODIxNzAiLCJ4LWhhc3VyYS11c2VyLWlwLWFkZHJlc3MiOiIyNTEuODUuNjMuODgiLCJ4LWhhc3VyYS13b3Jrc3BhY2UtaWQiOiI0OTM0OSJ9LCJpYXQiOjE2Mzg3ODc0NjEsImV4cCI6MTYzODc4ODM2MSwiaXNzIjoic3RvcGxpZ2h0Iiwic3ViIjoiL3VzZXJzLzgyMTcwIn0.9PxFOEd4X1eebi9TAspuOkeSH3OD0Mlf0AUMuyJ5c-A"
   },
   "dependencies": {
+    "@loadable/component": "^5.15.2",
     "@material-ui/core": "^4.12.1",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "4.11.4",

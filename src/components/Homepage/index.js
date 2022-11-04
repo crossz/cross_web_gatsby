@@ -1,16 +1,20 @@
 import React from 'react'
-import Map from '@components/Map'
+// import Map from '@components/Map'
 import { makeStyles } from '@material-ui/core/'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
-import Consult from './Consult'
+// import Consult from './Consult'
 import Banner from './Banner'
 import TitleDot from '@themes/components/TitleDot'
 import Typography from '@material-ui/core/Typography'
 import Quiz from '@components/Quiz'
-import PostSwiper from './PostSwiper'
-
+// import PostSwiper from './PostSwiper'
+import loadable from '@loadable/component'
 import { useI18next } from 'gatsby-plugin-react-i18next'
+
+const Map = loadable(() => import('@components/Map'))
+const PostSwiper = loadable(() => import('./PostSwiper'))
+const Consult = loadable(() => import('./Consult'))
 
 const useStyles = makeStyles((theme) => ({
   root: {
