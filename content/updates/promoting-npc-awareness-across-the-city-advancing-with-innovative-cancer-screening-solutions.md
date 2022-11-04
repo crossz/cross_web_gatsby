@@ -14,7 +14,7 @@ slug: bowtie-partnership
 ---
 # **Advancing the Healthcare Industry with Innovative Cancer Screening Solutions**
 
-### **Joining Hands with Bowtie to Sponsor the Take2 Prophecy™ Test for Nasopharyngeal Cancer to the high-risk group**
+### **Joining Hands with Bowtie to Sponsor the Take2 Prophecy™ Test for Nasopharyngeal Cancer to the High-risk Group**
 
 <br/>
 
