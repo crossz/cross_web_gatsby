@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  withStyles,
-  makeStyles,
-  alpha,
-  useTheme,
-  useMediaQuery,
-} from '@material-ui/core/'
+import { withStyles, makeStyles, alpha, useTheme, useMediaQuery } from '@material-ui/core/'
 import Accordion from '@material-ui/core/Accordion'
 import AccordionSummary from '@material-ui/core/AccordionSummary'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
@@ -154,17 +148,12 @@ const ClinicList = ({ clinics, curProvince, curArea, onChange }) => {
   const _handleChange = (activeArea) => (e, isExpanded) => {
     onChange && onChange(isExpanded ? activeArea : '')
   }
-  const translateRegion = (region) =>
-    REGIONS[region] ? t(REGIONS[region]) : region
+  const translateRegion = (region) => (REGIONS[region] ? t(REGIONS[region]) : region)
 
   return (
     <Box className={classes.root}>
       {Object.keys(clinics)?.map((area, index) => (
-        <MapAccordion
-          key={area}
-          expanded={area === curArea}
-          onChange={_handleChange(area)}
-        >
+        <MapAccordion key={area} expanded={area === curArea} onChange={_handleChange(area)}>
           <MapAccordionSummary
             expandIcon={
               area === curArea ? (
@@ -178,69 +167,53 @@ const ClinicList = ({ clinics, curProvince, curArea, onChange }) => {
           </MapAccordionSummary>
           <MapAccordionDetails>
             <Box className={classes.list}>
-              {orderBy(clinics?.[area], ['clinicType'])?.map(
-                (clinic, index) => (
-                  <Box className={classes.item} key={index}>
-                    <Grid container spacing={0}>
-                      <Grid item xs={3} sm={1}>
-                        {translateRegion(clinic.province)}
-                      </Grid>
-                      <Grid item xs={9} sm={2}>
-                        {translateRegion(clinic.area)}
-                      </Grid>
-                      <Grid item xs={12} sm={6}>
-                        <Box width='100%'>
-                          <Box
-                            fontWeight='fontWeightBold'
-                            mt={matches ? 1.5 : 0}
-                            mb={matches ? 1 : 1.5}
-                          >
-                            {tB('name', clinic)}
+              {orderBy(clinics?.[area], ['clinicType'])?.map((clinic, index) => (
+                <Box className={classes.item} key={index}>
+                  <Grid container spacing={0}>
+                    <Grid item xs={3} sm={1}>
+                      {translateRegion(clinic.province)}
+                    </Grid>
+                    <Grid item xs={9} sm={2}>
+                      {translateRegion(clinic.area)}
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <Box width='100%'>
+                        <Box fontWeight='fontWeightBold' mt={matches ? 1.5 : 0} mb={matches ? 1 : 1.5}>
+                          {tB('name', clinic)}
+                        </Box>
+                        <Box color='text.primary' display={matches ? 'block' : 'flex'}>
+                          <Box className={classes.info} mr={matches ? 0 : 3} mb={matches ? 1 : 0} flexShrink={0}>
+                            <Box className={classes.infoIcon}>
+                              <PhoneIcon></PhoneIcon>
+                            </Box>
+                            {clinic.phone}
                           </Box>
-                          <Box
-                            color='text.primary'
-                            display={matches ? 'block' : 'flex'}
-                          >
-                            <Box
-                              className={classes.info}
-                              mr={matches ? 0 : 3}
-                              mb={matches ? 1 : 0}
-                              flexShrink={0}
-                            >
-                              <Box className={classes.infoIcon}>
-                                <PhoneIcon></PhoneIcon>
-                              </Box>
-                              {clinic.phone}
+                          <Box className={classes.info}>
+                            <Box className={classes.infoIcon}>
+                              <LocationIcon></LocationIcon>
                             </Box>
-                            <Box className={classes.info}>
-                              <Box className={classes.infoIcon}>
-                                <LocationIcon></LocationIcon>
-                              </Box>
-                              <Box>{tB('address', clinic)}</Box>
-                            </Box>
+                            <Box>{tB('address', clinic)}</Box>
                           </Box>
                         </Box>
-                      </Grid>
-                      <Grid className={classes.btnCell} xs={12} item sm={3}>
-                        {clinic.clinicType === 1 && (
-                          <Button
-                            className={classes.btn}
-                            variant='outlined'
-                            size='small'
-                            color='primary'
-                            href={addLangQuery(
-                              `${process.env.GATSBY_SITE_URL}clinic/${clinic.id}`
-                            )}
-                            target='_blank'
-                          >
-                            {t('common.book_now')}
-                          </Button>
-                        )}
-                      </Grid>
+                      </Box>
                     </Grid>
-                  </Box>
-                )
-              )}
+                    <Grid className={classes.btnCell} xs={12} item sm={3}>
+                      {clinic.clinicType === 1 && (
+                        <Button
+                          className={classes.btn}
+                          variant='outlined'
+                          size='small'
+                          color='primary'
+                          href={addLangQuery(`${process.env.GATSBY_SITE_URL}clinic/${clinic.id}`)}
+                          target='_blank'
+                        >
+                          {t('common.book_now')}
+                        </Button>
+                      )}
+                    </Grid>
+                  </Grid>
+                </Box>
+              ))}
             </Box>
           </MapAccordionDetails>
         </MapAccordion>

@@ -5,7 +5,6 @@ import { ImagesTranslationContext } from '@layouts/context'
 
 const Take2ProphecyPage = ({ data }) => {
   const { imagesTranslation } = data
-  console.log(data)
   return (
     <ImagesTranslationContext.Provider
       value={{

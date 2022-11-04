@@ -4,11 +4,7 @@ import Layout from '@layouts/Layout'
 import { graphql } from 'gatsby'
 
 const ServiceLocation = () => {
-  return (
-    <Layout>
-      <Map></Map>
-    </Layout>
-  )
+  return <Layout>{/* <Map></Map> */}</Layout>
 }
 
 export default ServiceLocation
