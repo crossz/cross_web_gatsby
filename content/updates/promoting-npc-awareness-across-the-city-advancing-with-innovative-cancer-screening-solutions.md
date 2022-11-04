@@ -14,7 +14,7 @@ slug: bowtie-partnership
 ---
 # **Advancing the Healthcare Industry with Innovative Cancer Screening Solutions**
 
-### **Joining Hands with Bowtie to Provide the Take2 Prophecy™ Test for Nasopharyngeal Cancer for Free to the high-risk group**
+### **Joining Hands with Bowtie to Sponsor the Take2 Prophecy™ Test for Nasopharyngeal Cancer to the high-risk group**
 
 <br/>
 
@@ -30,7 +30,7 @@ Furthermore, this malignant disease peaks in middle age, and it is more common f
 
 <br/>
 
-Therefore, we are determined to team up with Bowtie, Hong Kong’s very first virtual insurer, reflecting our aligned vision for bringing disruptive innovation to healthcare management to improve people’s quality of life. Under this collaboration, Bowtie will offer the Take2 Prophecy™ Test for NPC to 1,300 selected life insurance clients aged between 40 and 60 years old free of charge. This initiative will make our early detection technology for NPC widely accessible to those who need it most.
+Therefore, we are determined to team up with Bowtie, Hong Kong’s very first virtual insurer, reflecting our aligned vision for bringing disruptive innovation to healthcare management to improve people’s quality of life. Under this collaboration, Bowtie will sponsor the Take2 Prophecy™ Test for NPC to 1,300 selected life insurance clients aged between 40 and 60 years old. This initiative will make our early detection technology for NPC widely accessible to those who need it most.
 
 <br/>
 
