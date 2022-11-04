@@ -6,8 +6,8 @@ languages:
 cover: []
 date: 2022-10-31T00:00:00+08:00
 title: Promoting NPC Awareness across the City
-detail: Joining Hands with Bowtie to Provide the Take2 Prophecy™ Test for Nasopharyngeal
-  Cancer for Free to the high-risk group
+detail: Joining Hands with Bowtie to Sponsor the Take2 Prophecy™ Test for Nasopharyngeal
+  Cancer to the high-risk group
 href: ''
 slug: bowtie-partnership
 
