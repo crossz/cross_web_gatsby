@@ -4268,10 +4268,10 @@ cookie@^0.4.1, cookie@~0.4.1:
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.4.1.tgz"
   integrity sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==
 
-copy-to-clipboard@^3:
-  version "3.3.1"
-  resolved "https://registry.npmjs.org/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz"
-  integrity sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
+copy-to-clipboard@^3.3.1:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.2.tgz#5b263ec2366224b100181dded7ce0579b340c107"
+  integrity sha512-Vme1Z6RUDzrb6xAI7EZlVZ5uvOk2F//GaxKUxajDqm9LhOVM1inxNAD2vy+UZDYsd0uyA9s7b3/FVZPSxqrCfg==
   dependencies:
     toggle-selection "^1.0.6"
 
@@ -5969,7 +5969,7 @@ functions-have-names@^1.2.2:
 
 gatsby-awesome-pagination@^0.3.8:
   version "0.3.8"
-  resolved "https://registry.npmjs.org/gatsby-awesome-pagination/-/gatsby-awesome-pagination-0.3.8.tgz"
+  resolved "https://registry.yarnpkg.com/gatsby-awesome-pagination/-/gatsby-awesome-pagination-0.3.8.tgz#e50f048ed9b25aecf5e2cd7269cdbd77f168301f"
   integrity sha512-Bnf2rncqjyhQeye8w+OVK8wmgu/Y77HI8Po05oEqbCSd+fMd0uGDv6ZhKH7UU/xcTv2cbJm7ie+Px9t41ngAxg==
   dependencies:
     lodash "^4.17.21"
@@ -6125,7 +6125,7 @@ gatsby-parcel-config@0.15.1:
 
 gatsby-plugin-alias-imports@^1.0.5:
   version "1.0.5"
-  resolved "https://registry.npmjs.org/gatsby-plugin-alias-imports/-/gatsby-plugin-alias-imports-1.0.5.tgz"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-alias-imports/-/gatsby-plugin-alias-imports-1.0.5.tgz#44c0856d77acb74b58b89ec725dadd8f5d5b327d"
   integrity sha512-q58JrSjuVNh4NApamqElR0zqwm55FOb9vFAVb2i2ftPRu0uYzWJkbOz2IN3vSw7a+5PmGzX7VL8XDFXlNHrMNA==
   dependencies:
     "@babel/runtime" "^7.2.0"
@@ -6413,10 +6413,10 @@ gatsby-worker@^1.24.0:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@^4.24.5:
-  version "4.24.5"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.24.5.tgz#1c8612d142127154691812853e9e09edea5d4d08"
-  integrity sha512-f47r+RQldDkBpmcQqixmvafwEqUNUKvtmov+n04uCKOdfkuiiSMPm2pGAWx3vesfut2Kf7nIVgZLZz9sRjXqKA==
+gatsby@^4.24.7:
+  version "4.24.7"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.24.7.tgz#51036aed3df01ed2c403b6cb88512d8a820ab0e8"
+  integrity sha512-9eA80r0T618fdgdbNa/xuxJpsl0sPD2HBflPC18zNqhwCrboEXe057/VU2DUnQfqrgRislCAf8XDVTjgFXjbbQ==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/core" "^7.15.5"
@@ -6518,6 +6518,7 @@ gatsby@^4.24.5:
     graphql "^15.7.2"
     graphql-compose "^9.0.7"
     graphql-playground-middleware-express "^1.7.22"
+    graphql-tag "^2.12.6"
     hasha "^5.2.2"
     invariant "^2.2.4"
     is-relative "^1.0.0"
@@ -6761,10 +6762,10 @@ globby@^11.1.0:
     merge2 "^1.4.1"
     slash "^3.0.0"
 
-google-map-react@^2.1.10:
-  version "2.1.10"
-  resolved "https://registry.npmjs.org/google-map-react/-/google-map-react-2.1.10.tgz"
-  integrity sha512-cqW2EcygYqF26inp5liM/pAcCwOGXB9LW32oGwf931Iuq8tnasCpyEtq87G+RyQCKCo2P8/QyV+MGHuc7r9AEg==
+google-map-react@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-2.2.0.tgz#10b23a42526556adaacbaeec114a72bf3b733053"
+  integrity sha512-UPiTwR3qNKJJizURXTuCbnBr8kLtLsiikj/KH1UTLGhadnU6fT+CE3CLw1lzZwk5zZIduQQODyIcEwNInECmUg==
   dependencies:
     "@googlemaps/js-api-loader" "^1.7.0"
     "@mapbox/point-geometry" "^0.1.0"
@@ -6853,7 +6854,7 @@ graphql-playground-middleware-express@^1.7.22:
   dependencies:
     graphql-playground-html "^1.6.30"
 
-graphql-tag@^2.11.0:
+graphql-tag@^2.11.0, graphql-tag@^2.12.6:
   version "2.12.6"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.12.6.tgz#d441a569c1d2537ef10ca3d1633b48725329b5f1"
   integrity sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg==
@@ -6880,10 +6881,10 @@ gray-matter@^4.0.3:
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
 
-gsap@^3.7.1:
-  version "3.9.1"
-  resolved "https://registry.npmjs.org/gsap/-/gsap-3.9.1.tgz"
-  integrity sha512-JSGVYoC6da4pIjdF/yxFU6Rz8OojOIDkbooveZlfNg0+JIoFoRruyfWAEi6R/gUeNcuOiTqUIb0gi1nCNrHf8w==
+gsap@^3.11.3:
+  version "3.11.3"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.11.3.tgz#ca5be827f56fe8d5720e08343390f74fb89a05f3"
+  integrity sha512-xc/iIJy+LWiMbRa4IdMtdnnKa/7PXEK6NNzV71gdOYUVeTZN7UWnLU0fB7Hi1iwiz4ZZoYkBZPPYGg+2+zzFHA==
 
 gzip-size@^6.0.0:
   version "6.0.0"
@@ -7747,7 +7748,7 @@ joi@^17.4.2:
 
 js-search@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.npmjs.org/js-search/-/js-search-2.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/js-search/-/js-search-2.0.0.tgz#84dc9d44e34ca0870d067e04b86d8038b77edc26"
   integrity sha512-lJ8KzjlwcelIWuAdKyzsXv45W6OIwRpayzc7XmU8mzgWadg5UVOKVmnq/tXudddEB9Ceic3tVaGu6QOK/eebhg==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
@@ -8886,6 +8887,11 @@ moment@^2.29.1:
   resolved "https://registry.npmjs.org/moment/-/moment-2.29.1.tgz"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
 mri@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mri/-/mri-1.2.0.tgz#6721480fec2a11a4889861115a48b6cbe7cc8f0b"
@@ -9984,7 +9990,7 @@ prop-types@15.8.1, prop-types@^15.8.1:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
-prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -10153,13 +10159,13 @@ react-async-script@^1.1.1:
     hoist-non-react-statics "^3.3.0"
     prop-types "^15.5.0"
 
-react-copy-to-clipboard@^5.0.4:
-  version "5.0.4"
-  resolved "https://registry.npmjs.org/react-copy-to-clipboard/-/react-copy-to-clipboard-5.0.4.tgz"
-  integrity sha512-IeVAiNVKjSPeGax/Gmkqfa/+PuMTBhutEvFUaMQLwE2tS0EXrAdgOpWDX26bWTXF3HrioorR7lr08NqeYUWQCQ==
+react-copy-to-clipboard@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/react-copy-to-clipboard/-/react-copy-to-clipboard-5.1.0.tgz#09aae5ec4c62750ccb2e6421a58725eabc41255c"
+  integrity sha512-k61RsNgAayIJNoy9yDsYzDe/yAZAzEbEgcz3DZMhF686LEyukcE1hzurxe85JandPUG+yTfGVFzuEw3xt8WP/A==
   dependencies:
-    copy-to-clipboard "^3"
-    prop-types "^15.5.8"
+    copy-to-clipboard "^3.3.1"
+    prop-types "^15.8.1"
 
 react-dev-utils@^12.0.1:
   version "12.0.1"
@@ -10246,10 +10252,15 @@ react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-"react-is@^16.8.0 || ^17.0.0", react-is@^17.0.1:
+"react-is@^16.8.0 || ^17.0.0":
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+"react-is@^17.0.1 || ^18.0.0":
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
+  integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
@@ -10275,10 +10286,10 @@ react-side-effect@^2.1.0:
   resolved "https://registry.npmjs.org/react-side-effect/-/react-side-effect-2.1.1.tgz"
   integrity sha512-2FoTQzRNTncBVtnzxFOk2mCpcfxQpenBMbk5kSVBg5UcPqV9fRbgY2zhb7GTWWOlpFmAxhClBDlIq8Rsubz1yQ==
 
-react-toastify@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.npmjs.org/react-toastify/-/react-toastify-8.1.0.tgz"
-  integrity sha512-M+Q3rTmEw/53Csr7NsV/YnldJe4c7uERcY7Tma9mvLU98QT2VhIkKwjBzzxZkJRk/oBKyUAtkyMjMgO00hx6gQ==
+react-toastify@9.0.8:
+  version "9.0.8"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.0.8.tgz#3876c89fc6211a29027b3075010b5ec39ebe4f7e"
+  integrity sha512-EwM+teWt49HSHx+67qI08yLAW1zAsBxCXLCsUfxHYv1W7/R3ZLhrqKalh7j+kjgPna1h5LQMSMwns4tB4ww2yQ==
   dependencies:
     clsx "^1.1.1"
 
@@ -10292,15 +10303,15 @@ react-transition-group@^4.4.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-waypoint@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.npmjs.org/react-waypoint/-/react-waypoint-10.1.0.tgz"
-  integrity sha512-wiVF0lTslVm27xHbnvUUADUrcDjrQxAp9lEYGExvcoEBScYbXu3Kt++pLrfj6CqOeeRAL4HcX8aANVLSn6bK0Q==
+react-waypoint@^10.3.0:
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/react-waypoint/-/react-waypoint-10.3.0.tgz#fcc60e86c6c9ad2174fa58d066dc6ae54e3df71d"
+  integrity sha512-iF1y2c1BsoXuEGz08NoahaLFIGI9gTUAAOKip96HUmylRT6DUtpgoBPjk/Y8dfcFVmfVDvUzWjNXpZyKTOV0SQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     consolidated-events "^1.1.0 || ^2.0.0"
     prop-types "^15.0.0"
-    react-is "^17.0.1"
+    react-is "^17.0.1 || ^18.0.0"
 
 react-youtube@^10.0.0:
   version "10.0.0"

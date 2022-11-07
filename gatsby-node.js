@@ -115,7 +115,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   allMdxList?.forEach((mdx) => {
     let path = mdx.fields?.slug
     if (!path) return
-    if (mdx.parent.relativeDirectory === 'campaign-page-posts') return
     let component = null,
       defer = false
 
