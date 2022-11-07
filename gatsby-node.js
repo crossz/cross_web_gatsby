@@ -130,39 +130,39 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         break
       default:
         component = `${postTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
-        defer = moment(mdx?.frontmatter?.date)?.isBefore('2021-10-31')
+        defer = moment(mdx?.frontmatter?.date)?.isBefore('2021-12-31')
         break
     }
 
-    mdx?.frontmatter?.languages?.forEach((lang) => {
-      createPage({
-        path: `/${lang}${path}`,
-        component,
-        context: {
-          slug: path,
-          sectionPath: mdx.parent.relativeDirectory,
-          regex: `/${mdx.parent.relativeDirectory}/`,
-          id: mdx.id,
-          contentFilePath: mdx.internal.contentFilePath,
-          curPath: `/${lang}${path}`,
-        },
-        defer,
-      })
-      if (lang === defaultLanguage)
-        createPage({
-          path,
-          component,
-          context: {
-            slug: mdx.fields.slug,
-            sectionPath: mdx.parent.relativeDirectory,
-            regex: `/${mdx.parent.relativeDirectory}/`,
-            id: mdx.id,
-            contentFilePath: mdx.internal.contentFilePath,
-            curPath: `/${lang}${path}`,
-          },
-          defer,
-        })
-    })
+    // mdx?.frontmatter?.languages?.forEach((lang) => {
+    //   createPage({
+    //     path: `/${lang}${path}`,
+    //     component,
+    //     context: {
+    //       slug: path,
+    //       sectionPath: mdx.parent.relativeDirectory,
+    //       regex: `/${mdx.parent.relativeDirectory}/`,
+    //       id: mdx.id,
+    //       contentFilePath: mdx.internal.contentFilePath,
+    //       curPath: `/${lang}${path}`,
+    //     },
+    //     defer,
+    //   })
+    //   if (lang === defaultLanguage)
+    //     createPage({
+    //       path,
+    //       component,
+    //       context: {
+    //         slug: mdx.fields.slug,
+    //         sectionPath: mdx.parent.relativeDirectory,
+    //         regex: `/${mdx.parent.relativeDirectory}/`,
+    //         id: mdx.id,
+    //         contentFilePath: mdx.internal.contentFilePath,
+    //         curPath: `/${lang}${path}`,
+    //       },
+    //       defer,
+    //     })
+    // })
   })
 
   createRedirect({

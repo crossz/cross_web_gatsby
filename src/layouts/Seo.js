@@ -9,7 +9,6 @@ export const SEO = ({ title, description, image, pathname, children }) => {
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
   }
-  console.log('seo', defaultTitle)
   return (
     <>
       <title>{seo.title}</title>
