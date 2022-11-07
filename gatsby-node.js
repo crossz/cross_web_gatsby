@@ -2,7 +2,7 @@
 const { resolve } = require('path')
 const { paginate } = require('gatsby-awesome-pagination')
 const { defaultLanguage } = require('./languages')
-// const moment = require('moment')
+const moment = require('moment')
 
 const formatEndsPath = (path) => (path?.endsWith('/') ? path : `${path}/`)
 const formatStartsPath = (path) => (path?.startsWith('/') ? path : `/${path}`)
@@ -129,7 +129,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         break
       default:
         component = `${postTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
-        // defer = moment(mdx?.frontmatter?.date)?.isBefore('2021-12-31')
+        defer = moment(mdx?.frontmatter?.date)?.isBefore('2021-12-31')
         break
     }
 

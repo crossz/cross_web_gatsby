@@ -49,65 +49,6 @@ module.exports = {
         icon: 'src/assets/images/favicon.png',
       },
     },
-
-    `gatsby-transformer-json`,
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: `${__dirname}/src/assets/images`,
-      },
-      __key: 'images',
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'imagesTranslation',
-        path: `${__dirname}/src/assets/imagesTranslation`,
-      },
-      __key: 'imagesTranslation',
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'campaignImages',
-        path: `${__dirname}/src/components/CampaignV2/images`,
-      },
-      __key: 'campaignImages',
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'content',
-        path: `${__dirname}/content/`,
-      },
-      __key: 'content',
-    },
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        defaults: {
-          formats: [`auto`, `webp`],
-          placeholder: `blurred`,
-          quality: 100,
-          // breakpoints: [750, 1080, 1366, 1920],
-          // backgroundColor: `transparent`,
-          // tracedSVGOptions: {},
-          // blurredOptions: {},
-          // jpgOptions: {},
-          // pngOptions: {},
-          // webpOptions: {},
-          // avifOptions: {},
-        },
-      },
-    },
-    {
-      resolve: `gatsby-transformer-sharp`,
-      options: {
-        // The option defaults to true
-        checkSupportedExtensions: false,
-      },
-    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -141,6 +82,66 @@ module.exports = {
           },
         ],
       },
+    },
+    // `gatsby-remark-images`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 75,
+          // breakpoints: [750, 1080, 1366, 1920],
+          // backgroundColor: `transparent`,
+          // tracedSVGOptions: {},
+          // blurredOptions: {},
+          // jpgOptions: {},
+          // pngOptions: {},
+          // webpOptions: {},
+          // avifOptions: {},
+        },
+        failOn: `none`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-sharp`,
+      options: {
+        // The option defaults to true
+        checkSupportedExtensions: false,
+      },
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/assets/images`,
+      },
+      __key: 'images',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'imagesTranslation',
+        path: `${__dirname}/src/assets/imagesTranslation`,
+      },
+      __key: 'imagesTranslation',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'campaignImages',
+        path: `${__dirname}/src/components/CampaignV2/images`,
+      },
+      __key: 'campaignImages',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/content/`,
+      },
+      __key: 'content',
     },
     {
       resolve: `gatsby-plugin-alias-imports`,

@@ -240,14 +240,14 @@ const JoinUs = ({ data, pageContext }) => {
           </Box>
           <Box className={classes.careersWrapper}>
             <Grid container>
-              {/* <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={4}>
                 <Search
                   data={allCareer}
                   setSearchResult={(result) => setCareers(result)}
                   setSearching={(status) => setSearching(status)}
                   setPageList={() => setCareers(curPageCareers)}
                 ></Search>
-              </Grid> */}
+              </Grid>
               <Grid item xs={12} sm={8}>
                 <Box>
                   {careers?.map((career) => (
