@@ -2,7 +2,7 @@
 const { resolve } = require('path')
 const { paginate } = require('gatsby-awesome-pagination')
 const { defaultLanguage } = require('./languages')
-const moment = require('moment')
+// const moment = require('moment')
 
 const formatEndsPath = (path) => (path?.endsWith('/') ? path : `${path}/`)
 const formatStartsPath = (path) => (path?.startsWith('/') ? path : `/${path}`)
