@@ -90,7 +90,7 @@ module.exports = {
         defaults: {
           formats: [`auto`, `webp`],
           placeholder: `blurred`,
-          quality: 75,
+          quality: 100,
           // breakpoints: [750, 1080, 1366, 1920],
           // backgroundColor: `transparent`,
           // tracedSVGOptions: {},
@@ -100,7 +100,6 @@ module.exports = {
           // webpOptions: {},
           // avifOptions: {},
         },
-        failOn: `none`,
       },
     },
     {
