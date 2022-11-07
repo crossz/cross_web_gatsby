@@ -115,13 +115,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   allMdxList?.forEach((mdx) => {
     let path = mdx.fields?.slug
     if (!path) return
-    if (
-      mdx.parent.relativeDirectory === 'updates' ||
-      mdx.parent.relativeDirectory === 'health-tips' ||
-      mdx.parent.relativeDirectory === 'promotions' ||
-      mdx.parent.relativeDirectory === 'campaign-page-posts'
-    )
-      return
+    if (mdx.parent.relativeDirectory === 'campaign-page-posts') return
     let component = null,
       defer = false
 
@@ -135,7 +129,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         defer = true
         break
       default:
-        console.log('mdx.parent.relativeDirectory', mdx.parent.relativeDirectory)
         component = `${postTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
         defer = moment(mdx?.frontmatter?.date)?.isBefore('2021-12-31')
         break
