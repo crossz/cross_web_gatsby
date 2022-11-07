@@ -134,35 +134,35 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         break
     }
 
-    // mdx?.frontmatter?.languages?.forEach((lang) => {
-    //   createPage({
-    //     path: `/${lang}${path}`,
-    //     component,
-    //     context: {
-    //       slug: path,
-    //       sectionPath: mdx.parent.relativeDirectory,
-    //       regex: `/${mdx.parent.relativeDirectory}/`,
-    //       id: mdx.id,
-    //       contentFilePath: mdx.internal.contentFilePath,
-    //       curPath: `/${lang}${path}`,
-    //     },
-    //     defer,
-    //   })
-    //   if (lang === defaultLanguage)
-    //     createPage({
-    //       path,
-    //       component,
-    //       context: {
-    //         slug: mdx.fields.slug,
-    //         sectionPath: mdx.parent.relativeDirectory,
-    //         regex: `/${mdx.parent.relativeDirectory}/`,
-    //         id: mdx.id,
-    //         contentFilePath: mdx.internal.contentFilePath,
-    //         curPath: `/${lang}${path}`,
-    //       },
-    //       defer,
-    //     })
-    // })
+    mdx?.frontmatter?.languages?.forEach((lang) => {
+      createPage({
+        path: `/${lang}${path}`,
+        component,
+        context: {
+          slug: path,
+          sectionPath: mdx.parent.relativeDirectory,
+          regex: `/${mdx.parent.relativeDirectory}/`,
+          id: mdx.id,
+          contentFilePath: mdx.internal.contentFilePath,
+          curPath: `/${lang}${path}`,
+        },
+        defer,
+      })
+      if (lang === defaultLanguage)
+        createPage({
+          path,
+          component,
+          context: {
+            slug: mdx.fields.slug,
+            sectionPath: mdx.parent.relativeDirectory,
+            regex: `/${mdx.parent.relativeDirectory}/`,
+            id: mdx.id,
+            contentFilePath: mdx.internal.contentFilePath,
+            curPath: `/${lang}${path}`,
+          },
+          defer,
+        })
+    })
   })
 
   createRedirect({
