@@ -15,7 +15,7 @@ module.exports = {
     siteUrl: 'https://take2health.net',
     defaultTitle: 'Take2 Health',
     defaultImage: '/src/assets/images/favicon.png',
-    titleTemplate: '%s · 早期鼻咽癌篩查',
+    titleTemplate: ' · 早期鼻咽癌篩查',
     defaultDescription:
       'Take2 Prophecy™ 以次世代DNA測序技術進行早期鼻咽癌篩查，讓患者透過年度體檢儘早發現癌症，從而提高治癒機會。',
     messenger: 'https://www.facebook.com/messages/t/100757495628023',

@@ -2,6 +2,7 @@ import React from 'react'
 import Homepage from '@components/Homepage'
 import { graphql } from 'gatsby'
 import Layout from '@layouts/Layout'
+import { SEO } from '@layouts/Seo'
 import { ImagesTranslationContext } from '@layouts/context'
 
 const Index = ({ data }) => {
@@ -144,3 +145,4 @@ export const query = graphql`
     }
   }
 `
+export const Head = () => <SEO />
