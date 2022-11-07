@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
         toggleTheme: handleChangeHeroTheme,
       }}
     >
-      <Seo></Seo>
+      {/* <Seo></Seo> */}
       <main id='main' className={classes.root}>
         {isPromotions || isRehealthPrevaccinationPlans || isCampaign ? (
           children
