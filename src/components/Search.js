@@ -9,7 +9,7 @@ import {
   useTheme,
   useMediaQuery,
 } from '@material-ui/core'
-import useJsSearch from '@hooks/useJsSearch'
+// import useJsSearch from '@hooks/useJsSearch'
 import { EInputBase } from '@themes/components/ETextField'
 import SearchIcon from '@images/icons/search.svg'
 import { navigate } from 'gatsby'
@@ -50,16 +50,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Search = ({
-  data,
-  setSearchResult,
-  setSearching,
-  setPageList,
-  isFAQ,
-}) => {
+const Search = ({ data, setSearchResult, setSearching, setPageList, isFAQ }) => {
   const classes = useStyles()
   const { t } = useI18next()
-  const { search } = useJsSearch(data, isFAQ)
+  // const { search } = useJsSearch(data, isFAQ)
   const [query, setQuery] = useState('')
   const [region, setRegion] = useState('')
   const location = useLocation()
@@ -67,10 +61,10 @@ const Search = ({
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
 
-  useEffect(() => {
-    if (!search) return
-    searchRef.current = search
-  }, [search])
+  // useEffect(() => {
+  //   if (!search) return
+  //   searchRef.current = search
+  // }, [search])
 
   useEffect(() => {
     const params = new URLSearchParams(location.search)
@@ -78,13 +72,10 @@ const Search = ({
     setSearching && setSearching(Boolean(q || region))
     if (q) scrollTo('#search-box', 'center')
     if (!q && !region) return setPageList && setPageList()
-    const results =
-      (q && searchRef.current ? searchRef?.current(q) : data) || []
+    const results = (q && searchRef.current ? searchRef?.current(q) : data) || []
     setSearchResult &&
       setSearchResult(
-        !isFAQ && region && results.length
-          ? results.filter((item) => item.frontmatter?.region === region)
-          : results
+        !isFAQ && region && results.length ? results.filter((item) => item.frontmatter?.region === region) : results
       )
     setQuery(q)
   }, [location, data, region])
@@ -117,12 +108,7 @@ const Search = ({
       ></EInputBase>
       {!isFAQ && (
         <Box className={classes.regionWrapper}>
-          <RadioGroup
-            className={classes.radioGroup}
-            value={region}
-            onChange={handleRegionChange}
-            row={matches}
-          >
+          <RadioGroup className={classes.radioGroup} value={region} onChange={handleRegionChange} row={matches}>
             {CAREER_REGIONS.map((region) => (
               <FormControlLabel
                 classes={{

@@ -63,5 +63,8 @@
     "segmentit": "^2.0.3",
     "swiper": "8.4.4",
     "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.30"
   }
 }
