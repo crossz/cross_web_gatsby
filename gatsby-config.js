@@ -44,6 +44,9 @@ module.exports = {
     // 'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
+      resolve: 'gatsby-plugin-no-sourcemaps',
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/assets/images/favicon.png',
@@ -90,7 +93,7 @@ module.exports = {
         defaults: {
           formats: [`auto`, `webp`],
           placeholder: `blurred`,
-          quality: 75,
+          quality: 70,
           // breakpoints: [750, 1080, 1366, 1920],
           // backgroundColor: `transparent`,
           // tracedSVGOptions: {},
