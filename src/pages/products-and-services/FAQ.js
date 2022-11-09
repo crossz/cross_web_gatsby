@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {
-  makeStyles,
-  Container,
-  Typography,
-  alpha,
-  Hidden,
-  Button,
-  Box,
-  Grid,
-} from '@material-ui/core'
+import { makeStyles, Container, Typography, alpha, Hidden, Button, Box, Grid } from '@material-ui/core'
 import useSiteMetadata from '@hooks/useSiteMetadata'
 import PhoneIcon from '@images/icons/phone.svg'
 import WhatsappIcon from '@images/icons/whatsapp.svg'
@@ -162,9 +153,7 @@ const FAQ = () => {
   const [activePanel, setActivePanel] = useState(null)
   const [faqTypes, setFaqTypes] = useState()
   const [loadingStatus, setLoadingStatus] = useState('')
-  const allTypeList = [
-    { nameHk: '所有問題', nameEn: 'All questions', nameCn: '所有问题' },
-  ]
+  const allTypeList = [{ nameHk: '所有問題', nameEn: 'All questions', nameCn: '所有问题' }]
   const [activeType, setActiveType] = useState(tB('name', allTypeList[0]))
 
   useEffect(() => {
@@ -216,11 +205,7 @@ const FAQ = () => {
           <Grid container>
             <Grid item xs={12} sm={4}></Grid>
             <Grid className={classes.titleWrapper} item xs={12} sm={8}>
-              <Typography
-                className={classes.title}
-                variant='h4'
-                color='primary'
-              >
+              <Typography className={classes.title} variant='h4' color='primary'>
                 {activeType && activeType !== tB('name', allTypeList[0]) && (
                   <Typography component='span' variant='h5'>
                     {` ${activeType}`}
@@ -233,17 +218,11 @@ const FAQ = () => {
             <Hidden xsDown>
               <Grid item sm={4}>
                 <Box className={classes.formWrapper}>
-                  <FaqSearch
-                    data={allFaqList}
-                    setSearchResult={handleSearchResult}
-                  ></FaqSearch>
+                  <FaqSearch data={allFaqList} setSearchResult={handleSearchResult}></FaqSearch>
                   <Box className={classes.types} onClick={handleTypeChange}>
                     {faqTypes?.map((type, index) => (
                       <Box
-                        className={classnames(
-                          classes.type,
-                          activeType === tB('name', type) && classes.activeType
-                        )}
+                        className={classnames(classes.type, activeType === tB('name', type) && classes.activeType)}
                         key={index}
                         data-value={tB('name', type)}
                       >
@@ -258,10 +237,7 @@ const FAQ = () => {
               <Box className={classes.formWrapper}>
                 <Grid container spacing={1}>
                   <Grid item xs={7}>
-                    <FaqSearch
-                      data={allFaqList}
-                      setSearchResult={handleSearchResult}
-                    ></FaqSearch>
+                    <FaqSearch data={allFaqList} setSearchResult={handleSearchResult}></FaqSearch>
                   </Grid>
                   <Grid item xs={5}>
                     <ESelect
@@ -281,15 +257,11 @@ const FAQ = () => {
               </Box>
             </Hidden>
             <Grid item xs={12} sm={8}>
-              {faqList?.length > 0 &&
-              loadingStatus !== 'pending' &&
-              faqList?.find((faq) => faq.status) ? (
+              {faqList?.length > 0 && loadingStatus !== 'pending' && faqList?.find((faq) => faq.status) ? (
                 faqList
                   ?.filter(
                     (faq) =>
-                      tB('typeName', faq) === activeType ||
-                      !activeType ||
-                      activeType === tB('name', allTypeList[0])
+                      tB('typeName', faq) === activeType || !activeType || activeType === tB('name', allTypeList[0])
                   )
                   ?.map((faq) => (
                     <FaqItem
@@ -308,9 +280,7 @@ const FAQ = () => {
           </Grid>
         </Container>
         <Box className={classes.contactRoot}>
-          <Box className={classes.contactTitle}>
-            {t('products_and_services.take2_extra_care.faq.welcome_contact')}
-          </Box>
+          <Box className={classes.contactTitle}>{t('products_and_services.take2_extra_care.faq.welcome_contact')}</Box>
           <Box className={classes.contactBtnWrapper}>
             <Button
               className={classes.contactBtn}
@@ -353,3 +323,13 @@ export const query = graphql`
     }
   }
 `
+
+export async function config() {
+  // Optionally use GraphQL here
+
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}

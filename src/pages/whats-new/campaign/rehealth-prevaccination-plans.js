@@ -67,11 +67,7 @@ const RehealthPrevaccinationPlans = () => {
             {`請即按<點擊查看優惠>以獲取更多測試詳情。`}
           </Box>
         </Box>
-        <Link
-          className={classes.image}
-          href='https://bit.ly/rehealthplatinumplan'
-          target='_blank'
-        >
+        <Link className={classes.image} href='https://bit.ly/rehealthplatinumplan' target='_blank'>
           <Container className={classes.imageWrapper} maxWidth='sm'>
             <StaticImage
               className={classes.image}
@@ -80,14 +76,11 @@ const RehealthPrevaccinationPlans = () => {
             ></StaticImage>
           </Container>
         </Link>
-        <Box className={classes.subTitle}>
-          計劃一：白金級無創心臟全功能及早期鼻咽癌篩查計劃
-        </Box>
+        <Box className={classes.subTitle}>計劃一：白金級無創心臟全功能及早期鼻咽癌篩查計劃</Box>
         <Box className={classes.content}>
           適合所有關注心臟和鼻咽健康的人士。引入獲美國太空總署NASA為宇航員作心臟表現測試的HOTMAN
           System，只需平臥放鬆即可收集心血管數據，得出是否有高血壓、中風或心臟衰竭等循環系統問題及提供全面心臟功能評估。Take2
-          Prophecy™
-          早期鼻咽癌篩查由頂尖大學研發，準確度高達97%，助你了解鼻咽健康狀態。
+          Prophecy™ 早期鼻咽癌篩查由頂尖大學研發，準確度高達97%，助你了解鼻咽健康狀態。
         </Box>
         <Link href='https://bit.ly/rehealthdiamondplan' target='_blank'>
           <Container className={classes.imageWrapper} maxWidth='sm'>
@@ -99,13 +92,10 @@ const RehealthPrevaccinationPlans = () => {
           </Container>
         </Link>
 
-        <Box className={classes.subTitle}>
-          計劃二：鑽石級高階心血管造影及早期鼻咽癌篩查計劃
-        </Box>
+        <Box className={classes.subTitle}>計劃二：鑽石級高階心血管造影及早期鼻咽癌篩查計劃</Box>
         <Box className={classes.content}>
           適合30歲或以上、對心血管和鼻咽健康有更深入了解需求的人士。此計劃為有家族史、懷疑有心血管疾病或有鼻咽癌病徵等高風險人士提供全面而精確的篩查服務。利用電腦掃描冠狀動脈造影，有效協助診斷冠狀動脈病變；計劃包括Take2
-          Prophecy™
-          早期鼻咽癌篩查，準確度高達97%。完成檢查後，有醫生作專業分析和評估。{' '}
+          Prophecy™ 早期鼻咽癌篩查，準確度高達97%。完成檢查後，有醫生作專業分析和評估。{' '}
         </Box>
       </Typography>
     </Container>
@@ -113,3 +103,13 @@ const RehealthPrevaccinationPlans = () => {
 }
 
 export default RehealthPrevaccinationPlans
+
+export async function config() {
+  // Optionally use GraphQL here
+
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}
