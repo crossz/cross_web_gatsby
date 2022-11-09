@@ -212,5 +212,6 @@ module.exports = {
         devMode: false,
       },
     },
+    'gatsby-plugin-netlify',
   ],
 }
