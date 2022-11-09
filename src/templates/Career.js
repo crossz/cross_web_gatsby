@@ -2,13 +2,12 @@ import React from 'react'
 import MdxLayout from '@layouts/MdxLayout'
 import { graphql, navigate } from 'gatsby'
 import { makeStyles, Container, Box, Dialog, IconButton, useTheme, useMediaQuery, Typography } from '@material-ui/core'
-// import { StaticImage } from 'gatsby-plugin-image'
 import CloseIcon from '@images/icons/close.svg'
 import classnames from 'classnames'
 import { MOBILE_HEADER_HEIGHT, HEADER_HEIGHT } from '@utils/constant'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { formatLocal } from '@utils/moment'
-import Logo from '/src/assets/images/common/take2_full_color.png'
+import CareerLogo from '@components/CareerLogo'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -116,8 +115,7 @@ const Post = ({ data, children }) => {
         <Container disableGutters maxWidth='lg'>
           <Box className={classes.header}>
             <Box width={matches ? 100 : 145}>
-              <img width='100%' objectFit='contain' src={Logo} alt='logo' />
-              {/* <StaticImage src='../assets/images/common/take2_full_color.png' alt='Logo' /> */}
+              <CareerLogo></CareerLogo>
             </Box>
             <IconButton className={classnames(classes.btn, classes.closeBtn)} onClick={handleClose} aria-label='close'>
               <CloseIcon className={classes.icon} />

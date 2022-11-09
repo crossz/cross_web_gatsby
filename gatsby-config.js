@@ -40,7 +40,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-smoothscroll`,
-    'gatsby-plugin-image',
     // 'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
@@ -113,6 +112,7 @@ module.exports = {
         checkSupportedExtensions: false,
       },
     },
+    'gatsby-plugin-image',
     `gatsby-transformer-json`,
     {
       resolve: 'gatsby-source-filesystem',

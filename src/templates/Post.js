@@ -7,13 +7,12 @@ import { makeStyles, alpha, Typography, Container, Box, Breadcrumbs, Hidden } fr
 import ArrowIcon from '@images/icons/arrow.svg'
 import useMenu from '@hooks/useMenu'
 import Links from '@components/WhatsNew/Links'
-// import { StaticImage } from 'gatsby-plugin-image'
 import { POST_TYPES } from '@utils/constant'
 import Layout from '@layouts/Layout'
 import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next'
 import Link from '@components/Link'
 import { formatLocal } from '@utils/moment'
-import PostBg from '/src/assets/images/post_bg.png'
+import PostBg from '@components/PostBg'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -212,12 +211,7 @@ const Post = ({ data, pageContext, location: { href }, children }) => {
               </Box>
               <MdxLayout>{children}</MdxLayout>
             </Container>
-            <img className={classes.postBg} src={PostBg} alt='post bg' />
-            {/* <StaticImage
-              className={classes.postBg}
-              src='../assets/images/post_bg.png'
-              alt='post background'
-            ></StaticImage> */}
+            <PostBg></PostBg>
           </Box>
           <Box className={classes.moreWrapper}>
             <Container disableGutters maxWidth='md'>
