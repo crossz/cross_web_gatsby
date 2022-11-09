@@ -21,3 +21,12 @@ export const query = graphql`
     }
   }
 `
+export async function config() {
+  // Optionally use GraphQL here
+
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}

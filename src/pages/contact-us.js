@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
-import {
-  makeStyles,
-  Container,
-  Grid,
-  useMediaQuery,
-  useTheme,
-} from '@material-ui/core'
+import { makeStyles, Container, Grid, useMediaQuery, useTheme } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import useSiteMetadata from '@hooks/useSiteMetadata'
 import PhoneIcon from '@images/icons/phone.svg'
@@ -22,12 +16,7 @@ import { oriSchema } from '@utils/schema'
 import { throttle } from 'lodash-es'
 import { DIALING_CODES } from '@utils/constant'
 import FormControl from '@material-ui/core/FormControl'
-import {
-  EInputBase,
-  EFormLabel,
-  ESelect,
-  CancelButton,
-} from '@themes/components/ETextField'
+import { EInputBase, EFormLabel, ESelect, CancelButton } from '@themes/components/ETextField'
 import ImageList from '@material-ui/core/ImageList'
 import ImageListItem from '@material-ui/core/ImageListItem'
 import FormHelperText from '@material-ui/core/FormHelperText'
@@ -189,13 +178,7 @@ const ContactUs = () => {
   const [reCapStatus, setReCapStatus] = useState(0)
   const { whatsapp, email, phone, messenger } = useSiteMetadata()
 
-  const schema = oriSchema(t).pick([
-    'companyName',
-    'message',
-    'dialingCode',
-    'phone',
-    'email',
-  ])
+  const schema = oriSchema(t).pick(['companyName', 'message', 'dialingCode', 'phone', 'email'])
 
   const contactTypes = [
     {
@@ -233,8 +216,7 @@ const ContactUs = () => {
   const handleFetch = async (values) => {
     try {
       const res = await fetchWithTimeout('/contactUs/add', { values })
-      if (res?.code !== 1000)
-        return Promise.reject(res?.message || t('status.submit.fail'))
+      if (res?.code !== 1000) return Promise.reject(res?.message || t('status.submit.fail'))
       return
     } catch (error) {
       return Promise.reject(t('status.submit.fail'))
@@ -256,11 +238,7 @@ const ContactUs = () => {
     <Layout>
       <Box className={classes.root}>
         <Container className={classes.container} disableGutters maxWidth='xl'>
-          <Box
-            height={matches ? 118 : 190}
-            bgcolor='primary.main'
-            mb={-13.75}
-          ></Box>
+          <Box height={matches ? 118 : 190} bgcolor='primary.main' mb={-13.75}></Box>
           <Box className={classes.contentRoot}>
             <Container disableGutters maxWidth='md'>
               <Grid container spacing={0}>
@@ -297,53 +275,36 @@ const ContactUs = () => {
                   ))}
                 </Tabs> */}
                   <Box px={matches ? 3 : 0} mt={matches ? 2 : 1.5}>
-                    <ImageList
-                      className={classes.imageList}
-                      rowHeight='auto'
-                      cols={matches ? 1 : 2}
-                      gap={16}
-                    >
-                      {contactTypes.map(
-                        ({ label, Icon, type, link }, index) => (
-                          <ImageListItem
-                            key={label}
+                    <ImageList className={classes.imageList} rowHeight='auto' cols={matches ? 1 : 2} gap={16}>
+                      {contactTypes.map(({ label, Icon, type, link }, index) => (
+                        <ImageListItem
+                          key={label}
+                          classes={{
+                            item: classes.imageListItemItem,
+                          }}
+                          className={classes.imageListItem}
+                        >
+                          <Button
+                            className={classes.button}
                             classes={{
-                              item: classes.imageListItemItem,
+                              startIcon: classes.startIcon,
                             }}
-                            className={classes.imageListItem}
+                            variant={index ? 'outlined' : 'contained'}
+                            color={index === activeTab ? 'secondary' : 'primary'}
+                            startIcon={<Icon className={classnames(index === activeTab && classes.activeIcon)} />}
+                            size='large'
+                            href={getHref(type, link)}
+                            target={type === 'link' ? '_blank' : ''}
                           >
-                            <Button
-                              className={classes.button}
-                              classes={{
-                                startIcon: classes.startIcon,
-                              }}
-                              variant={index ? 'outlined' : 'contained'}
-                              color={
-                                index === activeTab ? 'secondary' : 'primary'
-                              }
-                              startIcon={
-                                <Icon
-                                  className={classnames(
-                                    index === activeTab && classes.activeIcon
-                                  )}
-                                />
-                              }
-                              size='large'
-                              href={getHref(type, link)}
-                              target={type === 'link' ? '_blank' : ''}
-                            >
-                              {label}
-                            </Button>
-                          </ImageListItem>
-                        )
-                      )}
+                            {label}
+                          </Button>
+                        </ImageListItem>
+                      ))}
                     </ImageList>
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm={5}>
-                  <Box className={classes.formTitle}>
-                    {t('contact_us.form_title')}
-                  </Box>
+                  <Box className={classes.formTitle}>{t('contact_us.form_title')}</Box>
                   <Formik
                     initialValues={initialValues}
                     validationSchema={schema}
@@ -365,21 +326,10 @@ const ContactUs = () => {
                     }, 1000)}
                   >
                     {(props) => {
-                      const {
-                        values,
-                        handleSubmit,
-                        handleChange,
-                        touched,
-                        errors,
-                        setFieldValue,
-                      } = props
-                      const isError = (field) =>
-                        touched[field] && Boolean(errors[field])
+                      const { values, handleSubmit, handleChange, touched, errors, setFieldValue } = props
+                      const isError = (field) => touched[field] && Boolean(errors[field])
                       const errorText = (field) =>
-                        touched[field] &&
-                        errors[field] && (
-                          <FormHelperText>{errors[field]}</FormHelperText>
-                        )
+                        touched[field] && errors[field] && <FormHelperText>{errors[field]}</FormHelperText>
 
                       const CusCancelButton = ({ field }) => (
                         <CancelButton
@@ -391,17 +341,9 @@ const ContactUs = () => {
                         />
                       )
                       return (
-                        <form
-                          onSubmit={handleSubmit}
-                          className={classes.form}
-                          noValidate
-                        >
+                        <form onSubmit={handleSubmit} className={classes.form} noValidate>
                           <Box mb={4}>
-                            <FormControl
-                              fullWidth
-                              error={isError('companyName')}
-                              required
-                            >
+                            <FormControl fullWidth error={isError('companyName')} required>
                               <EFormLabel>{t('form.company.label')}</EFormLabel>
                               <EInputBase
                                 id='company-ame'
@@ -417,9 +359,7 @@ const ContactUs = () => {
                                       })
                                 }
                                 type='text'
-                                endAdornment={
-                                  <CusCancelButton field='companyName' />
-                                }
+                                endAdornment={<CusCancelButton field='companyName' />}
                               />
                               {errorText('companyName')}
                             </FormControl>
@@ -430,10 +370,7 @@ const ContactUs = () => {
                             </Box>
                             <Box display='flex'>
                               <Box mr={0.5}>
-                                <FormControl
-                                  className={classes.dialingCode}
-                                  required
-                                >
+                                <FormControl className={classes.dialingCode} required>
                                   <ESelect
                                     labelId='dialingCode-select-label'
                                     id='dialingCode-type-select'
@@ -443,10 +380,7 @@ const ContactUs = () => {
                                     displayEmpty
                                   >
                                     {DIALING_CODES.map((dialingCode) => (
-                                      <MenuItem
-                                        key={dialingCode.value}
-                                        value={dialingCode.value}
-                                      >
+                                      <MenuItem key={dialingCode.value} value={dialingCode.value}>
                                         {dialingCode.label}
                                       </MenuItem>
                                     ))}
@@ -461,20 +395,14 @@ const ContactUs = () => {
                                   value={values.phone}
                                   onChange={handleChange}
                                   placeholder={t('form.phone.placeholder')}
-                                  endAdornment={
-                                    <CusCancelButton field='phone' />
-                                  }
+                                  endAdornment={<CusCancelButton field='phone' />}
                                 />
                                 {errorText('phone')}
                               </FormControl>
                             </Box>
                           </Box>
                           <Box mb={4}>
-                            <FormControl
-                              fullWidth
-                              error={isError('email')}
-                              required
-                            >
+                            <FormControl fullWidth error={isError('email')} required>
                               <EFormLabel>{t('form.email.label')}</EFormLabel>
                               <EInputBase
                                 id='email'
@@ -482,11 +410,7 @@ const ContactUs = () => {
                                 margin='none'
                                 value={values.email}
                                 onChange={handleChange}
-                                placeholder={
-                                  isError('email')
-                                    ? ''
-                                    : 'example@take2health.com'
-                                }
+                                placeholder={isError('email') ? '' : 'example@take2health.com'}
                                 endAdornment={<CusCancelButton field='email' />}
                               />
 
@@ -519,17 +443,9 @@ const ContactUs = () => {
                             color='secondary'
                             disabled={reCapStatus === 1}
                           >
-                            {loading ? (
-                              <CircularProgress color='inherit' size={24} />
-                            ) : (
-                              t('common.submit')
-                            )}
+                            {loading ? <CircularProgress color='inherit' size={24} /> : t('common.submit')}
                           </Button>
-                          {reCapStatus > 0 && (
-                            <ReCaptcha
-                              onChange={(value) => setReCapStatus(value)}
-                            ></ReCaptcha>
-                          )}
+                          {reCapStatus > 0 && <ReCaptcha onChange={(value) => setReCapStatus(value)}></ReCaptcha>}
                         </form>
                       )
                     }}
@@ -559,3 +475,12 @@ export const query = graphql`
     }
   }
 `
+export async function config() {
+  // Optionally use GraphQL here
+
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}

@@ -23,13 +23,7 @@ import { oriSchema } from '@utils/schema'
 import { throttle } from 'lodash-es'
 import { DIALING_CODES } from '@utils/constant'
 import { graphql } from 'gatsby'
-import {
-  EInputBase,
-  EFormLabel,
-  ESelect,
-  CancelButton,
-  EMenuItem,
-} from '@themes/components/ETextField'
+import { EInputBase, EFormLabel, ESelect, CancelButton, EMenuItem } from '@themes/components/ETextField'
 import { toast } from 'react-toastify'
 import ReCaptcha from '@components/ReCaptcha'
 import SimpleGoogleMap from '@components/Map/SimpleGoogleMap'
@@ -259,21 +253,14 @@ const International = () => {
   const [loading, setLoading] = useState(false)
   const [reCapStatus, setReCapStatus] = useState(0)
 
-  const schema = oriSchema(t).pick([
-    'companyName',
-    'dialingCode',
-    'name',
-    'phone',
-    'email',
-  ])
+  const schema = oriSchema(t).pick(['companyName', 'dialingCode', 'name', 'phone', 'email'])
 
   const handleFetch = async (values) => {
     try {
       const res = await fetchWithTimeout(`/applyPartner/add`, {
         values, // data can be `string` or {object}!
       })
-      if (res?.code !== 1000)
-        return Promise.reject(res?.message || t('status.submit.fail'))
+      if (res?.code !== 1000) return Promise.reject(res?.message || t('status.submit.fail'))
       return
     } catch (error) {
       return Promise.reject(t('status.submit.fail'))
@@ -285,28 +272,16 @@ const International = () => {
       <Box className={classes.root}>
         <Container className={classes.box01} maxWidth='lg'>
           <Box className={classes.titleWrapper}>
-            <Typography
-              className={classes.box01Title}
-              variant='h4'
-              color='primary'
-            >
+            <Typography className={classes.box01Title} variant='h4' color='primary'>
               {t('international.title')}
             </Typography>
-            <Typography
-              className={classes.box01Content}
-              variant='body1'
-              color='textPrimary'
-            >
+            <Typography className={classes.box01Content} variant='body1' color='textPrimary'>
               {t('international.detail')}
             </Typography>
           </Box>
           <SimpleGoogleMap></SimpleGoogleMap>
         </Container>
-        <Container
-          disableGutters
-          className={classes.bannerWrapper}
-          maxWidth='lg'
-        >
+        <Container disableGutters className={classes.bannerWrapper} maxWidth='lg'>
           <StaticImage
             className={classes.bannerBg}
             src='../assets/images/international_banner_bg.jpg'
@@ -320,12 +295,7 @@ const International = () => {
             <Typography className={classes.box02Title} variant='h6'>
               {t('international.our_partners')}
             </Typography>
-            <ImageList
-              className={classes.imageList}
-              rowHeight='auto'
-              cols={matches ? 1 : 3}
-              gap={matches ? 16 : 24}
-            >
+            <ImageList className={classes.imageList} rowHeight='auto' cols={matches ? 1 : 3} gap={matches ? 16 : 24}>
               {businessPartners?.map((partner, index) => (
                 <ImageListItem
                   key={partner?.id}
@@ -334,33 +304,16 @@ const International = () => {
                   }}
                   className={classes.imageListItem}
                 >
-                  <Link
-                    href={partner?.link || null}
-                    target='_blank'
-                    underline='none'
-                  >
+                  <Link href={partner?.link || null} target='_blank' underline='none'>
                     <Box className={classes.partnerItem}>
-                      <Box className={classes.country}>
-                        {tB('country', partner)}
-                      </Box>
-                      <Typography
-                        className={classes.name}
-                        variant='subtitle1'
-                        color='primary'
-                      >
+                      <Box className={classes.country}>{tB('country', partner)}</Box>
+                      <Typography className={classes.name} variant='subtitle1' color='primary'>
                         {partner?.name}
                       </Typography>
-                      <Typography className={classes.partnerContent}>
-                        {tB('intro', partner)}
-                      </Typography>
+                      <Typography className={classes.partnerContent}>{tB('intro', partner)}</Typography>
                       <Box className={classes.partnerBtnWrapper}>
                         {partner?.link && (
-                          <Button
-                            className={classes.viewBtn}
-                            variant='text'
-                            color='primary'
-                            endIcon={<RightIcon />}
-                          >
+                          <Button className={classes.viewBtn} variant='text' color='primary' endIcon={<RightIcon />}>
                             {t('common.learn_more')}
                           </Button>
                         )}
@@ -386,17 +339,10 @@ const International = () => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Box className={classes.box03Wrapper}>
-                  <Typography
-                    className={classes.box03Title}
-                    variant='h4'
-                    color='primary'
-                  >
+                  <Typography className={classes.box03Title} variant='h4' color='primary'>
                     {t('international.become_a_partner')}
                   </Typography>
-                  <Typography
-                    variant={matches ? 'body2' : 'body1'}
-                    color='textPrimary'
-                  >
+                  <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                     {t('international.become_a_partner_content')}
                   </Typography>
                   <Formik
@@ -420,21 +366,10 @@ const International = () => {
                     }, 1000)}
                   >
                     {(props) => {
-                      const {
-                        values,
-                        handleSubmit,
-                        handleChange,
-                        touched,
-                        errors,
-                        setFieldValue,
-                      } = props
-                      const isError = (field) =>
-                        touched[field] && Boolean(errors[field])
+                      const { values, handleSubmit, handleChange, touched, errors, setFieldValue } = props
+                      const isError = (field) => touched[field] && Boolean(errors[field])
                       const errorText = (field) =>
-                        touched[field] &&
-                        errors[field] && (
-                          <FormHelperText>{errors[field]}</FormHelperText>
-                        )
+                        touched[field] && errors[field] && <FormHelperText>{errors[field]}</FormHelperText>
 
                       const CusCancelButton = ({ field }) => (
                         <CancelButton
@@ -447,17 +382,9 @@ const International = () => {
                       )
 
                       return (
-                        <form
-                          onSubmit={handleSubmit}
-                          className={classes.form}
-                          noValidate
-                        >
+                        <form onSubmit={handleSubmit} className={classes.form} noValidate>
                           <Box className={classes.formControlLine}>
-                            <FormControl
-                              fullWidth
-                              error={isError('companyName')}
-                              required
-                            >
+                            <FormControl fullWidth error={isError('companyName')} required>
                               <EFormLabel>{t('form.company.label')}</EFormLabel>
                               <EInputBase
                                 id='company-ame'
@@ -473,9 +400,7 @@ const International = () => {
                                       })
                                 }
                                 type='text'
-                                endAdornment={
-                                  <CusCancelButton field='companyName' />
-                                }
+                                endAdornment={<CusCancelButton field='companyName' />}
                               />
                               {errorText('companyName')}
                             </FormControl>
@@ -496,12 +421,7 @@ const International = () => {
                             </FormControl>
                           </Box>
                           <Box className={classes.formControlLine}>
-                            <FormControl
-                              fullWidth
-                              error={isError('email')}
-                              required
-                              className={classes.formControl}
-                            >
+                            <FormControl fullWidth error={isError('email')} required className={classes.formControl}>
                               <EFormLabel>{t('form.email.label')}</EFormLabel>
                               <EInputBase
                                 id='email'
@@ -509,23 +429,13 @@ const International = () => {
                                 margin='none'
                                 value={values.email}
                                 onChange={handleChange}
-                                placeholder={
-                                  isError('email')
-                                    ? ''
-                                    : 'example@take2health.com'
-                                }
+                                placeholder={isError('email') ? '' : 'example@take2health.com'}
                                 endAdornment={<CusCancelButton field='email' />}
                               />
                               {errorText('email')}
                             </FormControl>
-                            <Box
-                              width='100%'
-                              display='flex'
-                              className={classes.formControl}
-                            >
-                              <FormControl
-                                className={classes.dialingCodeFormControl}
-                              >
+                            <Box width='100%' display='flex' className={classes.formControl}>
+                              <FormControl className={classes.dialingCodeFormControl}>
                                 <EFormLabel>{t('form.phone.label')}</EFormLabel>
                                 <ESelect
                                   labelId='dialingCode-select-label'
@@ -536,19 +446,14 @@ const International = () => {
                                   displayEmpty
                                 >
                                   {DIALING_CODES.map((dialingCode) => (
-                                    <EMenuItem
-                                      key={dialingCode.value}
-                                      value={dialingCode.value}
-                                    >
+                                    <EMenuItem key={dialingCode.value} value={dialingCode.value}>
                                       {dialingCode.label}
                                     </EMenuItem>
                                   ))}
                                 </ESelect>
                               </FormControl>
                               <FormControl fullWidth error={isError('phone')}>
-                                <EFormLabel className={classes.hiddenLabel}>
-                                  hidden
-                                </EFormLabel>
+                                <EFormLabel className={classes.hiddenLabel}>hidden</EFormLabel>
                                 <EInputBase
                                   id='phone'
                                   name='phone'
@@ -556,9 +461,7 @@ const International = () => {
                                   value={values.phone}
                                   onChange={handleChange}
                                   placeholder={t('form.phone.placeholder')}
-                                  endAdornment={
-                                    <CusCancelButton field='phone' />
-                                  }
+                                  endAdornment={<CusCancelButton field='phone' />}
                                 />
                                 {errorText('phone')}
                               </FormControl>
@@ -572,17 +475,9 @@ const International = () => {
                             className={classes.submitBtn}
                             disabled={reCapStatus === 1}
                           >
-                            {loading ? (
-                              <CircularProgress color='inherit' size={24} />
-                            ) : (
-                              t('common.submit')
-                            )}
+                            {loading ? <CircularProgress color='inherit' size={24} /> : t('common.submit')}
                           </Button>
-                          {reCapStatus > 0 && (
-                            <ReCaptcha
-                              onChange={(value) => setReCapStatus(value)}
-                            ></ReCaptcha>
-                          )}
+                          {reCapStatus > 0 && <ReCaptcha onChange={(value) => setReCapStatus(value)}></ReCaptcha>}
                         </form>
                       )
                     }}
@@ -612,3 +507,13 @@ export const query = graphql`
     }
   }
 `
+
+export async function config() {
+  // Optionally use GraphQL here
+
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}
