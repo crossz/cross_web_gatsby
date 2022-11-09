@@ -4,7 +4,7 @@ const fs = require(`fs-extra`)
 
 const matches = glob.sync(`content/images/**/*.{PNG,png,jpg,jpeg}`)
 const MAX_WIDTH = 1800
-const QUALITY = 70
+const QUALITY = 90
 Promise.all(
   matches.map(async (match) => {
     const stream = sharp(match)

@@ -93,7 +93,7 @@ module.exports = {
         defaults: {
           formats: [`auto`, `webp`],
           placeholder: `blurred`,
-          quality: 70,
+          quality: 75,
           // breakpoints: [750, 1080, 1366, 1920],
           // backgroundColor: `transparent`,
           // tracedSVGOptions: {},
@@ -209,7 +209,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
       options: {
-        devMode: true,
+        devMode: false,
       },
     },
   ],

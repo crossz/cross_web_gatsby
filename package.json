@@ -12,6 +12,7 @@
     "start": "gatsby develop --host=0.0.0.0",
     "build": "node scripts/optimize.js && gatsby build",
     "build:dev": "node scripts/optimize.js && GATSBY_ENV=development gatsby build",
+    "build:loc": "GATSBY_ENV=development gatsby build",
     "serve": "gatsby serve --host=0.0.0.0",
     "clean": "gatsby clean",
     "mock": "prism mock -d $npm_package_docs_openapi"
