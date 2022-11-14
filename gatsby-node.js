@@ -115,13 +115,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   allMdxList?.forEach((mdx) => {
     let path = mdx.fields?.slug
     if (!path) return
-    if (
-      // mdx.parent.relativeDirectory === 'health-tips' ||
-      // mdx.parent.relativeDirectory === 'promotions' ||
-      mdx.parent.relativeDirectory === 'updates' ||
-      mdx.parent.relativeDirectory === 'campaign-page-posts'
-    )
-      return
+    // if (
+    //   mdx.parent.relativeDirectory === 'health-tips' ||
+    //   mdx.parent.relativeDirectory === 'promotions' ||
+    //   mdx.parent.relativeDirectory === 'updates' ||
+    //   mdx.parent.relativeDirectory === 'campaign-page-posts'
+    // )
+    //   return
     let component = null,
       defer = false
 
@@ -166,7 +166,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             contentFilePath: mdx.internal.contentFilePath,
             curPath: `/${lang}${path}`,
           },
-          // defer,
+          defer,
         })
     })
   })
@@ -178,15 +178,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 }
 
-// exports.createSchemaCustomization = ({ actions }) => {
-//   const { createTypes } = actions
-//   const typeDefs = `
-//     type Mdx implements Node {
-//       frontmatter: Frontmatter
-//     }
-//     type Frontmatter {
-//       region: String!
-//     }
-//   `
-//   createTypes(typeDefs)
-// }
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type Mdx implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      region: String!
+    }
+  `
+  createTypes(typeDefs)
+}

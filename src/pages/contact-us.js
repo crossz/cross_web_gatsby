@@ -475,12 +475,12 @@ export const query = graphql`
     }
   }
 `
-// export async function config() {
-//   // Optionally use GraphQL here
+export async function config() {
+  // Optionally use GraphQL here
 
-//   return ({ params }) => {
-//     return {
-//       defer: true,
-//     }
-//   }
-// }
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}

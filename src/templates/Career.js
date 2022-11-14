@@ -170,7 +170,7 @@ export const query = graphql`
       frontmatter {
         title
         type
-        # region
+        region
         date
       }
     }
