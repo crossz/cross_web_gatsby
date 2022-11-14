@@ -442,7 +442,7 @@ export const query = graphql`
           date
           title
           type
-          region
+          # region
         }
       }
       pageInfo {
@@ -462,7 +462,7 @@ export const query = graphql`
           date
           title
           type
-          region
+          # region
         }
       }
     }
