@@ -11,6 +11,9 @@ if (process.env.GATSBY_ENV) {
 const { languages, defaultLanguage } = require('./languages')
 
 module.exports = {
+  flags: {
+    DEV_SSR: true,
+  },
   siteMetadata: {
     siteUrl: 'https://take2health.net',
     defaultTitle: 'Take2 Health',
