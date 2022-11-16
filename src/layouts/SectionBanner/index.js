@@ -4,7 +4,7 @@ import { Match } from '@reach/router'
 import useMenu from '@hooks/useMenu'
 import Link from '@components/Link'
 import TitleDot from '@themes/components/TitleDot'
-// import Image from '@components/Image'
+import SectionBannerImage from '@components/SectionBannerImage'
 import { HEADER_HEIGHT, MOBILE_HEADER_HEIGHT } from '@utils/constant'
 import { getDomTop } from '@utils'
 import scrollTo from 'gatsby-plugin-smoothscroll'
@@ -126,13 +126,13 @@ const SectionBanner = () => {
         props.match ? (
           <>
             <Container className={classes.bannerWrapper} disableGutters maxWidth='xl'>
-              {/* <Image
+              <SectionBannerImage
                 filename={matches ? curMenuItem.mobileBanner : curMenuItem.banner}
                 alt='image'
                 style={{
                   gridArea: '1/1',
                 }}
-              ></Image> */}
+              ></SectionBannerImage>
               <Container className={classes.titleWrapper} maxWidth='lg'>
                 <Box mt='auto' mb={4} ml={2}>
                   <Typography variant='h3'>

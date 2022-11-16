@@ -115,13 +115,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   allMdxList?.forEach((mdx) => {
     let path = mdx.fields?.slug
     if (!path) return
-    if (
-      mdx.parent.relativeDirectory === 'health-tips' ||
-      mdx.parent.relativeDirectory === 'promotions'
-      // || mdx.parent.relativeDirectory === 'updates'
-      // || mdx.parent.relativeDirectory === 'campaign-page-posts'
-    )
-      return
+    // if (
+    //   mdx.parent.relativeDirectory === 'health-tips' ||
+    //   mdx.parent.relativeDirectory === 'promotions' ||
+    //   mdx.parent.relativeDirectory === 'updates' ||
+    //   mdx.parent.relativeDirectory === 'campaign-page-posts'
+    // )
+    //   return
     let component = null,
       defer = false
 
@@ -171,11 +171,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
-  // createRedirect({
-  //   fromPath: '/index.html',
-  //   redirectInBrowser: true,
-  //   toPath: '/',
-  // })
+  createRedirect({
+    fromPath: '/index.html',
+    redirectInBrowser: true,
+    toPath: '/',
+  })
 }
 
 exports.createSchemaCustomization = ({ actions }) => {

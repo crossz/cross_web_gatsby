@@ -21,7 +21,9 @@ export default CampaignRoot
 
 export const query = graphql`
   query ($language: String!) {
-    imagesTranslation: allFile(filter: { sourceInstanceName: { eq: "campaignImages" } }) {
+    imagesTranslation: allFile(
+      filter: { sourceInstanceName: { eq: "campaignImages" }, relativeDirectory: { eq: "translation" } }
+    ) {
       nodes {
         name
         childImageSharp {
