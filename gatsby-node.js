@@ -171,11 +171,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
-  createRedirect({
-    fromPath: '/index.html',
-    redirectInBrowser: true,
-    toPath: '/',
-  })
+  // createRedirect({
+  //   fromPath: '/index.html',
+  //   redirectInBrowser: true,
+  //   toPath: '/',
+  // })
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
