@@ -117,8 +117,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     if (!path) return
     if (
       mdx.parent.relativeDirectory === 'health-tips' ||
-      mdx.parent.relativeDirectory === 'promotions' ||
-      mdx.parent.relativeDirectory === 'updates'
+      mdx.parent.relativeDirectory === 'promotions'
+      // || mdx.parent.relativeDirectory === 'updates'
       // || mdx.parent.relativeDirectory === 'campaign-page-posts'
     )
       return
