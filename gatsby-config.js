@@ -213,6 +213,6 @@ module.exports = {
         devMode: false,
       },
     },
-    'gatsby-plugin-netlify',
+    // 'gatsby-plugin-netlify',
   ],
 }
