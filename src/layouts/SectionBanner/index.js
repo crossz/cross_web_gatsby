@@ -95,7 +95,7 @@ const SectionBanner = () => {
   const classes = useStyles()
   const { t, originalPath, routed, language } = useI18next()
   const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.down('xs'))
+  const matches = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
   const menu = useMenu()
   const pointerRef = useRef(null)
   // When user navigates between section pages and content been scrolled beyond banner , should scroll page up to section tabs.
