@@ -111,12 +111,7 @@ const PostCard = ({ title, detail, type, date, cover, slug, href, withViewBtn, p
       <Box className={classes.root}>
         <Box height={images[0] ? 'auto' : 200} className={classes.imageWrapper}>
           {images[0] && (
-            <GatsbyImage
-              imgClassName={classes.image}
-              image={images[0]}
-              // placeholder='blurred'
-              alt={title}
-            ></GatsbyImage>
+            <GatsbyImage imgClassName={classes.image} image={images[0]} placeholder='blurred' alt={title}></GatsbyImage>
           )}
         </Box>
         {isCampaignPage ? (

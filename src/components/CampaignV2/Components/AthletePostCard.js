@@ -114,12 +114,7 @@ const AthletePostCard = ({ title, detail, type, date, cover, slug, href, withVie
       <Box className={classes.root}>
         <Box height='auto' className={classes.imageWrapper}>
           {images[0] && (
-            <GatsbyImage
-              imgClassName={classes.image}
-              image={images[0]}
-              // placeholder='blurred'
-              alt={title}
-            ></GatsbyImage>
+            <GatsbyImage imgClassName={classes.image} image={images[0]} placeholder='blurred' alt={title}></GatsbyImage>
           )}
         </Box>
         {isCampaignPage ? (

@@ -363,14 +363,14 @@ const Banner = ({ nodes }) => {
                   <GatsbyImage
                     className={classes.heroImgWrapper}
                     image={node?.frontmatter?.mobileImage && getImage(node?.frontmatter?.mobileImage)}
-                    // placeholder='blurred'
+                    placeholder='blurred'
                     alt={tB('title', node?.frontmatter)}
                   ></GatsbyImage>
                 ) : (
                   <GatsbyImage
                     className={classes.heroImgWrapper}
                     image={node?.frontmatter?.image && getImage(node?.frontmatter?.image)}
-                    // placeholder='blurred'
+                    placeholder='blurred'
                     alt={tB('title', node?.frontmatter)}
                   ></GatsbyImage>
                 )}

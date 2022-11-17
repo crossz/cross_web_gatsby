@@ -43,11 +43,10 @@ module.exports = {
       },
     },
     `gatsby-plugin-smoothscroll`,
+    'gatsby-plugin-image',
     // 'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-no-sourcemaps',
-    },
+    'gatsby-plugin-no-sourcemaps',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -94,7 +93,7 @@ module.exports = {
       options: {
         defaults: {
           formats: [`auto`, `webp`],
-          // placeholder: `blurred`,
+          placeholder: `blurred`,
           quality: 75,
           // breakpoints: [750, 1080, 1366, 1920],
           // backgroundColor: `transparent`,
@@ -115,7 +114,6 @@ module.exports = {
         checkSupportedExtensions: false,
       },
     },
-    'gatsby-plugin-image',
     `gatsby-transformer-json`,
     {
       resolve: 'gatsby-source-filesystem',
