@@ -12,7 +12,7 @@ import Quiz from '@components/Quiz'
 import loadable from '@loadable/component'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 
-const Map = loadable(() => import('@components/Map'))
+// const Map = loadable(() => import('@components/Map'))
 const PostSwiper = loadable(() => import('./PostSwiper'))
 const Consult = loadable(() => import('./Consult'))
 
@@ -90,7 +90,7 @@ const Homepage = ({ heroBannerNodes, promotionNodes, healthTipsNodes }) => {
               {t('service_location.title')}
             </Typography>
           </Box>
-          <Map showMap></Map>
+          {/* <Map showMap></Map> */}
         </Container>
       </Box>
       <Container disableGutters maxWidth='lg'>
