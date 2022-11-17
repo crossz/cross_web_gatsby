@@ -11,7 +11,7 @@ const ImageTranslation = ({ filename, alt, hasMobile = true, ...rest }) => {
   const { images } = useContext(ImagesTranslationContext)
 
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
 
   const realFilename = `${filename}${isMobile && hasMobile ? '_mobile' : ''}${
     languagePrefixes[language] ? `_${languagePrefixes[language]}` : ''
