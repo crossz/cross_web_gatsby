@@ -46,8 +46,7 @@ const Page = ({ storyNodes, healthTipsNodes, imagesTranslation, athleteNodes }) 
         toggleActions: 'play none none none',
       })
     }
-
-    return () => ScrollTrigger.kill()
+    return () => ScrollTrigger?.disable(false, true)
   }, [])
 
   return (
