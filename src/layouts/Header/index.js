@@ -84,7 +84,7 @@ const Header = (props) => {
   const classes = useStyles()
   const { t, originalPath } = useI18next()
   const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.down('xs'))
+  const matches = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
   const isHomepage = originalPath === '/'
   const [withBg, setWithBg] = useState(true)
   const context = useContext(HeroThemeContext)
