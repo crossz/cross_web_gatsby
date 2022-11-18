@@ -127,7 +127,8 @@ const SectionBanner = () => {
           <>
             <Container className={classes.bannerWrapper} disableGutters maxWidth='xl'>
               <SectionBannerImage
-                filename={matches ? curMenuItem.mobileBanner : curMenuItem.banner}
+                filename={curMenuItem.banner}
+                mobileFilename={curMenuItem.mobileBanner}
                 alt='image'
                 style={{
                   gridArea: '1/1',
