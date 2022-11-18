@@ -9,6 +9,7 @@ import TitleDot from '@themes/components/TitleDot'
 import Typography from '@material-ui/core/Typography'
 import Quiz from '@components/Quiz'
 // import PostSwiper from './PostSwiper'
+import LazyLoad from '@components/LazyLoad'
 import loadable from '@loadable/component'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 
@@ -71,7 +72,9 @@ const Homepage = ({ heroBannerNodes, promotionNodes, healthTipsNodes }) => {
       <Banner nodes={heroBannerNodes}></Banner>
       <Box className={classes.containerWrapper}>
         <Container disableGutters className={classes.root} maxWidth='md'>
-          <Quiz></Quiz>
+          <LazyLoad>
+            <Quiz></Quiz>
+          </LazyLoad>
           <Box className={classes.title}>
             <TitleDot></TitleDot>
             <Typography variant='h4' color='primary'>
@@ -90,23 +93,29 @@ const Homepage = ({ heroBannerNodes, promotionNodes, healthTipsNodes }) => {
               {t('service_location.title')}
             </Typography>
           </Box>
-          <Map showMap></Map>
+          <LazyLoad bottomOffset='-100%'>
+            <Map showMap></Map>
+          </LazyLoad>
         </Container>
       </Box>
-      <Container disableGutters maxWidth='lg'>
-        <Box className={classes.healthTipsBanner} />
-        <Box className={classes.swiperWrapper}>
-          <Container disableGutters maxWidth='md' className={classes.healthTipsWrapper}>
-            <Box className={classes.title}>
-              <TitleDot></TitleDot>
-              <Typography variant='h4'>{t('whats_new.health_tips.title')}</Typography>
-            </Box>
-            <Box fontSize='caption.fontSize'>{t('whats_new.health_tips.detail')}</Box>
-            <PostSwiper nodes={healthTipsNodes} morePath='/whats-new/health-tips/'></PostSwiper>
-          </Container>
-        </Box>
-      </Container>
-      <Consult></Consult>
+      <LazyLoad>
+        <Container disableGutters maxWidth='lg'>
+          <Box className={classes.healthTipsBanner} />
+          <Box className={classes.swiperWrapper}>
+            <Container disableGutters maxWidth='md' className={classes.healthTipsWrapper}>
+              <Box className={classes.title}>
+                <TitleDot></TitleDot>
+                <Typography variant='h4'>{t('whats_new.health_tips.title')}</Typography>
+              </Box>
+              <Box fontSize='caption.fontSize'>{t('whats_new.health_tips.detail')}</Box>
+              <PostSwiper nodes={healthTipsNodes} morePath='/whats-new/health-tips/'></PostSwiper>
+            </Container>
+          </Box>
+        </Container>
+      </LazyLoad>
+      <LazyLoad>
+        <Consult></Consult>
+      </LazyLoad>
     </>
   )
 }
