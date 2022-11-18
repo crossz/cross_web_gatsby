@@ -3379,7 +3379,7 @@ babel-plugin-lodash@^3.3.4:
     lodash "^4.17.10"
     require-package-name "^2.0.1"
 
-babel-plugin-macros@^2.6.1, babel-plugin-macros@^2.8.0:
+babel-plugin-macros@^2.8.0:
   version "2.8.0"
   resolved "https://registry.npmjs.org/babel-plugin-macros/-/babel-plugin-macros-2.8.0.tgz"
   integrity sha512-SEP5kJpfGYqYKpBrj5XU3ahw5p5GOHJ0U5ssOSQ/WBVdwkD2Dzlce95exQTs3jOVWPPKLBN2rlEWkCK7dSmLvg==
@@ -3420,15 +3420,6 @@ babel-plugin-polyfill-regenerator@^0.2.3:
   integrity sha512-JVE78oRZPKFIeUqFGrSORNzQnrDwZR16oiWeGM8ZyjBn2XAT5OjP+wXx5ESuo33nUsFUEJYjtklnsKbxW5L+7g==
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.4"
-
-babel-plugin-preval@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/babel-plugin-preval/-/babel-plugin-preval-4.0.0.tgz"
-  integrity sha512-fZI/4cYneinlj2k/FsXw0/lTWSC5KKoepUueS1g25Gb5vx3GrRyaVwxWCshYqx11GEU4mZnbbFhee8vpquFS2w==
-  dependencies:
-    "@babel/runtime" "^7.7.2"
-    babel-plugin-macros "^2.6.1"
-    require-from-string "^2.0.2"
 
 babel-plugin-remove-graphql-queries@^4.24.0:
   version "4.24.0"
@@ -7778,11 +7769,6 @@ joi@^17.4.2:
     "@sideway/formula" "^3.0.0"
     "@sideway/pinpoint" "^2.0.0"
 
-js-search@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/js-search/-/js-search-2.0.0.tgz#84dc9d44e34ca0870d067e04b86d8038b77edc26"
-  integrity sha512-lJ8KzjlwcelIWuAdKyzsXv45W6OIwRpayzc7XmU8mzgWadg5UVOKVmnq/tXudddEB9Ceic3tVaGu6QOK/eebhg==
-
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -10016,13 +10002,6 @@ pretty-error@^2.1.2:
     lodash "^4.17.20"
     renderkid "^2.0.4"
 
-preval.macro@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/preval.macro/-/preval.macro-4.0.0.tgz"
-  integrity sha512-sJJnE71X+MPr64CVD2AurmUj4JEDqbudYbStav3L9Xjcqm4AR0ymMm6sugw1mUmfI/7gw4JWA4JXo/k6w34crw==
-  dependencies:
-    babel-plugin-preval "^4.0.0"
-
 probe-image-size@^7.2.3:
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/probe-image-size/-/probe-image-size-7.2.3.tgz#d49c64be540ec8edea538f6f585f65a9b3ab4309"
@@ -10830,13 +10809,6 @@ section-matter@^1.0.0:
   dependencies:
     extend-shallow "^2.0.1"
     kind-of "^6.0.0"
-
-segmentit@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/segmentit/-/segmentit-2.0.3.tgz"
-  integrity sha512-7mn2XL3OdTUQ+AhHz7SbgyxLTaQRzTWQNVwiK+UlTO8aePGbSwvKUzTwE4238+OUY9MoR6ksAg35zl8sfTunQQ==
-  dependencies:
-    preval.macro "^4.0.0"
 
 semver-diff@^3.1.1:
   version "3.1.1"

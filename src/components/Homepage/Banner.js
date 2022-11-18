@@ -250,44 +250,7 @@ const Banner = ({ nodes }) => {
           initialSlide={0}
           speed={700}
           watchOverflow={true}
-          // watchSlidesVisibility={true}
         >
-          {' '}
-          {/* <SwiperSlide>
-            <Box className={classes.heroBannerWrapper}>
-              <Box
-                className={classnames(classes.heroImgWrapper, classes.containImgWrapper, classes.promoBannerBg)}
-                position='relative'
-              >
-                <ImageTranslation
-                  filename='promo_banner'
-                  alt='promo banner'
-                  className={classes.containImg}
-                ></ImageTranslation>
-                <Box className={classes.imageButtonWrapper}>
-                  <Box
-                    className={classes.imageButton}
-                    left={isMobile ? (isEn ? '26.4%' : '16.8%') : isEn ? '8%' : '7%'}
-                    to={addLangQuery()}
-                    target='_blank'
-                    component={Link}
-                    id='RW_HP_Top_Banner_CV2_EHEALTH'
-                  >
-                    <Box />
-                  </Box>
-                  <Box
-                    className={classes.imageButton2}
-                    left={isMobile ? (isEn ? '53.4%' : '43.8%') : isEn ? '26%' : '25%'}
-                    to={T_AND_C.PROMOTION_POLICY.url}
-                    component={Link}
-                    id='RW_HP_Top_Banner_CV2_KnowMore'
-                  >
-                    <Box />
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
-          </SwiperSlide> */}
           <SwiperSlide>
             <Box
               className={classes.heroBannerWrapper}
