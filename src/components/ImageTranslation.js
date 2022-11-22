@@ -1,23 +1,59 @@
-import React, { useContext } from 'react'
-import { useTheme, useMediaQuery } from '@material-ui/core'
+import React from 'react'
+import { useTheme } from '@material-ui/styles'
+import { StaticQuery, graphql } from 'gatsby'
+import { GatsbyImage, getImage, withArtDirection } from 'gatsby-plugin-image'
 import { useI18next } from 'gatsby-plugin-react-i18next'
-import { ImagesTranslationContext } from '@layouts/context'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 const { languagePrefixes } = require('../../languages')
 
-const ImageTranslation = ({ filename, alt, hasMobile = true, ...rest }) => {
-  const { language } = useI18next()
-  const { images } = useContext(ImagesTranslationContext)
+// Note: You can change "images" to whatever you'd like.
+
+const SectionBannerImage = ({ alt, filename, hasMobile = true, ...rest }) => {
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
-  const realFilename = `${filename}${isMobile && hasMobile ? '_mobile' : ''}${
-    languagePrefixes[language] ? `_${languagePrefixes[language]}` : ''
-  }`
+  const { language } = useI18next()
+  const getOriFilename = (isMobile) =>
+    `${filename}${isMobile ? `_mobile` : ''}${languagePrefixes[language] ? `_${languagePrefixes[language]}` : ''}`
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          images: allFile(filter: { sourceInstanceName: { eq: "imagesTranslation" } }) {
+            nodes {
+              relativePath
+              name
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      `}
+      render={(data) => {
+        const imageData = data.images.nodes.find((n) => {
+          return n.name === getOriFilename()
+        })
 
-  const imageData = images?.find((item) => item.name === realFilename)
+        let image = null
 
-  const image = getImage(imageData)
-  return <GatsbyImage objectFit='contain' image={image} alt={alt} {...rest}></GatsbyImage>
+        if (!hasMobile) {
+          image = getImage(imageData)
+        } else {
+          const mobileImageData = data.images.nodes.find((n) => {
+            return n.name === getOriFilename(true)
+          })
+          image = mobileImageData
+            ? withArtDirection(getImage(imageData), [
+                mobileImageData && {
+                  media: `(max-width: ${theme.breakpoints.values.sm}px)`,
+                  image: getImage(mobileImageData),
+                },
+              ])
+            : getImage(imageData)
+        }
+
+        return <GatsbyImage image={image} alt={alt} {...rest}></GatsbyImage>
+      }}
+    />
+  )
 }
 
-export default ImageTranslation
+export default SectionBannerImage

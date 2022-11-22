@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  makeStyles,
-  Container,
-  Typography,
-  alpha,
-  Hidden,
-  Button,
-  Box,
-} from '@material-ui/core'
+import { makeStyles, Container, Typography, alpha, Hidden, Button, Box } from '@material-ui/core'
 import { StaticImage } from 'gatsby-plugin-image'
 import ArrowIcon from '@images/icons/arrow.svg'
 import CheckCircleIcon from '@images/icons/check_circle.svg'
@@ -376,13 +368,9 @@ const Take2ExtraCare = () => {
                 ></StaticImage>
                 <Box className={classes.box01Content}>
                   <Box className={classes.box01Title}>
-                    {t(
-                      'products_and_services.take2_extra_care.what_is_extra_care'
-                    )}
+                    {t('products_and_services.take2_extra_care.what_is_extra_care')}
                   </Box>
-                  {t(
-                    'products_and_services.take2_extra_care.what_is_extra_care_content'
-                  )}
+                  {t('products_and_services.take2_extra_care.what_is_extra_care_content')}
                 </Box>
               </Box>
               <Box className={classes.downArrow}>
@@ -393,13 +381,9 @@ const Take2ExtraCare = () => {
               <Box className={classes.box02}>
                 <Hidden xsDown>
                   <Box className={classes.box02Title}>
-                    {t(
-                      'products_and_services.take2_extra_care.what_is_extra_care'
-                    )}
+                    {t('products_and_services.take2_extra_care.what_is_extra_care')}
                   </Box>
-                  {t(
-                    'products_and_services.take2_extra_care.what_is_extra_care_content'
-                  )}
+                  {t('products_and_services.take2_extra_care.what_is_extra_care_content')}
                 </Hidden>
                 <Box className={classes.clubPlansWrapper}>
                   {clubPlans.map((clubPlan, index) => (
@@ -412,9 +396,7 @@ const Take2ExtraCare = () => {
               </Box>
               <Box className={classes.box03}>
                 <Box className={classes.box03Title}>
-                  {t(
-                    'products_and_services.take2_extra_care.how_to_join_extra_care'
-                  )}
+                  {t('products_and_services.take2_extra_care.how_to_join_extra_care')}
                 </Box>
                 <Box className={classes.stepsWrapper}>
                   {steps.map(({ icon, label }, index) => (
@@ -437,12 +419,7 @@ const Take2ExtraCare = () => {
                         </Box>
                       )}
                       {index === 1 && (
-                        <Typography
-                          className={classes.stepBetween}
-                          variant='h5'
-                          color='primary'
-                          key='or'
-                        >
+                        <Typography className={classes.stepBetween} variant='h5' color='primary' key='or'>
                           {t('common.or')}
                         </Typography>
                       )}
@@ -458,9 +435,7 @@ const Take2ExtraCare = () => {
         <Box mx={3}>
           <Container disableGutters className={classes.box04Wrapper}>
             <Box whiteSpace='break-spaces' className={classes.box04Title}>
-              {t(
-                'products_and_services.take2_extra_care.benefit_of_extra_care'
-              )}
+              {t('products_and_services.take2_extra_care.benefit_of_extra_care')}
             </Box>
             <Trans i18nKey='products_and_services.take2_extra_care.benefit_of_extra_care_content'>
               免費成為永久會員，享用Take2 Extra

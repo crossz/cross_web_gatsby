@@ -423,9 +423,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     width: '100%',
     height: 530,
-    marginRight: theme.spacing(5),
     [theme.breakpoints.down('xs')]: {
-      marginRight: 0,
       height: 300,
       width: 580,
     },
@@ -608,7 +606,7 @@ const CancerScreen = () => {
                       </Box>
                     ))}
                   </Box>
-                  <Box width={!matches ? 350 : '100%'}>
+                  <Box width={!matches ? 'auto' : '100%'}>
                     <Box mr={matches ? 0 : 3}>
                       <ImageTranslation
                         className={classes.avatar}
@@ -667,6 +665,7 @@ const CancerScreen = () => {
                     filename='take2_prophecy_table'
                     alt='take2_prophecy_table'
                     hasMobile={false}
+                    objectFit='contain'
                   ></ImageTranslation>
                 </Box>
               </Box>

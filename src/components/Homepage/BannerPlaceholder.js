@@ -35,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
   },
   containImg: {
     maxHeight: '100%',
+    [theme.breakpoints.down('xs')]: {
+      height: 877,
+    },
   },
 }))
 

@@ -3,24 +3,17 @@ import Homepage from '@components/Homepage'
 import { graphql } from 'gatsby'
 import Layout from '@layouts/Layout'
 import { SEO } from '@layouts/Seo'
-import { ImagesTranslationContext } from '@layouts/context'
 
 const Index = ({ data }) => {
-  const { imagesTranslation, heroBannerNodes, promotionNodes, healthTipsNodes } = data
+  const { heroBannerNodes, promotionNodes, healthTipsNodes } = data
 
   return (
     <Layout>
-      <ImagesTranslationContext.Provider
-        value={{
-          images: imagesTranslation?.nodes,
-        }}
-      >
-        <Homepage
-          heroBannerNodes={heroBannerNodes?.nodes?.map((n) => n.childMdx)}
-          promotionNodes={promotionNodes?.nodes}
-          healthTipsNodes={healthTipsNodes?.nodes}
-        ></Homepage>
-      </ImagesTranslationContext.Provider>
+      <Homepage
+        heroBannerNodes={heroBannerNodes?.nodes?.map((n) => n.childMdx)}
+        promotionNodes={promotionNodes?.nodes}
+        healthTipsNodes={healthTipsNodes?.nodes}
+      ></Homepage>
     </Layout>
   )
 }
@@ -35,14 +28,6 @@ export const query = graphql`
           ns
           data
           language
-        }
-      }
-    }
-    imagesTranslation: allFile(filter: { sourceInstanceName: { eq: "imagesTranslation" } }) {
-      nodes {
-        name
-        childImageSharp {
-          gatsbyImageData
         }
       }
     }
