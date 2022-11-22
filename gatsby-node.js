@@ -136,7 +136,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         break
       default:
         component = `${postTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
-        defer = moment(mdx?.frontmatter?.date)?.isBefore('2021-12-31')
+        // defer = moment(mdx?.frontmatter?.date)?.isBefore('2021-12-31')
         break
     }
 
