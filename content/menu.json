@@ -1,13 +1,5 @@
 [
   {
-    "title": "",
-    "banner": "",
-    "mobileBanner": "",
-    "path": "",
-    "titleColor": "",
-    "sections": ""
-  },
-  {
     "title": "menu.whats_new",
     "banner": "whats_new_section_banner",
     "mobileBanner": "whats_new_section_banner_mobile",
