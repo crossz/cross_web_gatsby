@@ -95,9 +95,6 @@ const useStyles = makeStyles((theme) => ({
   },
   containImg: {
     maxHeight: '100%',
-    [theme.breakpoints.down('xs')]: {
-      height: 877,
-    },
   },
   wrapper: {
     position: 'relative',
@@ -240,8 +237,8 @@ const Banner = ({ nodes }) => {
   return (
     <Container disableGutters maxWidth='xl' className={classes.root}>
       <Swiper
-        loop
-        navigation
+        loop={bannersTheme?.length > 1}
+        navigation={bannersTheme?.length > 1}
         pagination={{ clickable: true }}
         className={classes.swiperWrapper}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -273,6 +270,7 @@ const Banner = ({ nodes }) => {
                 filename='anniversary'
                 alt='anniversary banner'
                 className={classes.containImg}
+                objectFit='contain'
               ></ImageTranslation>
             </Box>
           </Box>
@@ -324,7 +322,7 @@ const Banner = ({ nodes }) => {
           nodes?.map((node) => (
             <SwiperSlide key={node.id}>
               <Box className={classes.heroBannerWrapper}>
-                <GatsbyImage
+                {/* <GatsbyImage
                   className={classes.heroImgWrapper}
                   image={
                     node?.frontmatter?.mobileImage
@@ -338,8 +336,8 @@ const Banner = ({ nodes }) => {
                   }
                   placeholder='blurred'
                   alt={tB('title', node?.frontmatter)}
-                ></GatsbyImage>
-                {/* {isMobile ? (
+                ></GatsbyImage> */}
+                {isMobile ? (
                   <GatsbyImage
                     className={classes.heroImgWrapper}
                     image={node?.frontmatter?.mobileImage && getImage(node?.frontmatter?.mobileImage)}
@@ -353,7 +351,7 @@ const Banner = ({ nodes }) => {
                     placeholder='blurred'
                     alt={tB('title', node?.frontmatter)}
                   ></GatsbyImage>
-                )} */}
+                )}
                 <Container className={classes.wrapper} maxWidth='md'>
                   <Box className={classes.contentWrapper}>
                     <Typography variant={isMobile && isEn ? 'h3' : 'h2'} color='primary' component='div'>

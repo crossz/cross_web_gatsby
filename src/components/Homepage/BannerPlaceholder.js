@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useMemo } from 'react'
-import { makeStyles, Container, Box, alpha } from '@material-ui/core'
+import React, { useContext, useEffect } from 'react'
+import { makeStyles, Container, Box } from '@material-ui/core'
 import Link from '@components/Link'
 import { HeroThemeContext } from '@layouts/context'
 import classnames from 'classnames'
@@ -35,9 +35,6 @@ const useStyles = makeStyles((theme) => ({
   },
   containImg: {
     maxHeight: '100%',
-    [theme.breakpoints.down('xs')]: {
-      height: 877,
-    },
   },
 }))
 
@@ -72,7 +69,8 @@ const BannerPlaceholder = () => {
             filename='anniversary'
             alt='anniversary banner'
             className={classes.containImg}
-          ></ImageTranslation>
+            objectFit='contain'
+          />
         </Box>
       </Box>
     </Container>

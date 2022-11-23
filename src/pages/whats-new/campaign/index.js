@@ -4,14 +4,13 @@ import Campaign from '@components/CampaignV2'
 import Layout from '@layouts/Layout'
 
 const CampaignRoot = ({ data }) => {
-  const { storyNodes, healthTipsNodes, imagesTranslation, athleteNodes } = data
+  const { storyNodes, healthTipsNodes, athleteNodes } = data
   return (
     <Layout>
       <Campaign
         storyNodes={storyNodes?.nodes}
         healthTipsNodes={healthTipsNodes?.nodes}
         athleteNodes={athleteNodes?.nodes}
-        imagesTranslation={imagesTranslation?.nodes}
       ></Campaign>
     </Layout>
   )
@@ -21,16 +20,6 @@ export default CampaignRoot
 
 export const query = graphql`
   query ($language: String!) {
-    imagesTranslation: allFile(
-      filter: { sourceInstanceName: { eq: "campaignImages" }, relativeDirectory: { eq: "translation" } }
-    ) {
-      nodes {
-        name
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
     locales: allLocale(filter: { ns: { in: ["translation", "campaignPageV2"] }, language: { eq: $language } }) {
       edges {
         node {
@@ -137,12 +126,12 @@ export const query = graphql`
     }
   }
 `
-// export async function config() {
-//   // Optionally use GraphQL here
+export async function config() {
+  // Optionally use GraphQL here
 
-//   return ({ params }) => {
-//     return {
-//       defer: true,
-//     }
-//   }
-// }
+  return ({ params }) => {
+    return {
+      defer: true,
+    }
+  }
+}

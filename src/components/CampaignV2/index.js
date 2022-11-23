@@ -6,7 +6,6 @@ import ContactReference from './Components/ContactReference'
 import Footer from './Components/Footer'
 import Banner from './Components/Banner'
 import { gsap, ScrollTrigger } from '@components/CampaignV2/utils/initGsap'
-import { ImagesTranslationContext } from '@components/CampaignV2/utils/context'
 import LazyLoad from '@components/LazyLoad'
 
 const useStyles = makeStyles((theme) =>
@@ -50,28 +49,26 @@ const Page = ({ storyNodes, healthTipsNodes, imagesTranslation, athleteNodes }) 
   }, [])
 
   return (
-    <ImagesTranslationContext.Provider value={{ images: imagesTranslation }}>
-      <Box
-        className={classes.root}
-        id='scroll-to-top'
-        ref={(current) => {
-          el.current = current
-        }}
-        bgcolor='#FAFFFF'
-      >
-        <Header></Header>
-        <Container disableGutters maxWidth='lg'>
-          <Banner />
-          <Sections storyNodes={storyNodes} healthTipsNodes={healthTipsNodes} athleteNodes={athleteNodes}></Sections>
-          <LazyLoad>
-            <ContactReference></ContactReference>
-          </LazyLoad>
-          <LazyLoad>
-            <Footer></Footer>
-          </LazyLoad>
-        </Container>
-      </Box>
-    </ImagesTranslationContext.Provider>
+    <Box
+      className={classes.root}
+      id='scroll-to-top'
+      ref={(current) => {
+        el.current = current
+      }}
+      bgcolor='#FAFFFF'
+    >
+      <Header></Header>
+      <Container disableGutters maxWidth='lg'>
+        <Banner />
+        <Sections storyNodes={storyNodes} healthTipsNodes={healthTipsNodes} athleteNodes={athleteNodes}></Sections>
+        <LazyLoad>
+          <ContactReference></ContactReference>
+        </LazyLoad>
+        <LazyLoad>
+          <Footer></Footer>
+        </LazyLoad>
+      </Container>
+    </Box>
   )
 }
 
