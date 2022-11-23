@@ -20,7 +20,6 @@ import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
 import Layout from '@layouts/Layout'
 import useLangQuery from '@hooks/useLangQuery'
 import ErrorIcon from '@material-ui/icons/Error'
-import TitleDot from '@themes/components/TitleDot'
 import ImageTranslation from '@components/ImageTranslation'
 
 const steps = [
@@ -76,20 +75,6 @@ const steps = [
   },
 ]
 
-const reports = [
-  {
-    result: 'products_and_services.take2_prophecy.reports.0.result',
-    suggestion: 'products_and_services.take2_prophecy.reports.0.suggestion',
-    mark: 'products_and_services.take2_prophecy.reports.0.mark',
-    color: '#C8002E',
-  },
-  {
-    result: 'products_and_services.take2_prophecy.reports.1.result',
-    suggestion: 'products_and_services.take2_prophecy.reports.1.suggestion',
-    mark: 'products_and_services.take2_prophecy.reports.1.mark',
-    color: '#00AA82',
-  },
-]
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.grey[100],
@@ -131,18 +116,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(3, 3),
     },
   },
-  sectionSubBg: {
-    borderRadius: theme.spacing(1.5),
-    marginTop: theme.spacing(7),
-    marginLeft: theme.spacing(8.5),
-    marginBottom: theme.spacing(10),
-    backgroundColor: 'rgb(248, 249, 250)',
-    [theme.breakpoints.down('xs')]: {
-      marginTop: theme.spacing(37.5),
-      marginBottom: theme.spacing(-32),
-      marginLeft: 0,
-    },
-  },
+
   subBox: {
     width: theme.spacing(35),
     background: '#fff',
@@ -323,58 +297,6 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 0,
     },
   },
-  rightIcon: {
-    width: theme.spacing(4),
-    height: theme.spacing(4),
-    margin: theme.spacing(0, 3),
-    '& path': {
-      fill: '#C8002E',
-    },
-    [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(0, 2),
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: theme.spacing(3),
-      height: theme.spacing(3),
-    },
-  },
-  greenRightIcon: {
-    '& path': {
-      fill: '#00AA82',
-    },
-  },
-  reportItem: {
-    padding: theme.spacing(4),
-    color: theme.palette.grey[600],
-    fontSize: theme.typography.caption.fontSize,
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: theme.spacing(1.5),
-    [theme.breakpoints.down('xs')]: {
-      padding: theme.spacing(3),
-      fontSize: 11,
-    },
-  },
-  reportTop: {
-    fontSize: theme.typography.h6.fontSize,
-    fontWeight: theme.typography.fontWeightBold,
-    color: theme.palette.text.primary,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: theme.spacing(4),
-    [theme.breakpoints.down('sm')]: {
-      fontSize: theme.typography.subtitle1.fontSize,
-    },
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: theme.spacing(5),
-      fontSize: theme.typography.body1.fontSize,
-    },
-  },
-  reportType: {
-    display: 'flex',
-    alignItems: 'center',
-    flexShrink: '0',
-  },
   prophecyImgWrapper: {
     overflow: 'hidden',
     width: 350,
@@ -382,20 +304,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       marginRight: 0,
     },
-  },
-  prophecyImgWrapper1: {
-    display: 'flex',
-    alignItems: 'center',
-    overflow: 'hidden',
-    width: 350,
-    marginRight: theme.spacing(5),
-    [theme.breakpoints.down('xs')]: {
-      marginRight: 0,
-      width: '100%',
-    },
-  },
-  prophecyImg: {
-    borderRadius: theme.spacing(1.5),
   },
   btnWrapper: {
     marginTop: theme.spacing(4),
