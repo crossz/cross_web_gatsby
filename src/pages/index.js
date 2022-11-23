@@ -1,20 +1,17 @@
 import React from 'react'
 import Homepage from '@components/Homepage'
 import { graphql } from 'gatsby'
-import Layout from '@layouts/Layout'
 import { SEO } from '@layouts/Seo'
 
 const Index = ({ data }) => {
   const { heroBannerNodes, promotionNodes, healthTipsNodes } = data
 
   return (
-    <Layout>
-      <Homepage
-        heroBannerNodes={heroBannerNodes?.nodes?.map((n) => n.childMdx)}
-        promotionNodes={promotionNodes?.nodes}
-        healthTipsNodes={healthTipsNodes?.nodes}
-      ></Homepage>
-    </Layout>
+    <Homepage
+      heroBannerNodes={heroBannerNodes?.nodes?.map((n) => n.childMdx)}
+      promotionNodes={promotionNodes?.nodes}
+      healthTipsNodes={healthTipsNodes?.nodes}
+    ></Homepage>
   )
 }
 
@@ -22,7 +19,7 @@ export default Index
 
 export const query = graphql`
   query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+    locales: allLocale(filter: { ns: { in: ["translation"] }, language: { eq: $language } }) {
       edges {
         node {
           ns

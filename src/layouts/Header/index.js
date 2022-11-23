@@ -104,9 +104,8 @@ const Header = (props) => {
         <Container className={classes.wrapper} maxWidth='lg'>
           <Link to='/'>
             <Box width={matches ? 100 : 145}>
-              {/* <StaticImage src='../../assets/images/common/take2_full_color.png' alt='Logo' /> */}
               {context?.logoTheme === 0 ? (
-                !withBg && !matches ? (
+                !withBg && !matches && isHomepage ? (
                   <StaticImage src='../../assets/images/common/take2_full_white_color.png' alt='Logo' />
                 ) : (
                   <StaticImage src='../../assets/images/common/take2_full_color.png' alt='Logo' />
@@ -128,10 +127,6 @@ const Header = (props) => {
             <Menu dark={!matches && isHomepage && !withBg && context?.theme === 'dark'}></Menu>
           </Box>
         </Container>
-        {/* <Waypoint
-        onLeave={() => handleWaypoint(true)}
-        onEnter={() => handleWaypoint(false)}
-      ></Waypoint> */}
       </Box>
       {isHomepage && <Waypoint onEnter={() => setWithBg(false)} onLeave={() => setWithBg(true)}></Waypoint>}
     </>

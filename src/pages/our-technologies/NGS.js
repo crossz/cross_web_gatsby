@@ -1,20 +1,11 @@
 import React, { useState } from 'react'
-import {
-  makeStyles,
-  Container,
-  alpha,
-  useTheme,
-  useMediaQuery,
-  Hidden,
-  Grid,
-} from '@material-ui/core'
+import { makeStyles, Container, alpha, useTheme, useMediaQuery, Hidden, Grid } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import TitleDot from '@themes/components/TitleDot'
 import { StaticImage } from 'gatsby-plugin-image'
 import classnames from 'classnames'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
-import Layout from '@layouts/Layout'
 import { graphql } from 'gatsby'
 
 const useStyles = makeStyles((theme) => ({
@@ -155,97 +146,87 @@ const NGS = () => {
     },
   ]
 
-  const handleChange = (e) =>
-    e.target.dataset?.value && setActiveNote(Number(e.target.dataset?.value))
+  const handleChange = (e) => e.target.dataset?.value && setActiveNote(Number(e.target.dataset?.value))
   return (
-    <Layout>
-      <Box bgcolor='background.paper' className={classes.root}>
-        <Container className={classes.sectionOne} maxWidth='md'>
-          <Box textAlign='center' mb={6}>
-            <Typography variant='h4' color='primary'>
-              {t('our_technologies.ngs.title')}
-            </Typography>
-          </Box>
-          <Hidden smUp>
-            <StaticImage
-              imgClassName={classes.bannerImg}
-              src='../../assets/images/ngs_banner.jpg'
-              alt='ngs banner'
-            ></StaticImage>
-          </Hidden>
-          <Box className={classes.sectionOneWrapper}>
-            <Container disableGutters maxWidth='sm'>
-              <Box mb={2} pl={matches ? 2 : 0}>
-                {matches && <TitleDot left={-2}></TitleDot>}
-                <Typography variant='h4' color='primary'>
-                  {t('our_technologies.ngs.what_is_ngs')}
-                </Typography>
-              </Box>
-              <Box>
-                <Hidden xsDown>
-                  <TitleDot left={-4.5}></TitleDot>
-                </Hidden>
-                <Trans i18nKey='our_technologies.ngs.intro'></Trans>
-              </Box>
-            </Container>
-          </Box>
-        </Container>
-        <Box className={classes.sectionTwoWrapper}>
-          <Container disableGutters maxWidth='md'>
-            <Hidden smUp>
-              <Box onClick={handleChange}>
-                {notes.map((note, index) => (
-                  <Box
-                    pl={1.5}
-                    key={index}
-                    data-value={index}
-                    className={classnames(
-                      classes.noteTab,
-                      index !== activeNote && classes.noteTabActive
-                    )}
-                  >
-                    <TitleDot
-                      bgcolor={index !== activeNote && '#e8e8e8'}
-                      left={-3}
-                    ></TitleDot>
-                    {note.title}
-                    {activeNote !== index &&
-                      t('our_technologies.ngs.read_full_article')}
-                  </Box>
-                ))}
-              </Box>
-            </Hidden>
-            {notes.map(
-              (note, index) =>
-                (!matches || index === activeNote) && (
-                  <Box key={index} className={classes.noteItem}>
-                    <Grid container spacing={0}>
-                      <Grid item xs={12} sm={3}>
-                        {note.image}
-                      </Grid>
-                      <Grid item xs={12} sm={9}>
-                        <Box className={classes.noteContent}>
-                          <Box mb={1.25}>
-                            <Typography variant='h4' color='primary'>
-                              {note.title}
-                            </Typography>
-                          </Box>
-                          <Box>
-                            <Hidden xsDown>
-                              <TitleDot left={-5}></TitleDot>
-                            </Hidden>
-                            {note.content}
-                          </Box>
-                        </Box>
-                      </Grid>
-                    </Grid>
-                  </Box>
-                )
-            )}
+    <Box bgcolor='background.paper' className={classes.root}>
+      <Container className={classes.sectionOne} maxWidth='md'>
+        <Box textAlign='center' mb={6}>
+          <Typography variant='h4' color='primary'>
+            {t('our_technologies.ngs.title')}
+          </Typography>
+        </Box>
+        <Hidden smUp>
+          <StaticImage
+            imgClassName={classes.bannerImg}
+            src='../../assets/images/ngs_banner.jpg'
+            alt='ngs banner'
+          ></StaticImage>
+        </Hidden>
+        <Box className={classes.sectionOneWrapper}>
+          <Container disableGutters maxWidth='sm'>
+            <Box mb={2} pl={matches ? 2 : 0}>
+              {matches && <TitleDot left={-2}></TitleDot>}
+              <Typography variant='h4' color='primary'>
+                {t('our_technologies.ngs.what_is_ngs')}
+              </Typography>
+            </Box>
+            <Box>
+              <Hidden xsDown>
+                <TitleDot left={-4.5}></TitleDot>
+              </Hidden>
+              <Trans i18nKey='our_technologies.ngs.intro'></Trans>
+            </Box>
           </Container>
         </Box>
+      </Container>
+      <Box className={classes.sectionTwoWrapper}>
+        <Container disableGutters maxWidth='md'>
+          <Hidden smUp>
+            <Box onClick={handleChange}>
+              {notes.map((note, index) => (
+                <Box
+                  pl={1.5}
+                  key={index}
+                  data-value={index}
+                  className={classnames(classes.noteTab, index !== activeNote && classes.noteTabActive)}
+                >
+                  <TitleDot bgcolor={index !== activeNote && '#e8e8e8'} left={-3}></TitleDot>
+                  {note.title}
+                  {activeNote !== index && t('our_technologies.ngs.read_full_article')}
+                </Box>
+              ))}
+            </Box>
+          </Hidden>
+          {notes.map(
+            (note, index) =>
+              (!matches || index === activeNote) && (
+                <Box key={index} className={classes.noteItem}>
+                  <Grid container spacing={0}>
+                    <Grid item xs={12} sm={3}>
+                      {note.image}
+                    </Grid>
+                    <Grid item xs={12} sm={9}>
+                      <Box className={classes.noteContent}>
+                        <Box mb={1.25}>
+                          <Typography variant='h4' color='primary'>
+                            {note.title}
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Hidden xsDown>
+                            <TitleDot left={-5}></TitleDot>
+                          </Hidden>
+                          {note.content}
+                        </Box>
+                      </Box>
+                    </Grid>
+                  </Grid>
+                </Box>
+              )
+          )}
+        </Container>
       </Box>
-    </Layout>
+    </Box>
   )
 }
 

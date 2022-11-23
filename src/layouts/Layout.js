@@ -6,7 +6,6 @@ import ShoppingBtn from './ShoppingBtn'
 import { makeStyles } from '@material-ui/core'
 import { useMatch } from '@reach/router'
 import { HeroThemeContext } from '@layouts/context'
-import Seo from './Seo'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 
 const useStyles = makeStyles((theme) => ({
@@ -18,11 +17,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ...props }) => {
   const classes = useStyles()
   const [heroTheme, setHeroTheme] = useState('light')
   const [logoTheme, setLogoTheme] = useState()
-
   const { routed, language } = useI18next()
   const isPromotions = useMatch(`${routed ? `/${language}` : ''}/promotions/consumption-voucher`)
   const isRehealthPrevaccinationPlans = useMatch(
@@ -43,7 +41,6 @@ const Layout = ({ children }) => {
         toggleTheme: handleChangeHeroTheme,
       }}
     >
-      {/* <Seo></Seo> */}
       <main id='main' className={classes.root}>
         {isPromotions || isRehealthPrevaccinationPlans || isCampaign ? (
           children

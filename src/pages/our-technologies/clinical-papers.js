@@ -4,7 +4,6 @@ import ClinicPaperItem from '@components/ClinicPaperItem'
 import { StaticImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
 import { useI18next } from 'gatsby-plugin-react-i18next'
-import Layout from '@layouts/Layout'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,29 +71,27 @@ const ClinicalPapers = ({ data }) => {
   const { nodes } = data?.allMdx
 
   return (
-    <Layout>
-      <Box className={classes.root}>
-        <Container className={classes.insideRoot} disableGutters maxWidth='md'>
-          <Box className={classes.bannerWrapper}>
-            <StaticImage
-              className={classes.banner}
-              imgClassName={classes.bannerImg}
-              src='../../assets/images/clinical_papers_banner.jpg'
-              alt='clinical papers banner'
-            ></StaticImage>
-            <Box className={classes.bannerContent}>
-              <Box className={classes.bannerTitle}>{t('our_technologies.clinical_papers.title')}</Box>
-              <Box>{t('our_technologies.clinical_papers.detail')}</Box>
-            </Box>
+    <Box className={classes.root}>
+      <Container className={classes.insideRoot} disableGutters maxWidth='md'>
+        <Box className={classes.bannerWrapper}>
+          <StaticImage
+            className={classes.banner}
+            imgClassName={classes.bannerImg}
+            src='../../assets/images/clinical_papers_banner.jpg'
+            alt='clinical papers banner'
+          ></StaticImage>
+          <Box className={classes.bannerContent}>
+            <Box className={classes.bannerTitle}>{t('our_technologies.clinical_papers.title')}</Box>
+            <Box>{t('our_technologies.clinical_papers.detail')}</Box>
           </Box>
-          <Box className={classes.list}>
-            {nodes?.map((node) => (
-              <ClinicPaperItem key={node.id} {...node?.frontmatter}></ClinicPaperItem>
-            ))}
-          </Box>
-        </Container>
-      </Box>
-    </Layout>
+        </Box>
+        <Box className={classes.list}>
+          {nodes?.map((node) => (
+            <ClinicPaperItem key={node.id} {...node?.frontmatter}></ClinicPaperItem>
+          ))}
+        </Box>
+      </Container>
+    </Box>
   )
 }
 

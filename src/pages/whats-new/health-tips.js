@@ -2,18 +2,15 @@ import React from 'react'
 import PostList from '@components/WhatsNew/PostList'
 import { graphql } from 'gatsby'
 import { useI18next } from 'gatsby-plugin-react-i18next'
-import Layout from '@layouts/Layout'
 
 const HealthTips = ({ data }) => {
   const { t } = useI18next()
   return (
-    <Layout>
-      <PostList
-        title={t('whats_new.health_tips.title')}
-        caption={t('whats_new.health_tips.detail')}
-        nodes={data.allMdx.nodes}
-      ></PostList>
-    </Layout>
+    <PostList
+      title={t('whats_new.health_tips.title')}
+      caption={t('whats_new.health_tips.detail')}
+      nodes={data.allMdx.nodes}
+    ></PostList>
   )
 }
 

@@ -16,7 +16,6 @@ import Link from '@components/Link'
 import ArrowIcon from '@images/icons/arrow.svg'
 import classnames from 'classnames'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
-import Layout from '@layouts/Layout'
 import useLangQuery from '@hooks/useLangQuery'
 import ErrorIcon from '@material-ui/icons/Error'
 import TitleDot from '@themes/components/TitleDot'
@@ -430,7 +429,7 @@ const CancerScreen = () => {
     },
   ]
   return (
-    <Layout>
+    <>
       <Container className={classes.root} disableGutters maxWidth='xl'>
         <Box className={classes.wrapper}>
           <Container className={classes.content} disableGutters maxWidth='md'>
@@ -705,7 +704,7 @@ const CancerScreen = () => {
             </Grid>
           </Box>
         </Box>
-      </Box>{' '}
+      </Box>
       <Box className={classes.reportTip} mb={matches ? 3 : 12} ml={matches ? 3 : 20} mt={10}>
         {t('cp_v2.contact_and_reference.paragraphs.4')} <br />
         {matches ? <br /> : null}
@@ -716,7 +715,7 @@ const CancerScreen = () => {
           </Box>
         ))}
       </Box>
-    </Layout>
+    </>
   )
 }
 

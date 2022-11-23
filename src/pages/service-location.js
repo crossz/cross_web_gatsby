@@ -1,14 +1,9 @@
 import React from 'react'
 import Map from '@components/Map'
-import Layout from '@layouts/Layout'
 import { graphql } from 'gatsby'
 
 const ServiceLocation = () => {
-  return (
-    <Layout>
-      <Map></Map>
-    </Layout>
-  )
+  return <Map></Map>
 }
 
 export default ServiceLocation

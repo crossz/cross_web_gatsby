@@ -7,7 +7,6 @@ import TitleDot from '@themes/components/TitleDot'
 import { padStartNum } from '@utils'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
-import Layout from '@layouts/Layout'
 import useLangQuery from '@hooks/useLangQuery'
 
 const steps = [
@@ -343,7 +342,7 @@ const Take2ExtraCare = () => {
   const { t } = useI18next()
   const addLangQuery = useLangQuery()
   return (
-    <Layout>
+    <>
       <Typography className={classes.title} variant='h4' color='primary'>
         {t('products_and_services.take2_extra_care.title')}
       </Typography>
@@ -469,7 +468,7 @@ const Take2ExtraCare = () => {
           </Container>
         </Box>
       </Box>
-    </Layout>
+    </>
   )
 }
 
