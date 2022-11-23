@@ -2,7 +2,7 @@
 postType: campaignStory
 athleteType: 体操
 type: professional_healthcare_tip
-hide: true
+hide: false
 isCampaign: false
 cpTitle: ''
 cpDetail: ''
