@@ -166,7 +166,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             contentFilePath: mdx.internal.contentFilePath,
             curPath: `/${lang}${path}`,
           },
-          defer,
+          // defer,
         })
     })
   })
