@@ -2,7 +2,7 @@ import React from 'react'
 import Take2Prophecy from '@views/take2-prophecy'
 import { graphql } from 'gatsby'
 
-const Take2ProphecyPage = ({ data }) => <Take2Prophecy />
+const Take2ProphecyPage = () => <Take2Prophecy />
 export default Take2ProphecyPage
 
 export const query = graphql`

@@ -3,7 +3,6 @@ import { makeStyles, Container, Typography, alpha, useTheme, useMediaQuery, Link
 import { StaticImage } from 'gatsby-plugin-image'
 import classnames from 'classnames'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
-import Layout from '@layouts/Layout'
 
 const useStyles = makeStyles((theme) => ({
   root: {
