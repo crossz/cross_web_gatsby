@@ -1,22 +1,23 @@
 import React from 'react'
-import Take2Prophecy from '@views/take2-prophecy'
+import HealthCheck from '@views/health-check-package'
 import { graphql } from 'gatsby'
 import { ImagesTranslationContext } from '@layouts/context'
 
-const Take2ProphecyPage = ({ data }) => {
+const HealthCheckPackage = ({ data }) => {
   const { imagesTranslation } = data
+
   return (
     <ImagesTranslationContext.Provider
       value={{
         images: imagesTranslation?.nodes,
       }}
     >
-      <Take2Prophecy />
+      <HealthCheck />
     </ImagesTranslationContext.Provider>
   )
 }
 
-export default Take2ProphecyPage
+export default HealthCheckPackage
 
 export const query = graphql`
   query ($language: String!) {
