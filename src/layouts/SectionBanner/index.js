@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useMemo } from 'react'
-import { makeStyles, useTheme, Container, Box, Typography } from '@material-ui/core'
+import { makeStyles, Container, Box, Typography } from '@material-ui/core'
 import { Match } from '@reach/router'
 import useMenu from '@hooks/useMenu'
 import Link from '@components/Link'
@@ -94,7 +94,6 @@ const useStyles = makeStyles((theme) => ({
 const SectionBanner = () => {
   const classes = useStyles()
   const { t, originalPath, routed, language } = useI18next()
-  const theme = useTheme()
   const menu = useMenu()
   const pointerRef = useRef(null)
   // When user navigates between section pages and content been scrolled beyond banner , should scroll page up to section tabs.
