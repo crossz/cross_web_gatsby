@@ -305,11 +305,7 @@ const Banner = ({ nodes }) => {
                 )}
                 position='relative'
               >
-                <ImageTranslation
-                  filename='anniversary'
-                  alt='anniversary banner'
-                  className={classes.containImg}
-                ></ImageTranslation>
+                <ImageTranslation filename='Chris' alt='Chris banner' className={classes.containImg}></ImageTranslation>
               </Box>
             </Box>
           </SwiperSlide>
