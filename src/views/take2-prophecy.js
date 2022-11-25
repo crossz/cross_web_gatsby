@@ -605,7 +605,7 @@ const CancerScreen = () => {
                       </Box>
                     ))}
                   </Box>
-                  <Box width={!matches ? '50%' : '100%'}>
+                  <Box flexShrink={0} width={!matches ? '40%' : '100%'}>
                     <Box mr={matches ? 0 : 3}>
                       <ImageTranslation
                         className={classes.avatar}
