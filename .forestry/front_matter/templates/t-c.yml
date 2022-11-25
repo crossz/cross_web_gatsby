@@ -1,6 +1,7 @@
 ---
 label: T&C
 hide_body: false
+display_field: slug
 fields:
 - name: hide
   type: boolean
