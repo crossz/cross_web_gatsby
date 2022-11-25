@@ -291,7 +291,7 @@ const Banner = ({ nodes }) => {
           <SwiperSlide>
             <Box
               className={classes.heroBannerWrapper}
-              id='RW_HP_Top_Banner_OctPromo_EHEALTH'
+              id='RW_HP_Top_Banner_Xmas22Promo_EHEALTH'
               to={addLangQuery()}
               target='_blank'
               component={Link}
@@ -305,11 +305,7 @@ const Banner = ({ nodes }) => {
                 )}
                 position='relative'
               >
-                <ImageTranslation
-                  filename='anniversary'
-                  alt='anniversary banner'
-                  className={classes.containImg}
-                ></ImageTranslation>
+                <ImageTranslation filename='Chris' alt='Chris banner' className={classes.containImg}></ImageTranslation>
               </Box>
             </Box>
           </SwiperSlide>
