@@ -25,6 +25,7 @@ const Footer = () => {
   const { t } = useI18next()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
+  const date = new Date()
 
   const INFO_LIST = [
     {
@@ -46,12 +47,7 @@ const Footer = () => {
   ]
 
   return (
-    <Box
-      pt={isMobile ? 3 : 5}
-      pb={isMobile ? 3.5 : 6.5}
-      px={2.5}
-      bgcolor='#F6F6F6'
-    >
+    <Box pt={isMobile ? 3 : 5} pb={isMobile ? 3.5 : 6.5} px={2.5} bgcolor='#F6F6F6'>
       <Box mx='auto' maxWidth={1192}>
         <Box mb={4} width={isMobile ? 108 : 173}>
           <img width='100%' height='100%' src={Logo} alt='logo' />
@@ -66,13 +62,7 @@ const Footer = () => {
         >
           {INFO_LIST.map((item, index) => (
             <Link to={item.href} target='_blank' key={index}>
-              <Box
-                mr={5}
-                mb={1.5}
-                alignItems='center'
-                display='flex'
-                id={item.id}
-              >
+              <Box mr={5} mb={1.5} alignItems='center' display='flex' id={item.id}>
                 <Box mr={1} className={classes.icon}>
                   {item.icon}
                 </Box>
@@ -82,6 +72,15 @@ const Footer = () => {
               </Box>
             </Link>
           ))}
+          <Box
+            width={isMobile ? '100%' : 'auto'}
+            fontWeight='500'
+            display='inline-block'
+            color='grey.900'
+            pt={isMobile ? 0 : 0.5}
+          >
+            ©{date.getFullYear()} {t('common.take2_copy_right')}
+          </Box>
         </Box>
       </Box>
     </Box>
