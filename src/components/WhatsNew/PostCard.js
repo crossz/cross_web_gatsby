@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.main,
     },
     [theme.breakpoints.down('xs')]: {
-      minHeight: theme.spacing(31.25),
+      minHeight: () => theme.spacing(31.25),
     },
   },
   btnWrapper: {
@@ -100,63 +100,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const PostCard = ({
-  title,
-  detail,
-  type,
-  date,
-  cover,
-  slug,
-  href,
-  withViewBtn,
-  pdf,
-  minHeight,
-}) => {
+const PostCard = ({ title, detail, type, date, cover, slug, href, withViewBtn, pdf, minHeight }) => {
   const classes = useStyles({ minHeight })
   const { t, routed, language } = useI18next()
   const images = cover.map((item) => getImage(item))
-  const isCampaignPage = useMatch(
-    `${routed ? `/${language}` : ''}/whats-new/campaign`
-  )
+  const isCampaignPage = useMatch(`${routed ? `/${language}` : ''}/whats-new/campaign`)
 
   return (
-    <Link
-      className={classes.link}
-      to={pdf?.publicURL || href || slug}
-      isPdf={Boolean(pdf?.publicURL)}
-    >
+    <Link className={classes.link} to={pdf?.publicURL || href || slug} isPdf={Boolean(pdf?.publicURL)}>
       <Box className={classes.root}>
         <Box height={images[0] ? 'auto' : 200} className={classes.imageWrapper}>
           {images[0] && (
-            <GatsbyImage
-              imgClassName={classes.image}
-              image={images[0]}
-              placeholder='blurred'
-              alt={title}
-            ></GatsbyImage>
+            <GatsbyImage imgClassName={classes.image} image={images[0]} placeholder='blurred' alt={title}></GatsbyImage>
           )}
         </Box>
         {isCampaignPage ? (
           <Box className={classes.info}>
-            <Box
-              className={classes.campaignPageTitle}
-              mb={1}
-              color='secondary.main'
-              fontWeight='fontWeightBold'
-            >
+            <Box className={classes.campaignPageTitle} mb={1} color='secondary.main' fontWeight='fontWeightBold'>
               {title}
             </Box>
-            <Box
-              className={classnames(classes.title, classes.campaignPageDetail)}
-            >
-              {detail}
-            </Box>
+            <Box className={classnames(classes.title, classes.campaignPageDetail)}>{detail}</Box>
           </Box>
         ) : (
           <Box className={classes.info}>
-            <Box className={classes.type}>
-              {type && t(`options.post_types.${type}`)}
-            </Box>
+            <Box className={classes.type}>{type && t(`options.post_types.${type}`)}</Box>
             <Box className={classes.title}>{title}</Box>
             {withViewBtn ? (
               <Box className={classes.btnWrapper}>

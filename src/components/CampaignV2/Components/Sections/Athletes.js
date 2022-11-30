@@ -1,14 +1,5 @@
 import React from 'react'
-import {
-  useTheme,
-  useMediaQuery,
-  Box,
-  makeStyles,
-  ImageList,
-  ImageListItem,
-  Button,
-  alpha,
-} from '@material-ui/core'
+import { useTheme, useMediaQuery, Box, makeStyles, ImageList, ImageListItem, Button, alpha } from '@material-ui/core'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
 import YouTube from 'react-youtube'
@@ -76,21 +67,9 @@ const Athletes = ({ athleteNodes }) => {
 
   const ATHLETES_INFO = [
     {
-      avatar: (
-        <StaticImage
-          src='../../images/athlete_hero_01.png'
-          alt='athlete hero avatar 01'
-        ></StaticImage>
-      ),
-      image: (
-        <StaticImage
-          src='../../images/athlete_hero_01_detail.jpg'
-          alt='athlete hero image 01'
-        ></StaticImage>
-      ),
-      article: athleteNodes?.find(
-        (node) => node?.frontmatter.athleteType === '体操'
-      ),
+      avatar: <StaticImage src='../../images/athlete_hero_01.png' alt='athlete hero avatar 01'></StaticImage>,
+      image: <StaticImage src='../../images/athlete_hero_01_detail.jpg' alt='athlete hero image 01'></StaticImage>,
+      article: athleteNodes?.find((node) => node?.frontmatter.athleteType === '体操'),
       videos: ['nSD7pEd4J-s'],
       name: 'cp_v2.athletes.heros.0.name',
       title: 'cp_v2.athletes.heros.0.title',
@@ -100,21 +79,9 @@ const Athletes = ({ athleteNodes }) => {
       code: 'ECP_Athlete_Gymnast_advertorial',
     },
     {
-      avatar: (
-        <StaticImage
-          src='../../images/athlete_hero_02.png'
-          alt='athlete hero avatar 02'
-        ></StaticImage>
-      ),
-      image: (
-        <StaticImage
-          src='../../images/athlete_hero_02_detail.jpg'
-          alt='athlete hero image 02'
-        ></StaticImage>
-      ),
-      article: athleteNodes?.find(
-        (node) => node?.frontmatter.athleteType === '潜水'
-      ),
+      avatar: <StaticImage src='../../images/athlete_hero_02.png' alt='athlete hero avatar 02'></StaticImage>,
+      image: <StaticImage src='../../images/athlete_hero_02_detail.jpg' alt='athlete hero image 02'></StaticImage>,
+      article: athleteNodes?.find((node) => node?.frontmatter.athleteType === '潜水'),
       videos: ['gIKEJ2N2MVs', 'ea2Kkmmv4M4'],
       name: 'cp_v2.athletes.heros.1.name',
       title: 'cp_v2.athletes.heros.1.title',
@@ -124,21 +91,9 @@ const Athletes = ({ athleteNodes }) => {
       code: 'ECP_Athlete_Chris_advertorial',
     },
     {
-      avatar: (
-        <StaticImage
-          src='../../images/athlete_hero_03.png'
-          alt='athlete hero avatar 03'
-        ></StaticImage>
-      ),
-      image: (
-        <StaticImage
-          src='../../images/athlete_hero_03_detail.jpg'
-          alt='athlete hero image 03'
-        ></StaticImage>
-      ),
-      article: athleteNodes?.find(
-        (node) => node?.frontmatter.athleteType === '骑马'
-      ),
+      avatar: <StaticImage src='../../images/athlete_hero_03.png' alt='athlete hero avatar 03'></StaticImage>,
+      image: <StaticImage src='../../images/athlete_hero_03_detail.jpg' alt='athlete hero image 03'></StaticImage>,
+      article: athleteNodes?.find((node) => node?.frontmatter.athleteType === '骑马'),
       videos: ['U_3tVZWEl6I', 'UbKroM0_gPE'],
       name: 'cp_v2.athletes.heros.2.name',
       title: 'cp_v2.athletes.heros.2.title',
@@ -150,10 +105,7 @@ const Athletes = ({ athleteNodes }) => {
   ]
   return (
     <Box color='#29678F' whiteSpace='break-spaces'>
-      <ImageTranslation
-        filename='athlete_hero_banner'
-        alt='athlete hero banner'
-      ></ImageTranslation>
+      <ImageTranslation filename='athlete_hero_banner' alt='athlete hero banner'></ImageTranslation>
       <Box
         maxWidth={920}
         mx='auto'
@@ -171,9 +123,7 @@ const Athletes = ({ athleteNodes }) => {
         boxShadow={`0 5px 30px 0 ${alpha('#7C7C7C', 0.1)}`}
         zIndex={4}
       >
-        <Trans i18nKey='cp_v2.athletes.paragraphs.0'>
-          .{isMobile && '\n\n'}
-        </Trans>
+        <Trans i18nKey='cp_v2.athletes.paragraphs.0'>.{isMobile && '\n\n'}</Trans>
       </Box>
       <Box>
         {ATHLETES_INFO.map((athlete, index) => (
@@ -209,9 +159,7 @@ const Athletes = ({ athleteNodes }) => {
               maxWidth={1140}
               mx='auto'
               borderRadius={16}
-              boxShadow={
-                isMobile ? `0 5px 30px 0 ${alpha('#7C7C7C', 0.1)}` : 'none'
-              }
+              boxShadow={isMobile ? `0 5px 30px 0 ${alpha('#7C7C7C', 0.1)}` : 'none'}
             >
               <Box
                 mb={isMobile ? 0 : 6}
@@ -238,8 +186,8 @@ const Athletes = ({ athleteNodes }) => {
                 {isMobile && (
                   <Box pt={`${(130 / 240) * 100}%`} position='relative' my={2}>
                     <YouTube
-                      containerClassName={classes.videoContainer}
-                      className={classes.videoFullWidth}
+                      className={classes.videoContainer}
+                      iframeClassName={classes.videoFullWidth}
                       videoId={athlete.videos[0]}
                       id={athlete.countNode}
                       opts={{
@@ -253,9 +201,7 @@ const Athletes = ({ athleteNodes }) => {
                   className={classes.intro}
                   color={isMobile ? 'grey.900' : '#29678F'}
                   lineHeight={2}
-                  fontWeight={
-                    isMobile ? 'fontWeightMedium' : 'fontWeightRegular'
-                  }
+                  fontWeight={isMobile ? 'fontWeightMedium' : 'fontWeightRegular'}
                 >
                   <Trans i18nKey={athlete.intro}>
                     .<sup>.</sup>
@@ -267,8 +213,8 @@ const Athletes = ({ athleteNodes }) => {
                 {!isMobile && (
                   <Box pt={`${(130 / 240) * 100}%`} position='relative'>
                     <YouTube
-                      containerClassName={classes.videoContainer}
-                      className={classes.videoFullWidth}
+                      className={classes.videoContainer}
+                      iframeClassName={classes.videoFullWidth}
                       videoId={athlete.videos[0]}
                       id={athlete.countNode}
                       opts={{
@@ -291,8 +237,8 @@ const Athletes = ({ athleteNodes }) => {
                       {athlete.videos[1] ? (
                         <Box pt={`${(1350 / 1650) * 100}%`} position='relative'>
                           <YouTube
-                            containerClassName={classes.videoContainer}
-                            className={classes.video}
+                            className={classes.videoContainer}
+                            iframeClassName={classes.video}
                             videoId={athlete.videos[1]}
                             id={athlete.countNode2}
                             opts={{
@@ -310,12 +256,7 @@ const Athletes = ({ athleteNodes }) => {
                     </ImageListItem>
                     <ImageListItem classes={{ item: classes.imageListItem }}>
                       {athlete.article ? (
-                        <Box
-                          pt={`${(1350 / 1650) * 100}%`}
-                          position='relative'
-                          minHeight='260px'
-                          id={athlete.code}
-                        >
+                        <Box pt={`${(1350 / 1650) * 100}%`} position='relative' minHeight='260px' id={athlete.code}>
                           <AthletePostCard
                             slug={athlete.article?.fields.slug}
                             {...athlete.article?.frontmatter}
@@ -352,18 +293,8 @@ const Athletes = ({ athleteNodes }) => {
                   >
                     {t('common.book_now')}
                   </Button>
-                  <Box
-                    width='100%'
-                    target='_blank'
-                    component={Link}
-                    to='/service-location/'
-                  >
-                    <Button
-                      className={classes.outlineButton}
-                      fullWidth
-                      variant='outlined'
-                      id='ECP_Athlete_1_Location'
-                    >
+                  <Box width='100%' target='_blank' component={Link} to='/service-location/'>
+                    <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_Athlete_1_Location'>
                       {t('cp_v2.common.view_service_location')}
                     </Button>
                   </Box>
@@ -387,12 +318,7 @@ const Athletes = ({ athleteNodes }) => {
         zIndex={isMobile ? 0 : 1}
       >
         <Box maxWidth={854} mx='auto' borderRadius={16}>
-          <Box
-            textAlign='center'
-            fontSize={isMobile ? 20 : 28}
-            fontWeight='fontWeightBold'
-            mb={4}
-          >
+          <Box textAlign='center' fontSize={isMobile ? 20 : 28} fontWeight='fontWeightBold' mb={4}>
             {t('cp_v2.athletes.paragraphs.2')}
           </Box>
           <Box
@@ -421,14 +347,7 @@ const Athletes = ({ athleteNodes }) => {
         </Box>
         {isMobile && (
           <>
-            <Box
-              borderRadius={16}
-              mt={2}
-              px={2.5}
-              py={4}
-              bgcolor='background.paper'
-              mx={2.5}
-            >
+            <Box borderRadius={16} mt={2} px={2.5} py={4} bgcolor='background.paper' mx={2.5}>
               <Box color='grey.900' fontSize='body1.fontSize'>
                 {t('cp_v2.athletes.paragraphs.5')}
               </Box>
@@ -451,18 +370,8 @@ const Athletes = ({ athleteNodes }) => {
                 >
                   {t('common.book_now')}
                 </Button>
-                <Box
-                  width='100%'
-                  target='_blank'
-                  component={Link}
-                  to='/service-location/'
-                >
-                  <Button
-                    className={classes.outlineButton}
-                    fullWidth
-                    variant='outlined'
-                    id='ECP_Athlete_1_Location'
-                  >
+                <Box width='100%' target='_blank' component={Link} to='/service-location/'>
+                  <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_Athlete_1_Location'>
                     {t('cp_v2.common.view_service_location')}
                   </Button>
                 </Box>
@@ -506,18 +415,8 @@ const Athletes = ({ athleteNodes }) => {
           >
             {t('common.book_now')}
           </Button>
-          <Box
-            width='100%'
-            target='_blank'
-            component={Link}
-            to='/service-location/'
-          >
-            <Button
-              className={classes.outlineButton}
-              fullWidth
-              variant='outlined'
-              id='ECP_Athlete_2_Location'
-            >
+          <Box width='100%' target='_blank' component={Link} to='/service-location/'>
+            <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_Athlete_2_Location'>
               {t('cp_v2.common.view_service_location')}
             </Button>
           </Box>

@@ -10,7 +10,7 @@ export default MissionPage
 
 export const query = graphql`
   query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+    locales: allLocale(filter: { ns: { in: ["translation"] }, language: { eq: $language } }) {
       edges {
         node {
           ns
@@ -21,3 +21,13 @@ export const query = graphql`
     }
   }
 `
+
+// export async function config() {
+//   // Optionally use GraphQL here
+
+//   return ({ params }) => {
+//     return {
+//       defer: true,
+//     }
+//   }
+// }

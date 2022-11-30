@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles, IconButton, Box, alpha } from '@material-ui/core'
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
-import { PROMOTION_CODE, WHATS_APP_LINK } from '@utils/constant'
+import { WHATS_APP_LINK } from '@utils/constant'
 import { Trans } from 'gatsby-plugin-react-i18next'
 import WhatsAppIcon from '@material-ui/icons/WhatsApp'
 import ETooltip from '@themes/components/ETooltip'

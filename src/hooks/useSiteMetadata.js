@@ -5,9 +5,11 @@ const useSiteMetadata = () => {
     {
       site {
         siteMetadata {
-          title
+          defaultTitle
           siteUrl
-          description
+          defaultDescription
+          defaultImage
+          titleTemplate
           whatsappAccount
           whatsapp
           linkedin

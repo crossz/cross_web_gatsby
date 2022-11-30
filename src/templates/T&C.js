@@ -2,7 +2,6 @@ import React from 'react'
 import MdxLayout from '@layouts/MdxLayout'
 import { graphql } from 'gatsby'
 import { makeStyles, Typography, Container, Box } from '@material-ui/core'
-import Layout from '@layouts/Layout'
 import { formatLocal } from '@utils/moment'
 
 // import { StaticImage } from 'gatsby-plugin-image'
@@ -47,37 +46,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Post = ({ data }) => {
+const Post = ({ data, children }) => {
   const classes = useStyles()
 
   if (!data?.mdx) return null
 
-  const mdx = data?.mdx?.body
   const { date, title } = data?.mdx?.frontmatter
 
   return (
-    <Layout>
-      <Box className={classes.root}>
-        <Container disableGutters maxWidth='xl'>
-          <Box className={classes.contentWrapper}>
-            <Container className={classes.content} disableGutters maxWidth='sm'>
-              <Box className={classes.header}>
-                <Typography variant='h5' color='primary'>
-                  {title}
-                </Typography>
-                <Box className={classes.date}>{formatLocal(date)}</Box>
-              </Box>
-              <MdxLayout>{mdx}</MdxLayout>
-            </Container>
-            {/* <StaticImage
+    <Box className={classes.root}>
+      <Container disableGutters maxWidth='xl'>
+        <Box className={classes.contentWrapper}>
+          <Container className={classes.content} disableGutters maxWidth='sm'>
+            <Box className={classes.header}>
+              <Typography variant='h5' color='primary'>
+                {title}
+              </Typography>
+              <Box className={classes.date}>{formatLocal(date)}</Box>
+            </Box>
+            <MdxLayout>{children}</MdxLayout>
+          </Container>
+          {/* <StaticImage
             className={classes.postBg}
             src='../assets/images/post_bg.png'
             alt='post background'
           ></StaticImage> */}
-          </Box>
-        </Container>
-      </Box>
-    </Layout>
+        </Box>
+      </Container>
+    </Box>
   )
 }
 
@@ -85,7 +81,7 @@ export default Post
 
 export const query = graphql`
   query ($slug: String!, $language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+    locales: allLocale(filter: { ns: { in: ["translation"] }, language: { eq: $language } }) {
       edges {
         node {
           ns
@@ -100,7 +96,6 @@ export const query = graphql`
         date
         title
       }
-      body
     }
   }
 `

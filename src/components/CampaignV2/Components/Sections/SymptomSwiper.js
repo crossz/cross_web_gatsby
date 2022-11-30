@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles, Box, alpha } from '@material-ui/core/'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay } from 'swiper/core'
-import 'swiper/swiper-bundle.min.css'
+import 'swiper/css'
 import ImageTranslation from '../ImageTranslation'
 
 SwiperCore.use([Autoplay])
@@ -93,12 +93,7 @@ const SymptomSwiper = () => {
       }}
     >
       {SYMPTOMS?.map((symptom, index) => {
-        return (
-          <SwiperSlide
-            key={index}
-            id={activeSlide === index ? 'ECP_Symptoms_Clicks' : ''}
-          ></SwiperSlide>
-        )
+        return <SwiperSlide key={index} id={activeSlide === index ? 'ECP_Symptoms_Clicks' : ''}></SwiperSlide>
       })}
       <Box
         className={classes.imgWrapper}
@@ -111,11 +106,7 @@ const SymptomSwiper = () => {
           transform: `rotate(${deg}deg)`,
         }}
       >
-        <ImageTranslation
-          hasMobile={false}
-          filename='wheel'
-          alt='symptoms'
-        ></ImageTranslation>
+        <ImageTranslation hasMobile={false} filename='wheel' alt='symptoms'></ImageTranslation>
       </Box>
     </Swiper>
   )
