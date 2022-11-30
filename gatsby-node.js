@@ -1,6 +1,8 @@
 'use strict'
 const { resolve } = require('path')
 const { paginate } = require('gatsby-awesome-pagination')
+const { defaultLanguage } = require('./languages')
+const moment = require('moment')
 
 const formatEndsPath = (path) => (path?.endsWith('/') ? path : `${path}/`)
 const formatStartsPath = (path) => (path?.startsWith('/') ? path : `/${path}`)
@@ -30,15 +32,11 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
           ? `/whats-new/campaign/${relativeDirectory}/${
               node.frontmatter.slug || node.frontmatter.cpTitle?.trim() || name
             }`
-          : `/whats-new/${relativeDirectory}/${
-              node.frontmatter.slug || node.frontmatter.title?.trim() || name
-            }`
+          : `/whats-new/${relativeDirectory}/${node.frontmatter.slug || node.frontmatter.title?.trim() || name}`
         break
       case 'promotions':
       case 'updates':
-        slug = `/whats-new/${relativeDirectory}/${
-          node.frontmatter.slug || node.frontmatter.title?.trim() || name
-        }`
+        slug = `/whats-new/${relativeDirectory}/${node.frontmatter.slug || node.frontmatter.title?.trim() || name}`
         break
       case 'campaign-page-posts':
         slug = `/whats-new/campaign/${relativeDirectory}/${
@@ -63,10 +61,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const careers = await graphql(`
     {
-      allMdx(
-        filter: { fileAbsolutePath: { regex: "/join-us/" } }
-        sort: { fields: frontmatter___date, order: DESC }
-      ) {
+      allMdx(filter: { fields: { slug: { regex: "/join-us/" } } }, sort: { fields: frontmatter___date, order: DESC }) {
         nodes {
           id
         }
@@ -74,20 +69,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-  if (careers.errors)
-    return reporter.panicOnBuild(`Error while running GraphQL query.`)
-  const joinUsTemplate = resolve(__dirname, 'src/templates/JoinUs.js')
+  if (careers.errors) return reporter.panicOnBuild(`Error while running GraphQL query.`)
+  const joinUsComponent = resolve(__dirname, 'src/templates/JoinUs.js')
   paginate({
     createPage, // The Gatsby `createPage` function
     items: careers?.data?.allMdx?.nodes || [], // An array of objects
     itemsPerPage: 5, // How many items you want per page
     pathPrefix: '/about-us/join-us/', // Creates pages like `/blog`, `/blog/2`, etc
-    component: joinUsTemplate, // Just like `createPage()`
+    component: joinUsComponent, // Just like `createPage()`
   })
 
   const allMdxQuery = await graphql(`
     {
-      allMdx(limit: 1000) {
+      allMdx(limit: 1000, filter: { frontmatter: { hide: { ne: true } } }) {
         nodes {
           id
           fields {
@@ -98,13 +92,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               relativeDirectory
             }
           }
+          internal {
+            contentFilePath
+          }
+          frontmatter {
+            languages
+            date
+          }
         }
       }
     }
   `)
 
-  if (allMdxQuery.errors)
-    return reporter.panicOnBuild(`Error while running GraphQL query.`)
+  if (allMdxQuery.errors) return reporter.panicOnBuild(`Error while running GraphQL query.`)
 
   const postTemplate = resolve(__dirname, 'src/templates/Post.js')
   const tAndCTemplate = resolve(__dirname, 'src/templates/T&C.js')
@@ -115,29 +115,59 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   allMdxList?.forEach((mdx) => {
     let path = mdx.fields?.slug
     if (!path) return
-
-    let template = null
+    // if (
+    //   mdx.parent.relativeDirectory === 'health-tips' ||
+    //   mdx.parent.relativeDirectory === 'promotions' ||
+    //   mdx.parent.relativeDirectory === 'updates' ||
+    //   mdx.parent.relativeDirectory === 'campaign-page-posts'
+    // )
+    //   return
+    let component = null,
+      defer = false
 
     switch (mdx.parent.relativeDirectory) {
       case 'terms-and-conditions':
-        template = tAndCTemplate
+        component = `${tAndCTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
+        defer = true
         break
       case 'join-us':
-        template = careerTemplate
+        component = `${careerTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
+        defer = true
         break
       default:
-        template = postTemplate
+        component = `${postTemplate}?__contentFilePath=${mdx.internal.contentFilePath}`
+        defer = moment(mdx?.frontmatter?.date)?.isBefore('2021-12-31')
         break
     }
 
-    createPage({
-      path,
-      component: template,
-      context: {
-        slug: mdx.fields.slug,
-        sectionPath: mdx.parent.relativeDirectory,
-        regex: `/${mdx.parent.relativeDirectory}/`,
-      },
+    mdx?.frontmatter?.languages?.forEach((lang) => {
+      createPage({
+        path: `/${lang}${path}`,
+        component,
+        context: {
+          slug: path,
+          sectionPath: mdx.parent.relativeDirectory,
+          regex: `/${mdx.parent.relativeDirectory}/`,
+          id: mdx.id,
+          contentFilePath: mdx.internal.contentFilePath,
+          curPath: `/${lang}${path}`,
+        },
+        // defer,
+      })
+      if (lang === defaultLanguage)
+        createPage({
+          path,
+          component,
+          context: {
+            slug: path,
+            sectionPath: mdx.parent.relativeDirectory,
+            regex: `/${mdx.parent.relativeDirectory}/`,
+            id: mdx.id,
+            contentFilePath: mdx.internal.contentFilePath,
+            curPath: path,
+          },
+          // defer,
+        })
     })
   })
 

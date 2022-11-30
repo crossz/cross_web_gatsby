@@ -1,6 +1,7 @@
 ---
 label: T&C
 hide_body: false
+display_field: slug
 fields:
 - name: hide
   type: boolean
@@ -44,6 +45,7 @@ fields:
     display_utc: false
 pages:
 - content/terms-and-conditions/privacy-policy-statement.md
+- content/terms-and-conditions/terms-and-conditions.md
 - content/terms-and-conditions/terms-of-use.md
 - content/terms-and-conditions/条款及细则.md
 - content/terms-and-conditions/條款及細則.md

@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  useTheme,
-  useMediaQuery,
-  Box,
-  makeStyles,
-  Button,
-} from '@material-ui/core'
+import { useTheme, useMediaQuery, Box, makeStyles, Button } from '@material-ui/core'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import YouTube from 'react-youtube'
 import LineDots from '@components/CampaignV2/images/bg_wave_dots.png'
@@ -52,10 +46,7 @@ const SectionFive = () => {
 
   return (
     <>
-      <ImageTranslation
-        filename='section_banner_05'
-        alt='section banner 05'
-      ></ImageTranslation>
+      <ImageTranslation filename='section_banner_05' alt='section banner 05'></ImageTranslation>
       <Box
         color='primary.contrastText'
         fontSize={isMobile ? 16 : 18}
@@ -76,7 +67,7 @@ const SectionFive = () => {
           </Box>
           <Box className='gsap-fade-in-10' id='ECP_TM_Video_Play'>
             <YouTube
-              className={classes.video}
+              iframeClassName={classes.video}
               videoId='BACVA3es0NI'
               opts={{
                 width: '100%',
@@ -112,18 +103,8 @@ const SectionFive = () => {
             >
               {t('common.book_now')}
             </Button>
-            <Box
-              width='100%'
-              target='_blank'
-              to='/service-location/'
-              component={Link}
-            >
-              <Button
-                className={classes.outlineButton}
-                fullWidth
-                variant='outlined'
-                id='ECP_TM_Location'
-              >
+            <Box width='100%' target='_blank' to='/service-location/' component={Link}>
+              <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_TM_Location'>
                 {t('cp_v2.common.view_service_location')}
               </Button>
             </Box>

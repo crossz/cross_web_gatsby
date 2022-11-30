@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   makeStyles,
   Container,
@@ -12,11 +12,7 @@ import {
   Hidden,
   Divider,
 } from '@material-ui/core'
-import {
-  EAccordion,
-  EAccordionSummary,
-  EAccordionDetails,
-} from '@themes/components/EAccordion'
+import { EAccordion, EAccordionSummary, EAccordionDetails } from '@themes/components/EAccordion'
 import classnames from 'classnames'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useI18next } from 'gatsby-plugin-react-i18next'
@@ -155,12 +151,16 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const Menu = (props) => {
   const classes = useStyles()
-  const { t } = useI18next()
+  const { t, language } = useI18next()
   const matches = useMediaQuery((theme) => theme.breakpoints.down('xs'))
   const menu = useMenu()
   const [open, setOpen] = useState(false)
   const [panel, setPanel] = useState('')
   const addLangQuery = useLangQuery()
+
+  useEffect(() => {
+    handleClose()
+  }, [language])
 
   const handleOpen = () => {
     setOpen(true)
@@ -170,26 +170,17 @@ const Menu = (props) => {
     setOpen(false)
   }
 
-  const handleChange = (activePanel) => (e, isExpanded) =>
-    setPanel(isExpanded ? activePanel : '')
+  const handleChange = (activePanel) => (e, isExpanded) => setPanel(isExpanded ? activePanel : '')
 
   const ContactList = () => {
     const contactUsItem = menu[6]
     const joinUsItem = menu[5].sections[1]
     return (
       <Box className={classes.contactList} display='flex'>
-        <Link
-          className={classnames(classes.link, classes.contactLink)}
-          to={contactUsItem.path}
-          onClick={handleClose}
-        >
+        <Link className={classnames(classes.link, classes.contactLink)} to={contactUsItem.path} onClick={handleClose}>
           {t(contactUsItem.title)}
         </Link>
-        <Link
-          className={classnames(classes.link, classes.contactLink)}
-          to={joinUsItem.path}
-          onClick={handleClose}
-        >
+        <Link className={classnames(classes.link, classes.contactLink)} to={joinUsItem.path} onClick={handleClose}>
           {t(joinUsItem.title)}
         </Link>
       </Box>
@@ -219,9 +210,7 @@ const Menu = (props) => {
   return (
     <>
       <IconButton onClick={handleOpen}>
-        <MenuIcon
-          className={classnames(classes.icon, { [classes.isDark]: props.dark })}
-        ></MenuIcon>
+        <MenuIcon className={classnames(classes.icon, { [classes.isDark]: props.dark })}></MenuIcon>
       </IconButton>
       <Dialog
         className={classes.root}
@@ -234,11 +223,7 @@ const Menu = (props) => {
         <Container className={classes.wrapper} disableGutters maxWidth='lg'>
           <Box className={classes.header}>
             <Box width={matches ? 100 : 145}>
-              <StaticImage
-                src='../../assets/images/common/take2_white_orange.png'
-                alt='Logo'
-                placeholder='tracedSVG'
-              />
+              <StaticImage src='../../assets/images/common/take2_white_orange.png' alt='Logo' placeholder='tracedSVG' />
             </Box>
             <IconButton
               className={classnames(classes.btn, classes.closeBtn)}
@@ -266,11 +251,7 @@ const Menu = (props) => {
                       key={item.title}
                       expanded={!matches || item.path === panel}
                       onChange={handleChange(
-                        !matches ||
-                          !(item.sections && item.sections?.length) ||
-                          index === 5
-                          ? ''
-                          : item.path
+                        !matches || !(item.sections && item.sections?.length) || index === 5 ? '' : item.path
                       )}
                     >
                       <EAccordionSummary
@@ -278,29 +259,17 @@ const Menu = (props) => {
                           matches &&
                           item.sections &&
                           item.sections?.length &&
-                          index !== 5 && (
-                            <ArrowIcon className={classes.arrowIcon} />
-                          )
+                          index !== 5 && <ArrowIcon className={classes.arrowIcon} />
                         }
                         aria-controls='panel1a-content'
                         id='panel1a-header'
                       >
-                        <TitleDot
-                          bgcolor='background.paper'
-                          size={1.5}
-                          left={-4}
-                        ></TitleDot>
+                        <TitleDot bgcolor='background.paper' size={1.5} left={-4}></TitleDot>
                         {matches && item.sections?.length && index !== 5 ? (
                           <Typography variant='h4'>{t(item.title)}</Typography>
                         ) : (
-                          <Link
-                            className={classes.link}
-                            to={item.path}
-                            onClick={handleClose}
-                          >
-                            <Typography variant='h4'>
-                              {t(item.title)}
-                            </Typography>
+                          <Link className={classes.link} to={item.path} onClick={handleClose}>
+                            <Typography variant='h4'>{t(item.title)}</Typography>
                           </Link>
                         )}
                       </EAccordionSummary>
@@ -308,15 +277,8 @@ const Menu = (props) => {
                         <EAccordionDetails className={classes.menuChildren}>
                           <Typography variant='body1' component='div'>
                             {item.sections.map((tab) => (
-                              <Box
-                                className={classes.menuChildrenItem}
-                                key={tab.title}
-                              >
-                                <Link
-                                  to={tab.path}
-                                  className={classes.link}
-                                  onClick={handleClose}
-                                >
+                              <Box className={classes.menuChildrenItem} key={tab.title}>
+                                <Link to={tab.path} className={classes.link} onClick={handleClose}>
                                   {t(tab.title)}
                                 </Link>
                               </Box>

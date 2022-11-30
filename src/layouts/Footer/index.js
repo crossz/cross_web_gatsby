@@ -1,11 +1,5 @@
 import React, { useState } from 'react'
-import {
-  makeStyles,
-  useMediaQuery,
-  Grid,
-  Container,
-  alpha,
-} from '@material-ui/core'
+import { makeStyles, useMediaQuery, Grid, Container, alpha } from '@material-ui/core'
 import Box from '@material-ui/core/Box'
 import useMenu from '@hooks/useMenu'
 import useSiteMetadata from '@hooks/useSiteMetadata'
@@ -13,11 +7,7 @@ import PhoneIcon from '@images/icons/phone.svg'
 import WhatsappIcon from '@images/icons/whatsapp.svg'
 import EmailIcon from '@images/icons/mail.svg'
 import SocialLinks from '@layouts/SocialLinks'
-import {
-  EAccordion,
-  EAccordionSummary,
-  EAccordionDetails,
-} from '@themes/components/EAccordion'
+import { EAccordion, EAccordionSummary, EAccordionDetails } from '@themes/components/EAccordion'
 import ArrowIcon from '@images/icons/arrow.svg'
 import Link from '@components/Link'
 import Divider from '@material-ui/core/Divider'
@@ -157,27 +147,19 @@ const Footer = () => {
   const classes = useStyles()
   const { language, t } = useI18next()
   const isEn = language === 'en'
-  const matches = useMediaQuery((theme) => theme.breakpoints.down('xs'))
+  const matches = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true })
   const menu = useMenu()
   const { email, phone, whatsapp, whatsappAccount } = useSiteMetadata()
   const [panel, setPanel] = useState('')
 
-  const handleChange = (activePanel) => (e, isExpanded) =>
-    setPanel(isExpanded ? activePanel : '')
+  const handleChange = (activePanel) => (e, isExpanded) => setPanel(isExpanded ? activePanel : '')
 
   const CopyRights = (params) => (
     <Box className={classes.copyRight}>
-      <Box
-        className={classes.copyRightLink}
-        width={matches ? '100%' : 'auto'}
-        mb={matches ? 2 : 0}
-      >
+      <Box className={classes.copyRightLink} width={matches ? '100%' : 'auto'} mb={matches ? 2 : 0}>
         {t('common.take2_copy_right')}
       </Box>
-      <Link
-        className={classnames(classes.link, classes.copyRightLink)}
-        to={T_AND_C.PRIVACY_POLICY.url}
-      >
+      <Link className={classnames(classes.link, classes.copyRightLink)} to={T_AND_C.PRIVACY_POLICY.url}>
         {t(T_AND_C.PRIVACY_POLICY.label)}
       </Link>
       {/* <Link className={classnames(classes.link, classes.copyRightLink)} to='/'>
@@ -189,10 +171,7 @@ const Footer = () => {
       >
         免責聲明
       </Link> */}
-      <Link
-        className={classnames(classes.link, classes.copyRightLink)}
-        to={T_AND_C.WEBSITE_TERMS_OF_USE.url}
-      >
+      <Link className={classnames(classes.link, classes.copyRightLink)} to={T_AND_C.WEBSITE_TERMS_OF_USE.url}>
         {t(T_AND_C.WEBSITE_TERMS_OF_USE.label)}
       </Link>
       <Link
@@ -201,9 +180,7 @@ const Footer = () => {
       >
         {t(T_AND_C.PERSONAL_INFORMATION_COLLECTION_STATEMENT.label)}
       </Link>
-      <LanguageButton
-        className={classnames(classes.languageBtn, classes.copyRightLink)}
-      ></LanguageButton>
+      <LanguageButton className={classnames(classes.languageBtn, classes.copyRightLink)}></LanguageButton>
     </Box>
   )
   const menuItem = (index) => {
@@ -218,17 +195,10 @@ const Footer = () => {
           <EAccordion
             expanded={!matches || item.path === panel}
             square
-            onChange={handleChange(
-              !matches || !item.sections?.length ? '' : item.path
-            )}
+            onChange={handleChange(!matches || !item.sections?.length ? '' : item.path)}
           >
             <EAccordionSummary
-              expandIcon={
-                matches &&
-                item.sections?.length && (
-                  <ArrowIcon className={classes.arrowIcon} />
-                )
-              }
+              expandIcon={matches && item.sections?.length && <ArrowIcon className={classes.arrowIcon} />}
               aria-controls='panel1a-content'
               id='panel1a-header'
               classes={{
@@ -237,11 +207,7 @@ const Footer = () => {
               }}
             >
               {matches && item.sections?.length ? (
-                <Box
-                  fontSize='body1.fontSize'
-                  fontWeight='fontWeightBold'
-                  className={classes.link}
-                >
+                <Box fontSize='body1.fontSize' fontWeight='fontWeightBold' className={classes.link}>
                   {t(item.title)}
                 </Box>
               ) : (
@@ -282,11 +248,7 @@ const Footer = () => {
         <Grid container>
           <Grid className={classes.infoWrapper} item xs={12} sm={3} md={4}>
             <Box width={matches ? 100 : 145}>
-              <StaticImage
-                src='../../assets/images/common/take2_white_orange.png'
-                alt='Logo'
-                placeholder='tracedSVG'
-              />
+              <StaticImage src='../../assets/images/common/take2_white_orange.png' alt='Logo' placeholder='tracedSVG' />
             </Box>
             <Box mt={matches ? 4 : 5}>
               <a href={`tel:${phone}`} className={classes.link}>
@@ -295,12 +257,7 @@ const Footer = () => {
                   {phone}
                 </Box>
               </a>
-              <a
-                href={whatsapp}
-                className={classes.link}
-                target='_blank'
-                rel='noreferrer'
-              >
+              <a href={whatsapp} className={classes.link} target='_blank' rel='noreferrer'>
                 <Box display='flex' mb={matches ? 1 : 1.5} alignItems='center'>
                   <WhatsappIcon className={classes.infoIcon}></WhatsappIcon>
                   {whatsappAccount}

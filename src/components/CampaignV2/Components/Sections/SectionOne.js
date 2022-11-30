@@ -107,8 +107,8 @@ const SectionOne = () => {
         <Box position='relative' mt={isMobile ? -5.25 : -8} mb={isMobile ? 6 : 8}>
           <Box pt={`${(9 / 16) * 100}%`} position='relative'>
             <YouTube
-              containerClassName={classes.videoContainer}
-              className={classes.video}
+              className={classes.videoContainer}
+              iframeClassName={classes.video}
               videoId='wOPREMoVhys'
               opts={{
                 width: '100%',
