@@ -11,7 +11,7 @@ import {
   alpha,
   Hidden,
 } from '@material-ui/core'
-import { GatsbyImage, getImage, withArtDirection } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Link from '@components/Link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper/core'
@@ -322,21 +322,6 @@ const Banner = ({ nodes }) => {
           nodes?.map((node) => (
             <SwiperSlide key={node.id}>
               <Box className={classes.heroBannerWrapper}>
-                {/* <GatsbyImage
-                  className={classes.heroImgWrapper}
-                  image={
-                    node?.frontmatter?.mobileImage
-                      ? withArtDirection(getImage(node?.frontmatter?.image), [
-                          {
-                            media: `(max-width: ${theme.breakpoints.values.sm}px)`,
-                            image: getImage(node?.frontmatter?.mobileImage),
-                          },
-                        ])
-                      : getImage(node?.frontmatter?.image)
-                  }
-                  placeholder='blurred'
-                  alt={tB('title', node?.frontmatter)}
-                ></GatsbyImage> */}
                 {isMobile ? (
                   <GatsbyImage
                     className={classes.heroImgWrapper}

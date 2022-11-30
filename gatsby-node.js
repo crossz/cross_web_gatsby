@@ -26,7 +26,6 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
             ? ''
             : node.frontmatter.slug || node.frontmatter.title?.trim() || name
         }`
-        console.log('slug', slug)
         break
       case 'health-tips':
         slug = node.frontmatter.postType
