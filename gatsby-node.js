@@ -81,7 +81,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const allMdxQuery = await graphql(`
     {
-      allMdx(limit: 1000) {
+      allMdx(limit: 1000, filter: { frontmatter: { hide: { ne: true } } }) {
         nodes {
           id
           fields {
@@ -159,12 +159,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           path,
           component,
           context: {
-            slug: mdx.fields.slug,
+            slug: path,
             sectionPath: mdx.parent.relativeDirectory,
             regex: `/${mdx.parent.relativeDirectory}/`,
             id: mdx.id,
             contentFilePath: mdx.internal.contentFilePath,
-            curPath: `/${lang}${path}`,
+            curPath: path,
           },
           // defer,
         })

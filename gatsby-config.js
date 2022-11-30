@@ -202,6 +202,7 @@ module.exports = {
           { matchPath: '/:lang?/whats-new/health-tips/:uid', getLanguageFromPath: true },
           { matchPath: '/:lang?/whats-new/campaign/health-tips/:uid', getLanguageFromPath: true },
           { matchPath: '/:lang?/whats-new/updates/:uid', getLanguageFromPath: true },
+          { matchPath: '/:lang?/terms-and-conditions/', getLanguageFromPath: true },
           { matchPath: '/:lang?/terms-and-conditions/:uid', getLanguageFromPath: true },
           { matchPath: '/:lang?/about-us/join-us/:uid', getLanguageFromPath: true },
         ],
