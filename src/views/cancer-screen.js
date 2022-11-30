@@ -676,7 +676,7 @@ const CancerScreen = () => {
           </Typography>{' '}
           <Box width={matches ? 300 : 'auto'}>
             <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
-              <Grid item xs={matches ? 5 : 'auto'}>
+              <Grid item xs={matches ? 6 : 'auto'}>
                 <Button
                   variant='contained'
                   color='secondary'
@@ -689,7 +689,7 @@ const CancerScreen = () => {
                   {t('common.book_now')}
                 </Button>
               </Grid>
-              <Grid item xs={matches ? 5 : 'auto'}>
+              <Grid item xs={matches ? 6 : 'auto'}>
                 <Link to='/service-location/'>
                   <Button
                     className={classes.btn}
