@@ -26,6 +26,7 @@ exports.onCreateNode = async ({ node, actions, getNode }) => {
             ? ''
             : node.frontmatter.slug || node.frontmatter.title?.trim() || name
         }`
+        console.log('slug', slug)
         break
       case 'health-tips':
         slug = node.frontmatter.postType
@@ -152,7 +153,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           contentFilePath: mdx.internal.contentFilePath,
           curPath: `/${lang}${path}`,
         },
-        defer,
+        // defer,
       })
       if (lang === defaultLanguage)
         createPage({
