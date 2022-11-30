@@ -64,7 +64,7 @@ const steps = [
     ),
   },
   {
-    label: '醫生為病人講解報告',
+    label: 'products_and_services.take2_prophecy.process.4',
     icon: (
       <StaticImage
         src='../assets/images/icons/healthCheck/step_5.svg'
