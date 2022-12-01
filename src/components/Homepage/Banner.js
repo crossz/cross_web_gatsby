@@ -266,7 +266,12 @@ const Banner = ({ nodes }) => {
               )}
               position='relative'
             >
-              <ImageTranslation filename='Chris' alt='Chris banner' className={classes.containImg}></ImageTranslation>
+              <ImageTranslation
+                filename='Chris'
+                alt='Chris banner'
+                className={classes.containImg}
+                objectFit='contain'
+              ></ImageTranslation>
             </Box>
           </Box>
         </SwiperSlide>
@@ -280,6 +285,7 @@ const Banner = ({ nodes }) => {
                 filename='athletes_banner'
                 alt='athletes banner'
                 className={classes.containImg}
+                objectFit='contain'
               ></ImageTranslation>
               <Box className={classes.imageButtonWrapper}>
                 <Box
