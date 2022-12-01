@@ -167,7 +167,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     color: theme.palette.primary.main,
     [theme.breakpoints.down('xs')]: {
-      height: 135,
+      height: 140,
     },
   },
   bannerWrapper: {
@@ -361,7 +361,12 @@ const HealthCheck = () => {
                     {t('products_and_services.health_check.sub_title_intro')}
                   </Box>
                 </Typography>
-                <Box display='flex' justifyContent='center' flexDirection={matches ? 'column' : 'row'}>
+                <Box
+                  display='flex'
+                  justifyContent='center'
+                  flexDirection={matches ? 'column' : 'row'}
+                  mx={matches ? 0 : 2}
+                >
                   <Box className={classes.subBox} color='primary.main' justifyContent='center'>
                     <ErrorIcon color='red' />
                     <Box ml={1}>
