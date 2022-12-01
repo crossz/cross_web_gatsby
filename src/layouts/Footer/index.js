@@ -151,13 +151,13 @@ const Footer = () => {
   const menu = useMenu()
   const { email, phone, whatsapp, whatsappAccount } = useSiteMetadata()
   const [panel, setPanel] = useState('')
-
+  const date = new Date()
   const handleChange = (activePanel) => (e, isExpanded) => setPanel(isExpanded ? activePanel : '')
 
   const CopyRights = (params) => (
     <Box className={classes.copyRight}>
       <Box className={classes.copyRightLink} width={matches ? '100%' : 'auto'} mb={matches ? 2 : 0}>
-        {t('common.take2_copy_right')}
+        ©{date.getFullYear()} {t('common.take2_copy_right')}
       </Box>
       <Link className={classnames(classes.link, classes.copyRightLink)} to={T_AND_C.PRIVACY_POLICY.url}>
         {t(T_AND_C.PRIVACY_POLICY.label)}
