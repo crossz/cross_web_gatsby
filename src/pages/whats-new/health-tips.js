@@ -2,18 +2,15 @@ import React from 'react'
 import PostList from '@components/WhatsNew/PostList'
 import { graphql } from 'gatsby'
 import { useI18next } from 'gatsby-plugin-react-i18next'
-import Layout from '@layouts/Layout'
 
 const HealthTips = ({ data }) => {
   const { t } = useI18next()
   return (
-    <Layout>
-      <PostList
-        title={t('whats_new.health_tips.title')}
-        caption={t('whats_new.health_tips.detail')}
-        nodes={data.allMdx.nodes}
-      ></PostList>
-    </Layout>
+    <PostList
+      title={t('whats_new.health_tips.title')}
+      caption={t('whats_new.health_tips.detail')}
+      nodes={data.allMdx.nodes}
+    ></PostList>
   )
 }
 
@@ -21,7 +18,7 @@ export default HealthTips
 
 export const query = graphql`
   query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+    locales: allLocale(filter: { ns: { in: ["translation"] }, language: { eq: $language } }) {
       edges {
         node {
           ns
@@ -33,7 +30,7 @@ export const query = graphql`
     allMdx(
       limit: 1000
       filter: {
-        fileAbsolutePath: { regex: "/health-tips/" }
+        fields: { slug: { regex: "/health-tips/" } }
         frontmatter: { languages: { eq: $language }, hide: { ne: true } }
       }
       sort: { fields: frontmatter___date, order: DESC }

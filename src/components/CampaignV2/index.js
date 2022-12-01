@@ -6,7 +6,7 @@ import ContactReference from './Components/ContactReference'
 import Footer from './Components/Footer'
 import Banner from './Components/Banner'
 import { gsap, ScrollTrigger } from '@components/CampaignV2/utils/initGsap'
-import { ImagesTranslationContext } from '@components/CampaignV2/utils/context'
+import LazyLoad from '@components/LazyLoad'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -45,29 +45,30 @@ const Page = ({ storyNodes, healthTipsNodes, imagesTranslation, athleteNodes }) 
         toggleActions: 'play none none none',
       })
     }
-
-    return () => ScrollTrigger.kill()
+    return () => ScrollTrigger?.disable(false, true)
   }, [])
 
   return (
-    <ImagesTranslationContext.Provider value={{ images: imagesTranslation }}>
-      <Box
-        className={classes.root}
-        id='scroll-to-top'
-        ref={(current) => {
-          el.current = current
-        }}
-        bgcolor='#FAFFFF'
-      >
-        <Header></Header>
-        <Container disableGutters maxWidth='lg'>
-          <Banner />
-          <Sections storyNodes={storyNodes} healthTipsNodes={healthTipsNodes} athleteNodes={athleteNodes}></Sections>
+    <Box
+      className={classes.root}
+      id='scroll-to-top'
+      ref={(current) => {
+        el.current = current
+      }}
+      bgcolor='#FAFFFF'
+    >
+      <Header></Header>
+      <Container disableGutters maxWidth='lg'>
+        <Banner />
+        <Sections storyNodes={storyNodes} healthTipsNodes={healthTipsNodes} athleteNodes={athleteNodes}></Sections>
+        <LazyLoad>
           <ContactReference></ContactReference>
+        </LazyLoad>
+        <LazyLoad>
           <Footer></Footer>
-        </Container>
-      </Box>
-    </ImagesTranslationContext.Provider>
+        </LazyLoad>
+      </Container>
+    </Box>
   )
 }
 

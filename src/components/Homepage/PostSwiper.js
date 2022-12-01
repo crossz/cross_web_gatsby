@@ -1,18 +1,12 @@
 import React, { useState } from 'react'
 import PostCard from '@components/WhatsNew/PostCard'
-import {
-  useTheme,
-  useMediaQuery,
-  Box,
-  makeStyles,
-  alpha,
-} from '@material-ui/core/'
+import { useTheme, useMediaQuery, Box, makeStyles, alpha } from '@material-ui/core/'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Pagination, Navigation } from 'swiper/core'
 import LinearProgress from '@material-ui/core/LinearProgress'
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/components/pagination/pagination.min.css'
-import 'swiper/components/navigation/navigation.min.css'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 import Button from '@material-ui/core/Button'
 import RightIcon from '@images/icons/right.svg'
 import Link from '@components/Link'
@@ -62,12 +56,10 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     '& .swiper-button-prev': {
-      left: ({ progressRightWidth, matches }) =>
-        `calc(100% - ${progressRightWidth}px + ${matches ? 16 : 24}px)`,
+      left: ({ progressRightWidth, matches }) => `calc(100% - ${progressRightWidth}px + ${matches ? 16 : 24}px)`,
     },
     '& .swiper-button-next': {
-      left: ({ progressRightWidth, matches }) =>
-        `calc(100% - ${progressRightWidth}px + ${matches ? 48 : 72}px)`,
+      left: ({ progressRightWidth, matches }) => `calc(100% - ${progressRightWidth}px + ${matches ? 48 : 72}px)`,
     },
   },
   linearProgressWrapper: {
@@ -114,8 +106,7 @@ const PostSwiper = ({ nodes, morePath = '/whats-new/', withViewBtn }) => {
   })
   const [activeSlide, setActiveSlide] = useState(0)
 
-  const showNavigation =
-    (matches && nodes?.length > 1) || (!matches && nodes?.length > 2)
+  const showNavigation = (matches && nodes?.length > 1) || (!matches && nodes?.length > 2)
 
   return (
     <Box className={classes.root}>
@@ -132,12 +123,7 @@ const PostSwiper = ({ nodes, morePath = '/whats-new/', withViewBtn }) => {
         {nodes?.map((node, index) => {
           return (
             <SwiperSlide key={index}>
-              <PostCard
-                key={node.id}
-                slug={node.fields.slug}
-                withViewBtn={withViewBtn}
-                {...node.frontmatter}
-              />
+              <PostCard key={node.id} slug={node.fields.slug} withViewBtn={withViewBtn} {...node.frontmatter} />
             </SwiperSlide>
           )
         })}

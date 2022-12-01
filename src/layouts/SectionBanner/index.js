@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useMemo } from 'react'
-import { makeStyles, useTheme, useMediaQuery, Container, Box, Typography } from '@material-ui/core'
+import { makeStyles, Container, Box, Typography } from '@material-ui/core'
 import { Match } from '@reach/router'
 import useMenu from '@hooks/useMenu'
 import Link from '@components/Link'
 import TitleDot from '@themes/components/TitleDot'
-import Image from '@components/Image'
+import SectionBannerImage from '@components/SectionBannerImage'
 import { HEADER_HEIGHT, MOBILE_HEADER_HEIGHT } from '@utils/constant'
 import { getDomTop } from '@utils'
 import scrollTo from 'gatsby-plugin-smoothscroll'
@@ -94,8 +94,6 @@ const useStyles = makeStyles((theme) => ({
 const SectionBanner = () => {
   const classes = useStyles()
   const { t, originalPath, routed, language } = useI18next()
-  const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.down('xs'))
   const menu = useMenu()
   const pointerRef = useRef(null)
   // When user navigates between section pages and content been scrolled beyond banner , should scroll page up to section tabs.
@@ -126,13 +124,14 @@ const SectionBanner = () => {
         props.match ? (
           <>
             <Container className={classes.bannerWrapper} disableGutters maxWidth='xl'>
-              <Image
-                filename={matches ? curMenuItem.mobileBanner : curMenuItem.banner}
+              <SectionBannerImage
+                filename={curMenuItem.banner}
+                mobileFilename={curMenuItem.mobileBanner}
                 alt='image'
                 style={{
                   gridArea: '1/1',
                 }}
-              ></Image>
+              ></SectionBannerImage>
               <Container className={classes.titleWrapper} maxWidth='lg'>
                 <Box mt='auto' mb={4} ml={2}>
                   <Typography variant='h3'>

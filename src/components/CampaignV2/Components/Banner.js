@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  makeStyles,
-  createStyles,
-  useTheme,
-  Box,
-  useMediaQuery,
-  Button,
-} from '@material-ui/core'
+import { makeStyles, createStyles, useTheme, Box, useMediaQuery, Button } from '@material-ui/core'
 import classnames from 'classnames'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import ImageTranslation from './ImageTranslation'
@@ -34,7 +27,7 @@ const Banner = () => {
   const isEn = language === 'en'
   const classes = useStyles({ isEn })
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
   const addLangQuery = useLangQuery()
 
   return (
@@ -51,10 +44,7 @@ const Banner = () => {
       >
         {t('common.book_now')}
       </Button>
-      <ImageTranslation
-        filename='hero_banner'
-        alt='hero banner'
-      ></ImageTranslation>
+      <ImageTranslation filename='hero_banner' alt='hero banner'></ImageTranslation>
     </Box>
   )
 }

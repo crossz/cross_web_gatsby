@@ -1,3 +1,3 @@
-import { wrapRootElement } from './wrapElement'
+import { wrapRootElement, wrapPageElement } from './wrapElement'
 
-export { wrapRootElement }
+export { wrapRootElement, wrapPageElement }

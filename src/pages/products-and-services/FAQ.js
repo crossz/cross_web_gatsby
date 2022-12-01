@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {
-  makeStyles,
-  Container,
-  Typography,
-  alpha,
-  Hidden,
-  Button,
-  Box,
-  Grid,
-} from '@material-ui/core'
+import { makeStyles, Container, Typography, alpha, Hidden, Button, Box, Grid } from '@material-ui/core'
 import useSiteMetadata from '@hooks/useSiteMetadata'
 import PhoneIcon from '@images/icons/phone.svg'
 import WhatsappIcon from '@images/icons/whatsapp.svg'
@@ -21,7 +12,6 @@ import { ESelect, EMenuItem } from '@themes/components/ETextField'
 import Loading from '@components/Loading'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
-import Layout from '@layouts/Layout'
 import useObjectTranslation from '@hooks/useObjectTranslation'
 
 const useStyles = makeStyles((theme) => ({
@@ -162,9 +152,7 @@ const FAQ = () => {
   const [activePanel, setActivePanel] = useState(null)
   const [faqTypes, setFaqTypes] = useState()
   const [loadingStatus, setLoadingStatus] = useState('')
-  const allTypeList = [
-    { nameHk: '所有問題', nameEn: 'All questions', nameCn: '所有问题' },
-  ]
+  const allTypeList = [{ nameHk: '所有問題', nameEn: 'All questions', nameCn: '所有问题' }]
   const [activeType, setActiveType] = useState(tB('name', allTypeList[0]))
 
   useEffect(() => {
@@ -210,131 +198,105 @@ const FAQ = () => {
   }
 
   return (
-    <Layout>
-      <Box className={classes.root}>
-        <Container className={classes.contentRoot} disableGutters maxWidth='md'>
-          <Grid container>
-            <Grid item xs={12} sm={4}></Grid>
-            <Grid className={classes.titleWrapper} item xs={12} sm={8}>
-              <Typography
-                className={classes.title}
-                variant='h4'
-                color='primary'
-              >
-                {activeType && activeType !== tB('name', allTypeList[0]) && (
-                  <Typography component='span' variant='h5'>
-                    {` ${activeType}`}
-                  </Typography>
-                )}
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid className={classes.faqList} container spacing={4}>
-            <Hidden xsDown>
-              <Grid item sm={4}>
-                <Box className={classes.formWrapper}>
-                  <FaqSearch
-                    data={allFaqList}
-                    setSearchResult={handleSearchResult}
-                  ></FaqSearch>
-                  <Box className={classes.types} onClick={handleTypeChange}>
-                    {faqTypes?.map((type, index) => (
-                      <Box
-                        className={classnames(
-                          classes.type,
-                          activeType === tB('name', type) && classes.activeType
-                        )}
-                        key={index}
-                        data-value={tB('name', type)}
-                      >
-                        {tB('name', type)}
-                      </Box>
-                    ))}
-                  </Box>
-                </Box>
-              </Grid>
-            </Hidden>
-            <Hidden smUp>
-              <Box className={classes.formWrapper}>
-                <Grid container spacing={1}>
-                  <Grid item xs={7}>
-                    <FaqSearch
-                      data={allFaqList}
-                      setSearchResult={handleSearchResult}
-                    ></FaqSearch>
-                  </Grid>
-                  <Grid item xs={5}>
-                    <ESelect
-                      value={activeType}
-                      onChange={handleMobileTypeChange}
-                      className={classes.select}
-                      displayEmpty
-                    >
-                      {faqTypes?.map((type, index) => (
-                        <EMenuItem key={index} value={tB('name', type)}>
-                          {tB('name', type) || t('options.faq_types.all')}
-                        </EMenuItem>
-                      ))}
-                    </ESelect>
-                  </Grid>
-                </Grid>
-              </Box>
-            </Hidden>
-            <Grid item xs={12} sm={8}>
-              {faqList?.length > 0 &&
-              loadingStatus !== 'pending' &&
-              faqList?.find((faq) => faq.status) ? (
-                faqList
-                  ?.filter(
-                    (faq) =>
-                      tB('typeName', faq) === activeType ||
-                      !activeType ||
-                      activeType === tB('name', allTypeList[0])
-                  )
-                  ?.map((faq) => (
-                    <FaqItem
-                      key={faq.id}
-                      id={faq.id}
-                      question={tB('question', faq)}
-                      content={tB('content', faq)}
-                      onChange={handleChange}
-                      activePanel={activePanel}
-                    ></FaqItem>
-                  ))
-              ) : (
-                <Loading status={loadingStatus}></Loading>
+    <Box className={classes.root}>
+      <Container className={classes.contentRoot} disableGutters maxWidth='md'>
+        <Grid container>
+          <Grid item xs={12} sm={4}></Grid>
+          <Grid className={classes.titleWrapper} item xs={12} sm={8}>
+            <Typography className={classes.title} variant='h4' color='primary'>
+              {activeType && activeType !== tB('name', allTypeList[0]) && (
+                <Typography component='span' variant='h5'>
+                  {` ${activeType}`}
+                </Typography>
               )}
-            </Grid>
+            </Typography>
           </Grid>
-        </Container>
-        <Box className={classes.contactRoot}>
-          <Box className={classes.contactTitle}>
-            {t('products_and_services.take2_extra_care.faq.welcome_contact')}
-          </Box>
-          <Box className={classes.contactBtnWrapper}>
-            <Button
-              className={classes.contactBtn}
-              variant='contained'
-              color='secondary'
-              startIcon={<WhatsappIcon className={classes.btnIcon} />}
-              href={whatsapp}
-              target='_blank'
-            >
-              WhatsApp
-            </Button>
-            <Button
-              className={classnames(classes.contactBtn, classes.phoneIcon)}
-              variant='contained'
-              color='default'
-              startIcon={<PhoneIcon className={classes.btnIcon} />}
-              href={`tel:${phone}`}
-            >
-              {phone}
-            </Button>
-          </Box>
+        </Grid>
+        <Grid className={classes.faqList} container spacing={4}>
+          <Hidden xsDown>
+            <Grid item sm={4}>
+              <Box className={classes.formWrapper}>
+                <FaqSearch data={allFaqList} setSearchResult={handleSearchResult}></FaqSearch>
+                <Box className={classes.types} onClick={handleTypeChange}>
+                  {faqTypes?.map((type, index) => (
+                    <Box
+                      className={classnames(classes.type, activeType === tB('name', type) && classes.activeType)}
+                      key={index}
+                      data-value={tB('name', type)}
+                    >
+                      {tB('name', type)}
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
+            </Grid>
+          </Hidden>
+          <Hidden smUp>
+            <Box className={classes.formWrapper}>
+              <Grid container spacing={1}>
+                <Grid item xs={7}>
+                  <FaqSearch data={allFaqList} setSearchResult={handleSearchResult}></FaqSearch>
+                </Grid>
+                <Grid item xs={5}>
+                  <ESelect value={activeType} onChange={handleMobileTypeChange} className={classes.select} displayEmpty>
+                    {faqTypes?.map((type, index) => (
+                      <EMenuItem key={index} value={tB('name', type)}>
+                        {tB('name', type) || t('options.faq_types.all')}
+                      </EMenuItem>
+                    ))}
+                  </ESelect>
+                </Grid>
+              </Grid>
+            </Box>
+          </Hidden>
+          <Grid item xs={12} sm={8}>
+            {faqList?.length > 0 && loadingStatus !== 'pending' && faqList?.find((faq) => faq.status) ? (
+              faqList
+                ?.filter(
+                  (faq) =>
+                    tB('typeName', faq) === activeType || !activeType || activeType === tB('name', allTypeList[0])
+                )
+                ?.map((faq) => (
+                  <FaqItem
+                    key={faq.id}
+                    id={faq.id}
+                    question={tB('question', faq)}
+                    content={tB('content', faq)}
+                    onChange={handleChange}
+                    activePanel={activePanel}
+                  ></FaqItem>
+                ))
+            ) : (
+              <Loading status={loadingStatus}></Loading>
+            )}
+          </Grid>
+        </Grid>
+      </Container>
+      <Box className={classes.contactRoot}>
+        <Box className={classes.contactTitle}>{t('products_and_services.take2_extra_care.faq.welcome_contact')}</Box>
+        <Box className={classes.contactBtnWrapper}>
+          <Button
+            className={classes.contactBtn}
+            variant='contained'
+            color='secondary'
+            startIcon={<WhatsappIcon className={classes.btnIcon} />}
+            href={whatsapp}
+            target='_blank'
+          >
+            WhatsApp
+          </Button>
+          <Button
+            className={classnames(classes.contactBtn, classes.phoneIcon)}
+            variant='contained'
+            color='default'
+            startIcon={<PhoneIcon className={classes.btnIcon} />}
+            href={`tel:${phone}`}
+          >
+            {phone}
+          </Button>
         </Box>
       </Box>
-    </Layout>
+    </Box>
   )
 }
 
@@ -342,7 +304,7 @@ export default FAQ
 
 export const query = graphql`
   query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+    locales: allLocale(filter: { ns: { in: ["translation"] }, language: { eq: $language } }) {
       edges {
         node {
           ns
@@ -353,3 +315,13 @@ export const query = graphql`
     }
   }
 `
+
+// export async function config() {
+//   // Optionally use GraphQL here
+
+//   return ({ params }) => {
+//     return {
+//       defer: true,
+//     }
+//   }
+// }

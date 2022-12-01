@@ -2,12 +2,12 @@ import React from 'react'
 import MdxLayout from '@layouts/MdxLayout'
 import { graphql, navigate } from 'gatsby'
 import { makeStyles, Container, Box, Dialog, IconButton, useTheme, useMediaQuery, Typography } from '@material-ui/core'
-import { StaticImage } from 'gatsby-plugin-image'
 import CloseIcon from '@images/icons/close.svg'
 import classnames from 'classnames'
 import { MOBILE_HEADER_HEIGHT, HEADER_HEIGHT } from '@utils/constant'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { formatLocal } from '@utils/moment'
+import CareerLogo from '@components/CareerLogo'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -101,22 +101,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Post = ({ data }) => {
+const Post = ({ data, children }) => {
   const classes = useStyles()
   const { t } = useTranslation()
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
-  const mdx = data?.mdx?.body
   const { title, region, date } = data?.mdx?.frontmatter
   const handleClose = (params) => navigate(-1)
-
+  if (!data?.mdx) return null
   return (
     <Box className={classes.root}>
       <Dialog open fullScreen onClose={handleClose} aria-labelledby='close' transitionDuration={0}>
         <Container disableGutters maxWidth='lg'>
           <Box className={classes.header}>
             <Box width={matches ? 100 : 145}>
-              <StaticImage src='../assets/images/common/take2_full_color.png' alt='Logo' />
+              <CareerLogo></CareerLogo>
             </Box>
             <IconButton className={classnames(classes.btn, classes.closeBtn)} onClick={handleClose} aria-label='close'>
               <CloseIcon className={classes.icon} />
@@ -143,7 +142,7 @@ const Post = ({ data }) => {
                 <Box className={classes.region}>{t(`options.career_regions.${region}`)}</Box>
               </Box>
               <Box pb={3}>
-                <MdxLayout>{mdx}</MdxLayout>
+                <MdxLayout>{children}</MdxLayout>
               </Box>
             </Container>
           </Box>
@@ -174,7 +173,6 @@ export const query = graphql`
         region
         date
       }
-      body
     }
   }
 `
