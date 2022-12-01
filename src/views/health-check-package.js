@@ -17,7 +17,6 @@ import ArrowIcon from '@images/icons/arrow.svg'
 import More from '@images/icons/table_more.svg'
 import classnames from 'classnames'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
-import Layout from '@layouts/Layout'
 import useLangQuery from '@hooks/useLangQuery'
 import ErrorIcon from '@material-ui/icons/Error'
 import ImageTranslation from '@components/ImageTranslation'
@@ -341,7 +340,7 @@ const HealthCheck = () => {
   const [more, setMore] = useState(1)
 
   return (
-    <Layout>
+    <>
       <Container className={classes.root} disableGutters maxWidth='xl'>
         <Box className={classes.wrapper}>
           <Container className={classes.content} disableGutters maxWidth='md'>
@@ -668,7 +667,7 @@ const HealthCheck = () => {
           <Box>{t('products_and_services.health_check.ref')}</Box>
         </Box>
       </Box>
-    </Layout>
+    </>
   )
 }
 
