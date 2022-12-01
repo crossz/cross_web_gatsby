@@ -44,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(7.5),
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
-    justifyContent: 'center',
+    overflowY: 'scroll',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     position: 'sticky',
     zIndex: 10,
@@ -52,6 +53,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       height: theme.spacing(5.75),
       padding: 0,
+      overflowY: 'hidden',
+      overflowX: 'scroll',
       backgroundColor: theme.palette.grey[100],
       borderBottom: `1px solid ${theme.palette.grey[400]}`,
       top: theme.spacing(MOBILE_HEADER_HEIGHT),
@@ -81,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 0,
       width: '100%',
       flexGrow: 1,
-      minWidth: 'auto',
+      // minWidth: 'auto',
     },
   },
   activeTab: {
