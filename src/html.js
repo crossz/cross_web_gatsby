@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Script } from 'gatsby'
 
 export default function HTML(props) {
   return (
@@ -7,11 +8,8 @@ export default function HTML(props) {
       <head>
         <meta charSet='utf-8' />
         <meta httpEquiv='x-ua-compatible' content='ie=edge' />
-        <meta
-          name='viewport'
-          content='width=device-width, initial-scale=1, shrink-to-fit=no'
-        />
-        <script
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
             var _gaq = _gaq || []
@@ -32,7 +30,7 @@ export default function HTML(props) {
           }}
         />
         {/* Google Tag Manager */}
-        <script
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
             (function (w, d, s, l, i) {
@@ -54,11 +52,8 @@ export default function HTML(props) {
         {/* End Google Tag Manager */}
 
         {/* Global site tag (gtag.js) - Google Ads: 339029822 */}
-        <script
-          async
-          src='https://www.googletagmanager.com/gtag/js?id=AW-339029822'
-        ></script>
-        <script
+        <Script async src='https://www.googletagmanager.com/gtag/js?id=AW-339029822'></Script>
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
@@ -70,7 +65,7 @@ export default function HTML(props) {
           }}
         />
         {/* Facebook Pixel Code */}
-        <script
+        <Script
           dangerouslySetInnerHTML={{
             __html: `
             !function(f,b,e,v,n,t,s)
@@ -114,17 +109,10 @@ export default function HTML(props) {
           }}
         />
         <noscript>
-          <img
-            height='1'
-            width='1'
-            src='https://www.facebook.com/tr?id=437103407310894&ev=PageView&noscript=1'
-          />
+          <img height='1' width='1' src='https://www.facebook.com/tr?id=437103407310894&ev=PageView&noscript=1' />
         </noscript>
         {/* End Facebook Pixel Code */}
-        <meta
-          name='facebook-domain-verification'
-          content='676t4atbin7z9lcz6g62cs9txva5hv'
-        />
+        <meta name='facebook-domain-verification' content='676t4atbin7z9lcz6g62cs9txva5hv' />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
@@ -167,11 +155,7 @@ export default function HTML(props) {
           ></iframe>
         </noscript>
         {props.preBodyComponents}
-        <div
-          key={`body`}
-          id='___gatsby'
-          dangerouslySetInnerHTML={{ __html: props.body }}
-        />
+        <div key={`body`} id='___gatsby' dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.postBodyComponents}
       </body>
       {/* <footer> */}

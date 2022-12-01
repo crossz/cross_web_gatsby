@@ -13,15 +13,15 @@ import {
   IconButton,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 import Link from '@components/Link'
 import MailIcon from '../images/mail.svg'
 import PhoneIcon from '../images/phone.svg'
 import WhatsAppIcon from '../images/WhatsApp.svg'
 import FacebookIcon from '../images/facebook.svg'
 import { WHATS_APP_LINK, SERVICE_EMAIL, SERVICE_PHONE, FACEBOOK_LINK } from '../utils/constant'
-import { T_AND_C } from '../../../utils/constant'
-import useLangQuery from '@hooks/useLangQuery'
+// import { T_AND_C } from '../../../utils/constant'
+// import useLangQuery from '@hooks/useLangQuery'
 
 const useStyles = makeStyles((theme) => ({
   websiteButton: {
@@ -113,7 +113,7 @@ const ContactReference = () => {
     progressRightWidth: isMobile ? 80 : 316,
     isMobile,
   })
-  const addLangQuery = useLangQuery()
+  // const addLangQuery = useLangQuery()
   const reference = [
     {
       list: `1. Chan, K. C. Allen, et al. “Analysis of Plasma Epstein–Barr Virus
@@ -173,50 +173,50 @@ const ContactReference = () => {
     },
   ]
 
-  const tAndC = (params) => (
-    <Box
-      className={classes.tAndC}
-      lineHeight={1.5}
-      color='prophecyPrimary.light'
-      whiteSpace='break-spaces'
-      fontSize='overline.fontSize'
-    >
-      <Trans i18nKey='cp_v2.terms_and_conditions'>
-        .
-        <Link target='_blank' underline='always' to='/'>
-          take2health.net
-        </Link>
-        <Link target='_blank' underline='always' to={T_AND_C.PRIVACY_POLICY.url}>
-          私隱政策
-        </Link>
-        <Link target='_blank' underline='always' to={T_AND_C.WEBSITE_TERMS_OF_USE.url}>
-          網站使用條款
-        </Link>
-        <Link target='_blank' underline='always' to={T_AND_C.PERSONAL_INFORMATION_COLLECTION_STATEMENT.url}>
-          個人資料收集聲明
-        </Link>
-        <Link target='_blank' underline='always' to={addLangQuery(T_AND_C.HEALTH_PLATFORM_PRIVACY_POLICY.url)}>
-          得易健康服務平台《私隱政策》
-        </Link>
-        <Link target='_blank' underline='always' to={addLangQuery(T_AND_C.HEALTH_PLATFORM_TERMS_AND_CONDITIONS.url)}>
-          得易健康服務平台條款
-        </Link>
-        <Link
-          target='_blank'
-          underline='always'
-          to={addLangQuery(T_AND_C.HEALTH_PLATFORM_PERSONAL_INFORMATION_COLLECTION_STATEMENT.url)}
-        >
-          得易健康服務平台《個人資料收集聲明》
-        </Link>
-        <Link target='_blank' underline='always' to={T_AND_C.PROMOTION_POLICY.urlTnc}>
-          「2022NEW」優惠碼推廣（「推廣優惠」）條款及細則
-        </Link>
-        <Link target='_blank' underline='always' to={addLangQuery()}>
-          https://take2health.net/health-platform/
-        </Link>
-      </Trans>
-    </Box>
-  )
+  // const tAndC = (params) => (
+  //   <Box
+  //     className={classes.tAndC}
+  //     lineHeight={1.5}
+  //     color='prophecyPrimary.light'
+  //     whiteSpace='break-spaces'
+  //     fontSize='overline.fontSize'
+  //   >
+  //     <Trans i18nKey='cp_v2.terms_and_conditions'>
+  //       .
+  //       <Link target='_blank' underline='always' to='/'>
+  //         take2health.net
+  //       </Link>
+  //       <Link target='_blank' underline='always' to={T_AND_C.PRIVACY_POLICY.url}>
+  //         私隱政策
+  //       </Link>
+  //       <Link target='_blank' underline='always' to={T_AND_C.WEBSITE_TERMS_OF_USE.url}>
+  //         網站使用條款
+  //       </Link>
+  //       <Link target='_blank' underline='always' to={T_AND_C.PERSONAL_INFORMATION_COLLECTION_STATEMENT.url}>
+  //         個人資料收集聲明
+  //       </Link>
+  //       <Link target='_blank' underline='always' to={addLangQuery(T_AND_C.HEALTH_PLATFORM_PRIVACY_POLICY.url)}>
+  //         得易健康服務平台《私隱政策》
+  //       </Link>
+  //       <Link target='_blank' underline='always' to={addLangQuery(T_AND_C.HEALTH_PLATFORM_TERMS_AND_CONDITIONS.url)}>
+  //         得易健康服務平台條款
+  //       </Link>
+  //       <Link
+  //         target='_blank'
+  //         underline='always'
+  //         to={addLangQuery(T_AND_C.HEALTH_PLATFORM_PERSONAL_INFORMATION_COLLECTION_STATEMENT.url)}
+  //       >
+  //         得易健康服務平台《個人資料收集聲明》
+  //       </Link>
+  //       <Link target='_blank' underline='always' to={T_AND_C.PROMOTION_POLICY.urlTnc}>
+  //         「2022NEW」優惠碼推廣（「推廣優惠」）條款及細則
+  //       </Link>
+  //       <Link target='_blank' underline='always' to={addLangQuery()}>
+  //         https://take2health.net/health-platform/
+  //       </Link>
+  //     </Trans>
+  //   </Box>
+  // )
 
   return (
     <Box

@@ -16,7 +16,6 @@ import Link from '@components/Link'
 import ArrowIcon from '@images/icons/arrow.svg'
 import classnames from 'classnames'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
-import Layout from '@layouts/Layout'
 import useLangQuery from '@hooks/useLangQuery'
 import ErrorIcon from '@material-ui/icons/Error'
 import TitleDot from '@themes/components/TitleDot'
@@ -75,20 +74,20 @@ const steps = [
   },
 ]
 
-const reports = [
-  {
-    result: 'products_and_services.take2_prophecy.reports.0.result',
-    suggestion: 'products_and_services.take2_prophecy.reports.0.suggestion',
-    mark: 'products_and_services.take2_prophecy.reports.0.mark',
-    color: '#C8002E',
-  },
-  {
-    result: 'products_and_services.take2_prophecy.reports.1.result',
-    suggestion: 'products_and_services.take2_prophecy.reports.1.suggestion',
-    mark: 'products_and_services.take2_prophecy.reports.1.mark',
-    color: '#00AA82',
-  },
-]
+// const reports = [
+//   {
+//     result: 'products_and_services.take2_prophecy.reports.0.result',
+//     suggestion: 'products_and_services.take2_prophecy.reports.0.suggestion',
+//     mark: 'products_and_services.take2_prophecy.reports.0.mark',
+//     color: '#C8002E',
+//   },
+//   {
+//     result: 'products_and_services.take2_prophecy.reports.1.result',
+//     suggestion: 'products_and_services.take2_prophecy.reports.1.suggestion',
+//     mark: 'products_and_services.take2_prophecy.reports.1.mark',
+//     color: '#00AA82',
+//   },
+// ]
 const compass = [
   { name: 'products_and_services.cancer_screen_package.compass1', object: '' },
   { name: 'products_and_services.cancer_screen_package.compass2', object: '' },
@@ -430,7 +429,7 @@ const CancerScreen = () => {
     },
   ]
   return (
-    <Layout>
+    <>
       <Container className={classes.root} disableGutters maxWidth='xl'>
         <Box className={classes.wrapper}>
           <Container className={classes.content} disableGutters maxWidth='md'>
@@ -705,7 +704,7 @@ const CancerScreen = () => {
             </Grid>
           </Box>
         </Box>
-      </Box>{' '}
+      </Box>
       <Box className={classes.reportTip} mb={matches ? 3 : 12} ml={matches ? 3 : 20} mt={10}>
         {t('cp_v2.contact_and_reference.paragraphs.4')} <br />
         {matches ? <br /> : null}
@@ -716,7 +715,7 @@ const CancerScreen = () => {
           </Box>
         ))}
       </Box>
-    </Layout>
+    </>
   )
 }
 

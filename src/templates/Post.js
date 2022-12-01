@@ -7,12 +7,11 @@ import { makeStyles, alpha, Typography, Container, Box, Breadcrumbs, Hidden } fr
 import ArrowIcon from '@images/icons/arrow.svg'
 import useMenu from '@hooks/useMenu'
 import Links from '@components/WhatsNew/Links'
-import { StaticImage } from 'gatsby-plugin-image'
 import { POST_TYPES } from '@utils/constant'
-import Layout from '@layouts/Layout'
 import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next'
 import Link from '@components/Link'
 import { formatLocal } from '@utils/moment'
+import PostBg from '@components/PostBg'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -146,7 +145,7 @@ const morePostTitle = {
   updates: 'menu.updates',
 }
 
-const Post = ({ data, pageContext, location: { href } }) => {
+const Post = ({ data, pageContext, location: { href }, children }) => {
   const { sectionPath, regex } = pageContext
   const { t } = useTranslation()
   const classes = useStyles()
@@ -159,7 +158,6 @@ const Post = ({ data, pageContext, location: { href } }) => {
     }
   }, [data?.mdx])
   if (!data?.mdx) return null
-  const mdx = data?.mdx?.body
   const { date, cpTitle, title, type } = data?.mdx?.frontmatter
   const morePostsNodes = data?.morePosts?.nodes
   const middlePath = `/whats-new/${sectionPath === 'campaign-page-posts' ? 'campaign/' : sectionPath}`
@@ -169,77 +167,71 @@ const Post = ({ data, pageContext, location: { href } }) => {
       : menu[0].sections?.find((section) => section.path.includes(regex))?.title
 
   return (
-    <Layout>
-      <Box className={classes.root}>
-        <Container disableGutters maxWidth='xl'>
-          <Box className={classes.breadcrumbsWrapper}>
-            <Hidden xsDown>
-              <Container disableGutters maxWidth='sm'>
-                <Breadcrumbs
-                  className={classes.breadcrumbs}
-                  separator={<ArrowIcon className={classes.arrowIcon} />}
-                  aria-label='breadcrumb'
-                >
-                  <Link to='/'>Take2 Health</Link>
-                  <Link to={middlePath}>{t(middleTitle)}</Link>
-                  <Box className={classes.breadcrumbsTitle}>{title}</Box>
-                </Breadcrumbs>
-              </Container>
-            </Hidden>
-          </Box>
-          <Box className={classes.contentWrapper}>
-            <Container className={classes.content} disableGutters maxWidth='sm'>
-              <Box className={classes.header}>
-                <Box className={classes.top}>
-                  <Box className={classes.topLeft}>
-                    <Box className={classes.date}>{formatLocal(date)}</Box>
-                    {type && (
-                      <Box
-                        className={classes.mark}
-                        bgcolor={POST_TYPES.find((item) => item.label === type)?.color || 'secondary.main'}
-                      >
-                        {t(`options.post_types.${type}`)}
-                      </Box>
-                    )}
-                  </Box>
-                  <Box ml='auto'>
-                    <Links href={href}></Links>
-                  </Box>
+    <Box className={classes.root}>
+      <Container disableGutters maxWidth='xl'>
+        <Box className={classes.breadcrumbsWrapper}>
+          <Hidden xsDown>
+            <Container disableGutters maxWidth='sm'>
+              <Breadcrumbs
+                className={classes.breadcrumbs}
+                separator={<ArrowIcon className={classes.arrowIcon} />}
+                aria-label='breadcrumb'
+              >
+                <Link to='/'>Take2 Health</Link>
+                <Link to={middlePath}>{t(middleTitle)}</Link>
+                <Box className={classes.breadcrumbsTitle}>{title}</Box>
+              </Breadcrumbs>
+            </Container>
+          </Hidden>
+        </Box>
+        <Box className={classes.contentWrapper}>
+          <Container className={classes.content} disableGutters maxWidth='sm'>
+            <Box className={classes.header}>
+              <Box className={classes.top}>
+                <Box className={classes.topLeft}>
+                  <Box className={classes.date}>{formatLocal(date)}</Box>
+                  {type && (
+                    <Box
+                      className={classes.mark}
+                      bgcolor={POST_TYPES.find((item) => item.label === type)?.color || 'secondary.main'}
+                    >
+                      {t(`options.post_types.${type}`)}
+                    </Box>
+                  )}
                 </Box>
-                <Typography variant='h5' color='primary'>
-                  {cpTitle || title}
-                </Typography>
+                <Box ml='auto'>
+                  <Links href={href}></Links>
+                </Box>
               </Box>
-              <MdxLayout>{mdx}</MdxLayout>
-            </Container>
-            <StaticImage
-              className={classes.postBg}
-              src='../assets/images/post_bg.png'
-              alt='post background'
-            ></StaticImage>
-          </Box>
-          <Box className={classes.moreWrapper}>
-            <Container disableGutters maxWidth='md'>
-              {pageContext?.sectionPath === 'updates' ? (
-                <MoreUpdates
-                  title={t('common.more', {
-                    field: t(morePostTitle[pageContext?.sectionPath]),
-                  })}
-                  nodes={morePostsNodes}
-                ></MoreUpdates>
-              ) : (
-                <MorePosts
-                  title={t('common.more', {
-                    field: t(morePostTitle[pageContext?.sectionPath]),
-                  })}
-                  nodes={morePostsNodes}
-                ></MorePosts>
-              )}
-            </Container>
-          </Box>
-        </Container>
-      </Box>
-    </Layout>
+              <Typography variant='h5' color='primary'>
+                {cpTitle || title}
+              </Typography>
+            </Box>
+            <MdxLayout>{children}</MdxLayout>
+          </Container>
+          <PostBg></PostBg>
+        </Box>
+        <Box className={classes.moreWrapper}>
+          <Container disableGutters maxWidth='md'>
+            {pageContext?.sectionPath === 'updates' ? (
+              <MoreUpdates
+                title={t('common.more', {
+                  field: t(morePostTitle[pageContext?.sectionPath]),
+                })}
+                nodes={morePostsNodes}
+              ></MoreUpdates>
+            ) : (
+              <MorePosts
+                title={t('common.more', {
+                  field: t(morePostTitle[pageContext?.sectionPath]),
+                })}
+                nodes={morePostsNodes}
+              ></MorePosts>
+            )}
+          </Container>
+        </Box>
+      </Container>
+    </Box>
   )
 }
 
@@ -247,7 +239,7 @@ export default Post
 
 export const query = graphql`
   query ($slug: String!, $regex: String!, $language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+    locales: allLocale(filter: { ns: { in: ["translation"] }, language: { eq: $language } }) {
       edges {
         node {
           ns
@@ -264,10 +256,9 @@ export const query = graphql`
         title
         type
       }
-      body
     }
     morePosts: allMdx(
-      filter: { fileAbsolutePath: { regex: $regex }, frontmatter: { languages: { eq: $language }, hide: { ne: true } } }
+      filter: { fields: { slug: { regex: $regex } }, frontmatter: { languages: { eq: $language }, hide: { ne: true } } }
       limit: 3
       sort: { fields: frontmatter___date, order: DESC }
     ) {

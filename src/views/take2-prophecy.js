@@ -16,7 +16,6 @@ import Link from '@components/Link'
 import ArrowIcon from '@images/icons/arrow.svg'
 import classnames from 'classnames'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
-import Layout from '@layouts/Layout'
 import useLangQuery from '@hooks/useLangQuery'
 import ErrorIcon from '@material-ui/icons/Error'
 import TitleDot from '@themes/components/TitleDot'
@@ -423,9 +422,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     width: '100%',
     height: 530,
-    marginRight: theme.spacing(5),
     [theme.breakpoints.down('xs')]: {
-      marginRight: 0,
       height: 300,
       width: 580,
     },
@@ -530,7 +527,7 @@ const CancerScreen = () => {
     },
   ]
   return (
-    <Layout>
+    <>
       <Container className={classes.root} disableGutters maxWidth='xl'>
         <Box className={classes.wrapper}>
           <Container className={classes.content} disableGutters maxWidth='md'>
@@ -608,7 +605,7 @@ const CancerScreen = () => {
                       </Box>
                     ))}
                   </Box>
-                  <Box width={!matches ? 350 : '100%'}>
+                  <Box flexShrink={0} width={!matches ? '40%' : '100%'}>
                     <Box mr={matches ? 0 : 3}>
                       <ImageTranslation
                         className={classes.avatar}
@@ -667,6 +664,7 @@ const CancerScreen = () => {
                     filename='take2_prophecy_table'
                     alt='take2_prophecy_table'
                     hasMobile={false}
+                    objectFit='contain'
                   ></ImageTranslation>
                 </Box>
               </Box>
@@ -896,7 +894,7 @@ const CancerScreen = () => {
           </Box>
         ))}
       </Box>
-    </Layout>
+    </>
   )
 }
 

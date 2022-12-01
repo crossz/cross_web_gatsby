@@ -1,4 +1,4 @@
-import { wrapRootElement } from './wrapElement'
+import { wrapRootElement, wrapPageElement } from './wrapElement'
 import MenuData from './content/menu.json'
 const { languages } = require('./languages')
 
@@ -18,15 +18,10 @@ const shouldUpdateScroll = ({ prevRouterProps, pathname }) => {
 
   const betweenSectionPage = MenuData?.find(
     (menu) =>
-      menu?.sections?.find(
-        (section) => section.path === getOriginalPath(pathname)
-      ) &&
-      menu?.sections?.find(
-        (section) =>
-          section.path === getOriginalPath(prevRouterProps?.location?.pathname)
-      )
+      menu?.sections?.find((section) => section.path === getOriginalPath(pathname)) &&
+      menu?.sections?.find((section) => section.path === getOriginalPath(prevRouterProps?.location?.pathname))
   )
   return !Boolean(betweenSectionPage)
 }
 
-export { wrapRootElement, shouldUpdateScroll }
+export { wrapRootElement, wrapPageElement, shouldUpdateScroll }

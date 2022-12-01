@@ -1,16 +1,23 @@
 import React from 'react'
-import Map from '@components/Map'
+// import Map from '@components/Map'
 import { makeStyles } from '@material-ui/core/'
 import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
-import Consult from './Consult'
-import Banner from './Banner'
+// import Consult from './Consult'
+// import Banner from './Banner'
 import TitleDot from '@themes/components/TitleDot'
 import Typography from '@material-ui/core/Typography'
 import Quiz from '@components/Quiz'
-import PostSwiper from './PostSwiper'
-
+// import PostSwiper from './PostSwiper'
+import LazyLoad from '@components/LazyLoad'
+import loadable from '@loadable/component'
 import { useI18next } from 'gatsby-plugin-react-i18next'
+import BannerPlaceholder from './BannerPlaceholder'
+
+const Banner = loadable(() => import('./Banner'))
+const Map = loadable(() => import('@components/Map'))
+const PostSwiper = loadable(() => import('./PostSwiper'))
+const Consult = loadable(() => import('./Consult'))
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,13 +69,14 @@ const useStyles = makeStyles((theme) => ({
 const Homepage = ({ heroBannerNodes, promotionNodes, healthTipsNodes }) => {
   const classes = useStyles()
   const { t } = useI18next()
-
   return (
     <>
-      <Banner nodes={heroBannerNodes}></Banner>
+      <Banner nodes={heroBannerNodes} fallback={<BannerPlaceholder />}></Banner>
       <Box className={classes.containerWrapper}>
         <Container disableGutters className={classes.root} maxWidth='md'>
-          <Quiz></Quiz>
+          <LazyLoad>
+            <Quiz></Quiz>
+          </LazyLoad>
           <Box className={classes.title}>
             <TitleDot></TitleDot>
             <Typography variant='h4' color='primary'>
@@ -79,15 +87,20 @@ const Homepage = ({ heroBannerNodes, promotionNodes, healthTipsNodes }) => {
             {t('whats_new.promotions.detail')}
           </Box>
           <Box className={classes.promotionsSwiperWrapper}>
-            <PostSwiper nodes={promotionNodes} morePath='/whats-new/promotions/' withViewBtn></PostSwiper>
+            <LazyLoad>
+              <PostSwiper nodes={promotionNodes} morePath='/whats-new/promotions/' withViewBtn></PostSwiper>{' '}
+            </LazyLoad>
           </Box>
+
           <Box className={classes.title}>
             <TitleDot></TitleDot>
             <Typography variant='h4' color='primary'>
               {t('service_location.title')}
             </Typography>
           </Box>
-          <Map showMap></Map>
+          <LazyLoad bottomOffset='-100%'>
+            <Map showMap></Map>
+          </LazyLoad>
         </Container>
       </Box>
       <Container disableGutters maxWidth='lg'>
@@ -99,11 +112,15 @@ const Homepage = ({ heroBannerNodes, promotionNodes, healthTipsNodes }) => {
               <Typography variant='h4'>{t('whats_new.health_tips.title')}</Typography>
             </Box>
             <Box fontSize='caption.fontSize'>{t('whats_new.health_tips.detail')}</Box>
-            <PostSwiper nodes={healthTipsNodes} morePath='/whats-new/health-tips/'></PostSwiper>
+            <LazyLoad>
+              <PostSwiper nodes={healthTipsNodes} morePath='/whats-new/health-tips/'></PostSwiper>
+            </LazyLoad>
           </Container>
         </Box>
       </Container>
-      <Consult></Consult>
+      <LazyLoad>
+        <Consult></Consult>
+      </LazyLoad>
     </>
   )
 }

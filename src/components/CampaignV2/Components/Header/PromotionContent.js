@@ -1,13 +1,13 @@
 import React from 'react'
 import ClockIcon from '@components/CampaignV2/images/clock.svg'
 import { makeStyles, useTheme, useMediaQuery, Hidden, Box, Button, Typography } from '@material-ui/core'
-import { PROMOTION_CODE } from '@utils/constant'
+// import { PROMOTION_CODE } from '@utils/constant'
 import classnames from 'classnames'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
-import { toast } from 'react-toastify'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
+// import { toast } from 'react-toastify'
+// import { CopyToClipboard } from 'react-copy-to-clipboard'
 import useLangQuery from '@hooks/useLangQuery'
-import { matches } from 'lodash-es'
+// import { matches } from 'lodash-es'
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -54,7 +54,7 @@ const PromotionContent = ({ whiteBg }) => {
   const isTable = useMediaQuery(theme.breakpoints.down('sm'))
   const addLangQuery = useLangQuery()
 
-  const handleCopy = (e) => toast.success('優惠碼複製成功！')
+  // const handleCopy = (e) => toast.success('優惠碼複製成功！')
 
   return (
     <>

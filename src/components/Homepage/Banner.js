@@ -15,16 +15,15 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Link from '@components/Link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper/core'
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/components/pagination/pagination.min.css'
-import 'swiper/components/navigation/navigation.min.css'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 import { HeroThemeContext } from '@layouts/context'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import useObjectTranslation from '@hooks/useObjectTranslation'
 import classnames from 'classnames'
 import ImageTranslation from '@components/ImageTranslation'
 import useLangQuery from '@hooks/useLangQuery'
-import { T_AND_C } from '../../utils/constant'
 
 SwiperCore.use([Autoplay, Pagination, Navigation])
 
@@ -228,7 +227,7 @@ const Banner = ({ nodes }) => {
   const classes = useStyles({ isEn })
   const { tB } = useObjectTranslation()
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
   const { toggleTheme } = useContext(HeroThemeContext)
   const addLangQuery = useLangQuery()
   const bannersTheme = useMemo(() => {
@@ -237,122 +236,85 @@ const Banner = ({ nodes }) => {
   }, [nodes])
   return (
     <Container disableGutters maxWidth='xl' className={classes.root}>
-      {nodes?.length > 0 && (
-        <Swiper
-          loop={nodes?.length > 1}
-          navigation={nodes?.length > 1}
-          pagination={{ clickable: true }}
-          className={classes.swiperWrapper}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          onSlideChange={(swiper) => {
-            return toggleTheme?.(bannersTheme[swiper.realIndex], swiper.realIndex)
-          }}
-          initialSlide={0}
-          speed={700}
-          watchOverflow={true}
-          watchSlidesVisibility={true}
-        >
-          {' '}
-          {/* <SwiperSlide>
-            <Box className={classes.heroBannerWrapper}>
-              <Box
-                className={classnames(classes.heroImgWrapper, classes.containImgWrapper, classes.promoBannerBg)}
-                position='relative'
-              >
-                <ImageTranslation
-                  filename='promo_banner'
-                  alt='promo banner'
-                  className={classes.containImg}
-                ></ImageTranslation>
-                <Box className={classes.imageButtonWrapper}>
-                  <Box
-                    className={classes.imageButton}
-                    left={isMobile ? (isEn ? '26.4%' : '16.8%') : isEn ? '8%' : '7%'}
-                    to={addLangQuery()}
-                    target='_blank'
-                    component={Link}
-                    id='RW_HP_Top_Banner_CV2_EHEALTH'
-                  >
-                    <Box />
-                  </Box>
-                  <Box
-                    className={classes.imageButton2}
-                    left={isMobile ? (isEn ? '53.4%' : '43.8%') : isEn ? '26%' : '25%'}
-                    to={T_AND_C.PROMOTION_POLICY.url}
-                    component={Link}
-                    id='RW_HP_Top_Banner_CV2_KnowMore'
-                  >
-                    <Box />
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
-          </SwiperSlide> */}
-          <SwiperSlide>
+      <Swiper
+        loop={bannersTheme?.length > 1}
+        navigation={bannersTheme?.length > 1}
+        pagination={{ clickable: true }}
+        className={classes.swiperWrapper}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        onSlideChange={(swiper) => {
+          return toggleTheme?.(bannersTheme[swiper.realIndex], swiper.realIndex)
+        }}
+        initialSlide={0}
+        speed={700}
+        watchOverflow={true}
+      >
+        <SwiperSlide>
+          <Box
+            className={classes.heroBannerWrapper}
+            id='RW_HP_Top_Banner_Xmas22Promo_EHEALTH'
+            to={addLangQuery()}
+            target='_blank'
+            component={Link}
+          >
             <Box
-              className={classes.heroBannerWrapper}
-              id='RW_HP_Top_Banner_Xmas22Promo_EHEALTH'
-              to={addLangQuery()}
-              target='_blank'
-              component={Link}
+              className={classnames(
+                classes.heroImgWrapper,
+                classes.anniversaryBannerWrapper,
+                classes.containImgWrapper,
+                classes.promoBannerBg
+              )}
+              position='relative'
             >
-              <Box
-                className={classnames(
-                  classes.heroImgWrapper,
-                  classes.anniversaryBannerWrapper,
-                  classes.containImgWrapper,
-                  classes.promoBannerBg
-                )}
-                position='relative'
-              >
-                <ImageTranslation filename='Chris' alt='Chris banner' className={classes.containImg}></ImageTranslation>
-              </Box>
+              <ImageTranslation filename='Chris' alt='Chris banner' className={classes.containImg}></ImageTranslation>
             </Box>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Box className={classes.heroBannerWrapper}>
-              <Box
-                className={classnames(classes.heroImgWrapper, classes.containImgWrapper, classes.athletesBannerBg)}
-                position='relative'
-              >
-                <ImageTranslation
-                  filename='athletes_banner'
-                  alt='athletes banner'
-                  className={classes.containImg}
-                ></ImageTranslation>
-                <Box className={classes.imageButtonWrapper}>
-                  <Box
-                    position='absolute'
-                    right={isMobile ? '7.8%' : isEn ? '38.5%' : '32%'}
-                    width={isMobile ? '22%' : isEn ? '14.5%' : '16%'}
-                    height={isMobile ? '6%' : '8%'}
-                    top={isMobile ? '38.5%' : 'auto'}
-                    bottom={isMobile ? 'unset' : isEn ? '9%' : '12.5%'}
-                    to={addLangQuery()}
-                    target='_blank'
-                    component={Link}
-                    id='RW_HP_Top_Banner_Athlete_EHEALTH'
-                  >
-                    <Box />
-                  </Box>
-                  <Box
-                    position='absolute'
-                    right={isMobile ? '7.8%' : isEn ? '3.5%' : '5.5%'}
-                    width={isMobile ? '22%' : isEn ? '32%' : '23%'}
-                    height={isMobile ? '3.5%' : '8%'}
-                    top={isMobile ? '47.5%' : 'unset'}
-                    bottom={isMobile ? 'unset' : isEn ? '9%' : '12.5%'}
-                    to='/whats-new/updates/athletes-program/'
-                    component={Link}
-                    id='BannerRW_HP_Top_Banner_Athlete_KnowMore'
-                  >
-                    <Box />
-                  </Box>
+          </Box>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Box className={classes.heroBannerWrapper}>
+            <Box
+              className={classnames(classes.heroImgWrapper, classes.containImgWrapper, classes.athletesBannerBg)}
+              position='relative'
+            >
+              <ImageTranslation
+                filename='athletes_banner'
+                alt='athletes banner'
+                className={classes.containImg}
+              ></ImageTranslation>
+              <Box className={classes.imageButtonWrapper}>
+                <Box
+                  position='absolute'
+                  right={isMobile ? '7.8%' : isEn ? '38.5%' : '32%'}
+                  width={isMobile ? '22%' : isEn ? '14.5%' : '16%'}
+                  height={isMobile ? '6%' : '8%'}
+                  top={isMobile ? '38.5%' : 'auto'}
+                  bottom={isMobile ? 'unset' : isEn ? '9%' : '12.5%'}
+                  to={addLangQuery()}
+                  target='_blank'
+                  component={Link}
+                  id='RW_HP_Top_Banner_Athlete_EHEALTH'
+                >
+                  <Box />
+                </Box>
+                <Box
+                  position='absolute'
+                  right={isMobile ? '7.8%' : isEn ? '3.5%' : '5.5%'}
+                  width={isMobile ? '22%' : isEn ? '32%' : '23%'}
+                  height={isMobile ? '3.5%' : '8%'}
+                  top={isMobile ? '47.5%' : 'unset'}
+                  bottom={isMobile ? 'unset' : isEn ? '9%' : '12.5%'}
+                  to='/whats-new/updates/athletes-program/'
+                  component={Link}
+                  id='BannerRW_HP_Top_Banner_Athlete_KnowMore'
+                >
+                  <Box />
                 </Box>
               </Box>
             </Box>
-          </SwiperSlide>
-          {nodes?.map((node) => (
+          </Box>
+        </SwiperSlide>
+        {nodes?.length &&
+          nodes?.map((node) => (
             <SwiperSlide key={node.id}>
               <Box className={classes.heroBannerWrapper}>
                 {isMobile ? (
@@ -445,8 +407,7 @@ const Banner = ({ nodes }) => {
               </Hidden>
             </SwiperSlide>
           ))}
-        </Swiper>
-      )}
+      </Swiper>
     </Container>
   )
 }
