@@ -126,6 +126,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     fontWeight: 700,
     alignItems: 'flex-start',
+    flexDirection: 'column',
     padding: theme.spacing(2, 2),
     '& path': {
       fill: theme.palette.error.main,
@@ -367,43 +368,59 @@ const HealthCheck = () => {
                   flexDirection={matches ? 'column' : 'row'}
                   mx={matches ? 0 : 2}
                 >
-                  <Box className={classes.subBox} color='primary.main' justifyContent='center'>
-                    <ErrorIcon color='red' />
-                    <Box ml={1}>
-                      <Box fontSize={20} mb={2}>
-                        {t('products_and_services.health_check.box1.title')}
+                  <Box className={classes.subBox} color='primary.main'>
+                    <Box display='flex' alignItems='center' mb={2} mt={2}>
+                      <ErrorIcon color='red' />
+                      <Box ml={1}>
+                        <Box fontSize={20} mb={0}>
+                          {t('products_and_services.health_check.box1.title')}
+                        </Box>
                       </Box>
-                      {t('products_and_services.health_check.box1.intro')}
                     </Box>
+                    <Box ml={4}> {t('products_and_services.health_check.box1.intro')}</Box>
                   </Box>
                   <Box className={classes.subBox} color='primary.main' mx={matches ? 0 : 2}>
-                    <ErrorIcon pr={2} />
-                    <Box ml={1}>
-                      <Box fontSize={20} mb={2}>
-                        {t('products_and_services.health_check.box2.title')}
+                    <Box display='flex' alignItems='center' mb={2} mt={2}>
+                      <ErrorIcon pr={2} />
+                      <Box ml={1}>
+                        <Box fontSize={20} mb={0}>
+                          {t('products_and_services.health_check.box2.title')}
+                        </Box>
                       </Box>
+                    </Box>
+                    <Box ml={4}>
                       <Trans i18nKey='products_and_services.health_check.box2.intro'>
                         .<sup>.</sup>.
                       </Trans>
                     </Box>
                   </Box>
                   <Box className={classes.subBox} color='primary.main'>
-                    <ErrorIcon pr={2} />
-                    <Box ml={1}>
-                      <Box fontSize={20} mb={2}>
-                        {t('products_and_services.health_check.box3.title')}
+                    <Box display='flex' justifyContent='center' alignItems='center' mt={-1}>
+                      <ErrorIcon pr={2} />
+                      <Box ml={1} pt={1}>
+                        <Box fontSize={20} mb={2}>
+                          {t('products_and_services.health_check.box3.title')}
+                        </Box>
                       </Box>
-                      {t('products_and_services.health_check.box3.intro')}
                     </Box>
+                    <Box ml={4}>{t('products_and_services.health_check.box3.intro')}</Box>
                   </Box>
                 </Box>
-                <Box mt={1} py={2} textAlign={isEn ? (matches ? 'left' : 'center') : 'center'}>
+                <Box mt={1} py={2} textAlign={isEn ? (matches ? 'justify' : 'center') : 'center'}>
                   <Typography variant={matches ? 'body2' : 'body1'}>
                     {t('products_and_services.health_check.box_conclusion')}
                   </Typography>
                 </Box>
               </Box>
+
               <Box mt={matches ? 40 : 0}>
+                {matches && (
+                  <ImageTranslation
+                    filename='product_healthCheck'
+                    alt='product_healthCheck'
+                    hasMobile={false}
+                  ></ImageTranslation>
+                )}
                 <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
                   <Grid item xs={matches ? 6 : 'auto'}>
                     <Button
@@ -438,7 +455,7 @@ const HealthCheck = () => {
                   fontWeight={900}
                   fontSize={matches ? 16 : 24}
                   color='secondary.main'
-                  ml={matches ? 3 : 14}
+                  ml={matches ? 2.5 : 14}
                   mb={matches ? 1 : 3}
                 >
                   {t('products_and_services.health_check.table_title')}
@@ -481,7 +498,7 @@ const HealthCheck = () => {
                 </Box>
               </Box>
               <Box
-                fontSize={matches ? 18 : 32}
+                fontSize={matches ? 18 : isEn ? 26 : 32}
                 color='secondary.main'
                 fontWeight={700}
                 textAlign='center'
@@ -527,9 +544,7 @@ const HealthCheck = () => {
                   src='../assets/images/products_services_banner_bg.jpg'
                   alt='homepage banner mobile'
                 ></StaticImage>
-                <Box className={classes.sectionOneBanner}>
-                  {t('products_and_services.take2_prophecy.detection_process')}
-                </Box>
+                <Box className={classes.sectionOneBanner}>{t('products_and_services.health_check.check_step')}</Box>
               </Box>
               <Box className={classes.sectionOneContent} bgcolor='#fafafa'>
                 <Box className={classes.stepsWrapper}>
@@ -564,7 +579,12 @@ const HealthCheck = () => {
                             </Box>
                           )}
                           <Box className={classes.stepLabel}>
-                            <Box component='span'>
+                            <Box
+                              component='span'
+                              display='inline-block'
+                              maxWidth={isEn ? null : 140}
+                              pt={index < 2 && isEn && 4}
+                            >
                               {t(curStep.label)}
                               {index === 3 && !matches && <sup>#</sup>}
                               {index === 2 && matches && <sup>#</sup>}
@@ -668,7 +688,7 @@ const HealthCheck = () => {
         {t('cp_v2.contact_and_reference.paragraphs.4')} <br />
         {matches ? <br /> : null}
         <Box display='flex'>
-          <Box> 1. </Box>
+          <Box>1. &nbsp;</Box>
           <Box>{t('products_and_services.health_check.ref')}</Box>
         </Box>
       </Box>
