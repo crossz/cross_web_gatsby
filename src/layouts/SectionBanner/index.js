@@ -45,12 +45,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
     overflowY: 'scroll',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
     position: 'sticky',
     zIndex: 10,
     top: theme.spacing(HEADER_HEIGHT),
     [theme.breakpoints.down('xs')]: {
+      justifyContent: 'flex-start',
       height: theme.spacing(5.75),
       padding: 0,
       overflowY: 'hidden',
@@ -73,6 +74,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
+    maxWidth: 300,
     [theme.breakpoints.down('md')]: {
       margin: theme.spacing(0, 2),
     },
