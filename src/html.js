@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Script } from 'gatsby'
 
 export default function HTML(props) {
   return (
@@ -9,7 +8,7 @@ export default function HTML(props) {
         <meta charSet='utf-8' />
         <meta httpEquiv='x-ua-compatible' content='ie=edge' />
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
-        <Script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
             var _gaq = _gaq || []
@@ -30,7 +29,7 @@ export default function HTML(props) {
           }}
         />
         {/* Google Tag Manager */}
-        <Script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
             (function (w, d, s, l, i) {
@@ -52,8 +51,8 @@ export default function HTML(props) {
         {/* End Google Tag Manager */}
 
         {/* Global site tag (gtag.js) - Google Ads: 339029822 */}
-        <Script async src='https://www.googletagmanager.com/gtag/js?id=AW-339029822'></Script>
-        <Script
+        <script async src='https://www.googletagmanager.com/gtag/js?id=AW-339029822'></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
@@ -65,7 +64,7 @@ export default function HTML(props) {
           }}
         />
         {/* Facebook Pixel Code */}
-        <Script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
             !function(f,b,e,v,n,t,s)
