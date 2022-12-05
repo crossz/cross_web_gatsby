@@ -1,5 +1,5 @@
 import React from 'react'
 export const HeroThemeContext = React.createContext({
-  theme: 'light',
+  theme: 'dark',
   toggleTheme: () => {},
 })
