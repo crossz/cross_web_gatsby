@@ -406,7 +406,7 @@ const HealthCheck = () => {
                     <Box ml={4}>{t('products_and_services.health_check.box3.intro')}</Box>
                   </Box>
                 </Box>
-                <Box mt={1} py={2} textAlign={isEn ? (matches ? 'justify' : 'center') : 'center'}>
+                <Box mt={1} py={2} textAlign={isEn ? (matches ? 'justify' : 'center') : 'center'} mx={2}>
                   <Typography variant={matches ? 'body2' : 'body1'}>
                     {t('products_and_services.health_check.box_conclusion')}
                   </Typography>
@@ -455,7 +455,7 @@ const HealthCheck = () => {
                   fontWeight={900}
                   fontSize={matches ? 16 : 24}
                   color='secondary.main'
-                  ml={matches ? 2.5 : 14}
+                  ml={matches ? 0 : 14}
                   mb={matches ? 1 : 3}
                 >
                   {t('products_and_services.health_check.table_title')}
@@ -685,7 +685,7 @@ const HealthCheck = () => {
         </Box>
       </Box>{' '}
       <Box className={classes.reportTip} mb={matches ? 3 : 12} ml={matches ? 3 : 20} mt={10}>
-        {t('cp_v2.contact_and_reference.paragraphs.4')} <br />
+        {t('products_and_services.health_check.reference')} <br />
         {matches ? <br /> : null}
         <Box display='flex'>
           <Box>1. &nbsp;</Box>
