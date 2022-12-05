@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'sticky',
     zIndex: 10,
     top: theme.spacing(HEADER_HEIGHT),
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'flex-start',
+    },
     [theme.breakpoints.down('xs')]: {
       justifyContent: 'flex-start',
       height: theme.spacing(5.75),
