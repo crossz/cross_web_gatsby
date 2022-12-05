@@ -384,7 +384,8 @@
             "notice": "Patients who have had organ transplant, currently have cancer or autoimmune diseases, or those currently receiving systemic glucocorticoid or immunosuppressive treatment are not recommended for early NPC detection using our test. If in doubt, please consult healthcare professionals for more information.",
             "notice2": "Under most circumstances, reports will be ready in around 7-10 working days (excluding Saturday, Sunday, and public holidays). A delay in processing some report interpretation requests might happen due to the following: 1. some individual items might require longer processing time 2. customers request to arrange specific timeslots. Please contact Trinity Medical Centre for any inquiries.",
             "ref": "Source: “Early screening for nasopharyngeal cancer could reduce the family by up to six-digits total expenses and losses”, Sunday Kiss, 6 December 2021 (Translated)",
-            "check_step": "Test Procedures"
+            "check_step": "Test Procedures",
+            "reference": "References"
         }
     },
     "about_us": {
