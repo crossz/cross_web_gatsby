@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
       height: theme.spacing(MOBILE_HEADER_HEIGHT),
     },
   },
-  tabsWrapper: {
+  tabsLongWrapper: {
     height: theme.spacing(7.5),
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
@@ -64,9 +64,31 @@ const useStyles = makeStyles((theme) => ({
       top: theme.spacing(MOBILE_HEADER_HEIGHT),
     },
   },
+  tabsWrapper: {
+    height: theme.spacing(7.5),
+    backgroundColor: theme.palette.background.paper,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'sticky',
+    zIndex: 10,
+    top: theme.spacing(HEADER_HEIGHT),
+    [theme.breakpoints.down('xs')]: {
+      height: theme.spacing(5.75),
+      padding: 0,
+      backgroundColor: theme.palette.grey[100],
+      borderBottom: `1px solid ${theme.palette.grey[400]}`,
+      top: theme.spacing(MOBILE_HEADER_HEIGHT),
+    },
+  },
+  tabMinWidth: {
+    [theme.breakpoints.down('xs')]: {
+      minWidth: theme.spacing(20),
+      lineHeight: 1.5,
+    },
+  },
   tab: {
     padding: theme.spacing(0.75, 2),
-    minWidth: theme.spacing(22.75),
     margin: theme.spacing(0, 4),
     borderRadius: 4,
     height: theme.spacing(4.5),
@@ -161,14 +183,18 @@ const SectionBanner = () => {
               <Box ref={pointerRef} className={classes.sectionTabsId} id='section-tabs'></Box>
             </Container>
             {curMenuItem?.sections && curMenuItem?.sections?.length && (
-              <Box className={classes.tabsWrapper}>
+              <Box className={curMenuItem?.sections?.length === 5 ? classes.tabsLongWrapper : classes.tabsWrapper}>
                 {curMenuItem?.sections.map((item, index) => (
                   <Link
                     to={item.path}
-                    className={classnames(classes.tab, {
-                      [classes.activeTab]:
-                        (curMenuItem?.path === originalPath && !index) || item?.path === originalPath,
-                    })}
+                    className={classnames(
+                      classes.tab,
+                      {
+                        [classes.activeTab]:
+                          (curMenuItem?.path === originalPath && !index) || item?.path === originalPath,
+                      },
+                      curMenuItem?.sections?.length === 5 ? classes.tabMinWidth : ''
+                    )}
                     id={
                       curMenuItem?.path === '/products-and-services/'
                         ? productsAndServicesTrackingCode[index]?.code
