@@ -263,7 +263,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexGrow: 1,
     position: 'relative',
-    width: '100%',
+    width: '200px',
     justifyContent: 'center',
     [theme.breakpoints.down('xs')]: {
       fontSize: theme.typography.body2.fontSize,
@@ -688,7 +688,7 @@ const HealthCheck = () => {
         {t('products_and_services.health_check.reference')} <br />
         {matches ? <br /> : null}
         <Box display='flex'>
-          <Box>1. &nbsp;</Box>
+          <Box pr={1}>1.</Box>
           <Box>{t('products_and_services.health_check.ref')}</Box>
         </Box>
       </Box>
