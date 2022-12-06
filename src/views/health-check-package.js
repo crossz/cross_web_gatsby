@@ -263,7 +263,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexGrow: 1,
     position: 'relative',
-    width: '200px',
+    maxWidth: '200px',
     justifyContent: 'center',
     [theme.breakpoints.down('xs')]: {
       fontSize: theme.typography.body2.fontSize,
