@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('xs')]: {
       justifyContent: 'flex-start',
-      height: theme.spacing(5.75),
+      height: theme.spacing(7.5),
       padding: 0,
       overflowY: 'hidden',
       overflowX: 'scroll',

@@ -853,7 +853,7 @@ const CancerScreen = () => {
             </Box>
           </Typography>{' '}
           <Box ml={-3}>
-            <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
+            <Grid container spacing={2} justifyContent='center'>
               <Grid item xs={matches ? 6 : 'auto'}>
                 <Button
                   variant='contained'
