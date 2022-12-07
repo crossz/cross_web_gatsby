@@ -356,6 +356,36 @@
             "only_to_woman": "for women only",
             "only_to_man": "for men only",
             "compass1": "NPC-associated EBV DNA (Take2 Prophecy™ Test for NPC)"
+        },
+        "health_check": {
+            "title_intro": "The health check packages cover more than 30 investigation items, including the Take2 Prophecy™ Test for NPC, other cancer screenings, CBC, liver function, renal function, diabetes screening, blood lipids, thyroid assessment, cardiovascular function assessment, and chest and lung assessment. The report will be interpreted by a registered physician, promising you professional and reliable care.",
+            "sub_title_intro": "Taking Action Early to Ward Off Disasters Later, Prevention is Better than Cure.",
+            "box1": {
+                "intro": "Regular health checks help us monitor the changes in our physical conditions and identify potential diseases well before complications develop; in particular, chronic diseases such as hypertension and diabetes have shown a trend of occurring at a younger age than before.",
+                "title": "Identify disease at its early stage"
+            },
+            "box2": {
+                "intro": "Based on a patient with monthly income of HK $50,000, taking into account the treatment expenses and income loss of the patient, having cancer diagnosed at its early stage could result in a possible saving of over HK $300,000.<1>1</1>",
+                "title": "Save your healthcare expenses"
+            },
+            "box3": {
+                "intro": "We can gain further health insights from the results of regular health checks. Thus, we can modify our living habits, which lowers the risks of developing potentially lethal diseases, such as heart attack and stroke.",
+                "title": "Reduce risks of potentially lethal diseases, e.g., heart attack and stroke"
+            },
+            "box_conclusion": "Serious health problems might not present with noticeable symptoms in their early stages. \nRegular health checks help us monitor the changes in our physical conditions and identify potential diseases well before complications develop",
+            "table_title": "Standard and Comprehensive Health Check Packages cover more than 30 investigation items, including:",
+            "table_mark": "Disclaimer: Test items other than the Take2 Prophecy™ Test for NPC are performed by Trinity Medical Centre and their partnering laboratory.",
+            "table_conclusion": "Many of us visit a doctor only when we feel unwell. Yet, prevention is always better than cure, we shall avoid getting sick in the first place. In fact, in many cases, serious health problems such as hypertension, diabetes mellitus and even cancers are asymptomatic at the early stages.",
+            "table_conclusion2": "Take care of your body - It's the only place you have to live",
+            "step1": "Pre-consultation",
+            "step2": "Conduct health check",
+            "step3": "Test performed at local laboratories",
+            "step4": "Reports will be ready in around 7-10 working days",
+            "notice": "Patients who have had organ transplant, currently have cancer or autoimmune diseases, or those currently receiving systemic glucocorticoid or immunosuppressive treatment are not recommended for early NPC detection using our test. If in doubt, please consult healthcare professionals for more information.",
+            "notice2": "Under most circumstances, reports will be ready in around 7-10 working days (excluding Saturday, Sunday, and public holidays). A delay in processing some report interpretation requests might happen due to the following: 1. some individual items might require longer processing time 2. customers request to arrange specific timeslots. Please contact Trinity Medical Centre for any inquiries.",
+            "ref": "Source: “Early screening for nasopharyngeal cancer could reduce the family by up to six-digits total expenses and losses”, Sunday Kiss, 6 December 2021 (Translated)",
+            "check_step": "Test Procedures",
+            "reference": "References"
         }
     },
     "about_us": {
@@ -422,6 +452,7 @@
         "join_us": "Join Us",
         "contact_us": "Contact Us",
         "faq": "FAQ",
-        "cancer_screen_package": "Cancer Screening Package"
+        "cancer_screen_package": "Cancer Screening Package",
+        "health_check_package": "Standard / Comprehensive Health Check Packages"
     }
 }
