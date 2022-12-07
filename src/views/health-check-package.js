@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   makeStyles,
   Container,
@@ -14,49 +14,49 @@ import Box from '@material-ui/core/Box'
 import { StaticImage } from 'gatsby-plugin-image'
 import Link from '@components/Link'
 import ArrowIcon from '@images/icons/arrow.svg'
+import More from '@images/icons/table_more.svg'
 import classnames from 'classnames'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
 import useLangQuery from '@hooks/useLangQuery'
 import ErrorIcon from '@material-ui/icons/Error'
-import TitleDot from '@themes/components/TitleDot'
 import ImageTranslation from '@components/ImageTranslation'
 
 const steps = [
   {
-    label: 'products_and_services.take2_prophecy.process.0',
+    label: 'products_and_services.health_check.step1',
     icon: (
       <StaticImage
-        src='../assets/images/icons/prophecy/step_01.svg'
+        src='../assets/images/icons/healthCheck/step_1.svg'
         placeholder='tracedSVG'
         alt='step 01'
       ></StaticImage>
     ),
   },
   {
-    label: 'products_and_services.take2_prophecy.process.1',
+    label: 'products_and_services.health_check.step2',
     icon: (
       <StaticImage
-        src='../assets/images/icons/prophecy/step_02.svg'
+        src='../assets/images/icons/healthCheck/step_2.svg'
         placeholder='tracedSVG'
         alt='step 02'
       ></StaticImage>
     ),
   },
   {
-    label: 'products_and_services.take2_prophecy.process.2',
+    label: 'products_and_services.health_check.step3',
     icon: (
       <StaticImage
-        src='../assets/images/icons/prophecy/step_03.svg'
+        src='../assets/images/icons/healthCheck/step_3.svg'
         placeholder='tracedSVG'
         alt='step 03'
       ></StaticImage>
     ),
   },
   {
-    label: 'products_and_services.take2_prophecy.process.3',
+    label: 'products_and_services.health_check.step4',
     icon: (
       <StaticImage
-        src='../assets/images/icons/prophecy/step_04.svg'
+        src='../assets/images/icons/healthCheck/step_4.svg'
         placeholder='tracedSVG'
         alt='step 04'
       ></StaticImage>
@@ -66,7 +66,7 @@ const steps = [
     label: 'products_and_services.take2_prophecy.process.4',
     icon: (
       <StaticImage
-        src='../assets/images/icons/prophecy/step_05.svg'
+        src='../assets/images/icons/healthCheck/step_5.svg'
         placeholder='tracedSVG'
         alt='step 05'
       ></StaticImage>
@@ -74,37 +74,6 @@ const steps = [
   },
 ]
 
-// const reports = [
-//   {
-//     result: 'products_and_services.take2_prophecy.reports.0.result',
-//     suggestion: 'products_and_services.take2_prophecy.reports.0.suggestion',
-//     mark: 'products_and_services.take2_prophecy.reports.0.mark',
-//     color: '#C8002E',
-//   },
-//   {
-//     result: 'products_and_services.take2_prophecy.reports.1.result',
-//     suggestion: 'products_and_services.take2_prophecy.reports.1.suggestion',
-//     mark: 'products_and_services.take2_prophecy.reports.1.mark',
-//     color: '#00AA82',
-//   },
-// ]
-const compass = [
-  { name: 'products_and_services.cancer_screen_package.compass1', object: '' },
-  { name: 'products_and_services.cancer_screen_package.compass2', object: '' },
-  { name: 'products_and_services.cancer_screen_package.compass3', object: '' },
-  {
-    name: 'products_and_services.cancer_screen_package.compass4',
-    object: 'products_and_services.cancer_screen_package.only_to_woman',
-  },
-  {
-    name: 'products_and_services.cancer_screen_package.compass5',
-    object: 'products_and_services.cancer_screen_package.only_to_woman',
-  },
-  {
-    name: 'products_and_services.cancer_screen_package.compass6',
-    object: 'products_and_services.cancer_screen_package.only_to_man',
-  },
-]
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.grey[100],
@@ -146,35 +115,60 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(3, 3),
     },
   },
-  sectionSubBg: {
-    borderRadius: theme.spacing(1.5),
-    marginTop: theme.spacing(7),
-    marginLeft: theme.spacing(8.5),
-    marginBottom: theme.spacing(10),
-    backgroundColor: 'rgb(248, 249, 250)',
-    [theme.breakpoints.down('xs')]: {
-      marginTop: theme.spacing(37.5),
-      marginBottom: theme.spacing(-32),
-      marginLeft: 0,
-    },
-  },
+
   subBox: {
-    width: theme.spacing(50),
+    width: theme.spacing(35),
     background: '#fff',
-    height: theme.spacing(15),
     borderRadius: 10,
     marginTop: theme.spacing(4),
     display: 'flex',
     alignItems: 'center',
-    fontSize: '16px',
+    fontSize: '14px',
     fontWeight: 700,
-    padding: theme.spacing(3, 2),
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+    padding: theme.spacing(2, 2),
     '& path': {
       fill: theme.palette.error.main,
     },
     [theme.breakpoints.down('xs')]: {
       // height: theme.spacing(1),
       width: '100%',
+    },
+  },
+  tableContainer: {
+    height: 'auto',
+    borderRadius: '50px',
+    paddingBottom: theme.spacing(3),
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      borderRadius: '25px',
+      overflow: 'hidden',
+
+      paddingBottom: theme.spacing(5),
+    },
+  },
+
+  tableImg: {
+    display: 'inline-block',
+    overflow: 'hidden',
+    maxWidth: theme.spacing(98),
+    [theme.breakpoints.down('xs')]: {
+      width: theme.spacing(42),
+    },
+  },
+  more: {
+    background: 'linear-gradient(180deg,rgba(255,255,255,0.2),#FFFFFF)',
+    height: 250,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    textAlign: 'center',
+    fontWeight: 700,
+    color: theme.palette.primary.main,
+    [theme.breakpoints.down('xs')]: {
+      height: 140,
     },
   },
   bannerWrapper: {
@@ -269,7 +263,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexGrow: 1,
     position: 'relative',
-    width: '100%',
+    maxWidth: '200px',
     justifyContent: 'center',
     [theme.breakpoints.down('xs')]: {
       fontSize: theme.typography.body2.fontSize,
@@ -303,58 +297,6 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 0,
     },
   },
-  rightIcon: {
-    width: theme.spacing(4),
-    height: theme.spacing(4),
-    margin: theme.spacing(0, 3),
-    '& path': {
-      fill: '#C8002E',
-    },
-    [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(0, 2),
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: theme.spacing(3),
-      height: theme.spacing(3),
-    },
-  },
-  greenRightIcon: {
-    '& path': {
-      fill: '#00AA82',
-    },
-  },
-  reportItem: {
-    padding: theme.spacing(4),
-    color: theme.palette.grey[600],
-    fontSize: theme.typography.caption.fontSize,
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: theme.spacing(1.5),
-    [theme.breakpoints.down('xs')]: {
-      padding: theme.spacing(3),
-      fontSize: 11,
-    },
-  },
-  reportTop: {
-    fontSize: theme.typography.h6.fontSize,
-    fontWeight: theme.typography.fontWeightBold,
-    color: theme.palette.text.primary,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: theme.spacing(4),
-    [theme.breakpoints.down('sm')]: {
-      fontSize: theme.typography.subtitle1.fontSize,
-    },
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: theme.spacing(5),
-      fontSize: theme.typography.body1.fontSize,
-    },
-  },
-  reportType: {
-    display: 'flex',
-    alignItems: 'center',
-    flexShrink: '0',
-  },
   prophecyImgWrapper: {
     overflow: 'hidden',
     width: 350,
@@ -362,20 +304,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       marginRight: 0,
     },
-  },
-  prophecyImgWrapper1: {
-    display: 'flex',
-    alignItems: 'center',
-    overflow: 'hidden',
-    width: 350,
-    marginRight: theme.spacing(5),
-    [theme.breakpoints.down('xs')]: {
-      marginRight: 0,
-      width: '100%',
-    },
-  },
-  prophecyImg: {
-    borderRadius: theme.spacing(1.5),
   },
   btnWrapper: {
     marginTop: theme.spacing(4),
@@ -403,31 +331,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const CancerScreen = () => {
+const HealthCheck = () => {
   const classes = useStyles()
   const { t, language } = useI18next()
   const isEn = language === 'en'
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
   const addLangQuery = useLangQuery()
-  const reference = [
-    {
-      ref: (
-        <span>
-          <em>Cancer Factsheet.</em> World Health Organisation, February 2022, from
-          https://www.who.int/news-room/fact-sheets/detail/cancer. Accessed 08 August 2022.
-        </span>
-      ),
-    },
-    {
-      ref: (
-        <span>
-          <em>Hong Kong Cancer Strategy 2019. </em>Department of Health, Food and Health Bureau, & Hospital Authority,
-          July 2019.
-        </span>
-      ),
-    },
-  ]
+  const [more, setMore] = useState(1)
+
   return (
     <>
       <Container className={classes.root} disableGutters maxWidth='xl'>
@@ -435,15 +347,11 @@ const CancerScreen = () => {
           <Container className={classes.content} disableGutters maxWidth='md'>
             <Box className={classes.title}>
               <Typography variant='h4' color='primary'>
-                {t('menu.cancer_screen_package')}
+                {t('menu.health_check_package')}
               </Typography>
-              <Box mt={matches ? 2.5 : 3} textAlign='justify'>
+              <Box mt={matches ? 2.5 : 3} textAlign='center'>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
-                  {t('products_and_services.cancer_screen_package.detail')}
-                  {/* {matches ? <br /> : null} */}
-                  {/* <Box display={matches ? 'block' : 'inline-block'} mt={matches ? 2 : 0}> */}
-                  {t('products_and_services.cancer_screen_package.detail2')}
-                  {/* </Box> */}
+                  {t('products_and_services.health_check.title_intro')}
                 </Typography>
               </Box>
             </Box>
@@ -451,87 +359,68 @@ const CancerScreen = () => {
               <Box className={classes.sectionOneBg}>
                 <Typography variant='h4'>
                   <Box textAlign='center' lineHeight={1.5}>
-                    {t('products_and_services.cancer_screen_package.subtitle0')}
-                    {matches ? isEn ? ' ' : null : <br />}
-                    {t('products_and_services.cancer_screen_package.subtitle')}
+                    {t('products_and_services.health_check.sub_title_intro')}
                   </Box>
                 </Typography>
-                <Box display='flex' justifyContent='center' flexDirection={matches ? 'column' : 'row'}>
-                  <Box className={classes.subBox} mr={2} color='primary.main' justifyContent='center'>
-                    <ErrorIcon color='red' />
-                    <Box ml={1}>
-                      <Trans i18nKey='products_and_services.cancer_screen_package.sub_detail1'>
+                <Box
+                  display='flex'
+                  justifyContent='center'
+                  flexDirection={matches ? 'column' : 'row'}
+                  mx={matches ? 0 : 2}
+                >
+                  <Box className={classes.subBox} color='primary.main'>
+                    <Box display='flex' alignItems='center' mb={2} mt={2}>
+                      <ErrorIcon color='red' />
+                      <Box ml={1}>
+                        <Box fontSize={20} mb={0}>
+                          {t('products_and_services.health_check.box1.title')}
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box ml={4}> {t('products_and_services.health_check.box1.intro')}</Box>
+                  </Box>
+                  <Box className={classes.subBox} color='primary.main' mx={matches ? 0 : 2}>
+                    <Box display='flex' alignItems='center' mb={2} mt={2}>
+                      <ErrorIcon pr={2} />
+                      <Box ml={1}>
+                        <Box fontSize={20} mb={0}>
+                          {t('products_and_services.health_check.box2.title')}
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box ml={4}>
+                      <Trans i18nKey='products_and_services.health_check.box2.intro'>
                         .<sup>.</sup>.
                       </Trans>
                     </Box>
                   </Box>
                   <Box className={classes.subBox} color='primary.main'>
-                    <ErrorIcon pr={2} />
-                    <Box ml={1}> {t('products_and_services.cancer_screen_package.sub_detail2')}</Box>
-                  </Box>
-                </Box>
-                <Box mt={1} py={2} textAlign={isEn ? (matches ? 'left' : 'center') : 'center'}>
-                  <Typography variant={matches ? 'body2' : 'body1'}>
-                    {t('products_and_services.cancer_screen_package.subdetail3')}
-                  </Typography>
-                </Box>
-              </Box>
-              <Box className={classes.sectionSubBg}>
-                {!matches && (
-                  <Typography variant='h4' color='primary'>
-                    <Box>{t('products_and_services.cancer_screen_package.pachages')}</Box>
-                    <Box mb={8}> {t('products_and_services.cancer_screen_package.pachages2')}</Box>
-                  </Typography>
-                )}
-                <Box display='flex' flexDirection={matches ? 'column-reverse' : 'row'} justifyContent='space-around'>
-                  <Box lineHeight={3} ml={matches ? 2 : 0}>
-                    {compass.map((item, index) => (
-                      <Box key={index}>
-                        <TitleDot />
-                        <Box display='flex' alignItems='center'>
-                          <Box fontSize={matches ? '13px' : '20px'} fontWeight={400} color='#1A285D'>
-                            {t(item.name)}
-                          </Box>
-                          {item.object && (
-                            <Box color='grey.800' flexShrink='0'>
-                              <em>-{t(item.object)}</em>
-                            </Box>
-                          )}
+                    <Box display='flex' justifyContent='center' alignItems='center' mt={-1}>
+                      <ErrorIcon pr={2} />
+                      <Box ml={1} pt={1}>
+                        <Box fontSize={20} mb={2}>
+                          {t('products_and_services.health_check.box3.title')}
                         </Box>
                       </Box>
-                    ))}
-                  </Box>
-                  <Box width={!matches ? 337 : '100%'}>
-                    <Box mr={matches ? 0 : 3}>
-                      <ImageTranslation
-                        className={classes.prophecyImgWrapper1}
-                        filename='cancer_screen'
-                        alt='cancer screen'
-                        hasMobile={false}
-                      ></ImageTranslation>
                     </Box>
-                    {matches && (
-                      <Box my={3}>
-                        <Typography variant='h4' color='primary'>
-                          {t('products_and_services.cancer_screen_package.pachages')}
-                          {t('products_and_services.cancer_screen_package.pachages2')}
-                        </Typography>
-                      </Box>
-                    )}
+                    <Box ml={4}>{t('products_and_services.health_check.box3.intro')}</Box>
                   </Box>
                 </Box>
-                <Box mt={5} textAlign={isEn ? (matches ? 'left' : 'center') : 'center'}>
-                  <Box fontSize='12px' color='grey.700'>
-                    {t('products_and_services.cancer_screen_package.attention')}
-                  </Box>
+                <Box mt={1} py={2} textAlign={isEn ? (matches ? 'justify' : 'center') : 'center'} mx={2}>
+                  <Typography variant={matches ? 'body2' : 'body1'}>
+                    {t('products_and_services.health_check.box_conclusion')}
+                  </Typography>
                 </Box>
               </Box>
+
               <Box mt={matches ? 40 : 0}>
-                <Typography variant='h4'>
-                  <Box textAlign='center' color='secondary.main'>
-                    {t('products_and_services.cancer_screen_package.subdetail4')}
-                  </Box>
-                </Typography>
+                {matches && (
+                  <ImageTranslation
+                    filename='product_healthCheck'
+                    alt='product_healthCheck'
+                    hasMobile={false}
+                  ></ImageTranslation>
+                )}
                 <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
                   <Grid item xs={matches ? 6 : 'auto'}>
                     <Button
@@ -540,7 +429,7 @@ const CancerScreen = () => {
                       href={addLangQuery()}
                       target='_blank'
                       fullWidth={matches}
-                      id='RW_Ehealth_CancerScreening_1'
+                      id='RW_Ehealth_HealthCheckPackage_1'
                       className={classes.btn}
                     >
                       {t('common.book_now')}
@@ -553,7 +442,7 @@ const CancerScreen = () => {
                         color='primary'
                         className={classes.btn}
                         fullWidth={matches}
-                        id='RW_SL_CancerScreening_1'
+                        id='RW_SL_HealthCheckPackage_1'
                       >
                         {t('common.service_location')}
                       </Button>
@@ -561,16 +450,101 @@ const CancerScreen = () => {
                   </Grid>
                 </Grid>
               </Box>
+              <Box className={classes.tableContainer} mt={matches ? 2 : 7} pt={7} bgcolor={matches ? null : '#ffff'}>
+                <Box
+                  fontWeight={900}
+                  fontSize={matches ? 16 : 24}
+                  color='secondary.main'
+                  ml={matches ? 0 : 14}
+                  mb={matches ? 1 : 3}
+                >
+                  {t('products_and_services.health_check.table_title')}
+                </Box>
+                <Box display='flex' flexDirection='column' alignItems='center'>
+                  <Box textAlign='center' mt={2} overflow={matches ? 'scroll' : ''} width='100%'>
+                    <Box
+                      height={more ? (matches ? 300 : 600) : 'auto'}
+                      overflow='hidden'
+                      position='relative'
+                      className={classes.tableImgContainer}
+                    >
+                      <ImageTranslation
+                        className={classes.tableImg}
+                        filename='health_check_table'
+                        alt='health_check_table'
+                        hasMobile={false}
+                      ></ImageTranslation>
 
+                      {more && (
+                        <Box
+                          position='absolute'
+                          top={more ? (matches ? 165 : 350) : 900}
+                          left='50%'
+                          className={classes.more}
+                        >
+                          <Box onClick={() => setMore(!more)} id='RW_HealthCheckPackage_ReadMore'>
+                            <Box mb={matches ? 2 : 4} mt={matches ? 8 : 20}>
+                              {t('common.view_more')}
+                            </Box>
+                            <More height={24} />
+                          </Box>
+                        </Box>
+                      )}
+                    </Box>
+                  </Box>
+                </Box>{' '}
+                <Box fontSize='12px' fontWeight={700} color='primary.main' mt={5} ml={2} textAlign='center'>
+                  {t('products_and_services.health_check.table_mark')}{' '}
+                </Box>
+              </Box>
+              <Box
+                fontSize={matches ? 18 : isEn ? 26 : 32}
+                color='secondary.main'
+                fontWeight={700}
+                textAlign='center'
+                mt={matches ? 3 : 10}
+              >
+                {t('products_and_services.health_check.table_conclusion')}
+                <br />
+                {t('products_and_services.health_check.table_conclusion2')}
+              </Box>
+              <Box>
+                <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
+                  <Grid item xs={matches ? 6 : 'auto'}>
+                    <Button
+                      variant='contained'
+                      color='secondary'
+                      href={addLangQuery()}
+                      target='_blank'
+                      fullWidth={matches}
+                      id='RW_Ehealth_HealthCheckPackage_2'
+                      className={classes.btn}
+                    >
+                      {t('common.book_now')}
+                    </Button>
+                  </Grid>
+                  <Grid item xs={matches ? 6 : 'auto'}>
+                    <Link to='/service-location/'>
+                      <Button
+                        variant='outlined'
+                        color='primary'
+                        className={classes.btn}
+                        fullWidth={matches}
+                        id='RW_SL_HealthCheckPackage_2'
+                      >
+                        {t('common.service_location')}
+                      </Button>
+                    </Link>
+                  </Grid>
+                </Grid>
+              </Box>
               <Box className={classes.bannerWrapper} mt={10}>
                 <StaticImage
                   className={classes.bannerBg}
                   src='../assets/images/products_services_banner_bg.jpg'
                   alt='homepage banner mobile'
                 ></StaticImage>
-                <Box className={classes.sectionOneBanner}>
-                  {t('products_and_services.take2_prophecy.detection_process')}
-                </Box>
+                <Box className={classes.sectionOneBanner}>{t('products_and_services.health_check.check_step')}</Box>
               </Box>
               <Box className={classes.sectionOneContent} bgcolor='#fafafa'>
                 <Box className={classes.stepsWrapper}>
@@ -605,7 +579,12 @@ const CancerScreen = () => {
                             </Box>
                           )}
                           <Box className={classes.stepLabel}>
-                            <Box component='span'>
+                            <Box
+                              component='span'
+                              display='inline-block'
+                              maxWidth={isEn ? null : 140}
+                              pt={index < 2 && isEn && 4}
+                            >
                               {t(curStep.label)}
                               {index === 3 && !matches && <sup>#</sup>}
                               {index === 2 && matches && <sup>#</sup>}
@@ -635,12 +614,12 @@ const CancerScreen = () => {
                 <Box className={classes.reportTip} my={3} mx={matches ? 2 : 0}>
                   {t('common.notice')} <br />
                   {matches && <br />}
-                  {t('products_and_services.take2_prophecy.notice')} {matches && <br />} {matches && <br />}
+                  {t('products_and_services.health_check.notice')} {matches && <br />} {matches && <br />}
                   {t('products_and_services.cancer_screen_package.contact')}
                   <br />
                   {matches && <br />}
                   <sup>#</sup>
-                  {t('products_and_services.take2_prophecy.covid_notice')}
+                  {t('products_and_services.health_check.notice2')}
                 </Box>
               </Box>
             </Box>
@@ -657,8 +636,8 @@ const CancerScreen = () => {
         {!matches && (
           <ImageTranslation
             className={classes.prophecyImgWrapper}
-            filename='cancer_screen'
-            alt='cancer screen'
+            filename='product_healthCheck'
+            alt='product_healthCheck'
             hasMobile={false}
           ></ImageTranslation>
         )}
@@ -673,7 +652,7 @@ const CancerScreen = () => {
               </Typography>
             </Box>
           </Typography>{' '}
-          <Box width={matches ? 300 : 'auto'}>
+          <Box width={matches ? '100%' : 'auto'}>
             <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
               <Grid item xs={matches ? 6 : 'auto'}>
                 <Button
@@ -683,7 +662,7 @@ const CancerScreen = () => {
                   target='_blank'
                   fullWidth={matches}
                   className={classes.btn}
-                  id='RW_Ehealth_CancerScreening_2'
+                  id='RW_Ehealth_HealthCheckPackage_3'
                 >
                   {t('common.book_now')}
                 </Button>
@@ -695,7 +674,7 @@ const CancerScreen = () => {
                     variant='outlined'
                     color='primary'
                     fullWidth={matches}
-                    id='RW_SL_CancerScreening_2'
+                    id='RW_SL_HealthCheckPackage_3'
                   >
                     {t('common.service_location')}
                   </Button>
@@ -704,19 +683,17 @@ const CancerScreen = () => {
             </Grid>
           </Box>
         </Box>
-      </Box>
+      </Box>{' '}
       <Box className={classes.reportTip} mb={matches ? 3 : 12} ml={matches ? 3 : 20} mt={10}>
         {t('products_and_services.health_check.reference')} <br />
         {matches ? <br /> : null}
-        {reference?.map((item, index) => (
-          <Box display='flex'>
-            <Box> {index + 1}. </Box>
-            <Box>{item.ref}</Box>
-          </Box>
-        ))}
+        <Box display='flex'>
+          <Box pr={1}>1.</Box>
+          <Box>{t('products_and_services.health_check.ref')}</Box>
+        </Box>
       </Box>
     </>
   )
 }
 
-export default CancerScreen
+export default HealthCheck

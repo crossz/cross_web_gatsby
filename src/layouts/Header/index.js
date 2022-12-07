@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import Box from '@material-ui/core/Box'
-import { makeStyles, useTheme, useMediaQuery, Container, Hidden } from '@material-ui/core'
+import { makeStyles, useTheme, useMediaQuery, Container } from '@material-ui/core'
 import { MOBILE_HEADER_HEIGHT, HEADER_HEIGHT } from '@utils/constant'
 import classnames from 'classnames'
 import Menu from './Menu'
@@ -106,22 +106,26 @@ const Header = (props) => {
             <Box width={matches ? 100 : 145}>
               {context?.logoTheme === 0 ? (
                 !withBg && !matches && isHomepage ? (
-                  <StaticImage src='../../assets/images/common/take2_full_white_color.png' alt='Logo' />
+                  <StaticImage
+                    objectFit='contain'
+                    src='../../assets/images/common/take2_full_white_color.png'
+                    alt='Logo'
+                  />
                 ) : (
-                  <StaticImage src='../../assets/images/common/take2_full_color.png' alt='Logo' />
+                  <StaticImage objectFit='contain' src='../../assets/images/common/take2_full_color.png' alt='Logo' />
                 )
               ) : (
-                <StaticImage src='../../assets/images/common/take2_full_color.png' alt='Logo' />
+                <StaticImage objectFit='contain' src='../../assets/images/common/take2_full_color.png' alt='Logo' />
               )}
             </Box>
           </Link>
           <Box className={classes.authBtn} color='primary.main' component='span'>
             <Link to={addLangQuery(`${process.env.GATSBY_SITE_URL}signin`)}>{t('common.book_now')}</Link>
-            <Hidden xsDown>
+            {!matches && (
               <Link className={classes.link} to={addLangQuery(`${process.env.GATSBY_SITE_URL}signup`)}>
                 {t('common.member_registration')}
               </Link>
-            </Hidden>
+            )}
           </Box>
           <Box className={classes.menuBtn}>
             <Menu dark={!matches && isHomepage && !withBg && context?.theme === 'dark'}></Menu>

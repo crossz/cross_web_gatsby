@@ -65,12 +65,7 @@ const BannerPlaceholder = () => {
           )}
           position='relative'
         >
-          <ImageTranslation
-            filename='anniversary'
-            alt='anniversary banner'
-            className={classes.containImg}
-            objectFit='contain'
-          />
+          <ImageTranslation filename='Chris' alt='Chris banner' className={classes.containImg} objectFit='contain' />
         </Box>
       </Box>
     </Container>

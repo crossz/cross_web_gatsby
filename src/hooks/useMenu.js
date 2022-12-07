@@ -19,7 +19,7 @@ const useMenu = () => {
     }
   `)
 
-  return data.allMenuJson.nodes
+  return data?.allMenuJson?.nodes
 }
 
 export default useMenu
