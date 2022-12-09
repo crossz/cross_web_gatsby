@@ -12,10 +12,17 @@ const useStyles = makeStyles((theme) => ({
   map: {
     margin: 0,
   },
+  videoContainer: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+  },
   video: {
-    borderRadius: 24,
+    borderRadius: theme.spacing(3),
     [theme.breakpoints.down('xs')]: {
-      borderRadius: 6,
+      borderRadius: theme.spacing(0.75),
     },
   },
   outlineButton: {
@@ -81,14 +88,16 @@ const Steps = () => {
               </Trans>
             </Box>
           </Box>
-          <Box className='gsap-fade-in-10' id='ECP_TM_Video_Play'>
+          <Box pt={`${(9 / 16) * 100}%`} position='relative'>
             <YouTube
+              className={classes.videoContainer}
               iframeClassName={classes.video}
-              videoId='BACVA3es0NI'
+              videoId='wOPREMoVhys'
               opts={{
                 width: '100%',
-                height: isMobile ? 158 : 436,
+                height: '100%',
               }}
+              id='ECP_Video_Play'
             />
           </Box>
 
