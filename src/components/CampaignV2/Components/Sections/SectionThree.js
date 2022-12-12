@@ -79,7 +79,7 @@ const Steps = () => {
             mb={isMobile ? 3 : 6}
           >
             <Box fontSize='h5.fontSize' fontWeight={900} textAlign='center' mt={6} color='primary.main'>
-              <Trans i18nKey='cp_v2.ngs_progress.video_title'>
+              <Trans i18nKey='cp_v2.video_title'>
                 .
                 <Box color='secondary.main' fontSize='h3.fontSize' component='span' px={0.5}>
                   .

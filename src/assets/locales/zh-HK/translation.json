@@ -455,9 +455,4 @@
         "cancer_screen_package": "癌症篩查套餐",
         "health_check_package": "基本 / 全面體檢套餐"
     },
-    "cp_v2": {
-        "ngs_progress": {
-            "video_title": "<1>15分鐘</1>即可排除鼻咽癌威脅"
-        }
-    }
 }
