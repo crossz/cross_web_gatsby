@@ -97,7 +97,7 @@ const Steps = () => {
                 width: '100%',
                 height: '100%',
               }}
-              id='ECP_Video_Play'
+              id='ECP_Testimonial_Play'
             />
           </Box>
 
@@ -115,12 +115,12 @@ const Steps = () => {
               color='secondary'
               href={addLangQuery()}
               target='_blank'
-              id='ECP_TM_EH'
+              id='ECP_Testimonials_EH'
             >
               {t('common.book_now')}
             </Button>
             <Box width='100%' target='_blank' to='/service-location/' component={Link}>
-              <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_TM_Location'>
+              <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_Testimonials_Location'>
                 {t('cp_v2.common.view_service_location')}
               </Button>
             </Box>
