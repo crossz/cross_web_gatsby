@@ -853,7 +853,7 @@ const CancerScreen = () => {
             </Box>
           </Typography>{' '}
           <Box ml={-3}>
-            <Grid className={classes.btnWrapper} container spacing={2} justifyContent='center'>
+            <Grid container spacing={2} justifyContent='center'>
               <Grid item xs={matches ? 6 : 'auto'}>
                 <Button
                   variant='contained'
@@ -885,7 +885,7 @@ const CancerScreen = () => {
         </Box>
       </Box>{' '}
       <Box className={classes.reportTip} mb={matches ? 3 : 12} ml={matches ? 3 : 20} mt={10}>
-        {t('cp_v2.contact_and_reference.paragraphs.4')} <br />
+        {t('products_and_services.health_check.reference')} <br />
         {matches ? <br /> : null}
         {reference?.map((item, index) => (
           <Box display='flex'>
