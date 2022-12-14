@@ -70,59 +70,60 @@ const Steps = () => {
         <Box whiteSpace='break-spaces' pt={isMobile ? 3 : 6} fontSize={isMobile ? 16 : 18} px={2.5}>
           {t('cp_v2.ngs_progress.paragraphs.0')}
         </Box>
-
-        <Box maxWidth={784} mx='auto'>
-          <Box
-            className='gsap-fade-in-10-trigger gsap-fade-in-10'
-            whiteSpace='break-spaces'
-            lineHeight={isMobile ? 1.5 : 2}
-            mb={isMobile ? 3 : 6}
-          >
-            <Box fontSize='h5.fontSize' fontWeight={900} textAlign='center' mt={6} color='prophecyPrimary.main'>
-              <Trans i18nKey='cp_v2.video_title'>
-                .
-                <Box color='secondary.main' fontSize='h3.fontSize' component='span' px={0.5}>
-                  .
-                </Box>
-                .
-              </Trans>
-            </Box>
-          </Box>
-          <Box pt={`${(9 / 16) * 100}%`} position='relative'>
-            <YouTube
-              className={classes.videoContainer}
-              iframeClassName={classes.video}
-              videoId='wOPREMoVhys'
-              opts={{
-                width: '100%',
-                height: '100%',
-              }}
-              id='ECP_Testimonial_Play'
-            />
-          </Box>
-
-          <Box
-            mt={isMobile ? 4 : 8}
-            mx='auto'
-            flexWrap={isMobile ? 'wrap' : 'nowrap'}
-            display='flex'
-            width='100%'
-            maxWidth={isMobile ? 'auto' : 480}
-          >
-            <Button
-              fullWidth
-              variant='contained'
-              color='secondary'
-              href={addLangQuery()}
-              target='_blank'
-              id='ECP_Testimonials_EH'
+        <Box px={2.5}>
+          <Box maxWidth={784} mx='auto'>
+            <Box
+              className='gsap-fade-in-10-trigger gsap-fade-in-10'
+              whiteSpace='break-spaces'
+              lineHeight={isMobile ? 1.5 : 2}
+              mb={isMobile ? 3 : 6}
             >
-              {t('common.book_now')}
-            </Button>
-            <Box width='100%' target='_blank' to='/service-location/' component={Link}>
-              <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_Testimonials_Location'>
-                {t('cp_v2.common.view_service_location')}
+              <Box fontSize='h5.fontSize' fontWeight={900} textAlign='center' mt={6} color='prophecyPrimary.main'>
+                <Trans i18nKey='cp_v2.video_title'>
+                  .
+                  <Box color='secondary.main' fontSize='h3.fontSize' component='span' px={0.5}>
+                    .
+                  </Box>
+                  .
+                </Trans>
+              </Box>
+            </Box>
+            <Box pt={`${(9 / 16) * 100}%`} position='relative'>
+              <YouTube
+                className={classes.videoContainer}
+                iframeClassName={classes.video}
+                videoId='wOPREMoVhys'
+                opts={{
+                  width: '100%',
+                  height: '100%',
+                }}
+                id='ECP_Testimonial_Play'
+              />
+            </Box>
+
+            <Box
+              mt={isMobile ? 4 : 8}
+              mx='auto'
+              flexWrap={isMobile ? 'wrap' : 'nowrap'}
+              display='flex'
+              width='100%'
+              maxWidth={isMobile ? '300' : 480}
+            >
+              <Button
+                fullWidth
+                variant='contained'
+                color='secondary'
+                href={addLangQuery()}
+                target='_blank'
+                id='ECP_Testimonials_EH'
+              >
+                {t('common.book_now')}
               </Button>
+              <Box width='100%' target='_blank' to='/service-location/' component={Link}>
+                <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_Testimonials_Location'>
+                  {t('cp_v2.common.view_service_location')}
+                </Button>
+              </Box>
             </Box>
           </Box>
         </Box>
