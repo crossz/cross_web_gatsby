@@ -92,7 +92,7 @@ const Steps = () => {
               <YouTube
                 className={classes.videoContainer}
                 iframeClassName={classes.video}
-                videoId='wOPREMoVhys'
+                videoId='5wzq8H5iy9s'
                 opts={{
                   width: '100%',
                   height: '100%',
