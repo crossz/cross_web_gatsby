@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     textAlign: 'center',
-    marginBottom: theme.spacing(13),
+    marginBottom: theme.spacing(10),
     [theme.breakpoints.down('xs')]: {
       marginBottom: theme.spacing(5),
     },
@@ -400,7 +400,7 @@ const Take2Clarity = () => {
                 </Box>
               </Box>
 
-              <Box className={classes.tableContainer} mt={matches ? 2 : 7} pt={7} bgcolor={matches ? null : '#ffff'}>
+              <Box className={classes.tableContainer} mt={matches ? 2 : 5} pt={7} bgcolor={matches ? null : '#ffff'}>
                 <Box fontWeight={900} fontSize={matches ? 18 : 24} color='primary.main' textAlign='center'>
                   {t('products_and_services.take2_clarity.table_title')}
                 </Box>
