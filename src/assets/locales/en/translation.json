@@ -405,7 +405,9 @@
             },
             "table_title": "Comparison of Take2 Clarity™ and other qPCR-based EBV DNA tests",
             "downland": "Download Take2 Clarity™ Product Leaflet",
-            "table_intro": "<1>For nasopharyngeal cancer (NPC) patients who received or completed their treatments</1>, please consult your doctor for more details."
+            "table_intro": "<1>For nasopharyngeal cancer (NPC) patients who received or completed their treatments</1>, please consult your doctor for more details.",
+            "tel": "General enquiry",
+            "downland_mobile": "Download Product Leaflet"
         }
     },
     "about_us": {
