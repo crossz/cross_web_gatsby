@@ -16,10 +16,17 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: 'center 30%',
     },
   },
+  videoContainer: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+  },
   video: {
-    borderRadius: 24,
+    borderRadius: theme.spacing(3),
     [theme.breakpoints.down('xs')]: {
-      borderRadius: 6,
+      borderRadius: theme.spacing(0.75),
     },
   },
   outlineButton: {
@@ -65,13 +72,14 @@ const SectionFive = () => {
           >
             {t('cp_v2.second_life.paragraphs.0')}
           </Box>
-          <Box className='gsap-fade-in-10' id='ECP_TM_Video_Play'>
+          <Box className='gsap-fade-in-10' id='ECP_TM_Video_Play' pt={`${(9 / 16) * 100}%`} position='relative'>
             <YouTube
+              className={classes.videoContainer}
               iframeClassName={classes.video}
               videoId='BACVA3es0NI'
               opts={{
                 width: '100%',
-                height: isMobile ? 158 : 436,
+                height: '100%',
               }}
             />
           </Box>

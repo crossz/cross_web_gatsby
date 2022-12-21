@@ -1,15 +1,5 @@
 import React from 'react'
-import {
-  makeStyles,
-  Drawer,
-  Button,
-  IconButton,
-  Box,
-  List,
-  ListItem,
-  Divider,
-  alpha,
-} from '@material-ui/core'
+import { makeStyles, Drawer, Button, IconButton, Box, List, ListItem, Divider, alpha } from '@material-ui/core'
 import MenuIcon from '@images/icons/menu.svg'
 import CloseIcon from '@images/icons/close.svg'
 import classnames from 'classnames'
@@ -94,11 +84,11 @@ const LIST = [
     id: 'gsap-scroll-to-section-three',
     countNode: 'ECP_Menubar_Section3',
   },
-  {
-    label: 'cp_v2.menu.list.athletes',
-    id: 'athletes',
-    countNode: 'ECP_Menubar_Athlete',
-  },
+  // {
+  //   label: 'cp_v2.menu.list.athletes',
+  //   id: 'athletes',
+  //   countNode: 'ECP_Menubar_Athlete',
+  // },
   {
     label: 'cp_v2.menu.list.3',
     id: 'gsap-scroll-to-section-four',
@@ -122,10 +112,7 @@ export default function Menu(props) {
   const [state, setState] = React.useState(false)
 
   const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
-    ) {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return
     }
 
@@ -140,9 +127,7 @@ export default function Menu(props) {
   return (
     <>
       <IconButton onClick={toggleDrawer(true)}>
-        <MenuIcon
-          className={classnames(classes.icon, { [classes.isDark]: props.dark })}
-        ></MenuIcon>
+        <MenuIcon className={classnames(classes.icon, { [classes.isDark]: props.dark })}></MenuIcon>
       </IconButton>
       <Drawer
         classes={{
@@ -193,20 +178,11 @@ export default function Menu(props) {
         </Box>
         <Box mx={5} mb={5} mt='auto' alignItems='center' display='flex'>
           <Link target='_blank' to='/'>
-            <Button
-              className={classes.button}
-              variant='outlined'
-              id='ECP_Menubar_CorpSite'
-            >
+            <Button className={classes.button} variant='outlined' id='ECP_Menubar_CorpSite'>
               {t('cp_v2.menu.office_website')}
             </Button>
           </Link>
-          <Box
-            fontSize={18}
-            fontWeight='fontWeightBold'
-            display='flex'
-            ml='auto'
-          >
+          <Box fontSize={18} fontWeight='fontWeightBold' display='flex' ml='auto'>
             {languageLabels?.map((language) => (
               <Box
                 className={classes.langLink}
