@@ -386,6 +386,26 @@
             "ref": "Source: “Early screening for nasopharyngeal cancer could reduce the family by up to six-digits total expenses and losses”, Sunday Kiss, 6 December 2021 (Translated)",
             "check_step": "Test Procedures",
             "reference": "References"
+        },
+        "take2_clarity": {
+            "subtitle": "<1>For nasopharyngeal cancer (NPC) patients who received or completed their treatments</1>, please consult your doctor for more details.",
+            "subtitle2": "Better prediction of NPC recurrence is crucial to both patients and doctors. The Take2 Clarity™ Test utilises the Next-generation Sequencing (NGS) analysis that allows a more comprehensive, unbiased detection and quantitation of plasma EBV DNA. Through blood drawing, it provides robust and clinically proven assay performance in the prognostication of NPC patients after treatment.",
+            "box_title": "Take2 Clarity™ allows better recurrence prediction with technological breakthrough",
+            "box1": {
+                "title": "Limitation of conventional EBV DNA Tests",
+                "intro": "<1>Low sensitivity for prediction of NPC recurrence.\nUp to 40% of NPC patients</1> who would later develop disease recurrence had unpredictable post-treatment plasma EBV DNA in tests based on qPCR technology¹."
+            },
+            "box2": {
+                "title": "#1 Advantage of Take2 Clarity™",
+                "intro": "The use of the Next-generation Sequencing (NGS) approach allows the detection of entire EBV DNA genome, which leads to a more comprehensive and unbiased detection of plasma EBV DNA molecules. <1>This provides better sensitivity for identifying patients with increased risk of recurrence.</1>"
+            },
+            "box3": {
+                "title": "#2 Advantage of Take2 Clarity™",
+                "intro": "Among patients with undetectable EBV DNA by qPCR approach, <1>NGS approach could further identify subgroups with different 5-year progress-free survival (PFS)</1>. This provides more accurate information for patients and doctors’ references. Through appropriate treatment follow-ups, patients could enjoy <1>better survival outcomes</1>."
+            },
+            "table_title": "Comparison of Take2 Clarity™ and other qPCR-based EBV DNA tests",
+            "downland": "Download Take2 Clarity™ Product Leaflet",
+            "table_intro": "<1>For nasopharyngeal cancer (NPC) patients who received or completed their treatments</1>, please consult your doctor for more details."
         }
     },
     "about_us": {
@@ -453,6 +473,7 @@
         "contact_us": "Contact Us",
         "faq": "FAQ",
         "cancer_screen_package": "Cancer Screening Package",
-        "health_check_package": "Standard / Comprehensive Health Check Packages"
+        "health_check_package": "Standard / Comprehensive Health Check Packages",
+        "take2_clarity": "Take2 Clarity™ Test for NPC Monitoring"
     }
 }
