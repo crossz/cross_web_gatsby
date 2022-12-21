@@ -304,7 +304,7 @@ const Take2Clarity = () => {
                 mt={matches ? 2.5 : 3}
                 textAlign='center'
                 bgcolor='rgba(64, 198, 166, 0.12)'
-                height={96}
+                minHeight={96}
                 borderRadius={15}
                 display={matches ? 'block' : 'flex'}
                 alignItems='center'
@@ -312,7 +312,7 @@ const Take2Clarity = () => {
                 fontSize={matches ? 16 : 20}
                 color='#184D40'
                 mb={4}
-                pt={matches && 3}
+                py={matches && 3}
               >
                 <Trans i18nKey='products_and_services.take2_clarity.subtitle'>
                   .
