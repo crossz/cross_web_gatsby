@@ -43,11 +43,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(1.5),
     height: 'auto',
     padding: theme.spacing(5, 0),
-
     background: 'linear-gradient(97.6deg, #40C6A6 18.64%, rgba(64, 198, 166, 0.5) 99.43%)',
     color: theme.palette.primary.contrastText,
     [theme.breakpoints.down('xs')]: {
-      marginBottom: theme.spacing(-32),
       height: 'auto',
       padding: theme.spacing(3, 3),
     },
@@ -87,24 +85,10 @@ const useStyles = makeStyles((theme) => ({
 
   tableImg: {
     display: 'inline-block',
-    overflow: 'hidden',
     maxWidth: theme.spacing(98),
     [theme.breakpoints.down('xs')]: {
-      width: theme.spacing(42),
-    },
-  },
-  more: {
-    background: 'linear-gradient(180deg,rgba(255,255,255,0.2),#FFFFFF)',
-    height: 250,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    width: '100%',
-    textAlign: 'center',
-    fontWeight: 700,
-    color: theme.palette.primary.main,
-    [theme.breakpoints.down('xs')]: {
-      height: 140,
+      width: theme.spacing(58),
+      overflowX: 'scroll',
     },
   },
   bannerWrapper: {
@@ -265,6 +249,16 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2, 0),
     },
   },
+  icon: {
+    display: 'flex',
+    width: theme.spacing(6),
+    height: theme.spacing(6),
+    background: 'rgba(64, 198, 166, 0.12)',
+    borderRadius: '100px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '& path': { fill: '#40C6A6' },
+  },
 }))
 
 const Take2Clarity = () => {
@@ -276,21 +270,23 @@ const Take2Clarity = () => {
   const addLangQuery = useLangQuery()
   const CONTACT_LIST = [
     {
+      name: t('products_and_services.take2_clarity.tel'),
       title: SERVICE_PHONE,
-      href: `tel:${SERVICE_PHONE}`,
+      href: SERVICE_PHONE,
       icon: <PhoneIcon />,
       id: 'ECP_Contact_Telephone',
     },
     {
-      title: 'WhatsApp',
-      href: WHATS_APP_LINK,
+      name: 'WhatsApp',
+      href: '(852) 5377 0823',
       icon: <WhatsAppIcon />,
       id: 'ECP_Contact_Whatapp',
     },
 
     {
+      name: t('form.email.label'),
       title: SERVICE_EMAIL,
-      href: `mailto:${SERVICE_EMAIL}`,
+      href: SERVICE_EMAIL,
       icon: <MailIcon />,
       id: 'ECP_Contact_Email',
     },
@@ -307,19 +303,20 @@ const Take2Clarity = () => {
               <Box
                 mt={matches ? 2.5 : 3}
                 textAlign='center'
-                bgcolor=' rgba(64, 198, 166, 0.12)'
+                bgcolor='rgba(64, 198, 166, 0.12)'
                 height={96}
                 borderRadius={15}
-                display='flex'
+                display={matches ? 'block' : 'flex'}
                 alignItems='center'
                 justifyContent='center'
-                fontSize={20}
+                fontSize={matches ? 16 : 20}
                 color='#184D40'
                 mb={4}
+                pt={matches && 3}
               >
                 <Trans i18nKey='products_and_services.take2_clarity.subtitle'>
                   .
-                  <Box fontWeight={700} component='span' px={0.5} fontSize={20}>
+                  <Box fontWeight={700} component='span' px={0.5} fontSize={matches ? 16 : 20}>
                     .
                   </Box>
                   .
@@ -404,20 +401,20 @@ const Take2Clarity = () => {
               </Box>
 
               <Box className={classes.tableContainer} mt={matches ? 2 : 7} pt={7} bgcolor={matches ? null : '#ffff'}>
-                <Box fontWeight={900} fontSize={matches ? 16 : 24} color='primary.main' textAlign='center'>
+                <Box fontWeight={900} fontSize={matches ? 18 : 24} color='primary.main' textAlign='center'>
                   {t('products_and_services.take2_clarity.table_title')}
                 </Box>
                 <Box display='flex' flexDirection='column' alignItems='center'>
                   <Box textAlign='center' mt={2} overflow={matches ? 'scroll' : ''} width='100%'>
-                    <Box overflow='hidden' position='relative' className={classes.tableImgContainer}>
+                    <Box overflow='scroll' position='relative' className={classes.tableImgContainer}>
                       <ImageTranslation
                         className={classes.tableImg}
-                        filename='health_check_table'
-                        alt='health_check_table'
+                        filename='take2_clarity'
+                        alt='Take2 Clarity'
                         hasMobile={false}
                       ></ImageTranslation>
                     </Box>
-                    <Box fontSize={20} fontWeight={400} mt={5} color='primary.main'>
+                    <Box fontSize={matches ? 16 : 20} fontWeight={400} mt={5} color='primary.main'>
                       <Trans i18nKey='products_and_services.take2_clarity.table_intro'>
                         .
                         <Box fontWeight={700} component='span'>
@@ -429,15 +426,15 @@ const Take2Clarity = () => {
                   </Box>
                 </Box>{' '}
               </Box>
-              <Box textAlign='center' fontWeight={700} fontSize={20} color='primary.main'>
+              <Box textAlign='center' fontWeight={700} fontSize={matches ? 18 : 20} color='primary.main' mt={6}>
                 {t('menu.contact_us')}
               </Box>
-              <Box display={matches ? 'block' : 'flex'}>
+              <Box display={matches ? 'block' : 'flex'} mt={3} justifyContent='center'>
                 {CONTACT_LIST.map((item, index) => (
                   <Link key={index} underline='none' to={item.href} target='_blank'>
                     <Box
-                      bgcolor={!index ? '#25D366' : 'prophecyPrimary.light'}
-                      borderRadius={12}
+                      boxShadow=' 0px 0px 2px rgba(0, 0, 0, 0.22)'
+                      borderRadius={8}
                       mr={matches ? 0 : 2}
                       mb={matches ? 2 : 0}
                       py={2}
@@ -446,16 +443,21 @@ const Take2Clarity = () => {
                       alignItems='center'
                       id={item.id}
                     >
-                      <Box mr={1} flexShrink={0}>
+                      <Box mr={1} flexShrink={0} bgcolor='#40C6A6' className={classes.icon}>
                         {item.icon}
                       </Box>
                       <Box
                         fontSize='body1.fontSize'
                         fontWeight='fontWeightBold'
-                        color='primary.contrastText'
                         component='span'
+                        display='flex'
+                        flexDirection='column'
+                        color='grey.700'
                       >
-                        {item.title}
+                        {item.name}
+                        <Box component='span' my={0.5} color='grey.900' fontWeight='400'>
+                          {item.href}
+                        </Box>
                       </Box>
                     </Box>
                   </Link>
@@ -467,13 +469,15 @@ const Take2Clarity = () => {
                     <Button
                       variant='contained'
                       color='secondary'
-                      href={addLangQuery()}
+                      href='https://take2health.net/pdfs/ClarityPatientLeaflet_website_20221219.pdf'
                       target='_blank'
                       fullWidth={matches}
                       id='RW_Ehealth_HealthCheckPackage_2'
                       className={classes.btn}
                     >
-                      {t('products_and_services.take2_clarity.downland')}
+                      {matches
+                        ? t('products_and_services.take2_clarity.downland_mobile')
+                        : t('products_and_services.take2_clarity.downland')}
                     </Button>
                   </Grid>
                 </Grid>
