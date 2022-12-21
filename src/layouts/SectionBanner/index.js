@@ -119,6 +119,13 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.contrastText,
     fontWeight: theme.typography.fontWeightBold,
   },
+  hasBorder: {
+    margin: 0,
+    padding: theme.spacing(0, 1),
+    borderLeft: '1px solid gray',
+    borderRight: '1px solid gray',
+    borderRadius: 0,
+  },
 }))
 
 const SectionBanner = () => {
@@ -194,7 +201,8 @@ const SectionBanner = () => {
                         [classes.activeTab]:
                           (curMenuItem?.path === originalPath && !index) || item?.path === originalPath,
                       },
-                      curMenuItem?.sections?.length === 5 ? classes.tabMinWidth : ''
+                      curMenuItem?.sections?.length === 5 ? classes.tabMinWidth : '',
+                      index === 3 ? classes.hasBorder : ''
                     )}
                     id={
                       curMenuItem?.path === '/products-and-services/'
