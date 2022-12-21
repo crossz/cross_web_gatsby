@@ -135,6 +135,7 @@ const SectionBanner = () => {
     { code: 'RW_Product_Prophecy_Tab' },
     { code: 'RW_Product_CancerScreening_Tab' },
     { code: 'RW_Product_HealthCheckPackage_Tab' },
+    { code: 'RW_Product_Clarity_Tab' },
     { code: 'RW_Product_Membership_Tab' },
     { code: 'RW_Product_FAQ_Tab' },
   ]

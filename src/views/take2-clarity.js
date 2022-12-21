@@ -472,7 +472,7 @@ const Take2Clarity = () => {
                       href='https://take2health.net/pdfs/ClarityPatientLeaflet_website_20221219.pdf'
                       target='_blank'
                       fullWidth={matches}
-                      id='RW_Ehealth_HealthCheckPackage_2'
+                      id='RW_PDF_ClarityProductLeaflet'
                       className={classes.btn}
                     >
                       {matches
