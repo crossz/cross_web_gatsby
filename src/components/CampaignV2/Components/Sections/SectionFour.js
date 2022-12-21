@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   postWrapperTitle: {
     [theme.breakpoints.down('xs')]: {
-      marginBottom: theme.spacing(-4),
+      marginBottom: theme.spacing(2),
       paddingRight: theme.spacing(10),
     },
   },
@@ -36,10 +36,7 @@ const SectionFour = ({ storyNodes, healthTipsNodes }) => {
 
   return (
     <>
-      <ImageTranslation
-        filename='section_banner_04'
-        alt='section banner 04'
-      ></ImageTranslation>
+      <ImageTranslation filename='section_banner_04' alt='section banner 04'></ImageTranslation>
       <Box
         color='prophecyPrimary.main'
         fontWeight='fontWeightBold'
@@ -50,35 +47,17 @@ const SectionFour = ({ storyNodes, healthTipsNodes }) => {
         pb={15}
         px={2.5}
       >
-        <Box
-          className={classnames(
-            classes.postWrapperTitle,
-            'gsap-fade-in-8-trigger gsap-fade-in-8'
-          )}
-        >
+        <Box className={classnames(classes.postWrapperTitle, 'gsap-fade-in-8-trigger gsap-fade-in-8')}>
           {t('cp_v2.news.paragraphs.0')}
         </Box>
         <Box className='gsap-fade-in-8'>
-          <PostWrapper
-            nodes={storyNodes}
-            name={'Story'}
-            morePath='/whats-new/promotions/'
-          ></PostWrapper>
+          <PostWrapper nodes={storyNodes} name={'Story'} morePath='/whats-new/promotions/'></PostWrapper>
         </Box>
-        <Box
-          className={classnames(
-            classes.postWrapperTitle,
-            'gsap-fade-in-9-trigger gsap-fade-in-9'
-          )}
-        >
+        <Box className={classnames(classes.postWrapperTitle, 'gsap-fade-in-9-trigger gsap-fade-in-9')}>
           {t('cp_v2.news.paragraphs.1')}
         </Box>
         <Box className='gsap-fade-in-9'>
-          <PostWrapper
-            nodes={healthTipsNodes}
-            name={'Article'}
-            morePath='/whats-new/health-tips/'
-          ></PostWrapper>
+          <PostWrapper nodes={healthTipsNodes} name={'Article'} morePath='/whats-new/health-tips/'></PostWrapper>
         </Box>
         <Box
           className='gsap-fade-in-9'
@@ -99,18 +78,8 @@ const SectionFour = ({ storyNodes, healthTipsNodes }) => {
           >
             {t('common.book_now')}
           </Button>
-          <Box
-            width='100%'
-            target='_blank'
-            component={Link}
-            to='/service-location/'
-          >
-            <Button
-              className={classes.outlineButton}
-              fullWidth
-              variant='outlined'
-              id='ECP_Article_Location'
-            >
+          <Box width='100%' target='_blank' component={Link} to='/service-location/'>
+            <Button className={classes.outlineButton} fullWidth variant='outlined' id='ECP_Article_Location'>
               {t('cp_v2.common.view_service_location')}
             </Button>
           </Box>
