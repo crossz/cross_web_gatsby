@@ -111,7 +111,6 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 0,
       width: '100%',
       flexGrow: 1,
-      // minWidth: 'auto',
     },
   },
   activeTab: {
