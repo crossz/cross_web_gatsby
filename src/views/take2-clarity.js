@@ -431,36 +431,35 @@ const Take2Clarity = () => {
               </Box>
               <Box display={matches ? 'block' : 'flex'} mt={3} justifyContent='center'>
                 {CONTACT_LIST.map((item, index) => (
-                  <Link key={index} underline='none' to={item.href} target='_blank'>
+                  <Box
+                    key={index}
+                    boxShadow=' 0px 0px 2px rgba(0, 0, 0, 0.22)'
+                    borderRadius={8}
+                    mr={matches ? 0 : 2}
+                    mb={matches ? 2 : 0}
+                    py={2}
+                    px={3}
+                    display='flex'
+                    alignItems='center'
+                    id={item.id}
+                  >
+                    <Box mr={1} flexShrink={0} bgcolor='#40C6A6' className={classes.icon}>
+                      {item.icon}
+                    </Box>
                     <Box
-                      boxShadow=' 0px 0px 2px rgba(0, 0, 0, 0.22)'
-                      borderRadius={8}
-                      mr={matches ? 0 : 2}
-                      mb={matches ? 2 : 0}
-                      py={2}
-                      px={3}
+                      fontSize='body1.fontSize'
+                      fontWeight='fontWeightBold'
+                      component='span'
                       display='flex'
-                      alignItems='center'
-                      id={item.id}
+                      flexDirection='column'
+                      color='grey.700'
                     >
-                      <Box mr={1} flexShrink={0} bgcolor='#40C6A6' className={classes.icon}>
-                        {item.icon}
-                      </Box>
-                      <Box
-                        fontSize='body1.fontSize'
-                        fontWeight='fontWeightBold'
-                        component='span'
-                        display='flex'
-                        flexDirection='column'
-                        color='grey.700'
-                      >
-                        {item.name}
-                        <Box component='span' my={0.5} color='grey.900' fontWeight='400'>
-                          {item.href}
-                        </Box>
+                      {item.name}
+                      <Box component='span' my={0.5} color='grey.900' fontWeight='400'>
+                        {item.href}
                       </Box>
                     </Box>
-                  </Link>
+                  </Box>
                 ))}
               </Box>
               <Box>
