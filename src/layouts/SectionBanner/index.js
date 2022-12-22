@@ -190,7 +190,7 @@ const SectionBanner = () => {
               <Box ref={pointerRef} className={classes.sectionTabsId} id='section-tabs'></Box>
             </Container>
             {curMenuItem?.sections && curMenuItem?.sections?.length && (
-              <Box className={curMenuItem?.sections?.length === 5 ? classes.tabsLongWrapper : classes.tabsWrapper}>
+              <Box className={curMenuItem?.sections?.length === 6 ? classes.tabsLongWrapper : classes.tabsWrapper}>
                 {curMenuItem?.sections.map((item, index) => (
                   <Link
                     to={item.path}
@@ -200,7 +200,7 @@ const SectionBanner = () => {
                         [classes.activeTab]:
                           (curMenuItem?.path === originalPath && !index) || item?.path === originalPath,
                       },
-                      curMenuItem?.sections?.length === 5 ? classes.tabMinWidth : '',
+                      curMenuItem?.sections?.length === 6 ? classes.tabMinWidth : '',
                       index === 3 ? classes.hasBorder : ''
                     )}
                     id={
