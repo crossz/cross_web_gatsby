@@ -226,7 +226,7 @@ const Footer = () => {
               >
                 <Typography variant='body2' component='div'>
                   {item.sections.map((tab) => (
-                    <Box mt={1} key={tab.title}>
+                    <Box mt={1} key={tab.title} id={tab.title === 'menu.take2_clarity' && 'RW_Product_Clarity_Menu'}>
                       <Link to={tab.path} className={classes.link}>
                         {t(tab.title)}
                       </Link>

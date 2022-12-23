@@ -61,6 +61,10 @@
         "path": "/products-and-services/health-check-package/"
       },
       {
+        "title": "menu.take2_clarity",
+        "path": "/products-and-services/take2-clarity/"
+      },
+      {
         "title": "menu.take2_extra_care",
         "path": "/products-and-services/take2-extra-care/"
       },

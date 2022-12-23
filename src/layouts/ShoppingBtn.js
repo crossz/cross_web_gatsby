@@ -7,6 +7,7 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp'
 import ETooltip from '@themes/components/ETooltip'
 import { useMatch } from '@reach/router'
 import useLangQuery from '@hooks/useLangQuery'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,9 +56,11 @@ const useStyles = makeStyles((theme) => ({
 
 const ShoppingBtn = () => {
   const classes = useStyles()
-  const isReHealthPlansPage = useMatch('/rehealth-prevaccination-plans')
-  const addLangQuery = useLangQuery()
+  const { routed, language } = useI18next()
 
+  const isReHealthPlansPage = useMatch('/rehealth-prevaccination-plans')
+  const isTake2Clarity = useMatch(`${routed ? `/${language}` : ''}/products-and-services/take2-clarity`)
+  const addLangQuery = useLangQuery()
   return (
     <Box className={classes.root}>
       {!isReHealthPlansPage && (
@@ -73,22 +76,24 @@ const ShoppingBtn = () => {
           </IconButton>
         </ETooltip>
       )}
-      <IconButton
-        className={classes.shopBtn}
-        href={addLangQuery()}
-        target='_blank'
-        variant='contain'
-        id='ECP_Sticky_EH'
-      >
-        <ShoppingBasketIcon color='secondary'></ShoppingBasketIcon>
-        <Box className={classes.shopBtnTooltip}>
-          <Trans i18nKey='common.online_promotion_code'>
-            網上預約
-            <br />
-            {/* 優惠碼{{ PROMOTION_CODE }} */}
-          </Trans>
-        </Box>
-      </IconButton>
+      {!isTake2Clarity && (
+        <IconButton
+          className={classes.shopBtn}
+          href={addLangQuery()}
+          target='_blank'
+          variant='contain'
+          id='ECP_Sticky_EH'
+        >
+          <ShoppingBasketIcon color='secondary'></ShoppingBasketIcon>
+          <Box className={classes.shopBtnTooltip}>
+            <Trans i18nKey='common.online_promotion_code'>
+              網上預約
+              <br />
+              {/* 優惠碼{{ PROMOTION_CODE }} */}
+            </Trans>
+          </Box>
+        </IconButton>
+      )}
     </Box>
   )
 }
