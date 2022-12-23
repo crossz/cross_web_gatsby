@@ -111,13 +111,24 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 0,
       width: '100%',
       flexGrow: 1,
-      // minWidth: 'auto',
     },
   },
   activeTab: {
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.secondary.contrastText,
     fontWeight: theme.typography.fontWeightBold,
+  },
+  activeTab2: {
+    backgroundColor: '#40C6A6',
+    color: theme.palette.secondary.contrastText,
+    fontWeight: theme.typography.fontWeightBold,
+  },
+  hasBorder: {
+    margin: 0,
+    padding: theme.spacing(0, 1),
+    borderLeft: '1px solid gray',
+    borderRight: '1px solid gray',
+    borderRadius: 0,
   },
 }))
 
@@ -135,6 +146,7 @@ const SectionBanner = () => {
     { code: 'RW_Product_Prophecy_Tab' },
     { code: 'RW_Product_CancerScreening_Tab' },
     { code: 'RW_Product_HealthCheckPackage_Tab' },
+    { code: 'RW_Product_Clarity_Tab' },
     { code: 'RW_Product_Membership_Tab' },
     { code: 'RW_Product_FAQ_Tab' },
   ]
@@ -183,7 +195,7 @@ const SectionBanner = () => {
               <Box ref={pointerRef} className={classes.sectionTabsId} id='section-tabs'></Box>
             </Container>
             {curMenuItem?.sections && curMenuItem?.sections?.length && (
-              <Box className={curMenuItem?.sections?.length === 5 ? classes.tabsLongWrapper : classes.tabsWrapper}>
+              <Box className={curMenuItem?.sections?.length === 6 ? classes.tabsLongWrapper : classes.tabsWrapper}>
                 {curMenuItem?.sections.map((item, index) => (
                   <Link
                     to={item.path}
@@ -193,7 +205,13 @@ const SectionBanner = () => {
                         [classes.activeTab]:
                           (curMenuItem?.path === originalPath && !index) || item?.path === originalPath,
                       },
-                      curMenuItem?.sections?.length === 5 ? classes.tabMinWidth : ''
+                      {
+                        [classes.activeTab2]:
+                          ((curMenuItem?.path === originalPath && !index) || item?.path === originalPath) &&
+                          index === 3,
+                      },
+                      curMenuItem?.sections?.length === 6 ? classes.tabMinWidth : '',
+                      index === 3 ? classes.hasBorder : ''
                     )}
                     id={
                       curMenuItem?.path === '/products-and-services/'

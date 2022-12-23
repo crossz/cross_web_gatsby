@@ -386,6 +386,28 @@
             "ref": "资料来源：“及早进行早期鼻咽癌筛查 家庭整体开支及损失可减低达六位数字”, Sunday Kiss, 6 December 2021",
             "check_step": "检查流程",
             "reference": "参考资料"
+        },
+        "take2_clarity": {
+            "subtitle": "此检测适用于<1>接受或已完成治疗的鼻咽癌患者</1>，详情请向您的主诊医生查询。",
+            "subtitle2": "准确的风险评估对鼻咽癌患者及其主诊医生至关重要。Take2 Clarity™ 鼻咽癌复发风险检测，只须抽血，配合次世代DNA测序技术(NGS)的极高灵敏度，可比传统的「EB 病毒DNA定量测试」更全面、更精确地进行检测和分析血浆中的EB病毒DNA含量，为患者提供强大且经临床实证的预后评估表现。",
+            "box_title": "Take2 Clarity™ 以突破性技术为患者及医护人员带来更准确分析",
+            "box1": {
+                "title": "传统「EB 病毒DNA定量测试」的局限",
+                "intro": "<1>预测鼻咽癌复发风险的灵敏度较低。高达40%出现复发的鼻咽癌患者</1>未能透过上述测试 (基于qPCR技术) 检验出血浆中的EB病毒DNA¹。"
+            },
+            "box2": {
+                "title": "Take2 Clarity™ 优点1",
+                "intro": "采用崭新次世代DNA测序技术(NGS)，透过检验EB病毒的全基因组，能<1>提高检测EB病毒DNA分子的灵敏度，助患者更准确预估鼻咽癌复发风险</1>。"
+            },
+            "box3": {
+                "title": "Take2 Clarity™ 优点2",
+                "intro": "NGS技术能在被qPCR分析评为「阴性」的患者组别中，<1>把患者进一步细分，并更精准预测五年疾病无恶化存活期，</1>更准确的数据有助医生制定合适的治疗跟进方案，从而令患者获得<1>更佳的生存结果</1>。"
+            },
+            "table_title": "Take2 Clarity™ 和其他采用qPCR的EB病毒DNA定量测试比较",
+            "downland": "下载Take2 Clarity™ 鼻咽癌复发风险检测产品详情",
+            "table_intro": "Take2 Clarity™ 鼻咽癌复发风险检测<1>只适用于接受或已完成治疗的鼻咽癌患者</1>。如需选用，请向您的主诊医生查询详情。",
+            "tel": "电话",
+            "downland_mobile": "下载产品详情"
         }
     },
     "about_us": {
@@ -453,6 +475,7 @@
         "contact_us": "联络我们",
         "faq": "常见问题",
         "cancer_screen_package": "癌症筛查套餐",
-        "health_check_package": "基本 / 全面体检套餐"
+        "health_check_package": "基本 / 全面体检套餐",
+        "take2_clarity": "Take2 Clarity™ 鼻咽癌复发风险检测"
     }
 }
