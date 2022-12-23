@@ -118,6 +118,11 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.contrastText,
     fontWeight: theme.typography.fontWeightBold,
   },
+  activeTab2: {
+    backgroundColor: '#40C6A6',
+    color: theme.palette.secondary.contrastText,
+    fontWeight: theme.typography.fontWeightBold,
+  },
   hasBorder: {
     margin: 0,
     padding: theme.spacing(0, 1),
@@ -199,6 +204,11 @@ const SectionBanner = () => {
                       {
                         [classes.activeTab]:
                           (curMenuItem?.path === originalPath && !index) || item?.path === originalPath,
+                      },
+                      {
+                        [classes.activeTab2]:
+                          ((curMenuItem?.path === originalPath && !index) || item?.path === originalPath) &&
+                          index === 3,
                       },
                       curMenuItem?.sections?.length === 6 ? classes.tabMinWidth : '',
                       index === 3 ? classes.hasBorder : ''
