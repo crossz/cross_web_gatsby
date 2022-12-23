@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   subBox: {
-    width: theme.spacing(35),
+    width: theme.spacing(38),
     background: '#fff',
     borderRadius: 10,
     marginTop: theme.spacing(4),
@@ -340,7 +340,7 @@ const Take2Clarity = () => {
                   mx={matches ? 0 : 2}
                 >
                   <Box className={classes.subBox} color='primary.main'>
-                    <Box display='flex' alignItems='center' mb={2} mt={2}>
+                    <Box display='flex' alignItems='center' mb={2} mt={0}>
                       <Box height={16} width={20} bgcolor='secondary.main' />
                       <Box ml={1}>
                         <Box fontSize={16} mb={0}>
@@ -359,7 +359,7 @@ const Take2Clarity = () => {
                     </Box>
                   </Box>
                   <Box className={classes.subBox} color='primary.main' mx={matches ? 0 : 2}>
-                    <Box display='flex' alignItems='center' mb={2} mt={2}>
+                    <Box display='flex' alignItems='center' mb={2} mt={0}>
                       <Box height={16} width={16} bgcolor='secondary.main' />
                       <Box ml={1}>
                         <Box fontSize={16} mb={0}>
