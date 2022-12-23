@@ -493,7 +493,7 @@ const Take2Clarity = () => {
           <Box pr={1}>1.</Box>
           <Box>
             Chan, D.C.T., et al."Improved risk stratification of nasopharyngeal cancer by targeted sequencing of
-            Epstein-Barr virus DNA in post-treatment plasma. Annals of Oncology, 2022.
+            Epstein-Barr virus DNA in post-treatment plasma.<em>Annals of Oncology</em> , 2022.
           </Box>
         </Box>
       </Box>
