@@ -27,7 +27,6 @@ const Layout = ({ children, ...props }) => {
     `${routed ? `/${language}` : ''}/whats-new/campaign/rehealth-prevaccination-plans`
   )
   const isCampaign = useMatch(`${routed ? `/${language}` : ''}/whats-new/campaign`)
-
   const handleChangeHeroTheme = (theme, index) => {
     setHeroTheme(theme)
     setLogoTheme(index)

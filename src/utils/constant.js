@@ -30,8 +30,7 @@ export const TIME_SLICE = 'HH:mm'
 export const POST_TIME_FORMAT = 'DD/MM/YYYY'
 
 export const WHATS_APP_LINK =
-  'https://api.whatsapp.com/send/?phone=85253770823&text=Halo%2C+I+want+to+know+more+about+Prophecy+Test%21+&app_absent=0'
-
+  'https://api.whatsapp.com/send/?phone=85253770823&text=Hello%2C+I+want+to+know+more+about+Prophecy+Test%21+&app_absent=0'
 export const DIALING_CODES = [
   {
     label: '+852',
