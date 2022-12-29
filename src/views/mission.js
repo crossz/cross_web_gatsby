@@ -164,9 +164,11 @@ const Mission = () => {
     <Box className={classes.root}>
       <Container disableGutters maxWidth='lg'>
         <Box textAlign='center' mb={matches ? 9.25 : 10.75}>
-          <Typography variant='h4' color='primary'>
-            {t('about_us.mission.title')}
-          </Typography>
+          <h1>
+            <Typography variant='h4' color='primary'>
+              {t('about_us.mission.title')}
+            </Typography>
+          </h1>
         </Box>
         {beliefs.map((belief, index) => (
           <Box key={index} className={classnames(classes.beliefItem, index % 2 && classes.beliefReverseItem)}>

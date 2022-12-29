@@ -346,9 +346,11 @@ const HealthCheck = () => {
         <Box className={classes.wrapper}>
           <Container className={classes.content} disableGutters maxWidth='md'>
             <Box className={classes.title}>
-              <Typography variant='h4' color='primary'>
-                {t('menu.health_check_package')}
-              </Typography>
+              <h1>
+                <Typography variant='h4' color='primary'>
+                  {t('menu.health_check_package')}
+                </Typography>
+              </h1>
               <Box mt={matches ? 2.5 : 3} textAlign='center'>
                 <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
                   {t('products_and_services.health_check.title_intro')}

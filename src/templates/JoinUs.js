@@ -224,9 +224,12 @@ const JoinUs = ({ data, pageContext }) => {
     <Box className={classes.root}>
       <Container className={classes.box01} disableGutters maxWidth='md'>
         <Container className={classes.headerRoot} disableGutters maxWidth='sm'>
-          <Typography className={classes.box01Title} variant='h4' color='primary'>
-            {t('about_us.join_us.title')}
-          </Typography>
+          <h1>
+            <Typography className={classes.box01Title} variant='h4' color='primary'>
+              {t('about_us.join_us.title')}
+            </Typography>
+          </h1>
+
           <Typography variant={matches ? 'body2' : 'body1'} color='textPrimary'>
             <Trans i18nKey='about_us.join_us.detail'></Trans>
           </Typography>

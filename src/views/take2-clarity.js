@@ -297,9 +297,11 @@ const Take2Clarity = () => {
         <Box className={classes.wrapper}>
           <Container className={classes.content} disableGutters maxWidth='md'>
             <Box className={classes.title}>
-              <Typography variant='h4' color='primary'>
-                {t('menu.take2_clarity')}
-              </Typography>
+              <h1>
+                <Typography variant='h4' color='primary'>
+                  {t('menu.take2_clarity')}
+                </Typography>
+              </h1>
               <Box
                 mt={matches ? 2.5 : 3}
                 textAlign='center'

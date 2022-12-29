@@ -151,9 +151,11 @@ const NGS = () => {
     <Box bgcolor='background.paper' className={classes.root}>
       <Container className={classes.sectionOne} maxWidth='md'>
         <Box textAlign='center' mb={6}>
-          <Typography variant='h4' color='primary'>
-            {t('our_technologies.ngs.title')}
-          </Typography>
+          <h1>
+            <Typography variant='h4' color='primary'>
+              {t('our_technologies.ngs.title')}
+            </Typography>
+          </h1>
         </Box>
         <Hidden smUp>
           <StaticImage

@@ -71,31 +71,25 @@ const PostList = ({ title, caption, nodes }) => {
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
   const numberOfPages = Math.ceil(nodes?.length / POST_PAGE_SIZE)
   const [humanPageNumber, setHumanPageNumber] = useState(1)
-  const curNodes = useMemo(
-    () => nodes.slice(0, humanPageNumber * POST_PAGE_SIZE),
-    [humanPageNumber, nodes]
-  )
+  const curNodes = useMemo(() => nodes.slice(0, humanPageNumber * POST_PAGE_SIZE), [humanPageNumber, nodes])
 
   const handleMoreViews = () => setHumanPageNumber((status) => status + 1)
 
   return (
     <Box className={classes.root}>
       <Container maxWidth='md'>
-        <Typography variant='h5' color='primary'>
-          {title}
-        </Typography>
+        <h1>
+          <Typography variant='h5' color='primary'>
+            {title}
+          </Typography>
+        </h1>
         <Box mt={2} mb={12}>
           <Typography variant='body1' color='textPrimary'>
             {caption}
           </Typography>
         </Box>
         <Box>
-          <ImageList
-            className={classes.imageList}
-            rowHeight='auto'
-            cols={matches ? 1 : 3}
-            gap={matches ? 0 : 24}
-          >
+          <ImageList className={classes.imageList} rowHeight='auto' cols={matches ? 1 : 3} gap={matches ? 0 : 24}>
             {curNodes?.length > 0 &&
               curNodes.map((node) => (
                 <ImageListItem
@@ -105,11 +99,7 @@ const PostList = ({ title, caption, nodes }) => {
                   }}
                   key={node.id}
                 >
-                  <PostCard
-                    slug={node.fields.slug}
-                    withViewBtn={matches}
-                    {...node.frontmatter}
-                  ></PostCard>
+                  <PostCard slug={node.fields.slug} withViewBtn={matches} {...node.frontmatter}></PostCard>
                 </ImageListItem>
               ))}
           </ImageList>

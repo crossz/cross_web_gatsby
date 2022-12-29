@@ -188,9 +188,11 @@ const EarlyCancerDetection = () => {
       <Container className={classes.root} maxWidth='md'>
         <Typography component='div'>
           <Box textAlign='center' mb={6}>
-            <Typography variant='h4' color='primary'>
-              {t('our_technologies.early_cancer_detection.title')}
-            </Typography>
+            <h1>
+              <Typography variant='h4' color='primary'>
+                {t('our_technologies.early_cancer_detection.title')}
+              </Typography>
+            </h1>
           </Box>
           <Box className={classes.sectionOneBg}></Box>
           <Box px={3}>

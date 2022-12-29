@@ -343,9 +343,12 @@ const Take2ExtraCare = () => {
   const addLangQuery = useLangQuery()
   return (
     <>
-      <Typography className={classes.title} variant='h4' color='primary'>
-        {t('products_and_services.take2_extra_care.title')}
-      </Typography>
+      <h1>
+        <Typography className={classes.title} variant='h4' color='primary'>
+          {t('products_and_services.take2_extra_care.title')}
+        </Typography>
+      </h1>
+
       <Box className={classes.root}>
         <Container className={classes.contentRoot} disableGutters maxWidth='lg'>
           <Box className={classes.bannerWrapper}>

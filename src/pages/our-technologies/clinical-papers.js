@@ -81,7 +81,9 @@ const ClinicalPapers = ({ data }) => {
             alt='clinical papers banner'
           ></StaticImage>
           <Box className={classes.bannerContent}>
-            <Box className={classes.bannerTitle}>{t('our_technologies.clinical_papers.title')}</Box>
+            <h1>
+              <Box className={classes.bannerTitle}>{t('our_technologies.clinical_papers.title')}</Box>
+            </h1>
             <Box>{t('our_technologies.clinical_papers.detail')}</Box>
           </Box>
         </Box>
