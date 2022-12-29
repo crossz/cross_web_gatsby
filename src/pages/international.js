@@ -270,9 +270,12 @@ const International = () => {
     <Box className={classes.root}>
       <Container className={classes.box01} maxWidth='lg'>
         <Box className={classes.titleWrapper}>
-          <Typography className={classes.box01Title} variant='h4' color='primary'>
-            {t('international.title')}
-          </Typography>
+          <h1>
+            <Typography className={classes.box01Title} variant='h4' color='primary'>
+              {t('international.title')}
+            </Typography>
+          </h1>
+
           <Typography className={classes.box01Content} variant='body1' color='textPrimary'>
             {t('international.detail')}
           </Typography>
