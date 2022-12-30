@@ -147,7 +147,7 @@ const Footer = () => {
   const classes = useStyles()
   const { language, t } = useI18next()
   const isEn = language === 'en'
-  const matches = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true })
+  const matches = useMediaQuery((theme) => theme.breakpoints.down('xs'))
   const menu = useMenu()
   const { email, phone, whatsapp, whatsappAccount } = useSiteMetadata()
   const [panel, setPanel] = useState('')

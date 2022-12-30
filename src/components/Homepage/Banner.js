@@ -227,7 +227,7 @@ const Banner = ({ nodes }) => {
   const classes = useStyles({ isEn })
   const { tB } = useObjectTranslation()
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
   const { toggleTheme } = useContext(HeroThemeContext)
   const addLangQuery = useLangQuery()
   const bannersTheme = useMemo(() => {
