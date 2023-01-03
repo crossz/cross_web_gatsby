@@ -147,7 +147,7 @@ const Footer = () => {
   const classes = useStyles()
   const { language, t } = useI18next()
   const isEn = language === 'en'
-  const matches = useMediaQuery((theme) => theme.breakpoints.down('xs'), { noSsr: true })
+  const matches = useMediaQuery((theme) => theme.breakpoints.down('xs'))
   const menu = useMenu()
   const { email, phone, whatsapp, whatsappAccount } = useSiteMetadata()
   const [panel, setPanel] = useState('')
@@ -226,7 +226,11 @@ const Footer = () => {
               >
                 <Typography variant='body2' component='div'>
                   {item.sections.map((tab) => (
-                    <Box mt={1} key={tab.title} id={tab.title === 'menu.take2_clarity' && 'RW_Product_Clarity_Menu'}>
+                    <Box
+                      mt={1}
+                      key={tab.title}
+                      id={tab.title === 'menu.take2_clarity' ? 'RW_Product_Clarity_Menu' : ''}
+                    >
                       <Link to={tab.path} className={classes.link}>
                         {t(tab.title)}
                       </Link>

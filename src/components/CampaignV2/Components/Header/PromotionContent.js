@@ -1,11 +1,11 @@
 import React from 'react'
 import ClockIcon from '@components/CampaignV2/images/clock.svg'
 import { makeStyles, useTheme, useMediaQuery, Hidden, Box, Button, Typography } from '@material-ui/core'
-// import { PROMOTION_CODE } from '@utils/constant'
+import { PROMOTION_CODE } from '@utils/constant'
 import classnames from 'classnames'
 import { useI18next, Trans } from 'gatsby-plugin-react-i18next'
-// import { toast } from 'react-toastify'
-// import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { toast } from 'react-toastify'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import useLangQuery from '@hooks/useLangQuery'
 // import { matches } from 'lodash-es'
 
@@ -54,7 +54,7 @@ const PromotionContent = ({ whiteBg }) => {
   const isTable = useMediaQuery(theme.breakpoints.down('sm'))
   const addLangQuery = useLangQuery()
 
-  // const handleCopy = (e) => toast.success('優惠碼複製成功！')
+  const handleCopy = (e) => toast.success('優惠碼複製成功！')
 
   return (
     <>
@@ -98,15 +98,15 @@ const PromotionContent = ({ whiteBg }) => {
           </Box>
         </Box>
         <Box overflow='hidden' alignItems='center' display='flex' justifyContent={isMobile ? 'center' : null}>
-          {/* <Box
+          <Box
             fontSize={isMobile ? 'body2.fontSize' : 'body1.fontSize'}
             flexShrink={0}
             component='span'
             fontWeight='fontWeightMedium'
           >
             {t('cp_v2.promotion.enter')}
-          </Box> */}
-          {/* <CopyToClipboard text={PROMOTION_CODE} onCopy={handleCopy}>
+          </Box>
+          <CopyToClipboard text={PROMOTION_CODE} onCopy={handleCopy}>
             <Box
               fontSize={isMobile ? 'body2.fontSize' : 'h6.fontSize'}
               bgcolor={whiteBg ? 'secondary.main' : 'secondary.contrastText'}
@@ -122,7 +122,7 @@ const PromotionContent = ({ whiteBg }) => {
             >
               {PROMOTION_CODE}
             </Box>
-          </CopyToClipboard> */}
+          </CopyToClipboard>
           <Typography className={classes.priceText} component='span' noWrap>
             <Box
               fontSize={isMobile ? 'body2.fontSize' : 'body1.fontSize'}
@@ -134,7 +134,7 @@ const PromotionContent = ({ whiteBg }) => {
               <Trans i18nKey='cp_v2.promotion.price'>
                 .
                 <span style={{ fontSize: isMobile ? '20px' : '25px', fontWeight: 900, marginLeft: isEn ? '5px' : '' }}>
-                  $1,500
+                  $330
                 </span>
               </Trans>
             </Box>
