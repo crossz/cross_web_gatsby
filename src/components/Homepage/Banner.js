@@ -227,12 +227,12 @@ const Banner = ({ nodes }) => {
   const classes = useStyles({ isEn })
   const { tB } = useObjectTranslation()
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
   const { toggleTheme } = useContext(HeroThemeContext)
   const addLangQuery = useLangQuery()
   const bannersTheme = useMemo(() => {
     const cmsBannersTheme = nodes?.map((node) => node?.frontmatter?.theme) || []
-    return ['dark', 'light', ...cmsBannersTheme]
+    return ['light', 'dark', 'light', ...cmsBannersTheme]
   }, [nodes])
   return (
     <Container disableGutters maxWidth='xl' className={classes.root}>
@@ -249,7 +249,7 @@ const Banner = ({ nodes }) => {
         speed={700}
         watchOverflow={true}
       >
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <Box
             className={classes.heroBannerWrapper}
             id='RW_HP_Top_Banner_Xmas22Promo_EHEALTH'
@@ -274,7 +274,7 @@ const Banner = ({ nodes }) => {
               ></ImageTranslation>
             </Box>
           </Box>
-        </SwiperSlide>
+        </SwiperSlide> */}
         <SwiperSlide>
           <Box className={classes.heroBannerWrapper}>
             <Box
