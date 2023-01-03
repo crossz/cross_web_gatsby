@@ -8,6 +8,7 @@ import ETooltip from '@themes/components/ETooltip'
 import { useMatch } from '@reach/router'
 import useLangQuery from '@hooks/useLangQuery'
 import { useI18next } from 'gatsby-plugin-react-i18next'
+import { PROMOTION_CODE } from '@utils/constant'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,8 +90,8 @@ const ShoppingBtn = () => {
             <Trans i18nKey='common.online_promotion_code'>
               網上預約
               <br />
-              {/* 優惠碼{{ PROMOTION_CODE }} */}
-            </Trans>
+            </Trans>{' '}
+            {PROMOTION_CODE}
           </Box>
         </IconButton>
       )}
