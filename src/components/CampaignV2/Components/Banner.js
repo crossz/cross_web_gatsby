@@ -27,7 +27,7 @@ const Banner = () => {
   const isEn = language === 'en'
   const classes = useStyles({ isEn })
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
   const addLangQuery = useLangQuery()
 
   return (
