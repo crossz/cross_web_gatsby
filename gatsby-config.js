@@ -32,6 +32,9 @@ module.exports = {
     email: 'info@take2.health',
     phone: '(852) 3613 0533',
   },
+  // trailingSlash: 'always', // always add trailing slash
+  // trailingSlash: 'ignore', // no change
+  // trailingSlash: 'never', // remove trailing slash
   plugins: [
     // TODO: Fix SSR FOUC
     // https://github.com/hupe1980/gatsby-theme-material-ui/pull/8
@@ -180,6 +183,7 @@ module.exports = {
         languages,
         defaultLanguage,
         redirect: false,
+        // redirect: true,
         fallbackLanguage: defaultLanguage,
         // if you are using Helmet, you must include siteUrl, and make sure you add http:https
         siteUrl: `https://take2health.net/`,
@@ -201,6 +205,7 @@ module.exports = {
           { matchPath: '/:lang?/whats-new/promotions/:uid', getLanguageFromPath: true },
           { matchPath: '/:lang?/whats-new/health-tips/:uid', getLanguageFromPath: true },
           { matchPath: '/:lang?/whats-new/campaign/health-tips/:uid', getLanguageFromPath: true },
+          { matchPath: '/:lang?/whats-new/campaign/campaign-page-posts/:uid', getLanguageFromPath: true },
           { matchPath: '/:lang?/whats-new/updates/:uid', getLanguageFromPath: true },
           { matchPath: '/:lang?/terms-and-conditions/', getLanguageFromPath: true },
           { matchPath: '/:lang?/terms-and-conditions/:uid', getLanguageFromPath: true },
@@ -214,6 +219,7 @@ module.exports = {
         devMode: false,
       },
     },
+    `gatsby-plugin-meta-redirect` // make sure to put last in the array
     // 'gatsby-plugin-netlify',
   ],
 }

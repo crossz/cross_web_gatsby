@@ -154,28 +154,37 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         },
         // defer,
       })
+      // if (lang === defaultLanguage)
+      //   createPage({
+      //     path,
+      //     component,
+      //     context: {
+      //       slug: path,
+      //       sectionPath: mdx.parent.relativeDirectory,
+      //       regex: `/${mdx.parent.relativeDirectory}/`,
+      //       id: mdx.id,
+      //       contentFilePath: mdx.internal.contentFilePath,
+      //       curPath: path,
+      //     },
+      //     // defer,
+      //   })
       if (lang === defaultLanguage)
-        createPage({
-          path,
-          component,
-          context: {
-            slug: path,
-            sectionPath: mdx.parent.relativeDirectory,
-            regex: `/${mdx.parent.relativeDirectory}/`,
-            id: mdx.id,
-            contentFilePath: mdx.internal.contentFilePath,
-            curPath: path,
-          },
-          // defer,
-        })
+      console.log(`----==== path for redirect: ${path} to /${lang}/...`)
+      createRedirect({
+        fromPath: path,
+        // redirectInBrowser: true,
+        isPermanent: true,
+        toPath: `/${lang}${path}`,
+      })
     })
   })
 
-  createRedirect({
-    fromPath: '/index.html',
-    redirectInBrowser: true,
-    toPath: '/',
-  })
+  // createRedirect({
+  //   fromPath: '/index.html',
+  //   // redirectInBrowser: true,
+  //   isPermanent: true,
+  //   toPath: '/',
+  // })
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
