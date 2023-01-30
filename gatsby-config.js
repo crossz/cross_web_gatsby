@@ -188,7 +188,8 @@ module.exports = {
         // if you are using Helmet, you must include siteUrl, and make sure you add http:https
         siteUrl: `https://take2health.net/`,
         // you can pass any i18next options
-        generateDefaultLanguagePage: true,
+        // generateDefaultLanguagePage: true,
+        // generateDefaultLanguagePage: false,
         i18nextOptions: {
           interpolation: {
             escapeValue: false, // not needed for react as it escapes by default

@@ -3,6 +3,7 @@ const { resolve } = require('path')
 const { paginate } = require('gatsby-awesome-pagination')
 const { defaultLanguage } = require('./languages')
 const moment = require('moment')
+const { SnoozeOutlined } = require('@material-ui/icons')
 
 const formatEndsPath = (path) => (path?.endsWith('/') ? path : `${path}/`)
 const formatStartsPath = (path) => (path?.startsWith('/') ? path : `/${path}`)
@@ -141,20 +142,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
 
     mdx?.frontmatter?.languages?.forEach((lang) => {
-      createPage({
-        path: `/${lang}${path}`,
-        component,
-        context: {
-          slug: path,
-          sectionPath: mdx.parent.relativeDirectory,
-          regex: `/${mdx.parent.relativeDirectory}/`,
-          id: mdx.id,
-          contentFilePath: mdx.internal.contentFilePath,
-          curPath: `/${lang}${path}`,
-        },
-        // defer,
-      })
-      // if (lang === defaultLanguage)
+      // if (lang === defaultLanguage) {
       //   createPage({
       //     path,
       //     component,
@@ -164,19 +152,45 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       //       regex: `/${mdx.parent.relativeDirectory}/`,
       //       id: mdx.id,
       //       contentFilePath: mdx.internal.contentFilePath,
-      //       curPath: path,
+      //       curPath: `/${lang}${path}`,
       //     },
       //     // defer,
       //   })
-      if (lang === defaultLanguage) {
-        console.log(`----==== path for redirect: ${path} to /${lang}/...`)
-        createRedirect({
-          fromPath: path,
-          // redirectInBrowser: true,
-          isPermanent: true,
-          toPath: `/${lang}${path}`,
-        })
-      }
+      // } else {
+      // createPage({
+      //   path: `/${lang}${path}`,
+      //   component,
+      //   context: {
+      //     slug: path,
+      //     sectionPath: mdx.parent.relativeDirectory,
+      //     regex: `/${mdx.parent.relativeDirectory}/`,
+      //     id: mdx.id,
+      //     contentFilePath: mdx.internal.contentFilePath,
+      //     curPath: `/${lang}${path}`,
+      //   },
+      //   // defer,
+      // })
+
+      // NOTE: no `/zh-HK` at all for defaultLanguage.
+      let createdPath = (lang === defaultLanguage) ? path : `/${lang}${path}`        
+      createPage({
+        path: createdPath,
+        component,
+        context: {
+          slug: path,
+          sectionPath: mdx.parent.relativeDirectory,
+          regex: `/${mdx.parent.relativeDirectory}/`,
+          id: mdx.id,
+          contentFilePath: mdx.internal.contentFilePath,
+          curPath: createdPath,
+        },
+        // defer,
+      })
+
+
+
+
+    
     })
   })
 
