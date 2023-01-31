@@ -10,9 +10,10 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop --host=0.0.0.0",
-    "build": "node scripts/optimize.js && gatsby build && cp public/sitemap/sitemap-0.xml public/sitemap.xml",
-    "build:dev": "node scripts/optimize.js && GATSBY_ENV=development gatsby build && cp public/sitemap/sitemap-0.xml public/sitemap.xml",
-    "build:loc": "GATSBY_ENV=development gatsby build && cp public/sitemap/sitemap-0.xml public/sitemap.xml",
+    "build": "node scripts/optimize.js && gatsby build",
+    "build:dev": "node scripts/optimize.js && GATSBY_ENV=development gatsby build",
+    "build:loc": "GATSBY_ENV=development gatsby build",
+    "postbuild:loc": "cp public/sitemap/sitemap-0.xml public/sitemap.xml",
     "serve": "gatsby serve --host=0.0.0.0",
     "clean": "gatsby clean",
     "mock": "prism mock -d $npm_package_docs_openapi"
