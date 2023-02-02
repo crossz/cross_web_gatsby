@@ -168,15 +168,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       //     },
       //     // defer,
       //   })
-      if (lang === defaultLanguage) {
-        console.log(`----==== path for redirect: ${path} to /${lang}/...`)
-        createRedirect({
+      if (lang === defaultLanguage) createRedirect({
           fromPath: path,
           // redirectInBrowser: true,
           isPermanent: true,
           toPath: `/${lang}${path}`,
-        })
-      }
+      })
     })
   })
 
