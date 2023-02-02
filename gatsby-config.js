@@ -219,7 +219,31 @@ module.exports = {
         devMode: false,
       },
     },
-    `gatsby-plugin-meta-redirect` // make sure to put last in the array
+    // `gatsby-plugin-next-seo`
+    {
+      resolve: `gatsby-plugin-next-seo`,
+      options: {
+        languageAlternates: [
+          {
+            hrefLang: 'x-default',
+            href: 'https://take2health.net',
+          },
+          {
+            hrefLang: 'zh-HK',
+            href: 'https://take2health.net/zh-HK',
+          },
+          {
+            hrefLang: 'zh-CN',
+            href: 'https://take2health.net/zh-CN',
+          },
+          {
+            hrefLang: 'en',
+            href: 'https://take2health.net/en',
+          }
+        ]
+      }
+    },
     // 'gatsby-plugin-netlify',
+    `gatsby-plugin-meta-redirect`, // make sure to put last in the array
   ],
 }

@@ -13,6 +13,11 @@ const wrapPageElement = ({ element, props }) => {
    * newElement logic is for layout losing translations fixing;
    * https://andremonteiro.pt/gatsby-i18next-wrap-page-element/
    */
+
+  if (!element.props) return
+  if (!element.props.children) return
+  if (!element.props.children.props) return
+
   const newElement = React.cloneElement(
     element, // I18nextProvider
     element.props,
