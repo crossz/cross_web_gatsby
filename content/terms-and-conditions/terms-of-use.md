@@ -4,6 +4,7 @@ date: 2022-01-02T00:00:00.000+08:00
 languages:
 - en
 slug: website-terms-of-use
+hide: false
 
 ---
 **Terms of Use (“Terms”)**
@@ -119,3 +120,5 @@ Email address: info@take2.health
 Telephone number: +852 3613 0533
 
 Facsimile Number: +852 3613 0534
+
+12:43
