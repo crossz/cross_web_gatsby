@@ -180,6 +180,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
+
+
+  
   // createRedirect({
   //   fromPath: '/index.html',
   //   // redirectInBrowser: true,
