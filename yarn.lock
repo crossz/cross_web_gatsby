@@ -6219,6 +6219,11 @@ gatsby-plugin-netlify@^5.0.1:
     lodash.mergewith "^4.6.2"
     webpack-assets-manifest "^5.0.6"
 
+gatsby-plugin-no-index@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-no-index/-/gatsby-plugin-no-index-1.0.2.tgz#2e37e8ba381d398752581bc50d13c524efba65a0"
+  integrity sha512-gCRkGfhBBdfEf/jc+Mos9J70FtJcM/39SjxBWpO8KpOASZEre6lsuDFnF0u8bc44VExN76GNEmpUf271LHPH3Q==
+
 gatsby-plugin-no-sourcemaps@^4.24.0:
   version "4.24.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-no-sourcemaps/-/gatsby-plugin-no-sourcemaps-4.24.0.tgz#b6b039fa79b53560e184263cddf66e90dacdba7a"

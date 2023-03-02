@@ -36,6 +36,7 @@ module.exports = {
   // trailingSlash: 'ignore', // no change
   // trailingSlash: 'never', // remove trailing slash
   plugins: [
+    `gatsby-plugin-no-index`,
     // TODO: Fix SSR FOUC
     // https://github.com/hupe1980/gatsby-theme-material-ui/pull/8
     {
